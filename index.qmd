@@ -1,7 +1,5 @@
 ---
-title: "site"
+title: "Home"
 ---
 
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+確率・統計基礎の授業ページです。
