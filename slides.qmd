@@ -3,3 +3,9 @@ title: "Slides"
 ---
 
 講義スライド
+
+<div>
+```{=html}
+<iframe class="slide-deck" src="slides/01_probability.html"></iframe>
+```
+</div>

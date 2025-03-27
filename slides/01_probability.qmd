@@ -1,0 +1,71 @@
+---
+title: "確率論"
+author: "森 立平"
+format: revealjs
+---
+
+## 確率とは
+
+* 世の中のランダムな事象を数学的に記述したもの
+* 統計・機械学習の基礎となっている
+* 極限定理: 確率$p$で表が出るコインを$N$回投げた時に、表が出る回数$F$は
+
+* 大数の法則: $\frac{F}{N} \to p$
+* 大偏差原理: $\Pr\left(\left|\frac{F}{N} - p\right| > \epsilon\right) = \mathrm{e}^{-\beta N}$
+* 中心極限定理: $\frac{F-pN}{\sqrt{N}}\to$正規分布
+
+## 統計とは
+
+確率論は統計の基礎となる
+* この患者は病気ですか？
+* 明日の降水量はいくつですか？
+
+## 確率論の数学モデルとは？
+
+測度論！{.center}
+
+* 確率は面積($=$測度)のようなもの。
+* 数学的に\textbf{厳密}に様々な結果(大数の法則、大偏差原理、中心極限定理)が証明できる。
+* とても重要だが勉強するのは3年生以降(解析学要論Ⅱ、確率論)。
+* この授業では\emm{測度論には深入りせず、基礎的な部分はごまかしながら確率・統計の重要な理論について学ぶ}。
+
+## 標本空間と確率
+
+* $\Omega\colon$ 集合。これの部分集合に確率が与えられる
+* $P\colon 2^\Omega\to[0,1].$ 確率を与える関数
+
+::: {#exm-prob}
+
+* $\Omega=\{表,裏\}$.
+* $P(\emptyset)= 0,\, P(\{\mathrm{表}\})=P(\{\mathrm{裏}\})=\frac12,\,P(\{\mathrm{表},\mathrm{裏}\})=1$.
+
+* $\Omega=\{1,2,3,4,5,6\}$.
+* $P(A) = \frac{|A|}6\quad\forall A\subseteq\Omega$.
+
+* $\Omega=\{晴,雨,雪\}$.
+* $P(\emptyset)= 0,\, P(\{晴\})=0.7,\, P(\{雨\})=0.2,\,P(\{雪\})=0.1$,\\
+$P(\{晴,雨\})=0.9,\, P(\{雨,雪\})=0.3,\, P(\{雪,晴\})=0.8$\\
+$P(\{晴,雨,雪\})=1$.
+:::
+
+## 確率論の公理有限版
+* $\Omega\colon$ \emm{有限}集合(\emm{標本空間})
+* $P\colon 2^\Omega\to[0,1]$ (\emm{確率測度})
+
+確率の公理
+
+1. $P(\Omega)=1$.
+2. $\forall A, B\subseteq\Omega$, $A\cap B=\emptyset\implies P(A\cup B)=P(A)+P(B)$\\ (\emm{有限加法性}).
+
+$\Omega$を無限集合にしたい場合はどうする？ {.center}
+
+## 確率論の公理可算版
+* $\Omega\colon$ 高々\emm{可算}集合(\emm{標本空間})
+* $P\colon 2^\Omega\to[0,1]$ (\emm{確率測度})
+
+確率の公理
+
+1. $P(\Omega)=1$.
+2. {\color{lightgray}$\forall A, B\subseteq\Omega$, $A\cap B=\emptyset\implies P(A\cup B)=P(A)+P(B)$\\ (有限加法性).}\\
+3. $\forall (A_n\subseteq\Omega)_{n=1,\dotsc}$, $\forall i\ne j,\, A_i\cap A_j=\emptyset\implies P\left(\bigcup_{n=1}^\infty A_n\right)=\sum_{n=1}^\infty P(A_n)$\\ (\emm{完全加法性, $\sigma$-加法性}).
+
