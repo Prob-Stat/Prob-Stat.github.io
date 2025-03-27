@@ -4,4 +4,4 @@ title: "Slides"
 
 講義スライド
 
-[確率論](slides/01_probability.qmd)
+[確率論](slides/01_probability.qmd){target="_blank"}
