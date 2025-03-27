@@ -4,6 +4,7 @@ author: "森 立平"
 format:
   revealjs:
     slide-number: true
+    smaller: true
 ---
 
 ## 確率とは
