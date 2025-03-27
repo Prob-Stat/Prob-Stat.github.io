@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://Prob-Stat.github.io/book/references.html</loc>
+    <lastmod>2025-03-27T04:18:36.916Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Prob-Stat.github.io/book/summary.html</loc>
+    <lastmod>2025-03-27T04:18:36.916Z</lastmod>
+  </url>
+  <url>
     <loc>https://Prob-Stat.github.io/about.html</loc>
-    <lastmod>2025-03-27T04:10:15.725Z</lastmod>
+    <lastmod>2025-03-27T04:18:36.915Z</lastmod>
   </url>
   <url>
     <loc>https://Prob-Stat.github.io/index.html</loc>
-    <lastmod>2025-03-27T04:10:15.725Z</lastmod>
+    <lastmod>2025-03-27T04:18:36.916Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Prob-Stat.github.io/book/index.html</loc>
+    <lastmod>2025-03-27T04:18:36.916Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Prob-Stat.github.io/book/intro.html</loc>
+    <lastmod>2025-03-27T04:18:36.916Z</lastmod>
   </url>
 </urlset>
