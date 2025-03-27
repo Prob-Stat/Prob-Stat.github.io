@@ -42,11 +42,46 @@
     "text": "確率論の公理可算版\n\n\\(\\Omega\\colon\\) 高々集合()\n\\(P\\colon 2^\\Omega\\to[0,1]\\) ()\n\n確率の公理\n\n\\(P(\\Omega)=1\\).\n{\\(\\forall A, B\\subseteq\\Omega\\), \\(A\\cap B=\\emptyset\\implies P(A\\cup B)=P(A)+P(B)\\)\\ (有限加法性).}\\\n\\(\\forall (A_n\\subseteq\\Omega)_{n=1,\\dotsc}\\), \\(\\forall i\\ne j,\\, A_i\\cap A_j=\\emptyset\\implies P\\left(\\bigcup_{n=1}^\\infty A_n\\right)=\\sum_{n=1}^\\infty P(A_n)\\)\\ ()."
   },
   {
-    "objectID": "slides.html",
-    "href": "slides.html",
-    "title": "Slides",
-    "section": "",
-    "text": "講義スライド"
+    "objectID": "slides.html#確率とは",
+    "href": "slides.html#確率とは",
+    "title": "確率論",
+    "section": "確率とは",
+    "text": "確率とは\n\n世の中のランダムな事象を数学的に記述したもの\n統計・機械学習の基礎となっている\n極限定理: 確率\\(p\\)で表が出るコインを\\(N\\)回投げた時に、表が出る回数\\(F\\)は\n大数の法則: \\(\\frac{F}{N} \\to p\\)\n大偏差原理: \\(\\Pr\\left(\\left|\\frac{F}{N} - p\\right| &gt; \\epsilon\\right) = \\mathrm{e}^{-\\beta N}\\)\n中心極限定理: \\(\\frac{F-pN}{\\sqrt{N}}\\to\\)正規分布"
+  },
+  {
+    "objectID": "slides.html#統計とは",
+    "href": "slides.html#統計とは",
+    "title": "確率論",
+    "section": "統計とは",
+    "text": "統計とは\n確率論は統計の基礎となる * この患者は病気ですか？ * 明日の降水量はいくつですか？"
+  },
+  {
+    "objectID": "slides.html#確率論の数学モデルとは",
+    "href": "slides.html#確率論の数学モデルとは",
+    "title": "確率論",
+    "section": "確率論の数学モデルとは？",
+    "text": "確率論の数学モデルとは？\n測度論！{.center}\n\n確率は面積(\\(=\\)測度)のようなもの。\n数学的にに様々な結果(大数の法則、大偏差原理、中心極限定理)が証明できる。\nとても重要だが勉強するのは3年生以降(解析学要論Ⅱ、確率論)。\nこの授業では。"
+  },
+  {
+    "objectID": "slides.html#標本空間と確率",
+    "href": "slides.html#標本空間と確率",
+    "title": "確率論",
+    "section": "標本空間と確率",
+    "text": "標本空間と確率\n\n\\(\\Omega\\colon\\) 集合。これの部分集合に確率が与えられる\n\\(P\\colon 2^\\Omega\\to[0,1].\\) 確率を与える関数\n\n\nExample 1  \n\n\\(\\Omega=\\{表,裏\\}\\).\n\\(P(\\emptyset)= 0,\\, P(\\{\\mathrm{表}\\})=P(\\{\\mathrm{裏}\\})=\\frac12,\\,P(\\{\\mathrm{表},\\mathrm{裏}\\})=1\\).\n\\(\\Omega=\\{1,2,3,4,5,6\\}\\).\n\\(P(A) = \\frac{|A|}6\\quad\\forall A\\subseteq\\Omega\\).\n\\(\\Omega=\\{晴,雨,雪\\}\\).\n\\(P(\\emptyset)= 0,\\, P(\\{晴\\})=0.7,\\, P(\\{雨\\})=0.2,\\,P(\\{雪\\})=0.1\\),\\ \\(P(\\{晴,雨\\})=0.9,\\, P(\\{雨,雪\\})=0.3,\\, P(\\{雪,晴\\})=0.8\\)\\ \\(P(\\{晴,雨,雪\\})=1\\)."
+  },
+  {
+    "objectID": "slides.html#確率論の公理有限版",
+    "href": "slides.html#確率論の公理有限版",
+    "title": "確率論",
+    "section": "確率論の公理有限版",
+    "text": "確率論の公理有限版\n\n\\(\\Omega\\colon\\) 集合()\n\\(P\\colon 2^\\Omega\\to[0,1]\\) ()\n\n確率の公理\n\n\\(P(\\Omega)=1\\).\n\\(\\forall A, B\\subseteq\\Omega\\), \\(A\\cap B=\\emptyset\\implies P(A\\cup B)=P(A)+P(B)\\)\\ ().\n\n\\(\\Omega\\)を無限集合にしたい場合はどうする？ {.center}"
+  },
+  {
+    "objectID": "slides.html#確率論の公理可算版",
+    "href": "slides.html#確率論の公理可算版",
+    "title": "確率論",
+    "section": "確率論の公理可算版",
+    "text": "確率論の公理可算版\n\n\\(\\Omega\\colon\\) 高々集合()\n\\(P\\colon 2^\\Omega\\to[0,1]\\) ()\n\n確率の公理\n\n\\(P(\\Omega)=1\\).\n{\\(\\forall A, B\\subseteq\\Omega\\), \\(A\\cap B=\\emptyset\\implies P(A\\cup B)=P(A)+P(B)\\)\\ (有限加法性).}\\\n\\(\\forall (A_n\\subseteq\\Omega)_{n=1,\\dotsc}\\), \\(\\forall i\\ne j,\\, A_i\\cap A_j=\\emptyset\\implies P\\left(\\bigcup_{n=1}^\\infty A_n\\right)=\\sum_{n=1}^\\infty P(A_n)\\)\\ ().\n\n確率論"
   },
   {
     "objectID": "index.html",
