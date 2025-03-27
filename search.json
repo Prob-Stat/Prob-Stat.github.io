@@ -1,19 +1,5 @@
 [
   {
-    "objectID": "book/references.html",
-    "href": "book/references.html",
-    "title": "References",
-    "section": "",
-    "text": "References"
-  },
-  {
-    "objectID": "book/summary.html",
-    "href": "book/summary.html",
-    "title": "Summary",
-    "section": "",
-    "text": "Summary\nIn summary, this book has no content whatsoever."
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -26,19 +12,5 @@
     "title": "Home",
     "section": "",
     "text": "確率・統計基礎の授業ページです。"
-  },
-  {
-    "objectID": "book/index.html",
-    "href": "book/index.html",
-    "title": "Preface",
-    "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books."
-  },
-  {
-    "objectID": "book/intro.html",
-    "href": "book/intro.html",
-    "title": "Introduction",
-    "section": "",
-    "text": "Introduction\nThis is a book created from markdown and executable code.\nSee @knuth84 for additional discussion of literate programming."
   }
 ]
