@@ -10,6 +10,5 @@ title: "Slides"
 ```
 </div>
 
-{{< include slides/01_probability.qmd >}}
 
 [確率論](slides/01_probability.qmd)
