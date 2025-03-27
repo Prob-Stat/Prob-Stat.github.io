@@ -9,3 +9,7 @@ title: "Slides"
 <iframe class="slide-deck" src="slides/01_probability.html"></iframe>
 ```
 </div>
+
+{{< include slides/01_probability.qmd >}}
+
+[確率論](slides/01_probability.qmd)
