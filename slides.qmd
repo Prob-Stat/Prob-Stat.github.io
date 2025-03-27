@@ -2,4 +2,4 @@
 title: "Slides"
 ---
 
-About this site
+講義スライド
