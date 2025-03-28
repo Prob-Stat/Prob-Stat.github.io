@@ -218,7 +218,11 @@
 </section>
 <section id="確率論の公理最終版" class="slide level2">
 <h2>確率論の公理最終版?</h2>
-<p>これでよいのか？ - <span class="math inline">\(\Omega\colon\)</span> (<strong>非可算</strong>でもよい)集合(<strong>標本空間</strong>) - <span class="math inline">\(P\colon 2^\Omega\to[0,1]\)</span> (<strong>確率測度</strong>)</p>
+<p>これでよいのか？</p>
+<ul>
+<li><span class="math inline">\(\Omega\colon\)</span> (<strong>非可算</strong>でもよい)集合(<strong>標本空間</strong>)</li>
+<li><span class="math inline">\(P\colon 2^\Omega\to[0,1]\)</span> (<strong>確率測度</strong>)</li>
+</ul>
 <p>確率の公理</p>
 <ol type="1">
 <li><span class="math inline">\(P(\Omega)=1\)</span>.</li>
@@ -233,15 +237,52 @@
 <h2>ダメー(完全加法性+選択公理)</h2>
 <ul>
 <li><span class="math inline">\(\Omega=[0,1)\)</span>.</li>
-<li><span class="math inline">\(\forall c\in\Omega,\, A\subseteq\Omega,\, P(A+c) = P(A)\)</span> where <span class="math inline">\(A+c\coloneq\{a+c-\lfloor a+c\rfloor\mid a\in A\}\)</span>.</li>
+<li><span class="math inline">\(\forall c\in\Omega,\, A\subseteq\Omega,\, P(A+c) = P(A)\)</span> where <span class="math inline">\(A+c\coloneqq\{a+c-\lfloor a+c\rfloor\mid a\in A\}\)</span>.</li>
 </ul>
 <p><strong>選択公理を仮定するとそのような確率空間は存在しない</strong>。</p>
 <p><span class="math inline">\(\Omega\)</span>の上の同値関係を <span class="math inline">\(x\sim y\stackrel{\mathrm{def}}{\iff} x-y \in\mathbb{Q}\)</span>と定義する。</p>
-<p><span class="math inline">\(\Omega\)</span>の上の同値類から一つずつ要素を選んで集合<span class="math inline">\(V\)</span>を作る(選択公理)。 % <span class="math display">\[\begin{align*}
+<p><span class="math inline">\(\Omega\)</span>の上の同値類から一つずつ要素を選んで集合<span class="math inline">\(V\)</span>を作る(選択公理)。</p>
+<p><span class="math display">\[\begin{align*}
 1 = P([0,1)) &amp;= P\left(\bigcup_{x\in\mathbb{Q}} (V + x)\right)\\
 &amp;= \sum_{x\in\mathbb{Q}} P\left(V + x\right)\qquad\text{(完全加法性)}\\
-&amp;= \sum_{x\in\mathbb{Q}} P\left(V\right)
+&amp;= \sum_{x\in\mathbb{Q}} P\left(V\right)\qquad\text{(平行移動不変性).}
 \end{align*}\]</span> <strong>同じ値を無限回足して1にはできない</strong>。</p>
+</section>
+<section id="ちゃんとした確率論の公理" class="slide level2">
+<h2>ちゃんとした確率論の公理</h2>
+<p><strong>確率空間</strong> <span class="math inline">\((\Omega, \mathcal{F}, P)\)</span></p>
+<ul>
+<li><span class="math inline">\(\Omega\colon\)</span> 集合(<strong>標本空間</strong>)</li>
+<li><span class="math inline">\(\mathcal{F}\subseteq 2^\Omega\)</span> (<strong>事象の集合</strong>、可測集合)</li>
+<li><span class="math inline">\(P\colon**\mathcal{F}**\to[0,1]\)</span> (<strong>確率測度</strong>、<strong>確率は<span class="math inline">\(\mathcal{F}\)</span>の要素にのみ定義される！</strong>)</li>
+</ul>
+<p>可測集合の公理(<span class="math inline">\(\sigma\)</span>-加法族、完全加法族)</p>
+<ol type="1">
+<li><span class="math inline">\(\emptyset\in\mathcal{F}\)</span>.</li>
+<li><span class="math inline">\(A\in\mathcal{F}\implies A^c\in\mathcal{F}\)</span>.</li>
+<li><span class="math inline">\((A_n\in\mathcal{F})_{n=1,\dotsc}\implies \bigcup_{n=1}^\infty A_n\in\mathcal{F}\)</span> (完全加法性, <span class="math inline">\(\sigma\)</span>-加 法性).</li>
+</ol>
+<p>確率の公理</p>
+<ol type="1">
+<li><span class="math inline">\(P(\Omega)=1\)</span>.</li>
+<li><span class="math inline">\(\forall (A_n\in\mathcal{F})_{n=1,\dotsc}\)</span>, <span class="math inline">\(\forall i\ne j,\, A_i\cap A_j=\emptyset\implies P\left(\bigcup_{n=1}^\infty A_n\right)=\sum_{n=1}^\infty P(A_n)\)</span>\ (完全加法性, <span class="math inline">\(\sigma\)</span>-加法性).</li>
+</ol>
+</section>
+<section id="この授業の方針" class="slide level2">
+<h2>この授業の方針</h2>
+<p>ここまでのまとめ</p>
+<ul>
+<li><span class="math inline">\(\Omega\)</span>が高々可算の場合は<span class="math inline">\(\mathcal{F}=2^\Omega\)</span>とできる。</li>
+<li><span class="math inline">\(\Omega\)</span>が非可算の場合は(平行移動で不変などの条件を課すと)すべての部分集合を可測とできない場合がある (要<strong>選択公理</strong>)。</li>
+</ul>
+<div class="r-stack">
+<p>この授業では<strong><span class="math inline">\(\mathcal{F}=2^\Omega\)</span>のつもり</strong>ですすめる。</p>
+<p><span class="math inline">\(\Omega\)</span>の部分集合を<strong>事象</strong>と呼ぶ。</p>
+<p>実際に考えるような確率空間では非可測な集合<span class="math inline">\(A\notin\mathcal{F}\)</span>は<strong>選択公理</strong>を使わないと構成できない。</p>
+<p>普通に考える集合は<strong>全部可測</strong>。</p>
+<p>この授業は測度論の授業じゃないので、<strong>非可測な集合については考えないことにする</strong>。</p>
+<p>今後、確率空間は<span class="math inline">\((\Omega,\mathcal{F},P)\)</span>じゃなくて<span class="math inline">\(**(\Omega,P)**\)</span>とする。</p>
+</div>
 
 
 </section>
