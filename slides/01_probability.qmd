@@ -38,26 +38,26 @@ css: slides.css
 
 ## 標本空間と確率
 
-* $\Omega\colon$ 集合。これの部分集合に確率が与えられる
-* $P\colon 2^\Omega\to[0,1].$ 確率を与える関数
+- $\Omega\colon$ 集合。これの部分集合に確率が与えられる
+- $P\colon 2^\Omega\to[0,1].$ 確率を与える関数
 
 ::: {#exm-prob}
 
-* $\Omega=\{表,裏\}$.
-* $P(\emptyset)= 0,\, P(\{\mathrm{表}\})=P(\{\mathrm{裏}\})=\frac12,\,P(\{\mathrm{表},\mathrm{裏}\})=1$.
+- $\Omega=\{表,裏\}$.
+- $P(\emptyset)= 0,\, P(\{\mathrm{表}\})=P(\{\mathrm{裏}\})=\frac12,\,P(\{\mathrm{表},\mathrm{裏}\})=1$.
 
-* $\Omega=\{1,2,3,4,5,6\}$.
-* $P(A) = \frac{|A|}6\quad\forall A\subseteq\Omega$.
+- $\Omega=\{1,2,3,4,5,6\}$.
+- $P(A) = \frac{|A|}6\quad\forall A\subseteq\Omega$.
 
-* $\Omega=\{晴,雨,雪\}$.
-* $P(\emptyset)= 0,\, P(\{晴\})=0.7,\, P(\{雨\})=0.2,\,P(\{雪\})=0.1$,\\
+- $\Omega=\{晴,雨,雪\}$.
+- $P(\emptyset)= 0,\, P(\{晴\})=0.7,\, P(\{雨\})=0.2,\,P(\{雪\})=0.1$,\\
 $P(\{晴,雨\})=0.9,\, P(\{雨,雪\})=0.3,\, P(\{雪,晴\})=0.8$\\
 $P(\{晴,雨,雪\})=1$.
 :::
 
 ## 確率論の公理有限版
-* $\Omega\colon$ **有限**集合(**標本空間**)
-* $P\colon 2^\Omega\to[0,1]$ (**確率測度**)
+- $\Omega\colon$ **有限**集合(**標本空間**)
+- $P\colon 2^\Omega\to[0,1]$ (**確率測度**)
 
 確率の公理
 
@@ -69,8 +69,8 @@ $\Omega$を無限集合にしたい場合はどうする？
 :::
 
 ## 確率論の公理可算版
-* $\Omega\colon$ 高々**可算**集合(**標本空間**)
-* $P\colon 2^\Omega\to[0,1]$ (**確率測度**)
+- $\Omega\colon$ 高々**可算**集合(**標本空間**)
+- $P\colon 2^\Omega\to[0,1]$ (**確率測度**)
 
 確率の公理
 
@@ -78,3 +78,17 @@ $\Omega$を無限集合にしたい場合はどうする？
 2. ~~$\forall A, B\subseteq\Omega$, $A\cap B=\emptyset\implies P(A\cup B)=P(A)+P(B)$\ (有限加法性).~~
 3. $\forall (A_n\subseteq\Omega)_{n=1,\dotsc}$, $\forall i\ne j,\, A_i\cap A_j=\emptyset\implies P\left(\bigcup_{n=1}^\infty A_n\right)=\sum_{n=1}^\infty P(A_n)$\ (**完全加法性, $\sigma$-加法性**).
 
+
+## 確率論の公理最終版?
+これでよいのか？
+- $\Omega\colon$ (**非可算**でもよい)集合(**標本空間**)
+- $P\colon 2^\Omega\to[0,1]$ (**確率測度**)
+
+確率の公理
+1. $P(\Omega)=1$.
+2. ~~{}$\forall A, B\subseteq\Omega$, $A\cap B=\emptyset\implies P(A\cup B)=P(A)+P(B)$\ (有限加法性).~~
+3. $\forall (A_n\subseteq\Omega)_{n=1,\dotsc}$, $\forall i\ne j,\, A_i\cap A_j=\emptyset\implies P\left(\bigcup_{n=1}^\infty A_n\right)=\sum_{n=1}^\infty P(A_n)$\ (**完全加法性, $\sigma$-加法性**).
+
+:::{.r-stack}
+これで大丈夫？
+:::
