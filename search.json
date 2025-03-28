@@ -46,7 +46,14 @@
     "href": "slides/01_probability.html#確率論の公理最終版",
     "title": "確率論",
     "section": "確率論の公理最終版?",
-    "text": "確率論の公理最終版?\nこれでよいのか？ - \\(\\Omega\\colon\\) (非可算でもよい)集合(標本空間) - \\(P\\colon 2^\\Omega\\to[0,1]\\) (確率測度)\n確率の公理 1. \\(P(\\Omega)=1\\). 2. {}\\(\\forall A, B\\subseteq\\Omega\\), \\(A\\cap B=\\emptyset\\implies P(A\\cup B)=P(A)+P(B)\\) (有限加法性). 3. \\(\\forall (A_n\\subseteq\\Omega)_{n=1,\\dotsc}\\), \\(\\forall i\\ne j,\\, A_i\\cap A_j=\\emptyset\\implies P\\left(\\bigcup_{n=1}^\\infty A_n\\right)=\\sum_{n=1}^\\infty P(A_n)\\) (完全加法性, \\(\\sigma\\)-加法性).\n\nこれで大丈夫？"
+    "text": "確率論の公理最終版?\nこれでよいのか？ - \\(\\Omega\\colon\\) (非可算でもよい)集合(標本空間) - \\(P\\colon 2^\\Omega\\to[0,1]\\) (確率測度)\n確率の公理\n\n\\(P(\\Omega)=1\\).\n\\(\\forall A, B\\subseteq\\Omega\\), \\(A\\cap B=\\emptyset\\implies P(A\\cup B)=P(A)+P(B)\\) (有限加法性).\n\\(\\forall (A_n\\subseteq\\Omega)_{n=1,\\dotsc}\\), \\(\\forall i\\ne j,\\, A_i\\cap A_j=\\emptyset\\implies P\\left(\\bigcup_{n=1}^\\infty A_n\\right)=\\sum_{n=1}^\\infty P(A_n)\\) (完全加法性, \\(\\sigma\\)-加法性).\n\n\nこれで大丈夫？"
+  },
+  {
+    "objectID": "slides/01_probability.html#ダメー完全加法性選択公理",
+    "href": "slides/01_probability.html#ダメー完全加法性選択公理",
+    "title": "確率論",
+    "section": "ダメー(完全加法性+選択公理)",
+    "text": "ダメー(完全加法性+選択公理)\n\n\\(\\Omega=[0,1)\\).\n\\(\\forall c\\in\\Omega,\\, A\\subseteq\\Omega,\\, P(A+c) = P(A)\\) where \\(A+c\\coloneq\\{a+c-\\lfloor a+c\\rfloor\\mid a\\in A\\}\\).\n\n選択公理を仮定するとそのような確率空間は存在しない。\n\\(\\Omega\\)の上の同値関係を \\(x\\sim y\\stackrel{\\mathrm{def}}{\\iff} x-y \\in\\mathbb{Q}\\)と定義する。\n\\(\\Omega\\)の上の同値類から一つずつ要素を選んで集合\\(V\\)を作る(選択公理)。 % \\[\\begin{align*}\n1 = P([0,1)) &= P\\left(\\bigcup_{x\\in\\mathbb{Q}} (V + x)\\right)\\\\\n&= \\sum_{x\\in\\mathbb{Q}} P\\left(V + x\\right)\\qquad\\text{(完全加法性)}\\\\\n&= \\sum_{x\\in\\mathbb{Q}} P\\left(V\\right)\n\\end{align*}\\] 同じ値を無限回足して1にはできない。"
   },
   {
     "objectID": "slides.html",
