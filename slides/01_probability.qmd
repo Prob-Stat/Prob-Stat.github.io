@@ -171,7 +171,7 @@ $\Omega$の部分集合を**事象**と呼ぶ。
 連続的な確率空間
 
 - $\Omega=\{\mathrm{H},\mathrm{T}\}^{\mathbb{N}}$.
-- 任意の$n\in\mathbb{N}$ と$\eta\in\{\mathr{H},\mathrm{T}\}^n$ について $P(\{\omega\in\Omega\mid \text{$\omega$の最初の$n$個が特定の値}\}) = \frac1{2^n}$.
+- 任意の$n\in\mathbb{N}$ と $\eta\in\{\mathrm{H},\mathrm{T}\}^n$ について $P(\{\omega\in\Omega\mid \text{$\omega$の最初の$n$個が $\eta$}\}) = \frac1{2^n}$.
 
 ## 確率の性質
 任意の $A,B\in 2^\Omega$ について,
