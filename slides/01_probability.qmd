@@ -44,13 +44,13 @@ css: slides.css
 ::: {#exm-prob}
 
 - $\Omega=\{表,裏\}$.
-- $P(\emptyset)= 0,\, P(\{\mathrm{表}\})=P(\{\mathrm{裏}\})=\frac12,\,P(\{\mathrm{表},\mathrm{裏}\})=1$.
+- $P(\varnothing)= 0,\, P(\{\mathrm{表}\})=P(\{\mathrm{裏}\})=\frac12,\,P(\{\mathrm{表},\mathrm{裏}\})=1$.
 
 - $\Omega=\{1,2,3,4,5,6\}$.
 - $P(A) = \frac{|A|}6\quad\forall A\subseteq\Omega$.
 
 - $\Omega=\{晴,雨,雪\}$.
-- $P(\emptyset)= 0,\, P(\{晴\})=0.7,\, P(\{雨\})=0.2,\,P(\{雪\})=0.1$,\\
+- $P(\varnothing)= 0,\, P(\{晴\})=0.7,\, P(\{雨\})=0.2,\,P(\{雪\})=0.1$,\\
 $P(\{晴,雨\})=0.9,\, P(\{雨,雪\})=0.3,\, P(\{雪,晴\})=0.8$\\
 $P(\{晴,雨,雪\})=1$.
 :::
@@ -63,7 +63,7 @@ $P(\{晴,雨,雪\})=1$.
 確率の公理
 
 1. $P(\Omega)=1$.
-2. $\forall A, B\subseteq\Omega$, $A\cap B=\emptyset\implies P(A\cup B)=P(A)+P(B)$\ (**有限加法性**).
+2. $\forall A, B\subseteq\Omega$, $A\cap B=\varnothing\implies P(A\cup B)=P(A)+P(B)$\ (**有限加法性**).
 
 :::{.r-stack}
 $\Omega$を無限集合にしたい場合はどうする？
@@ -76,8 +76,8 @@ $\Omega$を無限集合にしたい場合はどうする？
 確率の公理
 
 1. $P(\Omega)=1$.
-2. ~~$\forall A, B\subseteq\Omega$, $A\cap B=\emptyset\implies P(A\cup B)=P(A)+P(B)$\ (有限加法性).~~
-3. $\forall (A_n\subseteq\Omega)_{n=1,\dotsc}$, $\forall i\ne j,\, A_i\cap A_j=\emptyset\implies P\left(\bigcup_{n=1}^\infty A_n\right)=\sum_{n=1}^\infty P(A_n)$\ (**完全加法性, $\sigma$-加法性**).
+2. ~~$\forall A, B\subseteq\Omega$, $A\cap B=\varnothing\implies P(A\cup B)=P(A)+P(B)$\ (有限加法性).~~
+3. $\forall (A_n\subseteq\Omega)_{n=1,\dotsc}$, $\forall i\ne j,\, A_i\cap A_j=\varnothing\implies P\left(\bigcup_{n=1}^\infty A_n\right)=\sum_{n=1}^\infty P(A_n)$\ (**完全加法性, $\sigma$-加法性**).
 
 
 ## 確率論の公理最終版?
@@ -89,8 +89,8 @@ $\Omega$を無限集合にしたい場合はどうする？
 確率の公理
 
 1. $P(\Omega)=1$.
-2. ~~$\forall A, B\subseteq\Omega$, $A\cap B=\emptyset\implies P(A\cup B)=P(A)+P(B)$\ (有限加法性).~~
-3. $\forall (A_n\subseteq\Omega)_{n=1,\dotsc}$, $\forall i\ne j,\, A_i\cap A_j=\emptyset\implies P\left(\bigcup_{n=1}^\infty A_n\right)=\sum_{n=1}^\infty P(A_n)$\ (**完全加法性, $\sigma$-加法性**).
+2. ~~$\forall A, B\subseteq\Omega$, $A\cap B=\varnothing\implies P(A\cup B)=P(A)+P(B)$\ (有限加法性).~~
+3. $\forall (A_n\subseteq\Omega)_{n=1,\dotsc}$, $\forall i\ne j,\, A_i\cap A_j=\varnothing\implies P\left(\bigcup_{n=1}^\infty A_n\right)=\sum_{n=1}^\infty P(A_n)$\ (**完全加法性, $\sigma$-加法性**).
 
 :::{.r-stack}
 これで大丈夫？
@@ -127,15 +127,15 @@ $\Omega$の上の同値類から一つずつ要素を選んで集合$V$を作る
 
 可測集合の公理($\sigma$-加法族、完全加法族)
 
-1. $\emptyset\in\mathcal{F}$.
-2. $A\in\mathcal{F}\implies A^c\in\mathcal{F}$.
+1. $\varnothing\in\mathcal{F}$.
+2. $A\in\mathcal{F}\implies \Omega\setminus A\in\mathcal{F}$.
 3. $(A_n\in\mathcal{F})_{n=1,\dotsc}\implies \bigcup_{n=1}^\infty A_n\in\mathcal{F}$ (完全加法性, $\sigma$-加
 法性).
 
 確率の公理
 
 1. $P(\Omega)=1$.
-2. $\forall (A_n\in\mathcal{F})_{n=1,\dotsc}$, $\forall i\ne j,\, A_i\cap A_j=\emptyset\implies P\left(\bigcup_{n=1}^\infty A_n\right)=\sum_{n=1}^\infty P(A_n)$\ (完全加法性, $\sigma$-加法性).
+2. $\forall (A_n\in\mathcal{F})_{n=1,\dotsc}$, $\forall i\ne j,\, A_i\cap A_j=\varnothing\implies P\left(\bigcup_{n=1}^\infty A_n\right)=\sum_{n=1}^\infty P(A_n)$\ (完全加法性, $\sigma$-加法性).
 
 ## この授業の方針
 ここまでのまとめ
