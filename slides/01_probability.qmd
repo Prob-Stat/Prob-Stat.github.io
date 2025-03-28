@@ -100,7 +100,7 @@ $\Omega$を無限集合にしたい場合はどうする？
 ## ダメー(完全加法性+選択公理)
 
 - $\Omega=[0,1)$.
-- $\forall c\in\Omega,\, A\subseteq\Omega,\, P(A+c) = P(A)$ where $A+c\coloneqq\{a+c-\lfloor a+c\rfloor\mid a\in A\}$.
+- $\forall c\in\Omega,\, A\subseteq\Omega,\, P(A+c) = P(A)$ where $A+c\colon=\{a+c-\lfloor a+c\rfloor\mid a\in A\}$.
 
 **選択公理を仮定するとそのような確率空間は存在しない**。
 
@@ -123,7 +123,7 @@ $\Omega$の上の同値類から一つずつ要素を選んで集合$V$を作る
 
 - $\Omega\colon$ 集合(**標本空間**)
 - $\mathcal{F}\subseteq 2^\Omega$ (**事象の集合**、可測集合)
-- $P\colon**\mathcal{F}**\to[0,1]$ (**確率測度**、**確率は$\mathcal{F}$の要素にのみ定義される！**)
+- $P\colon\mathcal{F}\to[0,1]$ (**確率測度**、**確率は $\mathcal{F}$ の要素にのみ定義される！**)
 
 可測集合の公理($\sigma$-加法族、完全加法族)
 
@@ -135,7 +135,7 @@ $\Omega$の上の同値類から一つずつ要素を選んで集合$V$を作る
 確率の公理
 
 1. $P(\Omega)=1$.
-2. $\forall (A_n\in\mathcal{F})_{n=1,\dotsc}$, $\forall i\ne j,\, A_i\cap A_j=\emptyset\implies P\left(\bigcup_{n=1}^\infty A_n\right)=\sum_{n=1}^\infty P(A_n)$\\ (完全加法性, $\sigma$-加法性).
+2. $\forall (A_n\in\mathcal{F})_{n=1,\dotsc}$, $\forall i\ne j,\, A_i\cap A_j=\emptyset\implies P\left(\bigcup_{n=1}^\infty A_n\right)=\sum_{n=1}^\infty P(A_n)$\ (完全加法性, $\sigma$-加法性).
 
 ## この授業の方針
 ここまでのまとめ
@@ -144,7 +144,6 @@ $\Omega$の上の同値類から一つずつ要素を選んで集合$V$を作る
 - $\Omega$が非可算の場合は(平行移動で不変などの条件を課すと)すべての部分集合を可測とできない場合がある
 (要**選択公理**)。
 
-:::{.r-stack}
 この授業では**$\mathcal{F}=2^\Omega$のつもり**ですすめる。
 
 $\Omega$の部分集合を**事象**と呼ぶ。
@@ -156,5 +155,4 @@ $\Omega$の部分集合を**事象**と呼ぶ。
 この授業は測度論の授業じゃないので、**非可測な集合については考えないことにする**。
 
 今後、確率空間は$(\Omega,\mathcal{F},P)$じゃなくて$**(\Omega,P)**$とする。
-:::
 
