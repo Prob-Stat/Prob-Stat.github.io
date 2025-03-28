@@ -32,14 +32,14 @@
     "href": "slides/01_probability.html#確率論の公理有限版",
     "title": "確率論",
     "section": "確率論の公理有限版",
-    "text": "確率論の公理有限版\n\n\\(\\Omega\\colon\\) 集合()\n\\(P\\colon 2^\\Omega\\to[0,1]\\) ()\n\n確率の公理\n\n\\(P(\\Omega)=1\\).\n\\(\\forall A, B\\subseteq\\Omega\\), \\(A\\cap B=\\emptyset\\implies P(A\\cup B)=P(A)+P(B)\\)\\ ().\n\n\\(\\Omega\\)を無限集合にしたい場合はどうする？ {.center}"
+    "text": "確率論の公理有限版\n\n\\(\\Omega\\colon\\) 有限集合(標本空間)\n\\(P\\colon 2^\\Omega\\to[0,1]\\) (確率測度)\n\n確率の公理\n\n\\(P(\\Omega)=1\\).\n\\(\\forall A, B\\subseteq\\Omega\\), \\(A\\cap B=\\emptyset\\implies P(A\\cup B)=P(A)+P(B)\\)\\ (有限加法性).\n\n\\(\\Omega\\)を無限集合にしたい場合はどうする？ {.center}"
   },
   {
     "objectID": "slides/01_probability.html#確率論の公理可算版",
     "href": "slides/01_probability.html#確率論の公理可算版",
     "title": "確率論",
     "section": "確率論の公理可算版",
-    "text": "確率論の公理可算版\n\n\\(\\Omega\\colon\\) 高々集合()\n\\(P\\colon 2^\\Omega\\to[0,1]\\) ()\n\n確率の公理\n\n\\(P(\\Omega)=1\\).\n{\\(\\forall A, B\\subseteq\\Omega\\), \\(A\\cap B=\\emptyset\\implies P(A\\cup B)=P(A)+P(B)\\)\\ (有限加法性).}\\\n\\(\\forall (A_n\\subseteq\\Omega)_{n=1,\\dotsc}\\), \\(\\forall i\\ne j,\\, A_i\\cap A_j=\\emptyset\\implies P\\left(\\bigcup_{n=1}^\\infty A_n\\right)=\\sum_{n=1}^\\infty P(A_n)\\)\\ ()."
+    "text": "確率論の公理可算版\n\n\\(\\Omega\\colon\\) 高々可算集合(標本空間)\n\\(P\\colon 2^\\Omega\\to[0,1]\\) (確率測度)\n\n確率の公理\n\n\\(P(\\Omega)=1\\).\n{\\(\\forall A, B\\subseteq\\Omega\\), \\(A\\cap B=\\emptyset\\implies P(A\\cup B)=P(A)+P(B)\\)\\ (有限加法性).}\\\n\\(\\forall (A_n\\subseteq\\Omega)_{n=1,\\dotsc}\\), \\(\\forall i\\ne j,\\, A_i\\cap A_j=\\emptyset\\implies P\\left(\\bigcup_{n=1}^\\infty A_n\\right)=\\sum_{n=1}^\\infty P(A_n)\\)\\ (完全加法性, \\(\\sigma\\)-加法性)."
   },
   {
     "objectID": "slides.html",

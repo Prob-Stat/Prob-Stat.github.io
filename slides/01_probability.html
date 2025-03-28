@@ -191,27 +191,27 @@
 <section id="確率論の公理有限版" class="slide level2">
 <h2>確率論の公理有限版</h2>
 <ul>
-<li><span class="math inline">\(\Omega\colon\)</span> 集合()</li>
-<li><span class="math inline">\(P\colon 2^\Omega\to[0,1]\)</span> ()</li>
+<li><span class="math inline">\(\Omega\colon\)</span> <strong>有限</strong>集合(<strong>標本空間</strong>)</li>
+<li><span class="math inline">\(P\colon 2^\Omega\to[0,1]\)</span> (<strong>確率測度</strong>)</li>
 </ul>
 <p>確率の公理</p>
 <ol type="1">
 <li><span class="math inline">\(P(\Omega)=1\)</span>.</li>
-<li><span class="math inline">\(\forall A, B\subseteq\Omega\)</span>, <span class="math inline">\(A\cap B=\emptyset\implies P(A\cup B)=P(A)+P(B)\)</span>\ ().</li>
+<li><span class="math inline">\(\forall A, B\subseteq\Omega\)</span>, <span class="math inline">\(A\cap B=\emptyset\implies P(A\cup B)=P(A)+P(B)\)</span>\ (<strong>有限加法性</strong>).</li>
 </ol>
 <p><span class="math inline">\(\Omega\)</span>を無限集合にしたい場合はどうする？ {.center}</p>
 </section>
 <section id="確率論の公理可算版" class="slide level2">
 <h2>確率論の公理可算版</h2>
 <ul>
-<li><span class="math inline">\(\Omega\colon\)</span> 高々集合()</li>
-<li><span class="math inline">\(P\colon 2^\Omega\to[0,1]\)</span> ()</li>
+<li><span class="math inline">\(\Omega\colon\)</span> 高々<strong>可算</strong>集合(<strong>標本空間</strong>)</li>
+<li><span class="math inline">\(P\colon 2^\Omega\to[0,1]\)</span> (<strong>確率測度</strong>)</li>
 </ul>
 <p>確率の公理</p>
 <ol type="1">
 <li><span class="math inline">\(P(\Omega)=1\)</span>.</li>
 <li>{<span class="math inline">\(\forall A, B\subseteq\Omega\)</span>, <span class="math inline">\(A\cap B=\emptyset\implies P(A\cup B)=P(A)+P(B)\)</span>\ (有限加法性).}\</li>
-<li><span class="math inline">\(\forall (A_n\subseteq\Omega)_{n=1,\dotsc}\)</span>, <span class="math inline">\(\forall i\ne j,\, A_i\cap A_j=\emptyset\implies P\left(\bigcup_{n=1}^\infty A_n\right)=\sum_{n=1}^\infty P(A_n)\)</span>\ ().</li>
+<li><span class="math inline">\(\forall (A_n\subseteq\Omega)_{n=1,\dotsc}\)</span>, <span class="math inline">\(\forall i\ne j,\, A_i\cap A_j=\emptyset\implies P\left(\bigcup_{n=1}^\infty A_n\right)=\sum_{n=1}^\infty P(A_n)\)</span>\ (<strong>完全加法性, <span class="math inline">\(\sigma\)</span>-加法性</strong>).</li>
 </ol>
 
 
