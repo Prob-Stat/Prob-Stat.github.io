@@ -56,6 +56,7 @@ $P(\{晴,雨,雪\})=1$.
 :::
 
 ## 確率論の公理有限版
+
 - $\Omega\colon$ **有限**集合(**標本空間**)
 - $P\colon 2^\Omega\to[0,1]$ (**確率測度**)
 
@@ -81,6 +82,7 @@ $\Omega$を無限集合にしたい場合はどうする？
 
 ## 確率論の公理最終版?
 これでよいのか？
+
 - $\Omega\colon$ (**非可算**でもよい)集合(**標本空間**)
 - $P\colon 2^\Omega\to[0,1]$ (**確率測度**)
 
@@ -98,7 +100,7 @@ $\Omega$を無限集合にしたい場合はどうする？
 ## ダメー(完全加法性+選択公理)
 
 - $\Omega=[0,1)$.
-- $\forall c\in\Omega,\, A\subseteq\Omega,\, P(A+c) = P(A)$ where $A+c\coloneq\{a+c-\lfloor a+c\rfloor\mid a\in A\}$.
+- $\forall c\in\Omega,\, A\subseteq\Omega,\, P(A+c) = P(A)$ where $A+c\coloneqq\{a+c-\lfloor a+c\rfloor\mid a\in A\}$.
 
 **選択公理を仮定するとそのような確率空間は存在しない**。
 
@@ -107,12 +109,52 @@ $x\sim y\stackrel{\mathrm{def}}{\iff} x-y \in\mathbb{Q}$と定義する。
 
 \vspace{1em}
 $\Omega$の上の同値類から一つずつ要素を選んで集合$V$を作る(選択公理)。
-%
+
 \begin{align*}
 1 = P([0,1)) &= P\left(\bigcup_{x\in\mathbb{Q}} (V + x)\right)\\
 &= \sum_{x\in\mathbb{Q}} P\left(V + x\right)\qquad\text{(完全加法性)}\\
-&= \sum_{x\in\mathbb{Q}} P\left(V\right)
+&= \sum_{x\in\mathbb{Q}} P\left(V\right)\qquad\text{(平行移動不変性).}
 \end{align*}
 **同じ値を無限回足して1にはできない**。
 
+
+## ちゃんとした確率論の公理
+**確率空間** $(\Omega, \mathcal{F}, P)$
+
+- $\Omega\colon$ 集合(**標本空間**)
+- $\mathcal{F}\subseteq 2^\Omega$ (**事象の集合**、可測集合)
+- $P\colon**\mathcal{F}**\to[0,1]$ (**確率測度**、**確率は$\mathcal{F}$の要素にのみ定義される！**)
+
+可測集合の公理($\sigma$-加法族、完全加法族)
+
+1. $\emptyset\in\mathcal{F}$.
+2. $A\in\mathcal{F}\implies A^c\in\mathcal{F}$.
+3. $(A_n\in\mathcal{F})_{n=1,\dotsc}\implies \bigcup_{n=1}^\infty A_n\in\mathcal{F}$ (完全加法性, $\sigma$-加
+法性).
+
+確率の公理
+
+1. $P(\Omega)=1$.
+2. $\forall (A_n\in\mathcal{F})_{n=1,\dotsc}$, $\forall i\ne j,\, A_i\cap A_j=\emptyset\implies P\left(\bigcup_{n=1}^\infty A_n\right)=\sum_{n=1}^\infty P(A_n)$\\ (完全加法性, $\sigma$-加法性).
+
+## この授業の方針
+ここまでのまとめ
+
+- $\Omega$が高々可算の場合は$\mathcal{F}=2^\Omega$とできる。
+- $\Omega$が非可算の場合は(平行移動で不変などの条件を課すと)すべての部分集合を可測とできない場合がある
+(要**選択公理**)。
+
+:::{.r-stack}
+この授業では**$\mathcal{F}=2^\Omega$のつもり**ですすめる。
+
+$\Omega$の部分集合を**事象**と呼ぶ。
+
+実際に考えるような確率空間では非可測な集合$A\notin\mathcal{F}$は**選択公理**を使わないと構成できない。
+
+普通に考える集合は**全部可測**。
+
+この授業は測度論の授業じゃないので、**非可測な集合については考えないことにする**。
+
+今後、確率空間は$(\Omega,\mathcal{F},P)$じゃなくて$**(\Omega,P)**$とする。
+:::
 
