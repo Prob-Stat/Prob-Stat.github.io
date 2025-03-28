@@ -180,11 +180,11 @@
 <p><span class="theorem-title"><strong>Example 1</strong></span> &nbsp;</p>
 <ul>
 <li><p><span class="math inline">\(\Omega=\{表,裏\}\)</span>.</p></li>
-<li><p><span class="math inline">\(P(\emptyset)= 0,\, P(\{\mathrm{表}\})=P(\{\mathrm{裏}\})=\frac12,\,P(\{\mathrm{表},\mathrm{裏}\})=1\)</span>.</p></li>
+<li><p><span class="math inline">\(P(\varnothing)= 0,\, P(\{\mathrm{表}\})=P(\{\mathrm{裏}\})=\frac12,\,P(\{\mathrm{表},\mathrm{裏}\})=1\)</span>.</p></li>
 <li><p><span class="math inline">\(\Omega=\{1,2,3,4,5,6\}\)</span>.</p></li>
 <li><p><span class="math inline">\(P(A) = \frac{|A|}6\quad\forall A\subseteq\Omega\)</span>.</p></li>
 <li><p><span class="math inline">\(\Omega=\{晴,雨,雪\}\)</span>.</p></li>
-<li><p><span class="math inline">\(P(\emptyset)= 0,\, P(\{晴\})=0.7,\, P(\{雨\})=0.2,\,P(\{雪\})=0.1\)</span>,\ <span class="math inline">\(P(\{晴,雨\})=0.9,\, P(\{雨,雪\})=0.3,\, P(\{雪,晴\})=0.8\)</span>\ <span class="math inline">\(P(\{晴,雨,雪\})=1\)</span>.</p></li>
+<li><p><span class="math inline">\(P(\varnothing)= 0,\, P(\{晴\})=0.7,\, P(\{雨\})=0.2,\,P(\{雪\})=0.1\)</span>,\ <span class="math inline">\(P(\{晴,雨\})=0.9,\, P(\{雨,雪\})=0.3,\, P(\{雪,晴\})=0.8\)</span>\ <span class="math inline">\(P(\{晴,雨,雪\})=1\)</span>.</p></li>
 </ul>
 </div>
 </section>
@@ -197,7 +197,7 @@
 <p>確率の公理</p>
 <ol type="1">
 <li><span class="math inline">\(P(\Omega)=1\)</span>.</li>
-<li><span class="math inline">\(\forall A, B\subseteq\Omega\)</span>, <span class="math inline">\(A\cap B=\emptyset\implies P(A\cup B)=P(A)+P(B)\)</span>&nbsp;(<strong>有限加法性</strong>).</li>
+<li><span class="math inline">\(\forall A, B\subseteq\Omega\)</span>, <span class="math inline">\(A\cap B=\varnothing\implies P(A\cup B)=P(A)+P(B)\)</span>&nbsp;(<strong>有限加法性</strong>).</li>
 </ol>
 <div class="r-stack">
 <p><span class="math inline">\(\Omega\)</span>を無限集合にしたい場合はどうする？</p>
@@ -212,8 +212,8 @@
 <p>確率の公理</p>
 <ol type="1">
 <li><span class="math inline">\(P(\Omega)=1\)</span>.</li>
-<li><del><span class="math inline">\(\forall A, B\subseteq\Omega\)</span>, <span class="math inline">\(A\cap B=\emptyset\implies P(A\cup B)=P(A)+P(B)\)</span>&nbsp;(有限加法性).</del></li>
-<li><span class="math inline">\(\forall (A_n\subseteq\Omega)_{n=1,\dotsc}\)</span>, <span class="math inline">\(\forall i\ne j,\, A_i\cap A_j=\emptyset\implies P\left(\bigcup_{n=1}^\infty A_n\right)=\sum_{n=1}^\infty P(A_n)\)</span>&nbsp;(<strong>完全加法性, <span class="math inline">\(\sigma\)</span>-加法性</strong>).</li>
+<li><del><span class="math inline">\(\forall A, B\subseteq\Omega\)</span>, <span class="math inline">\(A\cap B=\varnothing\implies P(A\cup B)=P(A)+P(B)\)</span>&nbsp;(有限加法性).</del></li>
+<li><span class="math inline">\(\forall (A_n\subseteq\Omega)_{n=1,\dotsc}\)</span>, <span class="math inline">\(\forall i\ne j,\, A_i\cap A_j=\varnothing\implies P\left(\bigcup_{n=1}^\infty A_n\right)=\sum_{n=1}^\infty P(A_n)\)</span>&nbsp;(<strong>完全加法性, <span class="math inline">\(\sigma\)</span>-加法性</strong>).</li>
 </ol>
 </section>
 <section id="確率論の公理最終版" class="slide level2">
@@ -226,8 +226,8 @@
 <p>確率の公理</p>
 <ol type="1">
 <li><span class="math inline">\(P(\Omega)=1\)</span>.</li>
-<li><del><span class="math inline">\(\forall A, B\subseteq\Omega\)</span>, <span class="math inline">\(A\cap B=\emptyset\implies P(A\cup B)=P(A)+P(B)\)</span>&nbsp;(有限加法性).</del></li>
-<li><span class="math inline">\(\forall (A_n\subseteq\Omega)_{n=1,\dotsc}\)</span>, <span class="math inline">\(\forall i\ne j,\, A_i\cap A_j=\emptyset\implies P\left(\bigcup_{n=1}^\infty A_n\right)=\sum_{n=1}^\infty P(A_n)\)</span>&nbsp;(<strong>完全加法性, <span class="math inline">\(\sigma\)</span>-加法性</strong>).</li>
+<li><del><span class="math inline">\(\forall A, B\subseteq\Omega\)</span>, <span class="math inline">\(A\cap B=\varnothing\implies P(A\cup B)=P(A)+P(B)\)</span>&nbsp;(有限加法性).</del></li>
+<li><span class="math inline">\(\forall (A_n\subseteq\Omega)_{n=1,\dotsc}\)</span>, <span class="math inline">\(\forall i\ne j,\, A_i\cap A_j=\varnothing\implies P\left(\bigcup_{n=1}^\infty A_n\right)=\sum_{n=1}^\infty P(A_n)\)</span>&nbsp;(<strong>完全加法性, <span class="math inline">\(\sigma\)</span>-加法性</strong>).</li>
 </ol>
 <div class="r-stack">
 <p>これで大丈夫？</p>
@@ -258,14 +258,14 @@
 </ul>
 <p>可測集合の公理(<span class="math inline">\(\sigma\)</span>-加法族、完全加法族)</p>
 <ol type="1">
-<li><span class="math inline">\(\emptyset\in\mathcal{F}\)</span>.</li>
-<li><span class="math inline">\(A\in\mathcal{F}\implies A^c\in\mathcal{F}\)</span>.</li>
+<li><span class="math inline">\(\varnothing\in\mathcal{F}\)</span>.</li>
+<li><span class="math inline">\(A\in\mathcal{F}\implies \Omega\setminus A\in\mathcal{F}\)</span>.</li>
 <li><span class="math inline">\((A_n\in\mathcal{F})_{n=1,\dotsc}\implies \bigcup_{n=1}^\infty A_n\in\mathcal{F}\)</span> (完全加法性, <span class="math inline">\(\sigma\)</span>-加 法性).</li>
 </ol>
 <p>確率の公理</p>
 <ol type="1">
 <li><span class="math inline">\(P(\Omega)=1\)</span>.</li>
-<li><span class="math inline">\(\forall (A_n\in\mathcal{F})_{n=1,\dotsc}\)</span>, <span class="math inline">\(\forall i\ne j,\, A_i\cap A_j=\emptyset\implies P\left(\bigcup_{n=1}^\infty A_n\right)=\sum_{n=1}^\infty P(A_n)\)</span>&nbsp;(完全加法性, <span class="math inline">\(\sigma\)</span>-加法性).</li>
+<li><span class="math inline">\(\forall (A_n\in\mathcal{F})_{n=1,\dotsc}\)</span>, <span class="math inline">\(\forall i\ne j,\, A_i\cap A_j=\varnothing\implies P\left(\bigcup_{n=1}^\infty A_n\right)=\sum_{n=1}^\infty P(A_n)\)</span>&nbsp;(完全加法性, <span class="math inline">\(\sigma\)</span>-加法性).</li>
 </ol>
 </section>
 <section id="この授業の方針" class="slide level2">
