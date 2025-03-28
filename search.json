@@ -70,6 +70,20 @@
     "text": "この授業の方針\nここまでのまとめ\n\n\\(\\Omega\\) が高々可算の場合は \\(\\mathcal{F}=2^\\Omega\\)とできる。\n\\(\\Omega\\) が非可算の場合は(平行移動で不変などの条件を課すと)すべての部分集合を可測とできない場合がある (要選択公理)。\n\nこの授業では \\(\\mathcal{F}=2^\\Omega\\)のつもりですすめる。\n\\(\\Omega\\)の部分集合を事象と呼ぶ。\n実際に考えるような確率空間では非可測な集合\\(A\\notin\\mathcal{F}\\)は選択公理を使わないと構成できない。\n普通に考える集合は全部可測。\nこの授業は測度論の授業じゃないので、非可測な集合については考えないことにする。\n今後、確率空間は\\((\\Omega,\\mathcal{F},P)\\)じゃなくて\\((\\Omega,P)\\)とする。"
   },
   {
+    "objectID": "slides/01_probability.html#確率空間の例",
+    "href": "slides/01_probability.html#確率空間の例",
+    "title": "確率論",
+    "section": "確率空間の例",
+    "text": "確率空間の例\n離散的な確率空間\n\n\\(\\Omega\\colon\\) 有限集合 or 可算無限集合.\n\\(P(A) = \\sum_{k\\in A} P(\\{k\\})\\) ここで \\(\\sum_{k\\in\\Omega} P(\\{k\\})=1\\).\n\n連続的な確率空間\n\n\\(\\Omega=[0,1)\\subseteq\\mathbb{R}\\)\n\\(P([a,b]) = b-a\\) から定まる.\n\n連続的な確率空間\n\n\\(\\Omega=\\{\\mathrm{H},\\mathrm{T}\\}^{\\mathbb{N}}\\).\n\\(P(\\{\\omega\\in\\Omega\\mid \\text{$\\omega$の最初の$n$個が}\\}) = \\text{最初の}\\)."
+  },
+  {
+    "objectID": "slides/01_probability.html#確率の性質",
+    "href": "slides/01_probability.html#確率の性質",
+    "title": "確率論",
+    "section": "確率の性質",
+    "text": "確率の性質\n任意の \\(A,B\\in 2^\\Omega\\) について,\n\n\\(P(\\Omega)=1,\\,P(\\emptyset)=0\\).\n\\(P(A^c) = 1 - P(A) \\quad\\because\\ 1 = P(\\Omega) = P(A\\cup A^c) = P(A) + P(A^c)\\).\n\\(B\\subseteq A\\implies P(B) \\le P(A)\\)\\ \\(\\qquad \\because\\ P(A) = P(B\\cup (A\\setminus B)) = P(B) + P(A\\setminus B)\\ge P(B)\\).\n\\(P(A\\cup B) = P(A) + P(B) - P(A\\cap B)\\)\\ \\(\\qquad \\because\\ P(A\\cup B) = P(B) + P(A\\setminus B),\\, P(A) = P(A\\setminus B) + P(A\\cap B)\\)\n\\(P(A\\cup B) \\le P(A) + P(B)\\) (ブールの不等式, union bound)."
+  },
+  {
     "objectID": "slides.html",
     "href": "slides.html",
     "title": "Slides",

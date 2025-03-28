@@ -281,6 +281,35 @@
 <p>普通に考える集合は<strong>全部可測</strong>。</p>
 <p>この授業は測度論の授業じゃないので、<strong>非可測な集合については考えないことにする</strong>。</p>
 <p>今後、確率空間は<span class="math inline">\((\Omega,\mathcal{F},P)\)</span>じゃなくて<strong><span class="math inline">\((\Omega,P)\)</span></strong>とする。</p>
+</section>
+<section id="確率空間の例" class="slide level2">
+<h2>確率空間の例</h2>
+<p>離散的な確率空間</p>
+<ul>
+<li><span class="math inline">\(\Omega\colon\)</span> 有限集合 or 可算無限集合.</li>
+<li><span class="math inline">\(P(A) = \sum_{k\in A} P(\{k\})\)</span> ここで <span class="math inline">\(\sum_{k\in\Omega} P(\{k\})=1\)</span>.</li>
+</ul>
+<p>連続的な確率空間</p>
+<ul>
+<li><span class="math inline">\(\Omega=[0,1)\subseteq\mathbb{R}\)</span></li>
+<li><span class="math inline">\(P([a,b]) = b-a\)</span> から定まる.</li>
+</ul>
+<p>連続的な確率空間</p>
+<ul>
+<li><span class="math inline">\(\Omega=\{\mathrm{H},\mathrm{T}\}^{\mathbb{N}}\)</span>.</li>
+<li><span class="math inline">\(P(\{\omega\in\Omega\mid \text{$\omega$の最初の$n$個が}\}) = \text{最初の}\)</span>.</li>
+</ul>
+</section>
+<section id="確率の性質" class="slide level2">
+<h2>確率の性質</h2>
+<p>任意の <span class="math inline">\(A,B\in 2^\Omega\)</span> について,</p>
+<ul>
+<li><span class="math inline">\(P(\Omega)=1,\,P(\emptyset)=0\)</span>.</li>
+<li><span class="math inline">\(P(A^c) = 1 - P(A) \quad\because\ 1 = P(\Omega) = P(A\cup A^c) = P(A) + P(A^c)\)</span>.</li>
+<li><span class="math inline">\(B\subseteq A\implies P(B) \le P(A)\)</span>\ <span class="math inline">\(\qquad \because\ P(A) = P(B\cup (A\setminus B)) = P(B) + P(A\setminus B)\ge P(B)\)</span>.</li>
+<li><span class="math inline">\(P(A\cup B) = P(A) + P(B) - P(A\cap B)\)</span>\ <span class="math inline">\(\qquad \because\ P(A\cup B) = P(B) + P(A\setminus B),\, P(A) = P(A\setminus B) + P(A\cap B)\)</span></li>
+<li><span class="math inline">\(P(A\cup B) \le P(A) + P(B)\)</span> (ブールの不等式, union bound).</li>
+</ul>
 
 
 </section>
