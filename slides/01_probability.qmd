@@ -166,12 +166,12 @@ $\Omega$の部分集合を**事象**と呼ぶ。
 連続的な確率空間
 
 - $\Omega=[0,1)\subseteq\mathbb{R}$
-- $P([a,b]) = b-a$ から定まる.
+- $P([a,b)) = b-a$ から定まる.
 
 連続的な確率空間
 
 - $\Omega=\{\mathrm{H},\mathrm{T}\}^{\mathbb{N}}$.
-- $P(\{\omega\in\Omega\mid \text{$\omega$の最初の$n$個が}\}) = \text{最初の}$.
+- 任意の$n\in\mathbb{N}$ と$\eta\in\{\mathr{H},\mathrm{T}\}^n$ について $P(\{\omega\in\Omega\mid \text{$\omega$の最初の$n$個が特定の値}\}) = \frac1{2^n}$.
 
 ## 確率の性質
 任意の $A,B\in 2^\Omega$ について,
