@@ -85,10 +85,34 @@ $\Omega$を無限集合にしたい場合はどうする？
 - $P\colon 2^\Omega\to[0,1]$ (**確率測度**)
 
 確率の公理
+
 1. $P(\Omega)=1$.
-2. ~~{}$\forall A, B\subseteq\Omega$, $A\cap B=\emptyset\implies P(A\cup B)=P(A)+P(B)$\ (有限加法性).~~
+2. ~~$\forall A, B\subseteq\Omega$, $A\cap B=\emptyset\implies P(A\cup B)=P(A)+P(B)$\ (有限加法性).~~
 3. $\forall (A_n\subseteq\Omega)_{n=1,\dotsc}$, $\forall i\ne j,\, A_i\cap A_j=\emptyset\implies P\left(\bigcup_{n=1}^\infty A_n\right)=\sum_{n=1}^\infty P(A_n)$\ (**完全加法性, $\sigma$-加法性**).
 
 :::{.r-stack}
 これで大丈夫？
 :::
+
+
+## ダメー(完全加法性+選択公理)
+
+- $\Omega=[0,1)$.
+- $\forall c\in\Omega,\, A\subseteq\Omega,\, P(A+c) = P(A)$ where $A+c\coloneq\{a+c-\lfloor a+c\rfloor\mid a\in A\}$.
+
+**選択公理を仮定するとそのような確率空間は存在しない**。
+
+$\Omega$の上の同値関係を
+$x\sim y\stackrel{\mathrm{def}}{\iff} x-y \in\mathbb{Q}$と定義する。
+
+\vspace{1em}
+$\Omega$の上の同値類から一つずつ要素を選んで集合$V$を作る(選択公理)。
+%
+\begin{align*}
+1 = P([0,1)) &= P\left(\bigcup_{x\in\mathbb{Q}} (V + x)\right)\\
+&= \sum_{x\in\mathbb{Q}} P\left(V + x\right)\qquad\text{(完全加法性)}\\
+&= \sum_{x\in\mathbb{Q}} P\left(V\right)
+\end{align*}
+**同じ値を無限回足して1にはできない**。
+
+
