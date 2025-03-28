@@ -74,7 +74,7 @@
     "href": "slides/01_probability.html#確率空間の例",
     "title": "確率論",
     "section": "確率空間の例",
-    "text": "確率空間の例\n離散的な確率空間\n\n\\(\\Omega\\colon\\) 有限集合 or 可算無限集合.\n\\(P(A) = \\sum_{k\\in A} P(\\{k\\})\\) ここで \\(\\sum_{k\\in\\Omega} P(\\{k\\})=1\\).\n\n連続的な確率空間\n\n\\(\\Omega=[0,1)\\subseteq\\mathbb{R}\\)\n\\(P([a,b)) = b-a\\) から定まる.\n\n連続的な確率空間\n\n\\(\\Omega=\\{\\mathrm{H},\\mathrm{T}\\}^{\\mathbb{N}}\\).\n任意の\\(n\\in\\mathbb{N}\\) と\\(\\eta\\in\\{\\mathr{H},\\mathrm{T}\\}^n\\) について \\(P(\\{\\omega\\in\\Omega\\mid \\text{$\\omega$の最初の$n$個が特定の値}\\}) = \\frac1{2^n}\\)."
+    "text": "確率空間の例\n離散的な確率空間\n\n\\(\\Omega\\colon\\) 有限集合 or 可算無限集合.\n\\(P(A) = \\sum_{k\\in A} P(\\{k\\})\\) ここで \\(\\sum_{k\\in\\Omega} P(\\{k\\})=1\\).\n\n連続的な確率空間\n\n\\(\\Omega=[0,1)\\subseteq\\mathbb{R}\\)\n\\(P([a,b)) = b-a\\) から定まる.\n\n連続的な確率空間\n\n\\(\\Omega=\\{\\mathrm{H},\\mathrm{T}\\}^{\\mathbb{N}}\\).\n任意の\\(n\\in\\mathbb{N}\\) と \\(\\eta\\in\\{\\mathrm{H},\\mathrm{T}\\}^n\\) について \\(P(\\{\\omega\\in\\Omega\\mid \\text{$\\omega$の最初の$n$個が $\\eta$}\\}) = \\frac1{2^n}\\)."
   },
   {
     "objectID": "slides/01_probability.html#確率の性質",
