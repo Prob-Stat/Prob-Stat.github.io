@@ -67,76 +67,111 @@
     "href": "slides/01_probability.html#集合の演算",
     "title": "確率論",
     "section": "集合の演算",
-    "text": "集合の演算\n複数の集合から新しい集合を作る演算がある。\n\\[\\begin{align*}\nA\\cup B &\\coloneqq\\left\\{x\\mid x\\in A \\text{ または } x \\in B\\right\\}\\qquad\\text{(和集合)}\\\\\nA\\cap B &\\coloneqq \\left\\{x\\mid x\\in A \\text{ かつ } x \\in B\\right\\}\\qquad\\text{(積集合)}\\\\\nA\\setminus B &\\coloneqq \\left\\{x\\mid x\\in A \\text{ かつ } x \\notin B\\right\\}\\qquad\\text{(差集合)}\n\\end{align*}\\]\nまた、全体の集合 \\(\\Omega\\) というのが文脈上存在する場合は、\n\\[\\begin{align*}\nA^\\mathrm{c} &\\coloneqq \\Omega\\setminus A\\qquad\\text{(補集合)}\n\\end{align*}\\]\nと定義する。 これらの演算は以下の法則を満たす。\n\n(交換法則) \\(\\quad A\\cup B = B\\cup A, \\quad A\\cap B = B\\cap A\\).\n(結合法則) \\(\\quad (A\\cup B)\\cup C = A\\cup (B\\cup C), \\quad (A\\cap B)\\cap C=A\\cap(B\\cap C)\\).\n(分配法則) \\(\\quad A\\cup(B\\cap C) = (A\\cup B)\\cap (A\\cup C),\\quad A\\cap (B\\cup C) = (A\\cap B)\\cup (A\\cap C)\\).\n(冪等法則) \\(\\quad A \\cup A = A, \\quad A\\cap A = A\\).\n(吸収法則) \\(\\quad A \\cup (A\\cap B) = A, \\quad A\\cap (A\\cup B) = A\\).\n\\(A\\cup \\varnothing = A,\\quad A\\cap\\varnothing = \\varnothing\\).\n\n和集合と積集合は結合法則満たすことから、括弧を使わずに \\(A\\cup B\\cup C\\) と表すことができる。 補集合に関連して以下の法則を満たす。\n\n\\(\\Omega^\\mathrm{c} = \\varnothing,\\quad \\varnothing^\\mathrm{c} = \\Omega\\).\n\\(A\\cup \\Omega = \\Omega,\\quad A\\cap\\Omega = A\\).\n\\(A\\cup A^\\mathrm{c} = \\Omega,\\quad A\\cap A^\\mathrm{c} =\\varnothing\\).\n(ド・モルガンの法則) \\(\\quad(A\\cup B)^\\mathrm{c} = A^\\mathrm{c} \\cap B^\\mathrm{c},\\quad(A\\cap B)^\\mathrm{c} = A^\\mathrm{c} \\cup B^\\mathrm{c}\\)\n(二重補集合の法則) \\(\\quad (A^\\mathrm{c})^\\mathrm{c} = A\\)."
+    "text": "集合の演算\n複数の集合から新しい集合を作る演算がある。\n\\[\\begin{align*}\nA\\cup B &\\coloneqq\\left\\{x\\mid x\\in A \\textsf{ または } x \\in B\\right\\}\\qquad\\textsf{(和集合)}\\\\\nA\\cap B &\\coloneqq \\left\\{x\\mid x\\in A \\textsf{ かつ } x \\in B\\right\\}\\qquad\\textsf{(積集合)}\\\\\nA\\setminus B &\\coloneqq \\left\\{x\\mid x\\in A \\textsf{ かつ } x \\notin B\\right\\}\\qquad\\textsf{(差集合)}\n\\end{align*}\\]\nこれらの演算は以下の法則を満たす。\n\n(交換法則) \\(\\quad A\\cup B = B\\cup A, \\quad A\\cap B = B\\cap A\\).\n(結合法則) \\(\\quad (A\\cup B)\\cup C = A\\cup (B\\cup C), \\quad (A\\cap B)\\cap C=A\\cap(B\\cap C)\\).\n(分配法則) \\(\\quad A\\cup(B\\cap C) = (A\\cup B)\\cap (A\\cup C),\\quad A\\cap (B\\cup C) = (A\\cap B)\\cup (A\\cap C)\\).\n(冪等法則) \\(\\quad A \\cup A = A, \\quad A\\cap A = A\\).\n(吸収法則) \\(\\quad A \\cup (A\\cap B) = A, \\quad A\\cap (A\\cup B) = A\\).\n\\(A\\cup \\varnothing = A,\\quad A\\cap\\varnothing = \\varnothing\\).\n\n和集合と積集合は結合法則満たすことから、括弧を使わずに \\(A\\cup B\\cup C\\) と表すことができる。\n集合 \\(A\\) と \\(B\\) が \\(A\\cap B=\\varnothing\\) を満たすとき、確率論文脈では、「\\(A\\) と \\(B\\) は排反である」(集合論文脈では「互いに素である」)という。"
+  },
+  {
+    "objectID": "slides/01_probability.html#補集合",
+    "href": "slides/01_probability.html#補集合",
+    "title": "確率論",
+    "section": "補集合",
+    "text": "補集合\nまた、全体の集合 \\(\\Omega\\) というのが文脈上存在する場合は、\n\\[\\begin{align*}\nA^\\mathrm{c} &\\coloneqq \\Omega\\setminus A\\qquad\\textsf{(補集合)}\n\\end{align*}\\]\nと定義する。\n補集合に関連して以下の法則を満たす。\n\n\\(\\Omega^\\mathrm{c} = \\varnothing,\\quad \\varnothing^\\mathrm{c} = \\Omega\\).\n\\(A\\cup \\Omega = \\Omega,\\quad A\\cap\\Omega = A\\).\n\\(A\\cup A^\\mathrm{c} = \\Omega,\\quad A\\cap A^\\mathrm{c} =\\varnothing\\).\n(ド・モルガンの法則) \\(\\quad(A\\cup B)^\\mathrm{c} = A^\\mathrm{c} \\cap B^\\mathrm{c},\\quad(A\\cap B)^\\mathrm{c} = A^\\mathrm{c} \\cup B^\\mathrm{c}\\)\n(二重補集合の法則) \\(\\quad (A^\\mathrm{c})^\\mathrm{c} = A\\)."
   },
   {
     "objectID": "slides/01_probability.html#集合族",
     "href": "slides/01_probability.html#集合族",
     "title": "確率論",
     "section": "集合族",
-    "text": "集合族\n集合 \\(\\Omega\\) について \\(2^\\Omega\\) を \\(\\Omega\\) のすべての部分集合からなる集合を表す。\n\\[\\begin{align*}\n2^\\Omega &\\coloneqq \\left\\{A\\subseteq\\Omega\\right\\}.\n\\end{align*}\\]\nこれを \\(\\Omega\\) の冪集合という。 例えば \\(\\Omega=\\{1,2,3\\}\\) のとき、\n\\[\n2^\\Omega = \\left\\{\\varnothing, \\{1\\}, \\{2\\}, \\{3\\}, \\{1,2\\},\\{2,3\\},\\{1,3\\},\\{1,2,3\\}\\right\\}\n\\]\nである。 \\(\\Omega\\) が有限集合のとき、\\(|2^\\Omega|=2^{|\\Omega|}\\) が成り立つ。 また、\\(2^\\Omega\\) の部分集合を \\(\\Omega\\) 上の(部分)集合族と呼ぶ。 集合 \\(\\Lambda\\) の各 \\(\\lambda\\in\\Lambda\\) に対して集合 \\(A_\\lambda\\subseteq\\Omega\\) が存在するとき、集合族\n\\[\n\\left\\{A_\\lambda\\subseteq\\Omega\\mid \\lambda\\in\\Lambda\\right\\}\\subseteq 2^\\Omega\n\\]\nを添字集合 \\(\\Lambda\\) で添字付けられた \\(\\Omega\\) 上の集合族という。 添字集合が有限集合の場合は集合族全体の和集合や積集合は二つの集合の和集合と積集合の定義を繰り返し用いることで定義できる。 それらは以下のように表す。\n\\[\n\\bigcup_{\\lambda\\in\\Lambda} A_\\lambda \\quad,\\quad\n\\bigcap_{\\lambda\\in\\Lambda} A_\\lambda.\n\\]\n添字集合 \\(\\Lambda\\) が無限集合の場合は和集合と積集合を以下で定義する。\n\\[\\begin{align*}\n\\bigcup_{\\lambda\\in\\Lambda} A_\\lambda\n&\\coloneqq\n\\left\\{x\\in\\Omega\\mid \\exists \\lambda\\in\\Lambda,\\quad x\\in A_\\lambda\\right\\}\\\\\n\\bigcap_{\\lambda\\in\\Lambda} A_\\lambda\n&\\coloneqq\n\\left\\{x\\in\\Omega\\mid \\forall \\lambda\\in\\Lambda,\\quad x\\in A_\\lambda\\right\\}\n\\end{align*}\\]\nこの定義は \\(\\Lambda\\) が有限集合の場合も正しいものである。 この場合もド・モルガンの法則は成り立つ。つまり、\n\\[\\begin{align*}\n\\left(\\bigcup_{\\lambda\\in\\Lambda} A_\\lambda\\right)^\\mathrm{c}\n&=\n\\bigcap_{\\lambda\\in\\Lambda} A_\\lambda^\\mathrm{c}\\\\\n\\left(\\bigcap_{\\lambda\\in\\Lambda} A_\\lambda\\right)^\\mathrm{c}\n&=\n\\bigcup_{\\lambda\\in\\Lambda} A_\\lambda^\\mathrm{c}\n\\end{align*}\\]\nが成り立つ。"
+    "text": "集合族\n集合 \\(\\Omega\\) について \\(2^\\Omega\\) を \\(\\Omega\\) のすべての部分集合からなる集合を表す。\n\\[\\begin{align*}\n2^\\Omega &\\coloneqq \\left\\{A\\subseteq\\Omega\\right\\}.\n\\end{align*}\\]\nこれを \\(\\Omega\\) の冪集合という。 例えば \\(\\Omega=\\{1,2,3\\}\\) のとき、\n\\[\n2^\\Omega = \\left\\{\\varnothing, \\{1\\}, \\{2\\}, \\{3\\}, \\{1,2\\},\\{2,3\\},\\{1,3\\},\\{1,2,3\\}\\right\\}\n\\]\nである。 \\(\\Omega\\) が有限集合のとき、\\(|2^\\Omega|=2^{|\\Omega|}\\) が成り立つ。 また、\\(2^\\Omega\\) の部分集合を \\(\\Omega\\) 上の(部分)集合族と呼ぶ。 集合 \\(\\Lambda\\) の各 \\(\\lambda\\in\\Lambda\\) に対して集合 \\(A_\\lambda\\subseteq\\Omega\\) が存在するとき、集合族\n\\[\n\\left\\{A_\\lambda\\subseteq\\Omega\\mid \\lambda\\in\\Lambda\\right\\}\\subseteq 2^\\Omega\n\\]\nを添字集合 \\(\\Lambda\\) で添字付けられた \\(\\Omega\\) 上の集合族という。\n添字集合が有限集合の場合は集合族全体の和集合や積集合は二つの集合の和集合と積集合の定義を繰り返し用いることで定義できる。 それらは以下のように表す。\n\\[\n\\bigcup_{\\lambda\\in\\Lambda} A_\\lambda \\quad,\\quad\n\\bigcap_{\\lambda\\in\\Lambda} A_\\lambda.\n\\]"
+  },
+  {
+    "objectID": "slides/01_probability.html#ドモルガンの法則",
+    "href": "slides/01_probability.html#ドモルガンの法則",
+    "title": "確率論",
+    "section": "ド・モルガンの法則",
+    "text": "ド・モルガンの法則\n添字集合 \\(\\Lambda\\) が無限集合の場合は和集合と積集合を以下で定義する。\n\\[\\begin{align*}\n\\bigcup_{\\lambda\\in\\Lambda} A_\\lambda\n&\\coloneqq\n\\left\\{x\\in\\Omega\\mid \\exists \\lambda\\in\\Lambda,\\quad x\\in A_\\lambda\\right\\}\\\\\n\\bigcap_{\\lambda\\in\\Lambda} A_\\lambda\n&\\coloneqq\n\\left\\{x\\in\\Omega\\mid \\forall \\lambda\\in\\Lambda,\\quad x\\in A_\\lambda\\right\\}\n\\end{align*}\\]\nこの定義は \\(\\Lambda\\) が有限集合の場合も正しいものである。 この場合もド・モルガンの法則は成り立つ。つまり、\n\\[\\begin{align*}\n\\left(\\bigcup_{\\lambda\\in\\Lambda} A_\\lambda\\right)^\\mathrm{c}\n&=\n\\bigcap_{\\lambda\\in\\Lambda} A_\\lambda^\\mathrm{c},&\n\\left(\\bigcap_{\\lambda\\in\\Lambda} A_\\lambda\\right)^\\mathrm{c}\n&=\n\\bigcup_{\\lambda\\in\\Lambda} A_\\lambda^\\mathrm{c}\n\\end{align*}\\]\nが成り立つ。\n証明: \\(x\\in\\Omega\\) について、 \\[\\begin{align*}\nx\\in\\left(\\bigcup_{\\lambda\\in\\Lambda} A_\\lambda\\right)^\\mathrm{c}\n&\\iff x\\notin\\left(\\bigcup_{\\lambda\\in\\Lambda} A_\\lambda\\right)\\\\\n&\\iff \\lnot\\left(\\exists\\lambda\\in\\Lambda,\\quad x\\in A_\\lambda\\right)\\\\\n&\\iff \\forall\\lambda\\in\\Lambda,\\quad x\\notin A_\\lambda\\\\\n&\\iff \\forall\\lambda\\in\\Lambda,\\quad x\\in A_\\lambda^\\mathrm{c}\\\\\n&\\iff x\\in\\bigcap_{\\lambda\\in\\Lambda} A_\\lambda^{\\mathrm{c}}.\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/01_probability.html#集合の濃度",
+    "href": "slides/01_probability.html#集合の濃度",
+    "title": "確率論",
+    "section": "集合の濃度",
+    "text": "集合の濃度\n集合の要素数を無限集合に一般化したものを集合の濃度という。 可算濃度"
   },
   {
     "objectID": "slides/01_probability.html#標本空間と確率",
     "href": "slides/01_probability.html#標本空間と確率",
     "title": "確率論",
     "section": "標本空間と確率",
-    "text": "標本空間と確率\n\n\\(\\Omega\\colon\\) 集合。これの部分集合に確率が与えられる\n\\(P\\colon 2^\\Omega\\to[0,1].\\) 確率を与える関数\n\n\nExample 1  \n\n\\(\\Omega=\\{表,裏\\}\\).\n\\(P(\\varnothing)= 0,\\, P(\\{\\mathrm{表}\\})=P(\\{\\mathrm{裏}\\})=\\frac12,\\,P(\\{\\mathrm{表},\\mathrm{裏}\\})=1\\).\n\\(\\Omega=\\{1,2,3,4,5,6\\}\\).\n\\(P(A) = \\frac{|A|}6\\quad\\forall A\\subseteq\\Omega\\).\n\\(\\Omega=\\{晴,雨,雪\\}\\).\n\\(P(\\varnothing)= 0,\\, P(\\{晴\\})=0.7,\\, P(\\{雨\\})=0.2,\\,P(\\{雪\\})=0.1\\),\\ \\(P(\\{晴,雨\\})=0.9,\\, P(\\{雨,雪\\})=0.3,\\, P(\\{雪,晴\\})=0.8\\)\\ \\(P(\\{晴,雨,雪\\})=1\\)."
+    "text": "標本空間と確率\n\n\\(\\Omega\\colon\\) 集合。これの部分集合に確率が与えられる\n\\(P\\colon 2^\\Omega\\to[0,1].\\) 確率を与える関数\n\n\nExample 1  \n\n\n\\(\\Omega=\\{表,裏\\}\\).\n\\(P(\\varnothing)= 0,\\, P(\\{\\mathrm{表}\\})=P(\\{\\mathrm{裏}\\})=\\frac12,\\,P(\\{\\mathrm{表},\\mathrm{裏}\\})=1\\).\n\\(\\Omega=\\{1,2,3,4,5,6\\}\\).\n\\(P(A) = \\frac{|A|}6\\quad\\forall A\\subseteq\\Omega\\).\n\\(\\Omega=\\{晴,雨,雪\\}\\).\n\\(P(\\varnothing)= 0,\\, P(\\{晴\\})=0.7,\\, P(\\{雨\\})=0.2,\\,P(\\{雪\\})=0.1\\), \\(P(\\{晴,雨\\})=0.9,\\, P(\\{雨,雪\\})=0.3,\\, P(\\{雪,晴\\})=0.8\\), \\(P(\\{晴,雨,雪\\})=1\\)."
   },
   {
     "objectID": "slides/01_probability.html#確率論の公理有限版",
     "href": "slides/01_probability.html#確率論の公理有限版",
     "title": "確率論",
     "section": "確率論の公理有限版",
-    "text": "確率論の公理有限版\n\n\\(\\Omega\\colon\\) 有限集合(標本空間)\n\\(P\\colon 2^\\Omega\\to[0,1]\\) (確率測度)\n\n確率の公理\n\n\\(P(\\Omega)=1\\).\n\\(\\forall A, B\\subseteq\\Omega\\), \\(A\\cap B=\\varnothing\\implies P(A\\cup B)=P(A)+P(B)\\) (有限加法性).\n\n\n\\(\\Omega\\)を無限集合にしたい場合はどうする？"
+    "text": "確率論の公理有限版\n\n\\(\\Omega\\colon\\) 有限集合(標本空間)\n\\(P\\colon 2^\\Omega\\to[0,1]\\) (確率測度)\n\n確率の公理\n\n\\(P(\\Omega)=1\\).\n\\(\\forall A, B\\subseteq\\Omega\\), \\(A\\cap B=\\varnothing\\implies P(A\\cup B)=P(A)+P(B)\\) (有限加法性).\n\nこの公理を満たすペア \\((\\Omega,\\, P)\\) を確率空間という。\n例えば\n\\[\n   P(\\{\\text{\"晴\"}, \\text{\"雨\"}\\}) = P(\\{\\text{\"晴\"}\\}) + P(\\{\\text{\"雨\"}\\})\n\\] という等式は「晴れもしくは雨になる確率 \\(=\\) 晴れになる確率 \\(+\\) 雨になる確率」という意味の等式になる。\nこのように \\(\\Omega\\) が有限集合の場合、各 \\(\\omega\\in\\Omega\\) について、一つの要素の確率 \\(P(\\{\\omega\\})\\) のみから \\(P\\) が定まる。\n\n\\(\\Omega\\)を無限集合にしたい場合はどうする？"
   },
   {
     "objectID": "slides/01_probability.html#確率論の公理可算版",
     "href": "slides/01_probability.html#確率論の公理可算版",
     "title": "確率論",
     "section": "確率論の公理可算版",
-    "text": "確率論の公理可算版\n\n\\(\\Omega\\colon\\) 高々可算集合(標本空間)\n\\(P\\colon 2^\\Omega\\to[0,1]\\) (確率測度)\n\n確率の公理\n\n\\(P(\\Omega)=1\\).\n\\(\\forall A, B\\subseteq\\Omega\\), \\(A\\cap B=\\varnothing\\implies P(A\\cup B)=P(A)+P(B)\\) (有限加法性).\n\\(\\forall (A_n\\subseteq\\Omega)_{n=1,\\dotsc}\\), \\(\\forall i\\ne j,\\, A_i\\cap A_j=\\varnothing\\implies P\\left(\\bigcup_{n=1}^\\infty A_n\\right)=\\sum_{n=1}^\\infty P(A_n)\\) (完全加法性, \\(\\sigma\\)-加法性)."
+    "text": "確率論の公理可算版\n\n\\(\\Omega\\colon\\) 高々可算集合(標本空間)\n\\(P\\colon 2^\\Omega\\to[0,1]\\) (確率測度)\n\n確率の公理\n\n\\(P(\\Omega)=1\\). \n\\(\\forall (A_n\\subseteq\\Omega)_{n\\ge 0}\\), \\(\\forall i\\ne j,\\, A_i\\cap A_j=\\varnothing\\implies P\\left(\\bigcup_{n\\ge0} A_n\\right)=\\sum_{n\\ge0} P(A_n)\\) (完全加法性, \\(\\sigma\\)-加法性).\n\n無限和 \\(\\sum_{n\\ge0} P(A_n)\\) において \\(P(A_n)\\ge 0\\) なので、この無限和が存在するときは絶対収束する。 よって和の順序を並び変えても収束値は変わらない。"
   },
   {
     "objectID": "slides/01_probability.html#確率論の公理最終版",
     "href": "slides/01_probability.html#確率論の公理最終版",
     "title": "確率論",
     "section": "確率論の公理最終版?",
-    "text": "確率論の公理最終版?\nこれでよいのか？\n\n\\(\\Omega\\colon\\) (非可算でもよい)集合(標本空間)\n\\(P\\colon 2^\\Omega\\to[0,1]\\) (確率測度)\n\n確率の公理\n\n\\(P(\\Omega)=1\\).\n\\(\\forall A, B\\subseteq\\Omega\\), \\(A\\cap B=\\varnothing\\implies P(A\\cup B)=P(A)+P(B)\\) (有限加法性).\n\\(\\forall (A_n\\subseteq\\Omega)_{n=1,\\dotsc}\\), \\(\\forall i\\ne j,\\, A_i\\cap A_j=\\varnothing\\implies P\\left(\\bigcup_{n=1}^\\infty A_n\\right)=\\sum_{n=1}^\\infty P(A_n)\\) (完全加法性, \\(\\sigma\\)-加法性).\n\n\nこれで大丈夫？"
+    "text": "確率論の公理最終版?\nこれでよいのか？\n\n\\(\\Omega\\colon\\) (非可算でもよい)集合(標本空間)\n\\(P\\colon 2^\\Omega\\to[0,1]\\) (確率測度)\n\n確率の公理\n\n\\(P(\\Omega)=1\\). \n\\(\\forall (A_n\\subseteq\\Omega)_{n\\ge 0}\\), \\(\\forall i\\ne j,\\, A_i\\cap A_j=\\varnothing\\implies P\\left(\\bigcup_{n\\ge0} A_n\\right)=\\sum_{n\\ge0} P(A_n)\\) (完全加法性, \\(\\sigma\\)-加法性).\n\n\nこれで大丈夫？"
   },
   {
-    "objectID": "slides/01_probability.html#ダメー完全加法性選択公理",
-    "href": "slides/01_probability.html#ダメー完全加法性選択公理",
+    "objectID": "slides/01_probability.html#ダメ完全加法性選択公理",
+    "href": "slides/01_probability.html#ダメ完全加法性選択公理",
     "title": "確率論",
-    "section": "ダメー(完全加法性+選択公理)",
-    "text": "ダメー(完全加法性+選択公理)\n\n\\(\\Omega=[0,1)\\).\n\\(\\forall c\\in\\Omega,\\, A\\subseteq\\Omega,\\, P(A+c) = P(A)\\) where \\(A+c\\colon=\\{a+c-\\lfloor a+c\\rfloor\\mid a\\in A\\}\\).\n\n選択公理を仮定するとそのような確率空間は存在しない。\n\\(\\Omega\\)の上の同値関係を \\(x\\sim y\\stackrel{\\mathrm{def}}{\\iff} x-y \\in\\mathbb{Q}\\)と定義する。\n\\(\\Omega\\)の上の同値類から一つずつ要素を選んで集合\\(V\\)を作る(選択公理)。\n\\[\\begin{align*}\n1 = P([0,1)) &= P\\left(\\bigcup_{x\\in\\mathbb{Q}} (V + x)\\right)\\\\\n&= \\sum_{x\\in\\mathbb{Q}} P\\left(V + x\\right)\\qquad\\text{(完全加法性)}\\\\\n&= \\sum_{x\\in\\mathbb{Q}} P\\left(V\\right)\\qquad\\text{(平行移動不変性).}\n\\end{align*}\\] 同じ値を無限回足して1にはできない。"
+    "section": "ダメ(完全加法性+選択公理)",
+    "text": "ダメ(完全加法性+選択公理)\n\n\\(\\Omega=[0,1)\\).\n\\(\\forall c\\in\\Omega,\\, A\\subseteq\\Omega,\\, P(A+c) = P(A)\\) where \\(A+c\\coloneqq\\{a+c-\\lfloor a+c\\rfloor\\mid a\\in A\\}\\).\n\n選択公理を仮定するとそのような確率空間は存在しない。\n\\(\\Omega\\)の上の同値関係を \\(x\\sim y\\stackrel{\\mathrm{def}}{\\iff} x-y \\in\\mathbb{Q}\\)と定義する。\n\\(\\Omega\\)の上の同値類から一つずつ要素を選んで集合 \\(V\\) を作る(選択公理)。\n\\[\\begin{align*}\n1 = P([0,1)) &= P\\left(\\bigcup_{x\\in\\mathbb{Q}} (V + x)\\right)\\\\\n&= \\sum_{x\\in\\mathbb{Q}} P\\left(V + x\\right)\\qquad\\textsf{(完全加法性)}\\\\\n&= \\sum_{x\\in\\mathbb{Q}} P\\left(V\\right)\\qquad\\textsf{(平行移動不変性).}\n\\end{align*}\\] 同じ値を無限回足して1にはできない。"
   },
   {
     "objectID": "slides/01_probability.html#ちゃんとした確率論の公理",
     "href": "slides/01_probability.html#ちゃんとした確率論の公理",
     "title": "確率論",
     "section": "ちゃんとした確率論の公理",
-    "text": "ちゃんとした確率論の公理\n確率空間 \\((\\Omega, \\mathcal{F}, P)\\)\n\n\\(\\Omega\\colon\\) 集合(標本空間)\n\\(\\mathcal{F}\\subseteq 2^\\Omega\\) (事象の集合、可測集合)\n\\(P\\colon\\mathcal{F}\\to[0,1]\\) (確率測度、確率は \\(\\mathcal{F}\\) の要素にのみ定義される！)\n\n可測集合の公理(\\(\\sigma\\)-加法族、完全加法族)\n\n\\(\\varnothing\\in\\mathcal{F}\\).\n\\(A\\in\\mathcal{F}\\implies \\Omega\\setminus A\\in\\mathcal{F}\\).\n\\((A_n\\in\\mathcal{F})_{n=1,\\dotsc}\\implies \\bigcup_{n=1}^\\infty A_n\\in\\mathcal{F}\\) (完全加法性, \\(\\sigma\\)-加 法性).\n\n確率の公理\n\n\\(P(\\Omega)=1\\).\n\\(\\forall (A_n\\in\\mathcal{F})_{n=1,\\dotsc}\\), \\(\\forall i\\ne j,\\, A_i\\cap A_j=\\varnothing\\implies P\\left(\\bigcup_{n=1}^\\infty A_n\\right)=\\sum_{n=1}^\\infty P(A_n)\\) (完全加法性, \\(\\sigma\\)-加法性)."
+    "text": "ちゃんとした確率論の公理\n確率空間 \\((\\Omega, \\mathcal{F}, P)\\)\n\n\\(\\Omega\\colon\\) 集合(標本空間)\n\\(\\mathcal{F}\\subseteq 2^\\Omega\\) (事象の集合、可測集合)\n\\(P\\colon\\mathcal{F}\\to[0,1]\\) (確率測度、確率は \\(\\mathcal{F}\\) の要素にのみ定義される！)\n\n可測集合 \\(\\mathcal{F}\\) の公理(\\(\\sigma\\)-加法族、完全加法族)\n\n\\(\\varnothing\\in\\mathcal{F}\\).\n\\(A\\in\\mathcal{F}\\implies \\Omega\\setminus A\\in\\mathcal{F}\\).\n\\((A_n\\in\\mathcal{F})_{n\\ge 0}\\implies \\bigcup_{n\\ge 0} A_n\\in\\mathcal{F}\\) (完全加法性, \\(\\sigma\\)-加 法性).\n\n確率の公理\n\n\\(P(\\Omega)=1\\).\n\\(\\forall (A_n\\in\\mathcal{F})_{n=1,\\dotsc}\\), \\(\\forall i\\ne j,\\, A_i\\cap A_j=\\varnothing\\implies P\\left(\\bigcup_{n=1}^\\infty A_n\\right)=\\sum_{n=1}^\\infty P(A_n)\\) (完全加法性, \\(\\sigma\\)-加法性).\n\nつまり、確率が定義される対象を \\(\\mathcal{F}\\) に限定する。\nさっきの例に現れた選択公理で作った集合 \\(V\\) を \\(\\mathcal{F}\\) に含めなければ、矛盾なく確率を定義できる。"
   },
   {
     "objectID": "slides/01_probability.html#この授業の方針",
     "href": "slides/01_probability.html#この授業の方針",
     "title": "確率論",
     "section": "この授業の方針",
-    "text": "この授業の方針\nここまでのまとめ\n\n\\(\\Omega\\) が高々可算の場合は \\(\\mathcal{F}=2^\\Omega\\)とできる。\n\\(\\Omega\\) が非可算の場合は(平行移動で不変などの条件を課すと)すべての部分集合を可測とできない場合がある (要選択公理)。\n\nこの授業では \\(\\mathcal{F}=2^\\Omega\\)のつもりですすめる。\n\\(\\Omega\\)の部分集合を事象と呼ぶ。\n実際に考えるような確率空間では非可測な集合\\(A\\notin\\mathcal{F}\\)は選択公理を使わないと構成できない。\n普通に考える集合は全部可測。\nこの授業は測度論の授業じゃないので、非可測な集合については考えないことにする。\n今後、確率空間は\\((\\Omega,\\mathcal{F},P)\\)じゃなくて\\((\\Omega,P)\\)とする。"
+    "text": "この授業の方針\nここまでのまとめ\n\n\\(\\Omega\\) が高々可算の場合は \\(\\mathcal{F}=2^\\Omega\\)とできる。\n\\(\\Omega\\) が非可算の場合は(平行移動で不変などの条件を課すと)すべての部分集合を可測とできない場合がある (要選択公理)。\n\nこの授業では \\(\\mathcal{F}=2^\\Omega\\)のつもりですすめる。\n\\(\\Omega\\) の部分集合を事象と呼ぶ。\n実際に考えるような確率空間では非可測な集合\\(A\\notin\\mathcal{F}\\)は選択公理を使わないと構成できない。\n普通に考える集合は全部可測。\nこの授業は測度論の授業ではないので、非可測な集合については考えないことにする。\n今後、確率空間は \\((\\Omega,\\,\\mathcal{F},\\,P)\\) じゃなくて \\((\\Omega,\\,P)\\) とする。"
   },
   {
-    "objectID": "slides/01_probability.html#確率空間の例",
-    "href": "slides/01_probability.html#確率空間の例",
+    "objectID": "slides/01_probability.html#確率空間の性質",
+    "href": "slides/01_probability.html#確率空間の性質",
     "title": "確率論",
-    "section": "確率空間の例",
-    "text": "確率空間の例\n離散的な確率空間\n\n\\(\\Omega\\colon\\) 有限集合 or 可算無限集合.\n\\(P(A) = \\sum_{k\\in A} P(\\{k\\})\\) ここで \\(\\sum_{k\\in\\Omega} P(\\{k\\})=1\\).\n\n連続的な確率空間\n\n\\(\\Omega=[0,1)\\subseteq\\mathbb{R}\\)\n\\(P([a,b)) = b-a\\) から定まる.\n\n連続的な確率空間\n\n\\(\\Omega=\\{\\mathrm{H},\\mathrm{T}\\}^{\\mathbb{N}}\\).\n任意の\\(n\\in\\mathbb{N}\\) と \\(\\eta\\in\\{\\mathrm{H},\\mathrm{T}\\}^n\\) について \\(P(\\{\\omega\\in\\Omega\\mid \\text{$\\omega$の最初の$n$個が $\\eta$}\\}) = \\frac1{2^n}\\)."
+    "section": "確率空間の性質",
+    "text": "確率空間の性質\n確率空間 \\((\\Omega,\\, P)\\) と任意の \\(A,\\,B\\subseteq \\Omega\\) について以下が成り立つ。\n\n\\(P(A^\\mathrm{c}) = 1 - P(A)\\).\n\\(B\\subseteq A\\implies P(B)\\le P(A)\\)\n\\(P(A\\cup B) = P(A) + P(B) - P(A\\cap B)\\).\n\\(P(A\\cup B) \\le P(A) + P(B)\\qquad\\) (ブールの不等式、union bound).\n\n\nProof. \n\n\\[\n1 = P(\\Omega) = P(A \\cup A^\\mathrm{c}) = P(A) + P(A^\\mathrm{c}).\n\\]\n\\[\nP(A) = P(B\\cup (A\\setminus B)) = P(B) + P(A\\setminus B) \\ge P(B).\n\\]\n\\[\\begin{align*}\nP(A\\cup B) &= P(A \\cup (B\\setminus A)) = P(A) + P(B\\setminus A)\\\\\nP(B) &= P((B\\setminus A) \\cup (A\\cap B)) = P(B\\setminus A) + P(A\\cap B)\n\\end{align*}\\] より、 \\(P(B\\setminus A)\\) を消去することで得られる。\n3 より自明"
   },
   {
-    "objectID": "slides/01_probability.html#確率の性質",
-    "href": "slides/01_probability.html#確率の性質",
+    "objectID": "slides/01_probability.html#ユニオンバウンド",
+    "href": "slides/01_probability.html#ユニオンバウンド",
     "title": "確率論",
-    "section": "確率の性質",
-    "text": "確率の性質\n任意の \\(A,B\\in 2^\\Omega\\) について,\n\n\\(P(\\Omega)=1,\\,P(\\emptyset)=0\\).\n\\(P(A^c) = 1 - P(A) \\quad\\because\\ 1 = P(\\Omega) = P(A\\cup A^c) = P(A) + P(A^c)\\).\n\\(B\\subseteq A\\implies P(B) \\le P(A)\\)\\ \\(\\qquad \\because\\ P(A) = P(B\\cup (A\\setminus B)) = P(B) + P(A\\setminus B)\\ge P(B)\\).\n\\(P(A\\cup B) = P(A) + P(B) - P(A\\cap B)\\)\\ \\(\\qquad \\because\\ P(A\\cup B) = P(B) + P(A\\setminus B),\\, P(A) = P(A\\setminus B) + P(A\\cap B)\\)\n\\(P(A\\cup B) \\le P(A) + P(B)\\) (ブールの不等式, union bound)."
+    "section": "ユニオンバウンド",
+    "text": "ユニオンバウンド\n\nLemma 1 (ユニオンバウンド) 確率空間 \\((\\Omega,\\, P)\\) と \\((A_n\\subseteq\\Omega)_{n\\ge 0}\\) について、 \\[\nP\\left(\\bigcup_{n\\ge 0} A_n\\right) \\le \\sum_{n\\ge 0} P(A_n).\n\\]\n\n\nProof. \\(B_0 \\coloneqq A_0\\), \\(B_n \\coloneqq A_n \\setminus \\bigcup_{k=0}^{n-1} A_k\\) とおくと、\n\\[\\begin{align*}\nP\\left(\\bigcup_{n\\ge 0} A_n\\right) &= P\\left(\\bigcup_{n\\ge 0} B_n\\right)\\\\\n&= \\sum_{n\\ge 0} P\\left(B_n\\right)\\\\\n&\\le \\sum_{n\\ge 0} P\\left(A_n\\right).\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/01_probability.html#確率測度の連続性",
+    "href": "slides/01_probability.html#確率測度の連続性",
+    "title": "確率論",
+    "section": "確率測度の連続性",
+    "text": "確率測度の連続性\n\nTheorem 1 (確率測度の連続性) 確率空間 \\((\\Omega,\\, P)\\) と事象列 \\(A_0\\subseteq A_1\\subseteq \\dotsb \\subseteq \\Omega\\) について \\[\\begin{align*}\nP\\left(\\bigcup_{n\\ge 0} A_n\\right) = \\lim_{n\\to\\infty} P(A_n).\n\\end{align*}\\] また、事象列 \\(\\Omega\\supseteq A_0\\supseteq A_1\\supseteq \\dotsb\\) について \\[\\begin{align*}\nP\\left(\\bigcap_{n\\ge 0} A_n\\right) = \\lim_{n\\to\\infty} P(A_n).\n\\end{align*}\\]\n\n\nProof. 事象列 \\(A_0\\subseteq A_1\\subseteq \\dotsb \\subseteq \\Omega\\) について考える。 \\(B_0\\coloneqq A_0\\), \\(n\\ge 1\\)について\\(B_n\\coloneqq A_n\\setminus A_{n-1}\\)とおく。 このとき、\\(i\\ne j\\)について \\(B_i\\cap B_j=\\varnothing\\)。 また \\(k\\ge 0\\) について、\\(\\bigcup_{n=0}^k B_n = \\bigcup_{n=0}^kA_n = A_k\\) が成り立つ.\n\\[\\begin{align*}\nP\\left(\\bigcup_{n\\ge 0} A_n\\right)&= P\\left(\\bigcup_{n\\ge 0} B_n\\right) =\\sum_{n\\ge 0} P(B_n)\\\\\n&=\\lim_{k\\to\\infty} \\sum_{n=0}^k P(B_n)\n=\\lim_{k\\to\\infty} P\\left(\\bigcup_{n=0}^k B_n\\right)\n=\\lim_{k\\to\\infty} P(A_k).\n\\end{align*}\\]\n事象列 \\(\\Omega\\supseteq A_0\\supseteq A_1\\supseteq \\dotsb\\) の場合についてはド・モルガンの法則を使うことで前半の結果に帰着でき証明できる。"
+  },
+  {
+    "objectID": "slides/01_probability.html#今週の課題",
+    "href": "slides/01_probability.html#今週の課題",
+    "title": "確率論",
+    "section": "今週の課題",
+    "text": "今週の課題\n\\(\\Omega = \\{1,2,3,4,5,6\\}\\) とし、ある \\(P\\colon\\Omega\\to[0,1]\\) について \\((\\Omega,\\,P)\\) を確率空間とする。\n\\[\\begin{align*}\nA&=\\left\\{1,2,3,4\\right\\},&\nB&=\\left\\{2,4,5\\right\\},&\nC&=\\left\\{1,3,5,6\\right\\},&\n\\end{align*}\\] とおくとき、以下の問に答えよ\n\n\n\\(A\\cup B\\),  \\(A\\cap B\\),  \\(A\\setminus B\\),  \\((A\\cup B)\\cap C\\) をもとめよ。\n\\(P(\\{1,3\\})\\),  \\(P(\\{2,4\\})\\),  \\(P(\\{5\\})\\),  \\(P(\\{6\\})\\) を \\(P(A),\\,P(B),\\,P(C)\\) を用いて表せ。"
   }
 ]
