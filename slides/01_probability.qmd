@@ -242,7 +242,7 @@ x\in\left(\bigcup_{\lambda\in\Lambda} A_\lambda\right)^\mathrm{c}
 ## 標本空間と確率
 
 - $\Omega\colon$ 集合。これの部分集合に確率が与えられる
-- $P\colon 2^\Omega\to[0,1].$ 確率を与える関数
+- $P\colon 2^\Omega\to\mathbb{R}_{\ge 0}.$ 確率を与える関数
 
 ::: {#exm-prob}
 
@@ -266,7 +266,7 @@ $P(\{晴,雨,雪\})=1$.
 ## 確率論の公理有限版
 
 - $\Omega\colon$ **有限**集合(**標本空間**)
-- $P\colon 2^\Omega\to[0,1]$ (**確率測度**)
+- $P\colon 2^\Omega\to\mathbb{R}_{\ge 0}$ (**確率測度**)
 
 確率の公理
 
@@ -290,7 +290,7 @@ $\Omega$ を無限集合にしたい場合はどうする？
 
 ## 確率論の公理可算版
 - $\Omega\colon$ **高々可算**集合(**標本空間**)
-- $P\colon 2^\Omega\to[0,1]$ (**確率測度**)
+- $P\colon 2^\Omega\to\mathbb{R}_{\ge 0}$ (**確率測度**)
 
 確率の公理
 
@@ -314,7 +314,7 @@ P(A) &= P\left(\bigcup_{\omega\in A} \{\omega\}\right)\\
 これでよいのか？
 
 - $\Omega\colon$ (**非可算**でもよい)集合(**標本空間**)
-- $P\colon 2^\Omega\to[0,1]$ (**確率測度**)
+- $P\colon 2^\Omega\to\mathbb{R}_{\ge 0}$ (**確率測度**)
 
 確率の公理
 
@@ -352,7 +352,7 @@ $\Omega$ の上の同値類から一つずつ要素を選んで集合 $V$ を作
 
 - $\Omega\colon$ 集合(**標本空間**)
 - $\mathcal{F}\subseteq 2^\Omega$ (**事象の集合**、可測集合)
-- $P\colon\mathcal{F}\to[0,1]$ (**確率測度**、**確率は $\mathcal{F}$ の要素にのみ定義される！**)
+- $P\colon\mathcal{F}\to\mathbb{R}_{\ge 0}$ (**確率測度**、**確率は $\mathcal{F}$ の要素にのみ定義される！**)
 
 可測集合 $\mathcal{F}$ の公理($\sigma$-加法族、完全加法族)
 
@@ -492,7 +492,7 @@ P\left(\bigcup_{n\ge 0} A_n\right)&= P\left(\bigcup_{n\ge 0} B_n\right) =\sum_{n
 
 ## 今週の課題
 
-$\Omega = \{1,2,3,4,5,6\}$ とし、ある $P\colon\Omega\to[0,1]$ について $(\Omega,\,P)$ を確率空間とする。
+$\Omega = \{1,2,3,4,5,6\}$ とし、ある $P\colon\Omega\to\mathbb{R}_{\ge 0}$ について $(\Omega,\,P)$ を確率空間とする。
 事象 $A,\,B,\,C$ を
 
 \begin{align*}
