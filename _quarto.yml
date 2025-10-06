@@ -1,5 +1,7 @@
 project:
   type: website
+  preview:
+    port: 8000
 
 website:
   title: "確率・統計基礎"

@@ -1,22 +1,30 @@
 ---
 title: "確率論"
+subtitle: "集合論と確率空間"
 author: "森 立平"
 format:
   revealjs:
     slide-number: true
     smaller: true
+    html-math-method: mathjax
+    include-in-header: macros.qmd
 css: slides.css
 ---
 
 ## 確率とは
 
-- 世の中のランダムな事象を数学的に記述したもの
-- 統計・機械学習の基礎となっている
-- 極限定理: 確率$p$で表が出るコインを$N$回投げた時に、表が出る回数$F$は
+::: {.wide-list}
+- 世の中のランダムな事象を数学的に記述したもの。
+- 統計・機械学習の基礎となっている。
+:::
 
+極限定理: 確率 $p$ で表が出るコインを$N$ 回投げた時に、表が出る回数を $F$ とすると
+
+::: {.wide-list}
 - 大数の法則: $\frac{F}{N} \to p$
 - 大偏差原理: $\Pr\left(\left|\frac{F}{N} - p\right| > \epsilon\right) = \mathrm{e}^{-\beta N}$
-- 中心極限定理: $\frac{F-pN}{\sqrt{N}}\to$正規分布
+- 中心極限定理: $\frac{F-pN}{\sqrt{N}}\to$ 正規分布
+:::
 
 ## 統計とは
 
@@ -28,13 +36,174 @@ css: slides.css
 ## 確率論の数学モデルとは？
 
 :::{.r-stack}
-測度論！
+**測度論！**
 :::
 
+::: {.wide-list}
 - 確率は面積($=$測度)のようなもの。
 - 数学的に\textbf{厳密}に様々な結果(大数の法則、大偏差原理、中心極限定理)が証明できる。
 - とても重要だが勉強するのは3年生以降(解析学要論Ⅱ、確率論)。
-- この授業では**測度論には深入りせず、基礎的な部分はごまかしながら確率・統計の重要な理論について学ぶ**。
+- この授業では**測度論には深入りせず、数学的に厳密な議論なごまかしながら確率・統計について学ぶ**。
+:::
+
+## この授業の進め方
+
+::: {.wide-list}
+- 講義資料は <http://prob-stat.github.io> にすべてある。ここだけ見ればOK。
+- その他の連絡事項はTACTを通じて行う。
+- 毎回課題を出す。提出はTACTを用いる。
+- 成績は**課題50% 期末試験50%**.
+:::
+
+## 集合
+
+集合 $=$ 「ものの集まり」
+
+\begin{align*}
+A &= \{1,2,3\}&
+B &= \{赤、青、黄、緑\}
+\end{align*}
+
+集合を構成するものを**要素**もしくは**元**という。
+
+- $x\in A$: 要素 $x$ は集合 $A$ に含まれる。
+- $x\notin A$: 要素 $x$ は集合 $A$ に含まない。
+- $|A|$: 集合 $A$ の要素数
+
+要素数が無限の集合を考えることもできる。
+例えば
+
+\begin{align*}
+A&=\{n\in\mathbb{N}\mid \textsf{$n$ は偶数}\},& B&=\{x\in\mathbb{R}\mid \textsf{$x$ は無理数} \}
+\end{align*}
+
+という集合は無限集合の例となる。
+
+- $\varnothing$: **空集合** $\coloneqq$ 要素数が 0 の集合 。
+
+## 集合の関係
+
+集合 $A$ の要素がすべて集合 $B$ に含まれるとき、$A$ を $B$ の**部分集合** という。
+
+\begin{align*}
+A\subseteq B &\defiff \forall x\,(x\in A\implies x \in B)&\textsf{($A$ は $B$ の部分集合)}\\
+A\supseteq B &\defiff B\subseteq A&\textsf{($A$ は $B$ の上位集合)}\\
+A = B &\defiff (A\subseteq B\land A\supseteq B)& \textsf{($A$ と $B$ は等しい)}\\
+A \ne B &\defiff \lnot(A = B)& \textsf{($A$ と $B$ は等しくない)}
+\end{align*}
+
+また、
+
+\begin{align*}
+A\subsetneq B &\defiff (A\subseteq B \land A\ne B)&\textsf{($A$ は $B$ の真部分集合)}\\
+A\supsetneq B &\defiff B\subsetneq A&\textsf{($A$ は $B$ の真上位集合)}
+\end{align*}
+
+とする。
+部分集合や上位集合のような集合間の関係を**包含関係**という。
+集合 $A,\,B$ について、$A\subseteq B$ と $B\subseteq A$ のどちらかが成り立つとき、「$A$ と $B$ の間に包含関係が成り立
+つ」という。
+
+包含関係は以下の三条件を満たす(半順序の公理)。
+
+* (反射律) $\quad A\subseteq A$.
+* (反対称律) $\quad (A\subseteq B\land B\subseteq A) \iff A = B$.
+* (推移律) $\quad (A\subseteq B\land B\subseteq C)\implies A\subseteq C$.
+
+## 集合の演算
+
+複数の集合から新しい集合を作る演算がある。
+
+\begin{align*}
+A\cup B &\coloneqq\left\{x\mid x\in A \text{ または } x \in B\right\}\qquad\text{(和集合)}\\
+A\cap B &\coloneqq \left\{x\mid x\in A \text{ かつ } x \in B\right\}\qquad\text{(積集合)}\\
+A\setminus B &\coloneqq \left\{x\mid x\in A \text{ かつ } x \notin B\right\}\qquad\text{(差集合)}
+\end{align*}
+
+また、全体の集合 $\Omega$ というのが文脈上存在する場合は、
+
+\begin{align*}
+A^\mathrm{c} &\coloneqq \Omega\setminus A\qquad\text{(補集合)}
+\end{align*}
+
+と定義する。
+これらの演算は以下の法則を満たす。
+
+* (交換法則) $\quad A\cup B = B\cup A, \quad A\cap B = B\cap A$.
+* (結合法則) $\quad (A\cup B)\cup C = A\cup (B\cup C), \quad (A\cap B)\cap C=A\cap(B\cap C)$.
+* (分配法則) $\quad A\cup(B\cap C) = (A\cup B)\cap (A\cup C),\quad A\cap (B\cup C) = (A\cap B)\cup (A\cap C)$.
+* (冪等法則) $\quad A \cup A = A, \quad A\cap A = A$.
+* (吸収法則) $\quad A \cup (A\cap B) = A, \quad A\cap (A\cup B) = A$.
+* $A\cup \varnothing = A,\quad A\cap\varnothing = \varnothing$.
+
+和集合と積集合は結合法則満たすことから、括弧を使わずに $A\cup B\cup C$ と表すことができる。
+補集合に関連して以下の法則を満たす。
+
+* $\Omega^\mathrm{c} = \varnothing,\quad \varnothing^\mathrm{c} = \Omega$.
+* $A\cup \Omega = \Omega,\quad A\cap\Omega = A$.
+* $A\cup A^\mathrm{c} = \Omega,\quad A\cap A^\mathrm{c} =\varnothing$.
+* (ド・モルガンの法則) $\quad(A\cup B)^\mathrm{c} = A^\mathrm{c} \cap B^\mathrm{c},\quad(A\cap B)^\mathrm{c} = A^\mathrm{c} \cup B^\mathrm{c}$
+* (二重補集合の法則) $\quad (A^\mathrm{c})^\mathrm{c} = A$.
+
+
+## 集合族
+
+集合 $\Omega$ について $2^\Omega$ を $\Omega$ のすべての部分集合からなる集合を表す。
+
+\begin{align*}
+2^\Omega &\coloneqq \left\{A\subseteq\Omega\right\}.
+\end{align*}
+
+これを $\Omega$ の**冪集合**という。
+例えば $\Omega=\{1,2,3\}$ のとき、
+
+$$
+2^\Omega = \left\{\varnothing, \{1\}, \{2\}, \{3\}, \{1,2\},\{2,3\},\{1,3\},\{1,2,3\}\right\}
+$$
+
+である。
+$\Omega$ が有限集合のとき、$|2^\Omega|=2^{|\Omega|}$ が成り立つ。
+また、$2^\Omega$ の部分集合を **$\Omega$ 上の(部分)集合族**と呼ぶ。
+集合 $\Lambda$ の各 $\lambda\in\Lambda$ に対して集合 $A_\lambda\subseteq\Omega$ が存在するとき、集合族
+
+$$
+\left\{A_\lambda\subseteq\Omega\mid \lambda\in\Lambda\right\}\subseteq 2^\Omega
+$$
+
+を**添字集合 $\Lambda$ で添字付けられた $\Omega$ 上の集合族**という。
+添字集合が有限集合の場合は集合族全体の和集合や積集合は二つの集合の和集合と積集合の定義を繰り返し用いることで定義できる。
+それらは以下のように表す。
+
+$$
+\bigcup_{\lambda\in\Lambda} A_\lambda \quad,\quad
+\bigcap_{\lambda\in\Lambda} A_\lambda.
+$$
+
+添字集合 $\Lambda$ が無限集合の場合は和集合と積集合を以下で定義する。
+
+\begin{align*}
+\bigcup_{\lambda\in\Lambda} A_\lambda
+&\coloneqq
+\left\{x\in\Omega\mid \exists \lambda\in\Lambda,\quad x\in A_\lambda\right\}\\
+\bigcap_{\lambda\in\Lambda} A_\lambda
+&\coloneqq
+\left\{x\in\Omega\mid \forall \lambda\in\Lambda,\quad x\in A_\lambda\right\}
+\end{align*}
+
+この定義は $\Lambda$ が有限集合の場合も正しいものである。
+この場合もド・モルガンの法則は成り立つ。つまり、
+
+\begin{align*}
+\left(\bigcup_{\lambda\in\Lambda} A_\lambda\right)^\mathrm{c}
+&=
+\bigcap_{\lambda\in\Lambda} A_\lambda^\mathrm{c}\\
+\left(\bigcap_{\lambda\in\Lambda} A_\lambda\right)^\mathrm{c}
+&=
+\bigcup_{\lambda\in\Lambda} A_\lambda^\mathrm{c}
+\end{align*}
+
+が成り立つ。
+
 
 ## 標本空間と確率
 
