@@ -341,7 +341,7 @@ x\in\left(\bigcup_{\lambda\in\Lambda} A_\lambda\right)^\mathrm{c}
 <h2>標本空間と確率</h2>
 <ul>
 <li><span class="math inline">\(\Omega\colon\)</span> 集合。これの部分集合に確率が与えられる</li>
-<li><span class="math inline">\(P\colon 2^\Omega\to[0,1].\)</span> 確率を与える関数</li>
+<li><span class="math inline">\(P\colon 2^\Omega\to\mathbb{R}_{\ge 0}.\)</span> 確率を与える関数</li>
 </ul>
 <div id="exm-prob" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1</strong></span> &nbsp;</p>
@@ -361,7 +361,7 @@ x\in\left(\bigcup_{\lambda\in\Lambda} A_\lambda\right)^\mathrm{c}
 <h2>確率論の公理有限版</h2>
 <ul>
 <li><span class="math inline">\(\Omega\colon\)</span> <strong>有限</strong>集合(<strong>標本空間</strong>)</li>
-<li><span class="math inline">\(P\colon 2^\Omega\to[0,1]\)</span> (<strong>確率測度</strong>)</li>
+<li><span class="math inline">\(P\colon 2^\Omega\to\mathbb{R}_{\ge 0}\)</span> (<strong>確率測度</strong>)</li>
 </ul>
 <p>確率の公理</p>
 <ol type="1">
@@ -382,7 +382,7 @@ x\in\left(\bigcup_{\lambda\in\Lambda} A_\lambda\right)^\mathrm{c}
 <h2>確率論の公理可算版</h2>
 <ul>
 <li><span class="math inline">\(\Omega\colon\)</span> <strong>高々可算</strong>集合(<strong>標本空間</strong>)</li>
-<li><span class="math inline">\(P\colon 2^\Omega\to[0,1]\)</span> (<strong>確率測度</strong>)</li>
+<li><span class="math inline">\(P\colon 2^\Omega\to\mathbb{R}_{\ge 0}\)</span> (<strong>確率測度</strong>)</li>
 </ul>
 <p>確率の公理</p>
 <ol type="1">
@@ -401,7 +401,7 @@ P(A) &amp;= P\left(\bigcup_{\omega\in A} \{\omega\}\right)\\
 <p>これでよいのか？</p>
 <ul>
 <li><span class="math inline">\(\Omega\colon\)</span> (<strong>非可算</strong>でもよい)集合(<strong>標本空間</strong>)</li>
-<li><span class="math inline">\(P\colon 2^\Omega\to[0,1]\)</span> (<strong>確率測度</strong>)</li>
+<li><span class="math inline">\(P\colon 2^\Omega\to\mathbb{R}_{\ge 0}\)</span> (<strong>確率測度</strong>)</li>
 </ul>
 <p>確率の公理</p>
 <ol type="1">
@@ -433,7 +433,7 @@ P(A) &amp;= P\left(\bigcup_{\omega\in A} \{\omega\}\right)\\
 <ul>
 <li><span class="math inline">\(\Omega\colon\)</span> 集合(<strong>標本空間</strong>)</li>
 <li><span class="math inline">\(\mathcal{F}\subseteq 2^\Omega\)</span> (<strong>事象の集合</strong>、可測集合)</li>
-<li><span class="math inline">\(P\colon\mathcal{F}\to[0,1]\)</span> (<strong>確率測度</strong>、<strong>確率は <span class="math inline">\(\mathcal{F}\)</span> の要素にのみ定義される！</strong>)</li>
+<li><span class="math inline">\(P\colon\mathcal{F}\to\mathbb{R}_{\ge 0}\)</span> (<strong>確率測度</strong>、<strong>確率は <span class="math inline">\(\mathcal{F}\)</span> の要素にのみ定義される！</strong>)</li>
 </ul>
 <p>可測集合 <span class="math inline">\(\mathcal{F}\)</span> の公理(<span class="math inline">\(\sigma\)</span>-加法族、完全加法族)</p>
 <ol type="1">
@@ -544,7 +544,7 @@ P\left(\bigcup_{n\ge 0} A_n\right)&amp;= P\left(\bigcup_{n\ge 0} B_n\right) =\su
 </section>
 <section id="今週の課題" class="slide level2">
 <h2>今週の課題</h2>
-<p><span class="math inline">\(\Omega = \{1,2,3,4,5,6\}\)</span> とし、ある <span class="math inline">\(P\colon\Omega\to[0,1]\)</span> について <span class="math inline">\((\Omega,\,P)\)</span> を確率空間とする。 事象 <span class="math inline">\(A,\,B,\,C\)</span> を</p>
+<p><span class="math inline">\(\Omega = \{1,2,3,4,5,6\}\)</span> とし、ある <span class="math inline">\(P\colon\Omega\to\mathbb{R}_{\ge 0}\)</span> について <span class="math inline">\((\Omega,\,P)\)</span> を確率空間とする。 事象 <span class="math inline">\(A,\,B,\,C\)</span> を</p>
 <p><span class="math display">\[\begin{align*}
 A&amp;=\left\{1,2,3,4\right\},&amp;
 B&amp;=\left\{2,4,5\right\},&amp;
