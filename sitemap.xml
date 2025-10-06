@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://Prob-Stat.github.io/slides/01_probability.html</loc>
-    <lastmod>2025-03-28T12:20:47.211Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Prob-Stat.github.io/slides.html</loc>
-    <lastmod>2025-03-28T12:20:47.211Z</lastmod>
+    <loc>https://Prob-Stat.github.io/slides/macros.html</loc>
+    <lastmod>2025-10-06T08:18:52.557Z</lastmod>
   </url>
   <url>
     <loc>https://Prob-Stat.github.io/index.html</loc>
-    <lastmod>2025-03-28T12:20:47.211Z</lastmod>
+    <lastmod>2025-10-06T08:18:52.556Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Prob-Stat.github.io/slides.html</loc>
+    <lastmod>2025-10-06T08:18:52.557Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Prob-Stat.github.io/slides/01_probability.html</loc>
+    <lastmod>2025-10-06T08:18:52.557Z</lastmod>
   </url>
 </urlset>

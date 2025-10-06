@@ -1,5 +1,13 @@
+.reveal.smaller {
+    font-size: 1.8em;
+}
+
 strong {
     color: red;
     font-weight: bold;
+}
+
+.wide-list li {
+    line-height: 1.8;
 }
 

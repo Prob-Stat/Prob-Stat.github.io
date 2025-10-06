@@ -1,10 +1,31 @@
 [
   {
+    "objectID": "slides/macros.html",
+    "href": "slides/macros.html",
+    "title": "確率・統計基礎",
+    "section": "",
+    "text": "\\[\n\\newcommand{\\defiff}{\\overset{\\text{def}}{\\iff}}\n\\newcommand{\\expt}[1]{\\mathbb{E}\\left[#1\\right]}\n\\newcommand{\\var}[1]{\\mathbb{V}\\left[#1\\right]}\n\\]"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home",
+    "section": "",
+    "text": "確率・統計基礎の授業ページです。"
+  },
+  {
+    "objectID": "slides.html",
+    "href": "slides.html",
+    "title": "Slides",
+    "section": "",
+    "text": "講義スライド\n確率論"
+  },
+  {
     "objectID": "slides/01_probability.html#確率とは",
     "href": "slides/01_probability.html#確率とは",
     "title": "確率論",
     "section": "確率とは",
-    "text": "確率とは\n\n世の中のランダムな事象を数学的に記述したもの\n統計・機械学習の基礎となっている\n極限定理: 確率\\(p\\)で表が出るコインを\\(N\\)回投げた時に、表が出る回数\\(F\\)は\n大数の法則: \\(\\frac{F}{N} \\to p\\)\n大偏差原理: \\(\\Pr\\left(\\left|\\frac{F}{N} - p\\right| &gt; \\epsilon\\right) = \\mathrm{e}^{-\\beta N}\\)\n中心極限定理: \\(\\frac{F-pN}{\\sqrt{N}}\\to\\)正規分布"
+    "text": "確率とは\n\n\n世の中のランダムな事象を数学的に記述したもの。\n統計・機械学習の基礎となっている。\n\n\n極限定理: 確率 \\(p\\) で表が出るコインを\\(N\\) 回投げた時に、表が出る回数を \\(F\\) とすると\n\n\n大数の法則: \\(\\frac{F}{N} \\to p\\)\n大偏差原理: \\(\\Pr\\left(\\left|\\frac{F}{N} - p\\right| &gt; \\epsilon\\right) = \\mathrm{e}^{-\\beta N}\\)\n中心極限定理: \\(\\frac{F-pN}{\\sqrt{N}}\\to\\) 正規分布"
   },
   {
     "objectID": "slides/01_probability.html#統計とは",
@@ -18,7 +39,42 @@
     "href": "slides/01_probability.html#確率論の数学モデルとは",
     "title": "確率論",
     "section": "確率論の数学モデルとは？",
-    "text": "確率論の数学モデルとは？\n\n測度論！\n\n\n確率は面積(\\(=\\)測度)のようなもの。\n数学的にに様々な結果(大数の法則、大偏差原理、中心極限定理)が証明できる。\nとても重要だが勉強するのは3年生以降(解析学要論Ⅱ、確率論)。\nこの授業では測度論には深入りせず、基礎的な部分はごまかしながら確率・統計の重要な理論について学ぶ。"
+    "text": "確率論の数学モデルとは？\n\n測度論！\n\n\n\n確率は面積(\\(=\\)測度)のようなもの。\n数学的にに様々な結果(大数の法則、大偏差原理、中心極限定理)が証明できる。\nとても重要だが勉強するのは3年生以降(解析学要論Ⅱ、確率論)。\nこの授業では測度論には深入りせず、数学的に厳密な議論なごまかしながら確率・統計について学ぶ。"
+  },
+  {
+    "objectID": "slides/01_probability.html#この授業の進め方",
+    "href": "slides/01_probability.html#この授業の進め方",
+    "title": "確率論",
+    "section": "この授業の進め方",
+    "text": "この授業の進め方\n\n\n講義資料は http://prob-stat.github.io にすべてある。ここだけ見ればOK。\nその他の連絡事項はTACTを通じて行う。\n毎回課題を出す。提出はTACTを用いる。\n成績は課題50% 期末試験50%."
+  },
+  {
+    "objectID": "slides/01_probability.html#集合",
+    "href": "slides/01_probability.html#集合",
+    "title": "確率論",
+    "section": "集合",
+    "text": "集合\n集合 \\(=\\) 「ものの集まり」\n\\[\\begin{align*}\nA &= \\{1,2,3\\}&\nB &= \\{赤、青、黄、緑\\}\n\\end{align*}\\]\n集合を構成するものを要素もしくは元という。\n\n\\(x\\in A\\): 要素 \\(x\\) は集合 \\(A\\) に含まれる。\n\\(x\\notin A\\): 要素 \\(x\\) は集合 \\(A\\) に含まない。\n\\(|A|\\): 集合 \\(A\\) の要素数\n\n要素数が無限の集合を考えることもできる。 例えば\n\\[\\begin{align*}\nA&=\\{n\\in\\mathbb{N}\\mid \\textsf{$n$ は偶数}\\},& B&=\\{x\\in\\mathbb{R}\\mid \\textsf{$x$ は無理数} \\}\n\\end{align*}\\]\nという集合は無限集合の例となる。\n\n\\(\\varnothing\\): 空集合 \\(\\coloneqq\\) 要素数が 0 の集合 。"
+  },
+  {
+    "objectID": "slides/01_probability.html#集合の関係",
+    "href": "slides/01_probability.html#集合の関係",
+    "title": "確率論",
+    "section": "集合の関係",
+    "text": "集合の関係\n集合 \\(A\\) の要素がすべて集合 \\(B\\) に含まれるとき、\\(A\\) を \\(B\\) の部分集合 という。\n\\[\\begin{align*}\nA\\subseteq B &\\defiff \\forall x\\,(x\\in A\\implies x \\in B)&\\textsf{($A$ は $B$ の部分集合)}\\\\\nA\\supseteq B &\\defiff B\\subseteq A&\\textsf{($A$ は $B$ の上位集合)}\\\\\nA = B &\\defiff (A\\subseteq B\\land A\\supseteq B)& \\textsf{($A$ と $B$ は等しい)}\\\\\nA \\ne B &\\defiff \\lnot(A = B)& \\textsf{($A$ と $B$ は等しくない)}\n\\end{align*}\\]\nまた、\n\\[\\begin{align*}\nA\\subsetneq B &\\defiff (A\\subseteq B \\land A\\ne B)&\\textsf{($A$ は $B$ の真部分集合)}\\\\\nA\\supsetneq B &\\defiff B\\subsetneq A&\\textsf{($A$ は $B$ の真上位集合)}\n\\end{align*}\\]\nとする。 部分集合や上位集合のような集合間の関係を包含関係という。 集合 \\(A,\\,B\\) について、\\(A\\subseteq B\\) と \\(B\\subseteq A\\) のどちらかが成り立つとき、「\\(A\\) と \\(B\\) の間に包含関係が成り立 つ」という。\n包含関係は以下の三条件を満たす(半順序の公理)。\n\n(反射律) \\(\\quad A\\subseteq A\\).\n(反対称律) \\(\\quad (A\\subseteq B\\land B\\subseteq A) \\iff A = B\\).\n(推移律) \\(\\quad (A\\subseteq B\\land B\\subseteq C)\\implies A\\subseteq C\\)."
+  },
+  {
+    "objectID": "slides/01_probability.html#集合の演算",
+    "href": "slides/01_probability.html#集合の演算",
+    "title": "確率論",
+    "section": "集合の演算",
+    "text": "集合の演算\n複数の集合から新しい集合を作る演算がある。\n\\[\\begin{align*}\nA\\cup B &\\coloneqq\\left\\{x\\mid x\\in A \\text{ または } x \\in B\\right\\}\\qquad\\text{(和集合)}\\\\\nA\\cap B &\\coloneqq \\left\\{x\\mid x\\in A \\text{ かつ } x \\in B\\right\\}\\qquad\\text{(積集合)}\\\\\nA\\setminus B &\\coloneqq \\left\\{x\\mid x\\in A \\text{ かつ } x \\notin B\\right\\}\\qquad\\text{(差集合)}\n\\end{align*}\\]\nまた、全体の集合 \\(\\Omega\\) というのが文脈上存在する場合は、\n\\[\\begin{align*}\nA^\\mathrm{c} &\\coloneqq \\Omega\\setminus A\\qquad\\text{(補集合)}\n\\end{align*}\\]\nと定義する。 これらの演算は以下の法則を満たす。\n\n(交換法則) \\(\\quad A\\cup B = B\\cup A, \\quad A\\cap B = B\\cap A\\).\n(結合法則) \\(\\quad (A\\cup B)\\cup C = A\\cup (B\\cup C), \\quad (A\\cap B)\\cap C=A\\cap(B\\cap C)\\).\n(分配法則) \\(\\quad A\\cup(B\\cap C) = (A\\cup B)\\cap (A\\cup C),\\quad A\\cap (B\\cup C) = (A\\cap B)\\cup (A\\cap C)\\).\n(冪等法則) \\(\\quad A \\cup A = A, \\quad A\\cap A = A\\).\n(吸収法則) \\(\\quad A \\cup (A\\cap B) = A, \\quad A\\cap (A\\cup B) = A\\).\n\\(A\\cup \\varnothing = A,\\quad A\\cap\\varnothing = \\varnothing\\).\n\n和集合と積集合は結合法則満たすことから、括弧を使わずに \\(A\\cup B\\cup C\\) と表すことができる。 補集合に関連して以下の法則を満たす。\n\n\\(\\Omega^\\mathrm{c} = \\varnothing,\\quad \\varnothing^\\mathrm{c} = \\Omega\\).\n\\(A\\cup \\Omega = \\Omega,\\quad A\\cap\\Omega = A\\).\n\\(A\\cup A^\\mathrm{c} = \\Omega,\\quad A\\cap A^\\mathrm{c} =\\varnothing\\).\n(ド・モルガンの法則) \\(\\quad(A\\cup B)^\\mathrm{c} = A^\\mathrm{c} \\cap B^\\mathrm{c},\\quad(A\\cap B)^\\mathrm{c} = A^\\mathrm{c} \\cup B^\\mathrm{c}\\)\n(二重補集合の法則) \\(\\quad (A^\\mathrm{c})^\\mathrm{c} = A\\)."
+  },
+  {
+    "objectID": "slides/01_probability.html#集合族",
+    "href": "slides/01_probability.html#集合族",
+    "title": "確率論",
+    "section": "集合族",
+    "text": "集合族\n集合 \\(\\Omega\\) について \\(2^\\Omega\\) を \\(\\Omega\\) のすべての部分集合からなる集合を表す。\n\\[\\begin{align*}\n2^\\Omega &\\coloneqq \\left\\{A\\subseteq\\Omega\\right\\}.\n\\end{align*}\\]\nこれを \\(\\Omega\\) の冪集合という。 例えば \\(\\Omega=\\{1,2,3\\}\\) のとき、\n\\[\n2^\\Omega = \\left\\{\\varnothing, \\{1\\}, \\{2\\}, \\{3\\}, \\{1,2\\},\\{2,3\\},\\{1,3\\},\\{1,2,3\\}\\right\\}\n\\]\nである。 \\(\\Omega\\) が有限集合のとき、\\(|2^\\Omega|=2^{|\\Omega|}\\) が成り立つ。 また、\\(2^\\Omega\\) の部分集合を \\(\\Omega\\) 上の(部分)集合族と呼ぶ。 集合 \\(\\Lambda\\) の各 \\(\\lambda\\in\\Lambda\\) に対して集合 \\(A_\\lambda\\subseteq\\Omega\\) が存在するとき、集合族\n\\[\n\\left\\{A_\\lambda\\subseteq\\Omega\\mid \\lambda\\in\\Lambda\\right\\}\\subseteq 2^\\Omega\n\\]\nを添字集合 \\(\\Lambda\\) で添字付けられた \\(\\Omega\\) 上の集合族という。 添字集合が有限集合の場合は集合族全体の和集合や積集合は二つの集合の和集合と積集合の定義を繰り返し用いることで定義できる。 それらは以下のように表す。\n\\[\n\\bigcup_{\\lambda\\in\\Lambda} A_\\lambda \\quad,\\quad\n\\bigcap_{\\lambda\\in\\Lambda} A_\\lambda.\n\\]\n添字集合 \\(\\Lambda\\) が無限集合の場合は和集合と積集合を以下で定義する。\n\\[\\begin{align*}\n\\bigcup_{\\lambda\\in\\Lambda} A_\\lambda\n&\\coloneqq\n\\left\\{x\\in\\Omega\\mid \\exists \\lambda\\in\\Lambda,\\quad x\\in A_\\lambda\\right\\}\\\\\n\\bigcap_{\\lambda\\in\\Lambda} A_\\lambda\n&\\coloneqq\n\\left\\{x\\in\\Omega\\mid \\forall \\lambda\\in\\Lambda,\\quad x\\in A_\\lambda\\right\\}\n\\end{align*}\\]\nこの定義は \\(\\Lambda\\) が有限集合の場合も正しいものである。 この場合もド・モルガンの法則は成り立つ。つまり、\n\\[\\begin{align*}\n\\left(\\bigcup_{\\lambda\\in\\Lambda} A_\\lambda\\right)^\\mathrm{c}\n&=\n\\bigcap_{\\lambda\\in\\Lambda} A_\\lambda^\\mathrm{c}\\\\\n\\left(\\bigcap_{\\lambda\\in\\Lambda} A_\\lambda\\right)^\\mathrm{c}\n&=\n\\bigcup_{\\lambda\\in\\Lambda} A_\\lambda^\\mathrm{c}\n\\end{align*}\\]\nが成り立つ。"
   },
   {
     "objectID": "slides/01_probability.html#標本空間と確率",
@@ -82,19 +138,5 @@
     "title": "確率論",
     "section": "確率の性質",
     "text": "確率の性質\n任意の \\(A,B\\in 2^\\Omega\\) について,\n\n\\(P(\\Omega)=1,\\,P(\\emptyset)=0\\).\n\\(P(A^c) = 1 - P(A) \\quad\\because\\ 1 = P(\\Omega) = P(A\\cup A^c) = P(A) + P(A^c)\\).\n\\(B\\subseteq A\\implies P(B) \\le P(A)\\)\\ \\(\\qquad \\because\\ P(A) = P(B\\cup (A\\setminus B)) = P(B) + P(A\\setminus B)\\ge P(B)\\).\n\\(P(A\\cup B) = P(A) + P(B) - P(A\\cap B)\\)\\ \\(\\qquad \\because\\ P(A\\cup B) = P(B) + P(A\\setminus B),\\, P(A) = P(A\\setminus B) + P(A\\cap B)\\)\n\\(P(A\\cup B) \\le P(A) + P(B)\\) (ブールの不等式, union bound)."
-  },
-  {
-    "objectID": "slides.html",
-    "href": "slides.html",
-    "title": "Slides",
-    "section": "",
-    "text": "講義スライド\n確率論"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Home",
-    "section": "",
-    "text": "確率・統計基礎の授業ページです。"
   }
 ]
