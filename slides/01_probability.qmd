@@ -347,9 +347,9 @@ $x\sim y\stackrel{\mathrm{def}}{\iff} x-y \in\mathbb{Q}$と定義する。
 $\Omega$ の上の同値類から一つずつ要素を選んで集合 $V$ を作る(**選択公理**)。
 
 \begin{align*}
-1 = P([0,1)) &= P\left(\bigcup_{x\in\mathbb{Q}} (V + x)\right)\\
-&= \sum_{x\in\mathbb{Q}} P\left(V + x\right)\qquad\textsf{(完全加法性)}\\
-&= \sum_{x\in\mathbb{Q}} P\left(V\right)\qquad\textsf{(平行移動不変性).}
+1 = P([0,1)) &= P\left(\bigcup_{q\in\mathbb{Q}\cap[0,1)} (V + q)\right)\\
+&= \sum_{q\in\mathbb{Q}\cap[0,1)} P\left(V + q\right)\qquad\textsf{(完全加法性)}\\
+&= \sum_{q\in\mathbb{Q}\cap[0,1)} P\left(V\right)\qquad\textsf{(平行移動不変性).}
 \end{align*}
 **同じ値を無限回足して1にはできない**。
 
