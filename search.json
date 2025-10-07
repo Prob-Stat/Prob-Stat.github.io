@@ -46,7 +46,7 @@
     "href": "slides/01_probability.html#この授業の進め方",
     "title": "確率論",
     "section": "この授業の進め方",
-    "text": "この授業の進め方\n\n\n講義資料は https://prob-stat.github.io にすべてある。ここだけ見ればOK。\nその他の連絡事項はTACTを通じて行う。\n毎回課題を出す。提出はTACTを用いる。\n成績は課題50% 期末試験50%.\n課題の内容と授業資料は上記のページにあるので、授業は出席しなくても構わない。"
+    "text": "この授業の進め方\n\n\n講義資料は https://prob-stat.github.io/ にすべてある。ここだけ見ればOK。\nその他の連絡事項はTACTを通じて行う。\n毎回課題を出す。提出はTACTを用いる。\n成績は課題50% 期末試験50%.\n課題の内容と授業資料は上記のページにあるので、授業は出席しなくても構わない。"
   },
   {
     "objectID": "slides/01_probability.html#集合",
@@ -74,7 +74,7 @@
     "href": "slides/01_probability.html#補集合",
     "title": "確率論",
     "section": "補集合",
-    "text": "補集合\nまた、全体の集合 \\(\\Omega\\) というのが文脈上存在する場合は、\n\\[\\begin{align*}\nA^\\mathrm{c} &\\coloneqq \\Omega\\setminus A\\qquad\\textsf{(補集合)}\n\\end{align*}\\]\nと定義する。\n補集合に関連して以下の法則を満たす。\n\n\\(\\Omega^\\mathrm{c} = \\varnothing,\\quad \\varnothing^\\mathrm{c} = \\Omega\\).\n\\(A\\cup \\Omega = \\Omega,\\quad A\\cap\\Omega = A\\).\n\\(A\\cup A^\\mathrm{c} = \\Omega,\\quad A\\cap A^\\mathrm{c} =\\varnothing\\).\n(ド・モルガンの法則) \\(\\quad(A\\cup B)^\\mathrm{c} = A^\\mathrm{c} \\cap B^\\mathrm{c},\\quad(A\\cap B)^\\mathrm{c} = A^\\mathrm{c} \\cup B^\\mathrm{c}\\)\n(二重補集合の法則) \\(\\quad (A^\\mathrm{c})^\\mathrm{c} = A\\)."
+    "text": "補集合\nまた、全体の集合 \\(\\Omega\\) というのが文脈上存在する場合は、\n\\[\\begin{align*}\nA^\\mathrm{c} &\\coloneqq \\Omega\\setminus A\\qquad\\textsf{(補集合)}\n\\end{align*}\\]\nと定義する。\n補集合に関連して以下の法則を満たす。\n\n\\(\\Omega^\\mathrm{c} = \\varnothing,\\quad \\varnothing^\\mathrm{c} = \\Omega\\).\n\\(A\\cup \\Omega = \\Omega,\\quad A\\cap\\Omega = A\\).\n\\(A\\cup A^\\mathrm{c} = \\Omega,\\quad A\\cap A^\\mathrm{c} =\\varnothing\\).\n(二重補集合の法則) \\(\\quad (A^\\mathrm{c})^\\mathrm{c} = A\\).\n(ド・モルガンの法則) \\(\\quad(A\\cup B)^\\mathrm{c} = A^\\mathrm{c} \\cap B^\\mathrm{c},\\quad(A\\cap B)^\\mathrm{c} = A^\\mathrm{c} \\cup B^\\mathrm{c}\\)"
   },
   {
     "objectID": "slides/01_probability.html#集合族",
@@ -95,7 +95,7 @@
     "href": "slides/01_probability.html#標本空間と確率",
     "title": "確率論",
     "section": "標本空間と確率",
-    "text": "標本空間と確率\n\n\\(\\Omega\\colon\\) 集合。これの部分集合に確率が与えられる\n\\(P\\colon 2^\\Omega\\to\\mathbb{R}_{\\ge 0}.\\) 確率を与える関数\n\n\nExample 1  \n\n\n\\(\\Omega=\\{表,裏\\}\\).\n\\(P(\\varnothing)= 0,\\, P(\\{\\mathrm{表}\\})=P(\\{\\mathrm{裏}\\})=\\frac12,\\,P(\\{\\mathrm{表},\\mathrm{裏}\\})=1\\).\n\\(\\Omega=\\{1,2,3,4,5,6\\}\\).\n\\(P(A) = \\frac{|A|}6\\quad\\forall A\\subseteq\\Omega\\).\n\\(\\Omega=\\{晴,雨,雪\\}\\).\n\\(P(\\varnothing)= 0,\\, P(\\{晴\\})=0.7,\\, P(\\{雨\\})=0.2,\\,P(\\{雪\\})=0.1\\), \\(P(\\{晴,雨\\})=0.9,\\, P(\\{雨,雪\\})=0.3,\\, P(\\{雪,晴\\})=0.8\\), \\(P(\\{晴,雨,雪\\})=1\\)."
+    "text": "標本空間と確率\n\n\\(\\Omega\\colon\\) 集合。これの部分集合に確率が与えられる\n\\(P\\colon 2^\\Omega\\to\\mathbb{R}_{\\ge 0}.\\) 確率を与える関数\n\n\nExample 1  \n\n\n\\(\\Omega=\\{表,裏\\}\\).\n\\(P(\\varnothing)= 0,\\, P(\\{\\mathrm{表}\\})=P(\\{\\mathrm{裏}\\})=\\frac12,\\,P(\\{\\mathrm{表},\\mathrm{裏}\\})=1\\).\n\n\n\n\n\\(\\Omega=\\{1,2,3,4,5,6\\}\\).\n\\(P(A) = \\frac{|A|}6\\quad\\forall A\\subseteq\\Omega\\).\n\n\n\n\n\\(\\Omega=\\{晴,雨,雪\\}\\).\n\\(P(\\varnothing)= 0,\\, P(\\{晴\\})=0.7,\\, P(\\{雨\\})=0.2,\\,P(\\{雪\\})=0.1\\), \\(P(\\{晴,雨\\})=0.9,\\, P(\\{雨,雪\\})=0.3,\\, P(\\{雪,晴\\})=0.8\\), \\(P(\\{晴,雨,雪\\})=1\\)."
   },
   {
     "objectID": "slides/01_probability.html#確率論の公理有限版",
