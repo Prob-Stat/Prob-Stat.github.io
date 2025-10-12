@@ -1,0 +1,93 @@
+---
+title: "確率論"
+subtitle: "確率変数"
+author: "森 立平"
+format:
+  revealjs:
+    slide-number: true
+    smaller: true
+    html-math-method: mathjax
+    include-in-header: macros.qmd
+css: slides.css
+---
+
+## 確率空間の公理
+
+確率空間 $(\Omega,\,P)$ の公理
+
+- $\Omega\colon$ (**非可算**でもよい)集合(**標本空間**)
+- $P\colon 2^\Omega\to\mathbb{R}_{\ge 0}$ (**確率測度**)
+
+
+:::{.wide-list}
+1. $P(\Omega)=1$.
+<!-- 2. ~~$\forall A, B\subseteq\Omega$, $A\cap B=\varnothing\implies P(A\cup B)=P(A)+P(B)$\ (有限加法性).~~ -->
+1. $\forall (A_n\subseteq\Omega)_{n\ge 0}$, $\forall i\ne j,\, A_i\cap A_j=\varnothing\implies P\left(\bigcup_{n\ge0} A_n\right)=\sum_{n\ge0} P(A_n)$\ (**完全加法性, $\sigma$-加法性**).
+:::
+
+:::{.r-stack}
+本当は正しくないけど
+:::
+
+## 確率空間の例
+
+一回のコイン投げ
+
+:::{.wide-list}
+- $\Omega = \{\mathrm{H},\mathrm{T}\}$.
+- $P(A) = \frac{|A|}2\qquad\forall A\subseteq\Omega$.
+:::
+
+二回の独立なコイン投げ
+
+:::{.wide-list}
+- $\Omega = \{\mathrm{HH},\mathrm{HT},\mathrm{TH},\mathrm{TT}\}$.
+- $P(A) = \frac{|A|}4\qquad\forall A\subseteq\Omega$.
+:::
+
+無限回の独立なコイン投げ
+
+:::{.wide-list}
+- $\Omega = \{\mathrm{H},\mathrm{T}\}^{\mathbb{N}}$.
+- $P(A) = \frac{|A|}4\qquad\forall A\subseteq\Omega$.
+:::
+
+実数
+
+:::{.wide-list}
+- $\Omega = [0,1)$.
+- $P([a,b)) = b-a\qquad\forall A\subseteq\Omega$.
+:::
+
+## 確率変数
+実際に知りたい情報は限定されている
+
+$100$ 回コインを投げると $2^{100}$ 通りの結果があるが、知りたい情報は
+
+:::{.wide-list}
+- 表が出た回数
+- 二回連続同じ面が出た回数
+- 連続して何回表が出たか
+:::
+
+
+bb
+
+## 今週の課題
+
+$\Omega = \{1,2,3,4,5,6\}$ とし、ある $P\colon\Omega\to\mathbb{R}_{\ge 0}$ について $(\Omega,\,P)$ を確率空間とする。
+事象 $A,\,B,\,C$ を
+
+\begin{align*}
+A&=\left\{1,2,3,4\right\},&
+B&=\left\{2,4,5\right\},&
+C&=\left\{1,3,5,6\right\}
+\end{align*}
+とするとき、以下の問に答えよ
+
+::: {.wide-list}
+
+1. $A\cup B$,&nbsp; $A\cap B$,&nbsp; $A\setminus B$,&nbsp; $(A\cup B)\cap C$ をもとめよ。
+1. $P(\{1,3\})$,&nbsp; $P(\{2,4\})$,&nbsp; $P(\{5\})$,&nbsp; $P(\{6\})$ を $P(A),\,P(B),\,P(C)$ を用いて表せ。
+
+:::
