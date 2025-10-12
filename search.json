@@ -1,24 +1,31 @@
 [
   {
-    "objectID": "slides/macros.html",
-    "href": "slides/macros.html",
-    "title": "確率・統計基礎",
-    "section": "",
-    "text": "\\[\n\\newcommand{\\defiff}{\\overset{\\text{def}}{\\iff}}\n\\newcommand{\\expt}[1]{\\mathbb{E}\\left[#1\\right]}\n\\newcommand{\\var}[1]{\\mathbb{V}\\left[#1\\right]}\n\\]"
+    "objectID": "slides/02_rv.html#確率空間の公理",
+    "href": "slides/02_rv.html#確率空間の公理",
+    "title": "確率論",
+    "section": "確率空間の公理",
+    "text": "確率空間の公理\n確率空間 \\((\\Omega,\\,P)\\) の公理\n\n\\(\\Omega\\colon\\) (非可算でもよい)集合(標本空間)\n\\(P\\colon 2^\\Omega\\to\\mathbb{R}_{\\ge 0}\\) (確率測度)\n\n\n\n\\(P(\\Omega)=1\\). \n\\(\\forall (A_n\\subseteq\\Omega)_{n\\ge 0}\\), \\(\\forall i\\ne j,\\, A_i\\cap A_j=\\varnothing\\implies P\\left(\\bigcup_{n\\ge0} A_n\\right)=\\sum_{n\\ge0} P(A_n)\\) (完全加法性, \\(\\sigma\\)-加法性).\n\n\n\n本当は正しくないけど"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Home",
-    "section": "",
-    "text": "確率・統計基礎の授業ページです。"
+    "objectID": "slides/02_rv.html#確率空間の例",
+    "href": "slides/02_rv.html#確率空間の例",
+    "title": "確率論",
+    "section": "確率空間の例",
+    "text": "確率空間の例\n一回のコイン投げ\n\n\n\\(\\Omega = \\{\\mathrm{H},\\mathrm{T}\\}\\).\n\\(P(A) = \\frac{|A|}2\\qquad\\forall A\\subseteq\\Omega\\).\n\n\n二回の独立なコイン投げ\n\n\n\\(\\Omega = \\{\\mathrm{HH},\\mathrm{HT},\\mathrm{TH},\\mathrm{TT}\\}\\).\n\\(P(A) = \\frac{|A|}4\\qquad\\forall A\\subseteq\\Omega\\).\n\n\n無限回の独立なコイン投げ\n\n\n\\(\\Omega = \\{\\mathrm{H},\\mathrm{T}\\}^{\\mathbb{N}}\\).\n\\(P(A) = \\frac{|A|}4\\qquad\\forall A\\subseteq\\Omega\\).\n\n\n実数\n\n\n\\(\\Omega = [0,1)\\).\n\\(P([a,b)) = b-a\\qquad\\forall A\\subseteq\\Omega\\)."
   },
   {
-    "objectID": "slides.html",
-    "href": "slides.html",
-    "title": "Slides",
-    "section": "",
-    "text": "講義スライド\n集合論と確率空間"
+    "objectID": "slides/02_rv.html#確率変数",
+    "href": "slides/02_rv.html#確率変数",
+    "title": "確率論",
+    "section": "確率変数",
+    "text": "確率変数\n実際に知りたい情報は限定されている\n\\(100\\) 回コインを投げると \\(2^{100}\\) 通りの結果があるが、知りたい情報は\n\n\n表が出た回数\n二回連続同じ面が出た回数\n連続して何回表が出たか\n\n\nbb"
+  },
+  {
+    "objectID": "slides/02_rv.html#今週の課題",
+    "href": "slides/02_rv.html#今週の課題",
+    "title": "確率論",
+    "section": "今週の課題",
+    "text": "今週の課題\n\\(\\Omega = \\{1,2,3,4,5,6\\}\\) とし、ある \\(P\\colon\\Omega\\to\\mathbb{R}_{\\ge 0}\\) について \\((\\Omega,\\,P)\\) を確率空間とする。 事象 \\(A,\\,B,\\,C\\) を\n\\[\\begin{align*}\nA&=\\left\\{1,2,3,4\\right\\},&\nB&=\\left\\{2,4,5\\right\\},&\nC&=\\left\\{1,3,5,6\\right\\}\n\\end{align*}\\] とするとき、以下の問に答えよ\n\n\n\\(A\\cup B\\),  \\(A\\cap B\\),  \\(A\\setminus B\\),  \\((A\\cup B)\\cap C\\) をもとめよ。\n\\(P(\\{1,3\\})\\),  \\(P(\\{2,4\\})\\),  \\(P(\\{5\\})\\),  \\(P(\\{6\\})\\) を \\(P(A),\\,P(B),\\,P(C)\\) を用いて表せ。"
   },
   {
     "objectID": "slides/01_probability.html#確率論とは",
@@ -166,5 +173,26 @@
     "title": "確率論",
     "section": "今週の課題",
     "text": "今週の課題\n\\(\\Omega = \\{1,2,3,4,5,6\\}\\) とし、ある \\(P\\colon\\Omega\\to\\mathbb{R}_{\\ge 0}\\) について \\((\\Omega,\\,P)\\) を確率空間とする。 事象 \\(A,\\,B,\\,C\\) を\n\\[\\begin{align*}\nA&=\\left\\{1,2,3,4\\right\\},&\nB&=\\left\\{2,4,5\\right\\},&\nC&=\\left\\{1,3,5,6\\right\\}\n\\end{align*}\\] とするとき、以下の問に答えよ\n\n\n\\(A\\cup B\\),  \\(A\\cap B\\),  \\(A\\setminus B\\),  \\((A\\cup B)\\cap C\\) をもとめよ。\n\\(P(\\{1,3\\})\\),  \\(P(\\{2,4\\})\\),  \\(P(\\{5\\})\\),  \\(P(\\{6\\})\\) を \\(P(A),\\,P(B),\\,P(C)\\) を用いて表せ。"
+  },
+  {
+    "objectID": "slides.html",
+    "href": "slides.html",
+    "title": "Slides",
+    "section": "",
+    "text": "講義スライド\n集合論と確率空間"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home",
+    "section": "",
+    "text": "確率・統計基礎の授業ページです。"
+  },
+  {
+    "objectID": "slides/macros.html",
+    "href": "slides/macros.html",
+    "title": "確率・統計基礎",
+    "section": "",
+    "text": "\\[\n\\newcommand{\\defiff}{\\overset{\\text{def}}{\\iff}}\n\\newcommand{\\expt}[1]{\\mathbb{E}\\left[#1\\right]}\n\\newcommand{\\var}[1]{\\mathbb{V}\\left[#1\\right]}\n\\]"
   }
 ]
