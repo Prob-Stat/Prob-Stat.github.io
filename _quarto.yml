@@ -3,6 +3,8 @@ project:
   preview:
     port: 8000
 
+jupyter: python3
+
 website:
   title: "確率・統計基礎"
   navbar:
