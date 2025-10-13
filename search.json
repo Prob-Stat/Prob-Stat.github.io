@@ -18,7 +18,28 @@
     "href": "slides/02_rv.html#確率変数",
     "title": "確率論",
     "section": "確率変数",
-    "text": "確率変数\n実際に知りたい情報は限定されている\n\\(100\\) 回コインを投げると \\(2^{100}\\) 通りの結果があるが、知りたい情報は\n\n\n表が出た回数\n二回連続同じ面が出た回数\n連続して何回表が出たか\n\n\nbb"
+    "text": "確率変数\n実際に知りたい情報は限定されている。\n\\(100\\) 回コインを投げると \\(2^{100}\\) 通りの結果があるが、興味がある情報は例えば以下のものなど。\n\n\n\\(k\\) 回目に表が出たか裏が出たか\n表が出た回数\n二回連続同じ面が出た回数\n連続して何回表が出たか\n\n\n\n確率変数\n\\((\\Omega,\\,P)\\) を確率空間とするとき、関数 \\(X\\colon \\Omega\\to\\mathbb{R}\\) を確率変数とよぶ。 また、実数 \\(a\\in\\mathbb{R}\\) について \\[\\begin{align*}\n\\Pr(X\\le a) &\\coloneqq P(\\left\\{\\omega\\in\\Omega\\mid X(\\omega)\\le a\\right\\})\n\\end{align*}\\] と表す。 \\(\\Pr(X\\ge a),\\,\\Pr(X=a),\\,\\Pr(X&lt;a),\\,\\Pr(X&gt;a)\\) なども同様に定義される。\n\n例えば、\\(\\Omega=\\{\\mathrm{HH},\\mathrm{HT},\\mathrm{TH},\\mathrm{TT}\\}\\) のとき、.\n\\[\\begin{align*}\nX_1(\\mathrm{HH}) &= X_1(\\mathrm{HT}) = 1,& X_1(\\mathrm{TH}) = X_1(\\mathrm{TT}) = 0\\\\\nX_2(\\mathrm{HH}) &= X_2(\\mathrm{TH}) = 1,& X_2(\\mathrm{HT}) = X_2(\\mathrm{TT}) = 0\\\\\nX&=X_1+X_2\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/02_rv.html#離散型確率変数",
+    "href": "slides/02_rv.html#離散型確率変数",
+    "title": "確率論",
+    "section": "離散型確率変数",
+    "text": "離散型確率変数\n離散型確率変数: 像が高々可算無限の確率変数\n任意の \\(A\\subseteq\\mathrm{Image}(X)\\) について、 \\[\\begin{align*}\n\\Pr(X\\in A) &= P\\left(\\{\\omega\\in\\Omega\\mid X(\\omega)\\in A\\}\\right)\\\\\n&= P\\left(\\bigcup_{x\\in A} \\{\\omega\\in\\Omega\\mid X(\\omega)=x\\}\\right)\\\\\n&= \\sum_{x\\in A} P\\left(\\{\\omega\\in\\Omega\\mid X(\\omega)=x\\}\\right)\\\\\n&= \\sum_{x\\in A} \\Pr\\left(X=x\\right)\n\\end{align*}\\]\n確率質量関数 (probability mass function) \\[\\begin{align*}\nf_X(x)&\\coloneqq \\Pr(X=x)\\qquad\\forall x\\in\\mathbb{R}.\n\\end{align*}\\]\nすると \\[\\begin{align*}\n\\Pr(X\\in A) &= \\sum_{x\\in A} f_X(x).\n\\end{align*}\\]\n\n\n\n\n\n\n\n\n\nFigure 1: 二項分布の確率質量関数\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: 二項分布の累積分布関数"
+  },
+  {
+    "objectID": "slides/02_rv.html#連続型確率変数",
+    "href": "slides/02_rv.html#連続型確率変数",
+    "title": "確率論",
+    "section": "連続型確率変数",
+    "text": "連続型確率変数\n連続型確率変数: 離散型確率変数でない確率変数\n確率密度関数 (probability density function) \\[\\begin{align*}\n\\Pr(X\\in A) &= \\int_{A} f_X(x) \\mathrm{d}x.\n\\end{align*}\\]\n離散確率変数に対する \\[\\begin{align*}\n\\Pr(X\\in A) &= \\sum_{x\\in A} f_X(x)\n\\end{align*}\\]\nと同じ形。\n一般的には確率密度関数は存在するとは限らない。"
+  },
+  {
+    "objectID": "slides/02_rv.html#累積分布関数",
+    "href": "slides/02_rv.html#累積分布関数",
+    "title": "確率論",
+    "section": "累積分布関数",
+    "text": "累積分布関数\n\\[\\begin{align*}\nF_X(x)&\\coloneqq \\Pr(X\\le x).\n\\end{align*}\\]"
   },
   {
     "objectID": "slides/02_rv.html#今週の課題",

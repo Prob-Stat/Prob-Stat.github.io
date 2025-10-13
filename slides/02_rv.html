@@ -195,16 +195,90 @@
 </section>
 <section id="確率変数" class="slide level2">
 <h2>確率変数</h2>
-<p>実際に知りたい情報は限定されている</p>
-<p><span class="math inline">\(100\)</span> 回コインを投げると <span class="math inline">\(2^{100}\)</span> 通りの結果があるが、知りたい情報は</p>
+<p>実際に知りたい情報は限定されている。</p>
+<p><span class="math inline">\(100\)</span> 回コインを投げると <span class="math inline">\(2^{100}\)</span> 通りの結果があるが、興味がある情報は例えば以下のものなど。</p>
 <div class="wide-list">
 <ul>
+<li><span class="math inline">\(k\)</span> 回目に表が出たか裏が出たか</li>
 <li>表が出た回数</li>
 <li>二回連続同じ面が出た回数</li>
 <li>連続して何回表が出たか</li>
 </ul>
 </div>
-<p>bb</p>
+<div class="definition">
+<p><strong>確率変数</strong></p>
+<p><span class="math inline">\((\Omega,\,P)\)</span> を確率空間とするとき、関数 <span class="math inline">\(X\colon \Omega\to\mathbb{R}\)</span> を確率変数とよぶ。 また、実数 <span class="math inline">\(a\in\mathbb{R}\)</span> について <span class="math display">\[\begin{align*}
+\Pr(X\le a) &amp;\coloneqq P(\left\{\omega\in\Omega\mid X(\omega)\le a\right\})
+\end{align*}\]</span> と表す。 <span class="math inline">\(\Pr(X\ge a),\,\Pr(X=a),\,\Pr(X&lt;a),\,\Pr(X&gt;a)\)</span> なども同様に定義される。</p>
+</div>
+<p>例えば、<span class="math inline">\(\Omega=\{\mathrm{HH},\mathrm{HT},\mathrm{TH},\mathrm{TT}\}\)</span> のとき、.</p>
+<p><span class="math display">\[\begin{align*}
+X_1(\mathrm{HH}) &amp;= X_1(\mathrm{HT}) = 1,&amp; X_1(\mathrm{TH}) = X_1(\mathrm{TT}) = 0\\
+X_2(\mathrm{HH}) &amp;= X_2(\mathrm{TH}) = 1,&amp; X_2(\mathrm{HT}) = X_2(\mathrm{TT}) = 0\\
+X&amp;=X_1+X_2
+\end{align*}\]</span></p>
+</section>
+<section id="離散型確率変数" class="slide level2">
+<h2>離散型確率変数</h2>
+<p><strong>離散型確率変数</strong>: 像が高々可算無限の確率変数</p>
+<p>任意の <span class="math inline">\(A\subseteq\mathrm{Image}(X)\)</span> について、 <span class="math display">\[\begin{align*}
+\Pr(X\in A) &amp;= P\left(\{\omega\in\Omega\mid X(\omega)\in A\}\right)\\
+&amp;= P\left(\bigcup_{x\in A} \{\omega\in\Omega\mid X(\omega)=x\}\right)\\
+&amp;= \sum_{x\in A} P\left(\{\omega\in\Omega\mid X(\omega)=x\}\right)\\
+&amp;= \sum_{x\in A} \Pr\left(X=x\right)
+\end{align*}\]</span></p>
+<p><strong>確率質量関数 (probability mass function)</strong> <span class="math display">\[\begin{align*}
+f_X(x)&amp;\coloneqq \Pr(X=x)\qquad\forall x\in\mathbb{R}.
+\end{align*}\]</span></p>
+<p>すると <span class="math display">\[\begin{align*}
+\Pr(X\in A) &amp;= \sum_{x\in A} f_X(x).
+\end{align*}\]</span></p>
+<div id="cell-fig-binom" class="cell quarto-layout-panel" data-execution_count="1" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-binom" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-binom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="02_rv_files/figure-revealjs/fig-binom-output-1.png" width="410" height="228">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-binom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: 二項分布の確率質量関数
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-binom" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-binom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="02_rv_files/figure-revealjs/fig-binom-output-2.png" width="408" height="228">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-binom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: 二項分布の累積分布関数
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="連続型確率変数" class="slide level2">
+<h2>連続型確率変数</h2>
+<p><strong>連続型確率変数</strong>: 離散型確率変数でない確率変数</p>
+<p><strong>確率密度関数 (probability density function)</strong> <span class="math display">\[\begin{align*}
+\Pr(X\in A) &amp;= \int_{A} f_X(x) \mathrm{d}x.
+\end{align*}\]</span></p>
+<p>離散確率変数に対する <span class="math display">\[\begin{align*}
+\Pr(X\in A) &amp;= \sum_{x\in A} f_X(x)
+\end{align*}\]</span></p>
+<p>と同じ形。</p>
+<p>一般的には確率密度関数は<strong>存在するとは限らない</strong>。</p>
+</section>
+<section id="累積分布関数" class="slide level2">
+<h2>累積分布関数</h2>
+<p><span class="math display">\[\begin{align*}
+F_X(x)&amp;\coloneqq \Pr(X\le x).
+\end{align*}\]</span></p>
 </section>
 <section id="今週の課題" class="slide level2">
 <h2>今週の課題</h2>
