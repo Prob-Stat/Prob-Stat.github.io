@@ -53,7 +53,7 @@
     "href": "slides/02_rv.html#連続型確率変数",
     "title": "確率論",
     "section": "連続型確率変数",
-    "text": "連続型確率変数\n連続型確率変数: 離散型確率変数でない確率変数\n確率密度関数 (probability density function) \\[\\begin{align*}\n\\Pr(X\\in A) &= \\int_{A} f_X(x) \\mathrm{d}x.\n\\end{align*}\\] を満たす関数 \\(f_X\\colon\\mathrm{R}\\to\\mathrm{R}_{\\ge 0}\\).\n離散確率変数に対する \\[\\begin{align*}\n\\Pr(X\\in A) &= \\sum_{x\\in A} f_X(x)\n\\end{align*}\\]\nと同じ形。\n一般的には確率密度関数は存在するとは限らない。"
+    "text": "連続型確率変数\n連続型確率変数: 離散型確率変数でない確率変数\n確率密度関数 (probability density function) \\[\\begin{align*}\n\\Pr(X\\in A) &= \\int_{A} f_X(x) \\mathrm{d}x.\n\\end{align*}\\] を満たす関数 \\(f_X\\colon\\mathbb{R}\\to\\mathbb{R}_{\\ge 0}\\). 離散確率変数に対する \\[\\begin{align*}\n\\Pr(X\\in A) &= \\sum_{x\\in A} f_X(x)\n\\end{align*}\\]\nと同じ形。\n一般的には確率密度関数は存在するとは限らない。\n累積分布関数 \\(F_X(x)\\) が微分可能なとき、 \\[\\begin{align*}\nf_X(x) &= \\frac{\\mathrm{d} F_X}{\\mathrm{d}x}\n\\end{align*}\\]\nとおくと \\[\\begin{align*}\n\\int_{-\\infty}^x f_X(z) \\mathrm{d}z &= F_X(x)\n\\end{align*}\\] を満たす。 累積分布関数が連続で微分不可能な点が飛び飛びにある場合も確率密度関数は \\(f_X = F_X'\\) と取れる。 累積分布関数が微分不可能な点は確率密度関数の値を任意に決めてよい。"
   },
   {
     "objectID": "slides/02_rv.html#連続確率変数の例",
@@ -123,35 +123,28 @@
     "href": "slides/02_rv.html#xa-の確率密度関数",
     "title": "確率論",
     "section": "\\(X+a\\) の確率密度関数",
-    "text": "\\(X+a\\) の確率密度関数\n\nLemma 1 任意の確率変数 \\(X\\) と \\(a\\in\\mathbb{R}\\) について、 \\[\\begin{align*}\nf_{X+a}(x) &= f_X(x-a)\n\\end{align*}\\] は \\(X+a\\) の確率密度関数になる。\n\n\nProof. 関数 \\(f_Z\\colon \\mathbb{R}\\to\\mathbb{R}_{\\ge 0}\\) が\n\\[\n\\Pr(Z\\le x) = \\int_{-\\infty}^x f_Z(z)\\mathrm{d} z\n\\]\nを満たすとき、\\(f_Z\\) は確率変数 \\(Z\\) の確率密度関数となる。\n任意の \\(a\\in\\mathbb{R}\\) について、 \\[\\begin{align*}\n\\Pr(X+a\\le x) &= \\Pr(X\\le x-a)\\\\\n&= \\int_{-\\infty}^{x-a} f_{X}(z)\\mathrm{d}z\\\\\n&= \\int_{-\\infty}^{x} f_{X}(z'-a)\\mathrm{d}z'\\qquad (z'=z+a).\n\\end{align*}\\]"
+    "text": "\\(X+a\\) の確率密度関数\n\nLemma 1 確率密度関数を持つ任意の確率変数 \\(X\\) と \\(a\\in\\mathbb{R}\\) について、 \\[\\begin{align*}\nf_{X+a}(x) &= f_X(x-a)\n\\end{align*}\\] は \\(X+a\\) の確率密度関数になる。\n\n\nProof. 関数 \\(f_Z\\colon \\mathbb{R}\\to\\mathbb{R}_{\\ge 0}\\) が\n\\[\n\\Pr(Z\\le x) = \\int_{-\\infty}^x f_Z(z)\\mathrm{d} z\n\\]\nを満たすとき、\\(f_Z\\) は確率変数 \\(Z\\) の確率密度関数となる。\n任意の \\(a\\in\\mathbb{R}\\) について、 \\[\\begin{align*}\n\\Pr(X+a\\le x) &= \\Pr(X\\le x-a)\\\\\n&= \\int_{-\\infty}^{x-a} f_{X}(z)\\mathrm{d}z\\\\\n&= \\int_{-\\infty}^{x} f_{X}(z'-a)\\mathrm{d}z'\\qquad (z'=z+a).\n\\end{align*}\\]"
   },
   {
     "objectID": "slides/02_rv.html#ax-の確率密度関数",
     "href": "slides/02_rv.html#ax-の確率密度関数",
     "title": "確率論",
     "section": "\\(aX\\) の確率密度関数",
-    "text": "\\(aX\\) の確率密度関数\n\nLemma 2 任意の確率変数 \\(X\\) と \\(a\\in\\mathbb{R}_{\\ne 0}\\) について、 \\[\\begin{align*}\nf_{aX}(x) &= \\frac1{|a|} f_X(x/a)\n\\end{align*}\\] は \\(aX\\) の確率密度関数になる。\n\n\nProof. 関数 \\(f_Z\\colon \\mathbb{R}\\to\\mathbb{R}_{\\ge 0}\\) が\n\\[\n\\Pr(Z\\le x) = \\int_{-\\infty}^x f_Z(z)\\mathrm{d} z\n\\]\nを満たすとき、\\(f_Z\\) は確率変数 \\(Z\\) の確率密度関数となる。\n任意の \\(a&gt;0\\) について、 \\[\\begin{align*}\n\\Pr(aX\\le x) &= \\Pr(X\\le x/a)\\\\\n&= \\int_{-\\infty}^{x/a} f_{X}(z)\\mathrm{d}z\\\\\n&= \\int_{-\\infty}^{x} \\frac1{a} f_{X}(z'/a)\\mathrm{d}z'\\qquad (z'=az).\n\\end{align*}\\] \\(a&lt;0\\) についても同様。"
+    "text": "\\(aX\\) の確率密度関数\n\nLemma 2 確率密度関数を持つ任意の確率変数 \\(X\\) と \\(a\\in\\mathbb{R}_{\\ne 0}\\) について、 \\[\\begin{align*}\nf_{aX}(x) &= \\frac1{|a|} f_X(x/a)\n\\end{align*}\\] は \\(aX\\) の確率密度関数になる。\n\n\nProof. 関数 \\(f_Z\\colon \\mathbb{R}\\to\\mathbb{R}_{\\ge 0}\\) が\n\\[\n\\Pr(Z\\le x) = \\int_{-\\infty}^x f_Z(z)\\mathrm{d} z\n\\]\nを満たすとき、\\(f_Z\\) は確率変数 \\(Z\\) の確率密度関数となる。\n任意の \\(a&gt;0\\) について、 \\[\\begin{align*}\n\\Pr(aX\\le x) &= \\Pr(X\\le x/a)\\\\\n&= \\int_{-\\infty}^{x/a} f_{X}(z)\\mathrm{d}z\\\\\n&= \\int_{-\\infty}^{x} \\frac1{a} f_{X}(z'/a)\\mathrm{d}z'\\qquad (z'=az).\n\\end{align*}\\] \\(a&lt;0\\) についても同様。"
   },
   {
-    "objectID": "slides/02_rv.html#確率密度関数",
-    "href": "slides/02_rv.html#確率密度関数",
+    "objectID": "slides/02_rv.html#gx-の確率密度関数",
+    "href": "slides/02_rv.html#gx-の確率密度関数",
     "title": "確率論",
-    "section": "確率密度関数",
-    "text": "確率密度関数\n\nLemma 3 \\(J\\subseteq\\mathbb{R}\\) を有界とは限らない区間とし、\\(g\\colon J\\to\\mathbb{R}\\) を \\(J\\) の内点で微分可能で \\(g'(x)&gt;0\\) とする。 任意の確率変数 \\(X\\) について、 \\[\\begin{align*}\nf_{g(X)}(x) &= \\frac1{g'(g^{-1}(x))} f_X(g^{-1}(x))\n\\end{align*}\\] は \\(g(X)\\) の確率密度関数になる。\n\n\nProof. 関数 \\(f_Z\\colon \\mathbb{R}\\to\\mathbb{R}_{\\ge 0}\\) が\n\\[\n\\Pr(Z\\le x) = \\int_{-\\infty}^x f_Z(z)\\mathrm{d} z\n\\]\nを満たすとき、\\(f_Z\\) は確率変数 \\(Z\\) の確率密度関数となる。\n任意の \\(x\\in\\mathrm{Image}(g)\\) について \\[\\begin{align*}\n\\Pr(g(X)\\le x) &= \\Pr(X\\le g^{-1}(x))\\\\\n&= \\int_{-\\infty}^{g^{-1}(x)} f_{X}(z)\\mathrm{d}z\\\\\n&= \\int_{-\\infty}^{x} f_{X}(g^{-1}(z')) \\frac1{g'(g^{-1}(z'))}\\mathrm{d}z'\\qquad (z'=g(z)).\n\\end{align*}\\]"
-  },
-  {
-    "objectID": "slides/02_rv.html#累積分布関数の逆関数",
-    "href": "slides/02_rv.html#累積分布関数の逆関数",
-    "title": "確率論",
-    "section": "累積分布関数の逆関数",
-    "text": "累積分布関数の逆関数"
+    "section": "\\(g(X)\\) の確率密度関数",
+    "text": "\\(g(X)\\) の確率密度関数\n\nLemma 3 \\(J\\subseteq\\mathbb{R}\\) を有界とは限らない区間とし、\\(g\\colon J\\to\\mathbb{R}\\) を \\(J\\) の内点で微分可能で \\(g'(x)&gt;0\\) とする。 確率密度関数を持つ任意の確率変数 \\(X\\) について、 \\[\\begin{align*}\nf_{g(X)}(x) &=\n\\begin{cases}\n\\frac1{g'(g^{-1}(x))} f_X(g^{-1}(x))&\\text{if } x\\in\\mathrm{Image}(g)\\\\\n0&\\text{otherwise.}\n\\end{cases}\n\\end{align*}\\] は \\(g(X)\\) の確率密度関数になる。\n\n\nProof. 関数 \\(f_Z\\colon \\mathbb{R}\\to\\mathbb{R}_{\\ge 0}\\) が\n\\[\n\\Pr(Z\\le x) = \\int_{-\\infty}^x f_Z(z)\\mathrm{d} z\n\\]\nを満たすとき、\\(f_Z\\) は確率変数 \\(Z\\) の確率密度関数となる。\n任意の \\(x\\in\\mathrm{Image}(g)\\) について \\[\\begin{align*}\n\\Pr(g(X)\\le x) &= \\Pr(X\\le g^{-1}(x))\\\\\n&= \\int_{-\\infty}^{g^{-1}(x)} f_{X}(z)\\mathrm{d}z\\\\\n&= \\int_{\\inf \\mathrm{Image}(g)}^{x} f_{X}(g^{-1}(z')) \\frac1{g'(g^{-1}(z'))}\\mathrm{d}z'\\qquad (z'=g(z)).\n\\end{align*}\\]"
   },
   {
     "objectID": "slides/02_rv.html#今週の課題",
     "href": "slides/02_rv.html#今週の課題",
     "title": "確率論",
     "section": "今週の課題",
-    "text": "今週の課題\n以下の問に答えよ\n\n\n\\(\\Pr(X=1) = 0.2,\\,\\Pr(X=2)=0.1,\\,\\Pr(X=3)=0.7\\) を満たす確率変数 \\(X\\) の累積分布関数 \\(F_X(x)\\) を \\([0,4]\\) の区間で図示せよ。不連続点で取る値が分かるようにすること。\n\\(U\\sim\\mathrm{U}(0,1)\\) とする。このとき、\\(-2\\log U\\) の確率密度関数をもとめよ。"
+    "text": "今週の課題\n以下の問に答えよ\n\n\n\\(\\Pr(X=1) = 0.2,\\,\\Pr(X=2)=0.1,\\,\\Pr(X=3)=0.7\\) を満たす確率変数 \\(X\\) の累積分布関数 \\(F_X(x)\\) を \\([0,4]\\) の区間で図示せよ。不連続点で取る値が分かるようにすること。\n\\(U\\sim\\mathrm{U}(0,1)\\) とする。このとき、\\(-2\\log U\\) の確率密度関数をもとめよ。すべての \\(\\mathbb{R}\\) に対する値を示すこと。"
   },
   {
     "objectID": "slides/01_probability.html#確率論とは",
@@ -305,7 +298,7 @@
     "href": "slides.html",
     "title": "Slides",
     "section": "",
-    "text": "講義スライド\n集合論と確率空間"
+    "text": "講義スライド\n集合論と確率空間 確率変数"
   },
   {
     "objectID": "index.html",
