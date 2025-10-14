@@ -718,7 +718,7 @@ $J\subseteq\mathbb{R}$ を有界とは限らない区間とし、$g\colon J\to\m
 f_{g(X)}(x) &=
 \begin{cases}
 \frac1{g'(g^{-1}(x))} f_X(g^{-1}(x))&\text{if } x\in\mathrm{Image}(g)\\
-0&\text{otherwise.}
+0&\text{otherwise}
 \end{cases}
 \end{align*}
 は $g(X)$ の確率密度関数になる。
