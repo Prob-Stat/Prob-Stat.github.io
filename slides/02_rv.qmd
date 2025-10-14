@@ -159,7 +159,7 @@ cdf = binom.cdf(x, n, p)
 plt.figure(figsize=(8, 4))
 plt.step(x, cdf, where='post')
 plt.xticks(x)
-plt.title(f'Cdf of binomial distribution with n={n}, p={p}')
+plt.title(f'CDF of binomial distribution with n={n}, p={p}')
 plt.xlabel('$k$')
 plt.ylabel('$\\Pr(X\\leq k)$')
 plt.grid(axis='y', linestyle='--', alpha=0.7)
@@ -221,7 +221,7 @@ cdf = binom.cdf(x, n, p)
 # プロット
 plt.figure(figsize=(8, 4))
 plt.bar(x, pmf, tick_label=x)
-plt.title(f'Pmf of binomial distribution with n={n}, p={p}')
+plt.title(f'PMF of binomial distribution with n={n}, p={p}')
 plt.xlabel('$k$')
 plt.ylabel('$\\Pr(X=k)$')
 plt.grid(axis='y', linestyle='--', alpha=0.7)
@@ -238,8 +238,7 @@ plt.show()
 \begin{align*}
 \Pr(X\in A) &= \int_{A} f_X(x) \mathrm{d}x.
 \end{align*}
-を満たす関数 $f_X\colon\mathrm{R}\to\mathrm{R}_{\ge 0}$.
-
+を満たす関数 $f_X\colon\mathbb{R}\to\mathbb{R}_{\ge 0}$.
 離散確率変数に対する
 \begin{align*}
 \Pr(X\in A) &= \sum_{x\in A} f_X(x)
@@ -248,6 +247,21 @@ plt.show()
 と同じ形。
 
 一般的には確率密度関数は**存在するとは限らない**。
+
+
+累積分布関数 $F_X(x)$ が**微分可能**なとき、
+\begin{align*}
+f_X(x) &= \frac{\mathrm{d} F_X}{\mathrm{d}x}
+\end{align*}
+
+とおくと
+\begin{align*}
+\int_{-\infty}^x f_X(z) \mathrm{d}z &= F_X(x)
+\end{align*}
+を満たす。
+累積分布関数が連続で微分不可能な点が飛び飛びにある場合も確率密度関数は $f_X = F_X'$ と取れる。
+累積分布関数が微分不可能な点は確率密度関数の値を任意に決めてよい。
+
 
 ## 連続確率変数の例
 
@@ -283,7 +297,7 @@ cdf = norm.cdf(x)
 # プロット
 plt.figure(figsize=(6, 3))
 plt.plot(x, pdf)
-plt.title(f'Pdf of normal distribution with $\\mu = 0$ and $\\sigma = 1$')
+plt.title(f'PDF of normal distribution with $\\mu = 0$ and $\\sigma = 1$')
 plt.xlabel('$x$')
 plt.ylabel('$f_X(x)$')
 plt.grid(axis='y', linestyle='--', alpha=0.7)
@@ -291,7 +305,7 @@ plt.show()
 
 plt.figure(figsize=(6, 3))
 plt.plot(x, cdf)
-plt.title(f'Cdf of normal distribution with $\\mu = 0$ and $\\sigma = 1$')
+plt.title(f'CDF of normal distribution with $\\mu = 0$ and $\\sigma = 1$')
 plt.xlabel('$x$')
 plt.ylabel('$F_X(x)$')
 plt.grid(axis='y', linestyle='--', alpha=0.7)
@@ -345,7 +359,7 @@ cdf = geom.cdf(kk, p)
 # プロット
 plt.figure(figsize=(6, 3))
 plt.bar(k, pmf, tick_label=k)
-plt.title(f'Pmf of geometric distribution with p={p}')
+plt.title(f'PMF of geometric distribution with p={p}')
 plt.xlabel('$k$')
 plt.ylabel('$\\Pr(X=k)$')
 plt.grid(axis='y', linestyle='--', alpha=0.7)
@@ -354,7 +368,7 @@ plt.show()
 plt.figure(figsize=(6, 3))
 plt.step(kk, cdf, where='post')
 plt.xticks(kk)
-plt.title(f'Cdf of geometric distribution with p={p}')
+plt.title(f'CDF of geometric distribution with p={p}')
 plt.xlabel('$k$')
 plt.ylabel('$\\Pr(X\\leq k)$')
 plt.grid(axis='y', linestyle='--', alpha=0.7)
@@ -395,7 +409,7 @@ cdf = hypergeom.cdf(k, N, K, n)
 # プロット
 plt.figure(figsize=(6, 3))
 plt.bar(k, pmf, tick_label=k)
-plt.title(f'Pmf of hypergeometric distribution with K={K}, N={N}, n = {n}')
+plt.title(f'PMF of hypergeometric distribution with K={K}, N={N}, n = {n}')
 plt.xlabel('$k$')
 plt.ylabel('$\\Pr(X=k)$')
 plt.grid(axis='y', linestyle='--', alpha=0.7)
@@ -404,7 +418,7 @@ plt.show()
 plt.figure(figsize=(6, 3))
 plt.step(k, cdf, where='post')
 plt.xticks(k)
-plt.title(f'Cdf of hypergeometric distribution with K={K}, N={N}, n = {n}')
+plt.title(f'CDF of hypergeometric distribution with K={K}, N={N}, n = {n}')
 plt.xlabel('$k$')
 plt.ylabel('$\\Pr(X\\leq k)$')
 plt.grid(axis='y', linestyle='--', alpha=0.7)
@@ -443,7 +457,7 @@ cdf = poisson.cdf(k, lam)
 # プロット
 plt.figure(figsize=(6, 3))
 plt.bar(k, pmf, tick_label=k)
-plt.title(f'Pmf of Poisson distribution with $\\lambda$={lam}')
+plt.title(f'PMF of Poisson distribution with $\\lambda$={lam}')
 plt.xlabel('$k$')
 plt.ylabel('$\\Pr(X=k)$')
 plt.grid(axis='y', linestyle='--', alpha=0.7)
@@ -452,7 +466,7 @@ plt.show()
 plt.figure(figsize=(6, 3))
 plt.step(k, cdf, where='post')
 plt.xticks(k)
-plt.title(f'Cdf of Poisson distribution with $\\lambda$={lam}')
+plt.title(f'CDF of Poisson distribution with $\\lambda$={lam}')
 plt.xlabel('$k$')
 plt.ylabel('$\\Pr(X\\leq k)$')
 plt.grid(axis='y', linestyle='--', alpha=0.7)
@@ -499,7 +513,7 @@ cdf = uniform.cdf(x)
 # プロット
 plt.figure(figsize=(6, 3))
 plt.plot(x, pdf)
-plt.title(f'Pdf of Uniform distribution on $[0,1]$')
+plt.title(f'PDF of Uniform distribution on $[0,1]$')
 plt.xlabel('$x$')
 plt.ylabel('$f_X(x)$')
 plt.grid(axis='y', linestyle='--', alpha=0.7)
@@ -507,7 +521,7 @@ plt.show()
 
 plt.figure(figsize=(6, 3))
 plt.plot(x, cdf)
-plt.title(f'Cdf of Uniform distribution on $[0,1]$')
+plt.title(f'CDF of Uniform distribution on $[0,1]$')
 plt.xlabel('$x$')
 plt.ylabel('$F_X(x)$')
 plt.grid(axis='y', linestyle='--', alpha=0.7)
@@ -547,7 +561,7 @@ cdf = norm.cdf(x)
 # プロット
 plt.figure(figsize=(6, 3))
 plt.plot(x, pdf)
-plt.title(f'Pdf of normal distribution with $\\mu = 0$ and $\\sigma = 1$')
+plt.title(f'PDF of normal distribution with $\\mu = 0$ and $\\sigma = 1$')
 plt.xlabel('$x$')
 plt.ylabel('$f_X(x)$')
 plt.grid(axis='y', linestyle='--', alpha=0.7)
@@ -555,7 +569,7 @@ plt.show()
 
 plt.figure(figsize=(6, 3))
 plt.plot(x, cdf)
-plt.title(f'Cdf of normal distribution with $\\mu = 0$ and $\\sigma = 1$')
+plt.title(f'CDF of normal distribution with $\\mu = 0$ and $\\sigma = 1$')
 plt.xlabel('$x$')
 plt.ylabel('$F_X(x)$')
 plt.grid(axis='y', linestyle='--', alpha=0.7)
@@ -600,7 +614,7 @@ cdf = expon.cdf(x)
 # プロット
 plt.figure(figsize=(6, 3))
 plt.plot(x, pdf)
-plt.title(f'Pdf of exponential distribution with $\\lambda = 1$')
+plt.title(f'PDF of exponential distribution with $\\lambda = 1$')
 plt.xlabel('$x$')
 plt.ylabel('$f_X(x)$')
 plt.grid(axis='y', linestyle='--', alpha=0.7)
@@ -608,7 +622,7 @@ plt.show()
 
 plt.figure(figsize=(6, 3))
 plt.plot(x, cdf)
-plt.title(f'Cdf of exponential distribution with $\\lambda = 1$')
+plt.title(f'CDF of exponential distribution with $\\lambda = 1$')
 plt.xlabel('$x$')
 plt.ylabel('$F_X(x)$')
 plt.grid(axis='y', linestyle='--', alpha=0.7)
@@ -650,7 +664,7 @@ plt.show()
 ## $X+a$ の確率密度関数
 
 ::: {#lem-pdf-add}
-任意の確率変数 $X$ と $a\in\mathbb{R}$ について、
+確率密度関数を持つ任意の確率変数 $X$ と $a\in\mathbb{R}$ について、
 \begin{align*}
 f_{X+a}(x) &= f_X(x-a)
 \end{align*}
@@ -676,7 +690,7 @@ $$
 ## $aX$ の確率密度関数
 
 ::: {#lem-pdf-mul}
-任意の確率変数 $X$ と $a\in\mathbb{R}_{\ne 0}$ について、
+確率密度関数を持つ任意の確率変数 $X$ と $a\in\mathbb{R}_{\ne 0}$ について、
 \begin{align*}
 f_{aX}(x) &= \frac1{|a|} f_X(x/a)
 \end{align*}
@@ -700,13 +714,17 @@ $$
 $a<0$ についても同様。
 :::
 
-## 確率密度関数
+## $g(X)$ の確率密度関数
 
 ::: {#lem-pdf-inc}
-$J\subseteq\mathbb{R}$ を有界とは限らない区間とし、$g\colon J\to\mathbb{R}$ を $J$ の内点で微分可能で $g'(x)>0$ とする。
-任意の確率変数 $X$ について、
+$J\subseteq\mathbb{R}$ を有界とは限らない区間とし、$g\colon J\to\mathbb{R}$ を $J$ の内点で**微分可能**で $g'(x)>0$ とする。
+確率密度関数を持つ任意の確率変数 $X$ について、
 \begin{align*}
-f_{g(X)}(x) &= \frac1{g'(g^{-1}(x))} f_X(g^{-1}(x))
+f_{g(X)}(x) &=
+\begin{cases}
+\frac1{g'(g^{-1}(x))} f_X(g^{-1}(x))&\text{if } x\in\mathrm{Image}(g)\\
+0&\text{otherwise.}
+\end{cases}
 \end{align*}
 は $g(X)$ の確率密度関数になる。
 :::
@@ -723,11 +741,20 @@ $$
 \begin{align*}
 \Pr(g(X)\le x) &= \Pr(X\le g^{-1}(x))\\
 &= \int_{-\infty}^{g^{-1}(x)} f_{X}(z)\mathrm{d}z\\
-&= \int_{-\infty}^{x} f_{X}(g^{-1}(z')) \frac1{g'(g^{-1}(z'))}\mathrm{d}z'\qquad (z'=g(z)).
+&= \int_{\inf \mathrm{Image}(g)}^{x} f_{X}(g^{-1}(z')) \frac1{g'(g^{-1}(z'))}\mathrm{d}z'\qquad (z'=g(z)).
 \end{align*}
 :::
 
+<!--
 ## 累積分布関数の逆関数
+
+確率変数 $X$ の累積分布関数 $F_X$ は以下の性質を持っていた。
+
+1. $F_X$ は単調非減少。
+1. $F_X$ は右連続。
+1. $\lim_{x\to\infty}F_X(x) = 1$.
+1. $\lim_{x\to-\infty}F_X(x) = 0$.
+-->
 
 ## 今週の課題
 
@@ -737,6 +764,6 @@ $$
 ::: {.wide-list}
 
 1. $\Pr(X=1) = 0.2,\,\Pr(X=2)=0.1,\,\Pr(X=3)=0.7$ を満たす確率変数 $X$ の累積分布関数 $F_X(x)$ を $[0,4]$ の区間で図示せよ。不連続点で取る値が分かるようにすること。
-1. $U\sim\mathrm{U}(0,1)$ とする。このとき、$-2\log U$ の確率密度関数をもとめよ。
+1. $U\sim\mathrm{U}(0,1)$ とする。このとき、$-2\log U$ の確率密度関数をもとめよ。すべての $\mathbb{R}$ に対する値を示すこと。
 
 :::

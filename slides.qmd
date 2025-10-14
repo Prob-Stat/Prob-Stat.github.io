@@ -5,3 +5,4 @@ title: "Slides"
 講義スライド
 
 [集合論と確率空間](slides/01_probability.qmd){target="_blank"}
+[確率変数](slides/02_rv.qmd){target="_blank"}
