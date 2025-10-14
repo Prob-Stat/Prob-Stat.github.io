@@ -178,13 +178,6 @@
 <li><span class="math inline">\(P(A) = \frac{|A|}4\qquad\forall A\subseteq\Omega\)</span>.</li>
 </ul>
 </div>
-<p>無限回の独立なコイン投げ</p>
-<div class="wide-list">
-<ul>
-<li><span class="math inline">\(\Omega = \{\mathrm{H},\mathrm{T}\}^{\mathbb{N}}\)</span>.</li>
-<li><span class="math inline">\(P(A) = \frac{|A|}4\qquad\forall A\subseteq\Omega\)</span>.</li>
-</ul>
-</div>
 <p>実数</p>
 <div class="wide-list">
 <ul>
@@ -196,7 +189,7 @@
 <section id="確率変数" class="slide level2">
 <h2>確率変数</h2>
 <p>実際に知りたい情報は限定されている。</p>
-<p><span class="math inline">\(100\)</span> 回コインを投げると <span class="math inline">\(2^{100}\)</span> 通りの結果があるが、興味がある情報は例えば以下のものなど。</p>
+<p><span class="math inline">\(100\)</span> 回コインを投げると <span class="math inline">\(2^{100}\)</span> 通りの結果があるが、興味がある情報は例えば以下のものがある。</p>
 <div class="wide-list">
 <ul>
 <li><span class="math inline">\(k\)</span> 回目に表が出たか裏が出たか</li>
@@ -211,6 +204,7 @@
 \Pr(X\le a) &amp;\coloneqq P(\left\{\omega\in\Omega\mid X(\omega)\le a\right\})
 \end{align*}\]</span> と表す。 <span class="math inline">\(\Pr(X\ge a),\,\Pr(X=a),\,\Pr(X&lt;a),\,\Pr(X&gt;a)\)</span> なども同様に定義される。</p>
 </div>
+<p><br></p>
 <p>例えば、<span class="math inline">\(\Omega=\{\mathrm{HH},\mathrm{HT},\mathrm{TH},\mathrm{TT}\}\)</span> のとき、.</p>
 <p><span class="math display">\[\begin{align*}
 X_1(\mathrm{HH}) &amp;= X_1(\mathrm{HT}) = 1,&amp; X_1(\mathrm{TH}) = X_1(\mathrm{TT}) = 0\\
@@ -312,8 +306,7 @@ Figure&nbsp;2: 二項分布の確率質量関数
 \end{align*}\]</span> を満たす関数 <span class="math inline">\(f_X\colon\mathbb{R}\to\mathbb{R}_{\ge 0}\)</span>. 離散確率変数に対する <span class="math display">\[\begin{align*}
 \Pr(X\in A) &amp;= \sum_{x\in A} f_X(x)
 \end{align*}\]</span></p>
-<p>と同じ形。</p>
-<p>一般的には確率密度関数は<strong>存在するとは限らない</strong>。</p>
+<p>と同じ形。 一般的には確率密度関数は<strong>存在するとは限らない</strong>。</p>
 <p>累積分布関数 <span class="math inline">\(F_X(x)\)</span> が<strong>微分可能</strong>なとき、 <span class="math display">\[\begin{align*}
 f_X(x) &amp;= \frac{\mathrm{d} F_X}{\mathrm{d}x}
 \end{align*}\]</span></p>
@@ -695,7 +688,7 @@ f_{g(X)}(x) &amp;=
 <div class="wide-list">
 <ol type="1">
 <li><span class="math inline">\(\Pr(X=1) = 0.2,\,\Pr(X=2)=0.1,\,\Pr(X=3)=0.7\)</span> を満たす確率変数 <span class="math inline">\(X\)</span> の累積分布関数 <span class="math inline">\(F_X(x)\)</span> を <span class="math inline">\([0,4]\)</span> の区間で図示せよ。不連続点で取る値が分かるようにすること。</li>
-<li><span class="math inline">\(U\sim\mathrm{U}(0,1)\)</span> とする。このとき、<span class="math inline">\(-2\log U\)</span> の確率密度関数をもとめよ。すべての <span class="math inline">\(\mathbb{R}\)</span> に対する値を示すこと。</li>
+<li><span class="math inline">\(U\sim\mathrm{U}(0,1)\)</span> とする。このとき、<span class="math inline">\(-2\log U\)</span> の確率密度関数をもとめよ。すべての <span class="math inline">\(x\in\mathbb{R}\)</span> に対する値を示すこと。</li>
 </ol>
 </div>
 
