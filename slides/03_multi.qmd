@@ -356,7 +356,12 @@ f_{X,\,Y}(1,\,2) &= f
 \end{align*}
 ここで、 $a,b,c,d,e,f\in\mathbb{R}_{\ge 0}$ は $a+b+c+d+e+f=1$ を満たすものとする。
 このとき、周辺確率質量関数 $f_X$ と $f_Y$ をもとめよ。
-1. 確率変数 $X$ と $Y$ が独立で $X\sim\mathrm{Ber}(p)$, $Y\sim\mathrm{Poisson}(\lambda)$ とする。
+1. 確率変数 $X$ と $Y$ が独立で
+\begin{align*}
+ X&\sim\mathrm{Ber}(p)& p\in[0,1]\\
+ Y&\sim\mathrm{Poisson}(\lambda)& \lambda\in \mathbb{R}_{\ge 0}
+\end{align*}
+  とする。
 このとき、 $X+Y$ の確率質量関数をもとめよ。結果の式は共通因子でくくらなくてよい(採点が楽なので)。
 
 :::
