@@ -260,7 +260,7 @@ f_X(x) &= \frac{\mathrm{d} F_X}{\mathrm{d}x}
 
 ## 連続確率変数の例
 
-**正規分布(ガウス分布)** $N(\mu,\sigma)\colon$
+**正規分布(ガウス分布)** $N(\mu,\sigma^2)\colon$
 
 \begin{align*}
 f_X(x) &= \frac1{\sqrt{2\pi\sigma^2}}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}},&
@@ -525,7 +525,7 @@ plt.show()
 
 ## 正規分布 (ガウス分布)
 
-パラメータ $\mu\in\mathbb{R},\,\sigma\in\mathbb{R}_{>0}$ について、**正規分布** $N(\mu,\sigma)$ の確率密度関数と累積分布関数は
+パラメータ $\mu\in\mathbb{R},\,\sigma\in\mathbb{R}_{>0}$ について、**正規分布** $N(\mu,\sigma^2)$ の確率密度関数と累積分布関数は
 \begin{align*}
 f_X(x) &= \frac1{\sqrt{2\pi\sigma^2}}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2}},&
 F_X(x) &= \int_{-\infty}^x \frac1{\sqrt{2\pi\sigma^2}}\mathrm{e}^{-\frac{(z-\mu)^2}{2\sigma^2}}\mathrm{d}z.
