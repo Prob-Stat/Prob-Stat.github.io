@@ -359,7 +359,7 @@ f_{X,\,Y}(1,\,2) &= f
 1. 確率変数 $X$ と $Y$ が独立で
 \begin{align*}
  X&\sim\mathrm{Ber}(p)& p\in[0,1]\\
- Y&\sim\mathrm{Poisson}(\lambda)& \lambda\in \mathbb{R}_{\ge 0}
+ Y&\sim\mathrm{Poisson}(\lambda)& \lambda > 0
 \end{align*}
   とする。
 このとき、 $X+Y$ の確率質量関数をもとめよ。結果の式は共通因子でくくらなくてよい(採点が楽なので)。
