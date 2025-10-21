@@ -1,96 +1,5 @@
 [
   {
-    "objectID": "slides/03_multi.html#条件付き確率",
-    "href": "slides/03_multi.html#条件付き確率",
-    "title": "確率論",
-    "section": "条件付き確率",
-    "text": "条件付き確率\n\nDefinition 1 (条件付き確率) 確率空間 \\((\\Omega,\\,P)\\) の事象 \\(A,B\\subseteq\\Omega\\) について \\(P(B)&gt; 0\\) のとき、\\(B\\) における \\(A\\) の条件付き確率 は以下で定義される。 \\[\\begin{align*}\n   P(A\\mid B) &\\coloneqq \\frac{P(A\\cap B)}{P(B)}.\n   \\end{align*}\\]\n\n二つの事象 \\(A,B\\subseteq\\Omega\\) を考える文脈では \\(P(A\\cap B)\\) を同時確率、\\(P(A),\\,P(B)\\) を周辺確率という。\n\nDefinition 2 (事象の独立性) 確率空間 \\((\\Omega,\\,P)\\) の事象 \\(A,B\\subseteq\\Omega\\) について \\[\\begin{align*}\nP(A\\cap B) &= P(A) P(B)\n\\end{align*}\\] を満たすとき、事象 \\(A\\) と \\(B\\) は独立であるという。\n\n\n\nExample 1 (二回のコイン投げ) 標本空間を \\(\\Omega = \\{\\mathrm{HH},\\mathrm{HT},\\mathrm{TH},\\mathrm{TT}\\}\\) とし、確率測度を \\(P(A) = \\frac{|A|}4\\quad\\forall A\\subseteq\\Omega\\) とする。 このとき、\\(A=\\{\\mathrm{HH},\\mathrm{HT}\\},\\,B=\\{\\mathrm{HH},\\mathrm{TH}\\}\\) とおくと、 \\[\\begin{align*}\nP(A\\cap B) &= \\frac14,&P(A)&=P(B)=\\frac12\n\\end{align*}\\] より \\(P(A\\cap B) = P(A)P(B)\\) を満たすことが分かる。 よって事象 \\(A,\\,B\\) は独立である。\n\n事象 \\(A\\) と \\(B\\) が独立であり、\\(P(B)&gt;0\\) であるとき、\\(P(A\\mid B)=P(A)\\) である。"
-  },
-  {
-    "objectID": "slides/03_multi.html#確率変数の条件付き確率と独立性",
-    "href": "slides/03_multi.html#確率変数の条件付き確率と独立性",
-    "title": "確率論",
-    "section": "確率変数の条件付き確率と独立性",
-    "text": "確率変数の条件付き確率と独立性\n事象は確率変数を通じて表すことが多い。そのため確率変数を用いた条件付き確率も定義する。\n\nDefinition 3 (確率変数) 確率空間 \\((\\Omega,\\,P)\\) 上の確率変数 \\(X_1, X_2\\) について同時確率を \\[\\begin{align*}\n\\Pr(X_1\\in A,\\,X_2\\in B) &\\coloneqq P(\\{\\omega\\in\\Omega\\mid X_1(\\omega)\\in A\\}\\cap\\{\\omega\\in\\Omega\\mid X_2(\\omega)\\in B\\}\\})\\quad\\forall A,B\\subseteq\\mathbb{R}\n\\end{align*}\\] と定義する。確率変数が三つ以上の場合も同様に定義する。 また \\(\\Pr(X_2\\in B)&gt;0\\) のとき、条件付き確率は以下で定義する。 \\[\\begin{align*}\n\\Pr(X_1\\in A\\mid X_2\\in B) &\\coloneqq P(\\{\\omega\\in\\Omega\\mid X_1(\\omega)\\in A\\}\\mid\\{\\omega\\in\\Omega\\mid X_2(\\omega)\\in B\\}\\})\\\\\n&=\\frac{\\Pr(X_1\\in A, X_2\\in B)}{\\Pr(X_2\\in B)}\\qquad\\forall A,B\\subseteq\\mathbb{R}.\n\\end{align*}\\] 任意の \\(A,B\\subseteq\\mathbb{R}\\) について、 \\[\\begin{align*}\n\\Pr(X_1\\in A,\\,X_2\\in B)  &= \\Pr(X_1\\in A)\\Pr(X_2\\in B)\n\\end{align*}\\] を満たすとき、確率変数 \\(X_1\\) と \\(X_2\\) は独立であるという。\n\n\nLemma 1 確率空間 \\((\\Omega,\\,P)\\) 上の確率変数 \\(X_1, X_2\\) が独立であるとする。 このとき任意の関数 \\(f_1,\\,f_2\\colon\\mathbb{R}\\to\\mathbb{R}\\) について、\\(f_1(X_1),\\,f_2(X_2)\\) は独立である。\n\n\nProof. \\[\\begin{align*}\n\\Pr(f_1(X_1)\\in A,\\,f_2(X_2)\\in B) &=\n\\Pr(X_1\\in f_1^{-1}(A),\\,X_2\\in f_2^{-1}(B))\\\\\n&=\\Pr(X_1\\in f_1^{-1}(A))\\Pr(X_2\\in f_2^{-1}(B))\\\\\n&=\\Pr(f_1(X_1)\\in A)\\Pr(f_2(X_2)\\in B).\n\\end{align*}\\]"
-  },
-  {
-    "objectID": "slides/03_multi.html#離散型確率変数と確率質量関数",
-    "href": "slides/03_multi.html#離散型確率変数と確率質量関数",
-    "title": "確率論",
-    "section": "離散型確率変数と確率質量関数",
-    "text": "離散型確率変数と確率質量関数\n\nDefinition 4 確率空間 \\((\\Omega,\\,P)\\) 上の離散型確率変数 \\(X_1\\), \\(X_2\\) について、同時確率質量関数を \\[\\begin{align*}\nf_{X_1,\\,X_2}(x_1,x_2) &\\coloneqq \\Pr(X_1=x_1,\\,X_2=x_2)\\\\\n\\end{align*}\\] と定義する。\n\n同時確率質量関数からそれぞれの確率変数の確率質量関数が得られる。 \\[\\begin{align*}\nf_{X_1}(x_1) &= \\sum_{x_2} f_{X_1,\\, X_2}(x_1, x_2),&\nf_{X_2}(x_2) &= \\sum_{x_1} f_{X_1,\\, X_2}(x_1, x_2)\n\\end{align*}\\] それぞれの確率変数の確率質量関数を周辺質量関数と呼ぶ。 同時確率質量関数から周辺質量関数を計算する操作のことを周辺化という。\n\nDefinition 5 確率空間 \\((\\Omega,\\,P)\\) 上の離散型確率変数 \\(X_1\\), \\(X_2\\) について、条件付き確率質量関数を \\[\\begin{align*}\nf_{X_1\\mid X_2}(x_1\\mid x_2) &\\coloneqq \\Pr(X_1=x_1\\mid X_2=x_2)\n\\end{align*}\\] と定義する。\n\n条件付き確率の定義より \\[\\begin{align*}\nf_{X_1,\\,X_2}(x_1,x_2) &= f_{X_1\\mid X_2}(x_1\\mid x_2) f_{X_2}(x_2)\n\\end{align*}\\] が成り立つ。"
-  },
-  {
-    "objectID": "slides/03_multi.html#離散型確率変数の独立性",
-    "href": "slides/03_multi.html#離散型確率変数の独立性",
-    "title": "確率論",
-    "section": "離散型確率変数の独立性",
-    "text": "離散型確率変数の独立性\n\nLemma 2 確率空間 \\((\\Omega,\\,P)\\) 上の離散型確率変数 \\(X_1, X_2\\) について、 \\(X_1\\) と \\(X_2\\) が独立 \\(\\iff\\) \\[\\begin{align*}\nf_{X_1,\\,X_2}(x_1,x_2) &= f_{X_1}(x_1) f_{X_2}(x_2)\n&\\forall x_1\\in\\mathrm{Image}(X_1),x_2\\in\\mathrm{Image}(X_2).\n\\end{align*}\\]\n\n\nProof. \\(\\Longrightarrow\\) は自明。 \\(\\Longleftarrow\\) を示す。 \\[\\begin{align*}\n\\Pr(X_1\\in A,\\,X_2\\in B)  &= \\sum_{x_1\\in A}\\sum_{x_2\\in B} \\Pr(X_1=x_1,\\,X_2=x_2)\\\\\n&= \\sum_{x_1\\in A}\\sum_{x_2\\in B} \\Pr(X_1=x_1)\\Pr(X_2=x_2)\\\\\n&= \\Pr(X_1\\in A)\\Pr(X_2\\in B)\n\\end{align*}\\]\n\n\nExample 2 (二回のコイン投げ) 標本空間を \\(\\Omega = \\{\\mathrm{HH},\\mathrm{HT},\\mathrm{TH},\\mathrm{TT}\\}\\) とし、確率測度を \\(P(A) = \\frac{|A|}4\\quad\\forall A\\subseteq\\Omega\\) とする。 \\[\\begin{align*}\nX_1(\\mathrm{HH})&=X_1(\\mathrm{HT}) = 1,&\nX_1(\\mathrm{TH})&=X_1(\\mathrm{TT}) = 0\\\\\nX_2(\\mathrm{HH})&=X_2(\\mathrm{TH}) = 1,&\nX_2(\\mathrm{HT})&=X_2(\\mathrm{TT}) = 0\n\\end{align*}\\] と定義する。 このとき、 \\[\\begin{align*}\nf_{X_1,\\,X_2}(x_1,\\,x_2) &= \\frac14,&\nf_{X_1}(x_1)=f_{X_2}(x_2)&=\\frac12\\qquad\\forall x_1,x_2\\in\\{0,1\\}\n\\end{align*}\\] より \\(f_{X_1,\\,X_2}(x_1,\\,x_2) = f_{X_1}(x_1)f_{X_2}(x_2)\\) を満たすことが分かる。 よって確率変数 \\(X_1,\\,X_2\\) は独立である。"
-  },
-  {
-    "objectID": "slides/03_multi.html#連続型確率変数と確率密度関数",
-    "href": "slides/03_multi.html#連続型確率変数と確率密度関数",
-    "title": "確率論",
-    "section": "連続型確率変数と確率密度関数",
-    "text": "連続型確率変数と確率密度関数\n確率空間 \\((\\Omega,\\,P)\\) 上の連続型確率変数 \\(X_1\\), \\(X_2\\) について、同時確率密度関数を \\[\\begin{align*}\n%\\Pr(\\begin{bmatrix}X_1,\\,X_2\\end{bmatrix}\\in A) &= \\int_A f_{X_1,\\,X_2}(x_1,x_2)\\mathrm{d}x_1\\mathrm{d}x_2\n\\Pr(X_1\\in A,\\,X_2\\in B) &= \\int_A\\left(\\int_B f_{X_1,\\,X_2}(x_1,x_2)\\mathrm{d}x_2\\right)\\mathrm{d}x_1\n\\end{align*}\\] を満たすものと定義する。 \\(X_1\\) と \\(X_2\\) が確率密度関数を持つ場合でも \\(X_1\\) と \\(X_2\\) の同時確率密度関数が存在するとは限らない。 例えば \\(X_1=X_2\\) の場合がその例である。 逆に \\(X_1\\) と \\(X_2\\) が同時確率密度関数を持つとき、それぞれの確率密度関数は \\[\\begin{align*}\nf_{X_1}(x_1) &= \\int_{-\\infty}^\\infty f_{X_1,\\,X_2}(x_1,x_2)\\mathrm{d}x_2\\\\\nf_{X_2}(x_2) &= \\int_{-\\infty}^\\infty f_{X_1,\\,X_2}(x_1,x_2)\\mathrm{d}x_1\n\\end{align*}\\] で得られる。この操作を確率密度関数の周辺化という。 同時確率密度関数を持つ確率変数 \\(X_1\\), \\(X_2\\) が独立であるとき、 \\[\\begin{align*}\nf_{X_1,\\,X_2}(x_1,x_2) &= f_{X_1}(x_1) f_{X_2}(x_2)\n\\end{align*}\\] が成り立つ。"
-  },
-  {
-    "objectID": "slides/03_multi.html#三つ以上の独立確率変数",
-    "href": "slides/03_multi.html#三つ以上の独立確率変数",
-    "title": "確率論",
-    "section": "三つ以上の独立確率変数",
-    "text": "三つ以上の独立確率変数\n三つ以上の確率変数についても同時確率質量関数、同時確率密度関数を同様に定義する。 独立性についても同様に定義する。\n\nDefinition 6 確率空間 \\((\\Omega,\\,P)\\) 上の確率変数 \\(X_1, X_2,\\dotsc, X_n\\) が独立 \\(\\defiff\\) \\[\\begin{align*}\n\\Pr(X_1\\in A_1,\\dotsc, X_n\\in A_n) &= \\prod_{k=1}^n \\Pr(X_k\\in A_k)\\qquad\\forall A_1,\\dotsc,A_n\\subseteq\\mathbb{R}.\n\\end{align*}\\]\n\n\nDefinition 7 確率空間 \\((\\Omega,\\,P)\\) 上の確率変数 \\(X_1, X_2,\\dotsc, X_n\\) が互いに独立 \\(\\defiff\\) 任意の \\(1\\le i&lt; j\\le n\\) について、\\(X_i\\) と \\(X_j\\) が独立。\n\n\n確率変数 \\(X_1,\\dotsc,X_n\\) が独立であるとき、それらは互いに独立であることは以下から分かる。 \\[\\begin{align*}\n\\Pr(X_1\\in A,\\, X_2\\in B) &= \\Pr(X_1\\in A,\\, X_2\\in B,\\, X_3\\in\\mathbb{R},\\dotsc, X_n\\in\\mathbb{R})\\\\\n&= \\Pr(X_1\\in A)\\Pr(X_2\\in B) \\prod_{k=3}^n \\Pr(X_k\\in\\mathbb{R})\\\\\n&= \\Pr(X_1\\in A)\\Pr(X_2\\in B).\n\\end{align*}\\]"
-  },
-  {
-    "objectID": "slides/03_multi.html#互いに独立であるが独立ではない例",
-    "href": "slides/03_multi.html#互いに独立であるが独立ではない例",
-    "title": "確率論",
-    "section": "互いに独立であるが独立ではない例",
-    "text": "互いに独立であるが独立ではない例\n一方で確率変数 \\(X_1,\\dotsc,X_n\\) が互いに独立であっても、それらが独立であるとは限らない。 例えば、離散型確率変数 \\(X_1,\\dotsc,X_n\\) を \\[\\begin{align*}\nf_{X_1,\\dotsc,X_n}(x_1,\\dotsc,x_n)&=\\begin{cases}\n\\frac1{2^{n-1}}&\\text{if } \\sum_{k=1}^n x_k \\text{ is even}\\\\\n0&\\text{otherwise}\n\\end{cases}&\n\\forall x_1,\\dotsc,x_n\\in\\{0,1\\}\n\\end{align*}\\] と定義する。 このとき、確率変数 \\(X_n\\) を周辺化すると \\[\\begin{align*}\nf_{X_1,\\dotsc,X_{n-1}}(x_1,\\dotsc,x_{n-1})&=\nf_{X_1,\\dotsc,X_n}(x_1,\\dotsc,x_{n-1},0)+ f_{X_1,\\dotsc,X_n}(x_1,\\dotsc,x_{n-1},1)\n=\\frac1{2^{n-1}}\n\\end{align*}\\] となる。つまり、\\(X_1,\\dotsc,X_{n-1}\\) は \\(\\{0,1\\}^{n-1}\\) 上の一様分布に従う。 この確率分布は \\(X_1,\\dotsc,X_n\\) について対称なので、どの確率変数を周辺化しても一様分布に従う。 一様分布は独立なので、\\(n\\ge 3\\) のとき、どの二つの確率変数も独立である。 よって \\(n\\ge 3\\) のとき、\\(X_1,\\dotsc,X_n\\) は互いに独立である。\n一方で、\\(n\\ge 2\\) のとき、これらの確率変数の周辺確率は一様である。つまり、 \\[\\begin{align*}\nf_{X_k}(0) &= f_{X_k}(1) = \\frac12\\qquad\\forall k=1,2,\\dotsc,n.\n\\end{align*}\\] しかし、 \\[\\begin{align*}\nf_{X_1,\\dotsc,X_n}(x_1,\\dotsc,x_n)&=\\prod_{k=1}^n f_{X_k}(x_k)\\qquad\\forall x_1,\\dotsc,x_n\\in\\{0,1\\}\n\\end{align*}\\] は成り立たないので独立ではない。"
-  },
-  {
-    "objectID": "slides/03_multi.html#独立な離散型確率変数の和",
-    "href": "slides/03_multi.html#独立な離散型確率変数の和",
-    "title": "確率論",
-    "section": "独立な離散型確率変数の和",
-    "text": "独立な離散型確率変数の和\n離散型確率変数 \\(X_1\\) と \\(X_2\\) が独立であるとする。 このとき、\\(X_1+X_2\\) の確率質量関数は \\[\\begin{align*}\nf_{X_1+X_2}(x) &= \\sum_z f_{X_1}(z)f_{X_2}(x-z)\n\\end{align*}\\] で与えられる。 これを確率質量関数の畳み込みという。\n\nExample 3 二項分布の \\(N=1\\) の場合をベルヌーイ分布 \\(\\mathrm{Ber}(p)\\) と呼ぶ。 つまり、\\(X\\sim\\mathrm{Ber}(p)\\defiff\\) \\[\\begin{align*}\n\\Pr(X=0) &= 1-p,& \\Pr(X=1) &= p\n\\end{align*}\\] である。 確率変数 \\(X_1,X_2\\) が独立で \\(\\mathrm{Ber}(p)\\) に従うとする。 このとき、\\(X_1+X_2\\) は \\(\\mathrm{Binom}(2, p)\\) に従う。 \\[\\begin{align*}\n\\Pr(X_1+X_2 = 0) &= \\Pr(X_1=0,\\,X_2=0)\n= \\Pr(X_1=0)\\Pr(X_2=0) = (1-p)^2\\\\\n\\Pr(X_1+X_2 = 1) &= \\Pr(X_1=0,\\,X_2=1) + \\Pr(X_1=1,\\,X_2=0)\\\\\n&=  \\Pr(X_1=0)\\Pr(X_2=1) + \\Pr(X_1=1)\\Pr(X_2=0)\\\\\n&= 2p(1-p)\\\\\n\\Pr(X_1+X_2 = 2) &= \\Pr(X_1=1,\\,X_2=1)\n= \\Pr(X_1=1)\\Pr(X_2=1) = p^2\n\\end{align*}\\] と計算できる。 よって \\[\\begin{align*}\n\\Pr(X_1+X_2 = k) &= \\binom{2}{k} p^k(1-p)^{2-k}\n\\end{align*}\\] が成り立ち \\(X_1+X_2\\sim\\mathrm{Binom}(2, p)\\) であることが分かる。"
-  },
-  {
-    "objectID": "slides/03_multi.html#二項分布の再生性",
-    "href": "slides/03_multi.html#二項分布の再生性",
-    "title": "確率論",
-    "section": "二項分布の再生性",
-    "text": "二項分布の再生性\n確率分布の族(集合)が畳み込みに閉じているとき、確率分布の族は再生性を持つという。 二項分布の場合はパラメータ \\(p\\) を固定したときに再生性を持つ。\n\nExample 4 一般に、独立確率変数 \\(X_1,\\,X_2\\) について \\(X_1\\sim\\mathrm{Binom}(n, p)\\), \\(X_2\\sim\\mathrm{Binom}(m, p)\\) のとき、\\(X_1+X_2\\sim\\mathrm{Binom}(n+m,p)\\) である。 \\[\\begin{align*}\n\\Pr(X_1+X_2 = k) &= \\sum_{\\ell\\ge 0} \\Pr(X_1 = \\ell) \\Pr(X_2 = k-\\ell)\\\\\n&= \\sum_{\\ell\\ge 0} \\binom{n}{\\ell} p^\\ell(1-p)^{n-\\ell} \\binom{m}{k-\\ell} p^{k-\\ell}(1-p)^{m-k+\\ell}\\\\\n&= \\left(\\sum_{\\ell= 0}^k \\binom{n}{\\ell} \\binom{m}{k-\\ell}\\right) p^k(1-p)^{n+m-k}\\\\\n&= \\binom{n+m}{k} p^k(1-p)^{n+m-k}.\n\\end{align*}\\]"
-  },
-  {
-    "objectID": "slides/03_multi.html#ポアソン分布の再生性",
-    "href": "slides/03_multi.html#ポアソン分布の再生性",
-    "title": "確率論",
-    "section": "ポアソン分布の再生性",
-    "text": "ポアソン分布の再生性\nポアソン分布も再生性を持つ。\n\nExample 5 確率変数 \\(X_1\\), \\(X_2\\) が独立で \\(X_1\\sim\\mathrm{Poisson}(\\lambda_1)\\), \\(X_2\\sim\\mathrm{Poisson}(\\lambda_2)\\) とする。 このとき、 \\[\\begin{align*}\nf_{X_1+X_2}(x) &= \\sum_{z= 0}^x f_{X_1}(z) f_{X_2}(x-z)\\\\\n&= \\sum_{z= 0}^x \\frac{\\lambda_1^z}{z!}\\mathrm{e}^{-\\lambda_1}\\frac{\\lambda_2^{x-z}}{(x-z)!}\\mathrm{e}^{-\\lambda_2}\\\\\n&= \\frac1{x!}\\mathrm{e}^{-(\\lambda_1+\\lambda_2)}\\sum_{z=0}^x\\binom{x}{z} \\lambda_1^z\\lambda_2^{x-z}\\\\\n&= \\frac1{x!}\\mathrm{e}^{-(\\lambda_1+\\lambda_2)}(\\lambda_1+\\lambda_2)^x\n\\end{align*}\\] が成り立つ。よって \\(X_1+X_2\\sim\\mathrm{Poisson}(\\lambda_1+\\lambda_2)\\) である。"
-  },
-  {
-    "objectID": "slides/03_multi.html#独立な連続型確率変数の和",
-    "href": "slides/03_multi.html#独立な連続型確率変数の和",
-    "title": "確率論",
-    "section": "独立な連続型確率変数の和",
-    "text": "独立な連続型確率変数の和\n連続確率変数 \\(X_1\\) と \\(X_2\\) が独立で密度関数を持つとき、 \\[\\begin{align*}\n\\Pr(X_1+X_2\\in A) &= \\int\\int_{y+z\\in A} f_{X_1}(y)f_{X_2}(z)\\mathrm{d}y\\mathrm{d}z\\\\\n&= \\int\\int_{x\\in A} f_{X_1}(y)f_{X_2}(x-y)\\mathrm{d}y\\mathrm{d}x \\qquad(x=y+z)\\\\\n&= \\int_{A} \\left(\\int_{-\\infty}^\\infty f_{X_1}(y)f_{X_2}(x-y)\\mathrm{d}y\\right)\\mathrm{d}x \\qquad(x=y+z)\\\\\n\\end{align*}\\] と表せるので、\\(X_1+X_2\\) は確率密度関数を持ち \\[\\begin{align*}\nf_{X_1+X_2}(x) &= \\int_{-\\infty}^\\infty f_{X_1}(z)f_{X_2}(x-z)\\mathrm{d} z\n\\end{align*}\\] とすることができる。 これを確率密度関数の畳み込みという。"
-  },
-  {
-    "objectID": "slides/03_multi.html#正規分布の再生性",
-    "href": "slides/03_multi.html#正規分布の再生性",
-    "title": "確率論",
-    "section": "正規分布の再生性",
-    "text": "正規分布の再生性\n確率変数 \\(X_1,\\,X_2\\) が独立で \\(X_1\\sim N(\\mu_1,\\,\\sigma_1^2)\\), \\(X_2\\sim N(\\mu_2,\\,\\sigma_2^2)\\) とする。 このとき、 \\[\\begin{align*}\nf_{X_1+X_2}(x) &= \\int_{-\\infty}^\\infty f_{X_1}(z)f_{X_2}(x-z)\\mathrm{d} z\\\\\n&= \\int_{-\\infty}^\\infty \\frac1{\\sqrt{2\\pi\\sigma_1^2}} \\mathrm{e}^{-\\frac{(z-\\mu_1)^2}{2\\sigma_1^2}}\\frac1{\\sqrt{2\\pi\\sigma_2^2}} \\mathrm{e}^{-\\frac{(x-z-\\mu_2)^2}{2\\sigma_2^2}}\\mathrm{d} z\\\\\n&= \\frac1{2\\pi\\sqrt{\\sigma_1^2\\sigma_2^2}}\\int_{-\\infty}^\\infty  \\mathrm{e}^{-\\frac{\\sigma_2^2(z-\\mu_1)^2+\\sigma_1^2(x-z-\\mu_2)^2}{2\\sigma_1^2\\sigma_2^2}}\\mathrm{d} z\\\\\n&= \\frac1{2\\pi\\sqrt{\\sigma_1^2\\sigma_2^2}}\\int_{-\\infty}^\\infty  \\mathrm{e}^{-\\frac{(\\sigma_1^2+\\sigma_2^2)\\left(z-\\frac{\\sigma_2^2\\mu_1+\\sigma_1^2(x-\\mu_2)}{\\sigma_1^2+\\sigma_2^2}\\right)^2 + \\sigma_2^2\\mu_1^2 + \\sigma_1^2(x-\\mu_2)^2 - \\frac{(\\sigma_2^2\\mu_1+\\sigma_1^2(x-\\mu_2))^2}{\\sigma_1^2+\\sigma_2^2}}{2\\sigma_1^2\\sigma_2^2}}\\mathrm{d} z\\\\\n&= \\frac1{\\sqrt{2\\pi(\\sigma_1^2+\\sigma_2^2)}}\\mathrm{e}^{-\\frac{\\sigma_2^2\\mu_1^2 + \\sigma_1^2(x-\\mu_2)^2 - \\frac{(\\sigma_2^2\\mu_1+\\sigma_1^2(x-\\mu_2))^2}{\\sigma_1^2+\\sigma_2^2}}{2\\sigma_1^2\\sigma_2^2}}\\\\\n&= \\frac1{\\sqrt{2\\pi(\\sigma_1^2+\\sigma_2^2)}}\\mathrm{e}^{-\\frac{(x-(\\mu_1+\\mu_2))^2}{2(\\sigma_1^2+\\sigma_2^2)}}\\\\\n\\end{align*}\\] が成り立つので \\(X_1+X_2\\sim N(\\mu_1+\\mu_2,\\,\\sigma_1^2+\\sigma_2^2)\\) であることが分かる。 よって正規分布は再生性を持つ。"
-  },
-  {
-    "objectID": "slides/03_multi.html#今週の課題",
-    "href": "slides/03_multi.html#今週の課題",
-    "title": "確率論",
-    "section": "今週の課題",
-    "text": "今週の課題\n以下の問に答えよ\n\n\n共通の確率空間上の離散型確率変数 \\(X\\) と \\(Y\\) が以下の同時確率質量関数を持つとする。 \\[\\begin{align*}\nf_{X,\\,Y}(0,\\,0) &= a,&\nf_{X,\\,Y}(0,\\,1) &= b,&\nf_{X,\\,Y}(0,\\,2) &= c,\\\\\nf_{X,\\,Y}(1,\\,0) &= d,&\nf_{X,\\,Y}(1,\\,1) &= e,&\nf_{X,\\,Y}(1,\\,2) &= f\n\\end{align*}\\] ここで、 \\(a,b,c,d,e,f\\in\\mathbb{R}_{\\ge 0}\\) は \\(a+b+c+d+e+f=1\\) を満たすものとする。 このとき、周辺確率質量関数 \\(f_X\\) と \\(f_Y\\) をもとめよ。\n確率変数 \\(X\\) と \\(Y\\) が独立で \\[\\begin{align*}\nX&\\sim\\mathrm{Ber}(p)& p\\in[0,1]\\\\\nY&\\sim\\mathrm{Poisson}(\\lambda)& \\lambda\\in \\mathbb{R}_{\\ge 0}\n\\end{align*}\\] とする。 このとき、 \\(X+Y\\) の確率質量関数をもとめよ。結果の式は共通因子でくくらなくてよい(採点が楽なので)。"
-  },
-  {
     "objectID": "slides/02_rv.html#確率空間の公理",
     "href": "slides/02_rv.html#確率空間の公理",
     "title": "確率論",
@@ -236,6 +145,97 @@
     "title": "確率論",
     "section": "今週の課題",
     "text": "今週の課題\n以下の問に答えよ\n\n\n\\(\\Pr(X=1) = 0.2,\\,\\Pr(X=2)=0.1,\\,\\Pr(X=3)=0.7\\) を満たす確率変数 \\(X\\) の累積分布関数 \\(F_X(x)\\) を \\([0,4]\\) の区間で図示せよ。不連続点で取る値が分かるようにすること。\n\\(U\\sim\\mathrm{U}(0,1)\\) とする。このとき、\\(-2\\log U\\) の確率密度関数をもとめよ。すべての \\(x\\in\\mathbb{R}\\) に対する値を示すこと。"
+  },
+  {
+    "objectID": "slides/03_multi.html#条件付き確率",
+    "href": "slides/03_multi.html#条件付き確率",
+    "title": "確率論",
+    "section": "条件付き確率",
+    "text": "条件付き確率\n\nDefinition 1 (条件付き確率) 確率空間 \\((\\Omega,\\,P)\\) の事象 \\(A,B\\subseteq\\Omega\\) について \\(P(B)&gt; 0\\) のとき、\\(B\\) における \\(A\\) の条件付き確率 は以下で定義される。 \\[\\begin{align*}\n   P(A\\mid B) &\\coloneqq \\frac{P(A\\cap B)}{P(B)}.\n   \\end{align*}\\]\n\n二つの事象 \\(A,B\\subseteq\\Omega\\) を考える文脈では \\(P(A\\cap B)\\) を同時確率、\\(P(A),\\,P(B)\\) を周辺確率という。\n\nDefinition 2 (事象の独立性) 確率空間 \\((\\Omega,\\,P)\\) の事象 \\(A,B\\subseteq\\Omega\\) について \\[\\begin{align*}\nP(A\\cap B) &= P(A) P(B)\n\\end{align*}\\] を満たすとき、事象 \\(A\\) と \\(B\\) は独立であるという。\n\n\n\nExample 1 (二回のコイン投げ) 標本空間を \\(\\Omega = \\{\\mathrm{HH},\\mathrm{HT},\\mathrm{TH},\\mathrm{TT}\\}\\) とし、確率測度を \\(P(A) = \\frac{|A|}4\\quad\\forall A\\subseteq\\Omega\\) とする。 このとき、\\(A=\\{\\mathrm{HH},\\mathrm{HT}\\},\\,B=\\{\\mathrm{HH},\\mathrm{TH}\\}\\) とおくと、 \\[\\begin{align*}\nP(A\\cap B) &= \\frac14,&P(A)&=P(B)=\\frac12\n\\end{align*}\\] より \\(P(A\\cap B) = P(A)P(B)\\) を満たすことが分かる。 よって事象 \\(A,\\,B\\) は独立である。\n\n事象 \\(A\\) と \\(B\\) が独立であり、\\(P(B)&gt;0\\) であるとき、\\(P(A\\mid B)=P(A)\\) である。"
+  },
+  {
+    "objectID": "slides/03_multi.html#確率変数の条件付き確率と独立性",
+    "href": "slides/03_multi.html#確率変数の条件付き確率と独立性",
+    "title": "確率論",
+    "section": "確率変数の条件付き確率と独立性",
+    "text": "確率変数の条件付き確率と独立性\n事象は確率変数を通じて表すことが多い。そのため確率変数を用いた条件付き確率も定義する。\n\nDefinition 3 (確率変数) 確率空間 \\((\\Omega,\\,P)\\) 上の確率変数 \\(X_1, X_2\\) について同時確率を \\[\\begin{align*}\n\\Pr(X_1\\in A,\\,X_2\\in B) &\\coloneqq P(\\{\\omega\\in\\Omega\\mid X_1(\\omega)\\in A\\}\\cap\\{\\omega\\in\\Omega\\mid X_2(\\omega)\\in B\\}\\})\\quad\\forall A,B\\subseteq\\mathbb{R}\n\\end{align*}\\] と定義する。確率変数が三つ以上の場合も同様に定義する。 また \\(\\Pr(X_2\\in B)&gt;0\\) のとき、条件付き確率は以下で定義する。 \\[\\begin{align*}\n\\Pr(X_1\\in A\\mid X_2\\in B) &\\coloneqq P(\\{\\omega\\in\\Omega\\mid X_1(\\omega)\\in A\\}\\mid\\{\\omega\\in\\Omega\\mid X_2(\\omega)\\in B\\}\\})\\\\\n&=\\frac{\\Pr(X_1\\in A, X_2\\in B)}{\\Pr(X_2\\in B)}\\qquad\\forall A,B\\subseteq\\mathbb{R}.\n\\end{align*}\\] 任意の \\(A,B\\subseteq\\mathbb{R}\\) について、 \\[\\begin{align*}\n\\Pr(X_1\\in A,\\,X_2\\in B)  &= \\Pr(X_1\\in A)\\Pr(X_2\\in B)\n\\end{align*}\\] を満たすとき、確率変数 \\(X_1\\) と \\(X_2\\) は独立であるという。\n\n\nLemma 1 確率空間 \\((\\Omega,\\,P)\\) 上の確率変数 \\(X_1, X_2\\) が独立であるとする。 このとき任意の関数 \\(f_1,\\,f_2\\colon\\mathbb{R}\\to\\mathbb{R}\\) について、\\(f_1(X_1),\\,f_2(X_2)\\) は独立である。\n\n\nProof. \\[\\begin{align*}\n\\Pr(f_1(X_1)\\in A,\\,f_2(X_2)\\in B) &=\n\\Pr(X_1\\in f_1^{-1}(A),\\,X_2\\in f_2^{-1}(B))\\\\\n&=\\Pr(X_1\\in f_1^{-1}(A))\\Pr(X_2\\in f_2^{-1}(B))\\\\\n&=\\Pr(f_1(X_1)\\in A)\\Pr(f_2(X_2)\\in B).\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/03_multi.html#離散型確率変数と確率質量関数",
+    "href": "slides/03_multi.html#離散型確率変数と確率質量関数",
+    "title": "確率論",
+    "section": "離散型確率変数と確率質量関数",
+    "text": "離散型確率変数と確率質量関数\n\nDefinition 4 確率空間 \\((\\Omega,\\,P)\\) 上の離散型確率変数 \\(X_1\\), \\(X_2\\) について、同時確率質量関数を \\[\\begin{align*}\nf_{X_1,\\,X_2}(x_1,x_2) &\\coloneqq \\Pr(X_1=x_1,\\,X_2=x_2)\\\\\n\\end{align*}\\] と定義する。\n\n同時確率質量関数からそれぞれの確率変数の確率質量関数が得られる。 \\[\\begin{align*}\nf_{X_1}(x_1) &= \\sum_{x_2} f_{X_1,\\, X_2}(x_1, x_2),&\nf_{X_2}(x_2) &= \\sum_{x_1} f_{X_1,\\, X_2}(x_1, x_2)\n\\end{align*}\\] それぞれの確率変数の確率質量関数を周辺質量関数と呼ぶ。 同時確率質量関数から周辺質量関数を計算する操作のことを周辺化という。\n\nDefinition 5 確率空間 \\((\\Omega,\\,P)\\) 上の離散型確率変数 \\(X_1\\), \\(X_2\\) について、条件付き確率質量関数を \\[\\begin{align*}\nf_{X_1\\mid X_2}(x_1\\mid x_2) &\\coloneqq \\Pr(X_1=x_1\\mid X_2=x_2)\n\\end{align*}\\] と定義する。\n\n条件付き確率の定義より \\[\\begin{align*}\nf_{X_1,\\,X_2}(x_1,x_2) &= f_{X_1\\mid X_2}(x_1\\mid x_2) f_{X_2}(x_2)\n\\end{align*}\\] が成り立つ。"
+  },
+  {
+    "objectID": "slides/03_multi.html#離散型確率変数の独立性",
+    "href": "slides/03_multi.html#離散型確率変数の独立性",
+    "title": "確率論",
+    "section": "離散型確率変数の独立性",
+    "text": "離散型確率変数の独立性\n\nLemma 2 確率空間 \\((\\Omega,\\,P)\\) 上の離散型確率変数 \\(X_1, X_2\\) について、 \\(X_1\\) と \\(X_2\\) が独立 \\(\\iff\\) \\[\\begin{align*}\nf_{X_1,\\,X_2}(x_1,x_2) &= f_{X_1}(x_1) f_{X_2}(x_2)\n&\\forall x_1\\in\\mathrm{Image}(X_1),x_2\\in\\mathrm{Image}(X_2).\n\\end{align*}\\]\n\n\nProof. \\(\\Longrightarrow\\) は自明。 \\(\\Longleftarrow\\) を示す。 \\[\\begin{align*}\n\\Pr(X_1\\in A,\\,X_2\\in B)  &= \\sum_{x_1\\in A}\\sum_{x_2\\in B} \\Pr(X_1=x_1,\\,X_2=x_2)\\\\\n&= \\sum_{x_1\\in A}\\sum_{x_2\\in B} \\Pr(X_1=x_1)\\Pr(X_2=x_2)\\\\\n&= \\Pr(X_1\\in A)\\Pr(X_2\\in B)\n\\end{align*}\\]\n\n\nExample 2 (二回のコイン投げ) 標本空間を \\(\\Omega = \\{\\mathrm{HH},\\mathrm{HT},\\mathrm{TH},\\mathrm{TT}\\}\\) とし、確率測度を \\(P(A) = \\frac{|A|}4\\quad\\forall A\\subseteq\\Omega\\) とする。 \\[\\begin{align*}\nX_1(\\mathrm{HH})&=X_1(\\mathrm{HT}) = 1,&\nX_1(\\mathrm{TH})&=X_1(\\mathrm{TT}) = 0\\\\\nX_2(\\mathrm{HH})&=X_2(\\mathrm{TH}) = 1,&\nX_2(\\mathrm{HT})&=X_2(\\mathrm{TT}) = 0\n\\end{align*}\\] と定義する。 このとき、 \\[\\begin{align*}\nf_{X_1,\\,X_2}(x_1,\\,x_2) &= \\frac14,&\nf_{X_1}(x_1)=f_{X_2}(x_2)&=\\frac12\\qquad\\forall x_1,x_2\\in\\{0,1\\}\n\\end{align*}\\] より \\(f_{X_1,\\,X_2}(x_1,\\,x_2) = f_{X_1}(x_1)f_{X_2}(x_2)\\) を満たすことが分かる。 よって確率変数 \\(X_1,\\,X_2\\) は独立である。"
+  },
+  {
+    "objectID": "slides/03_multi.html#連続型確率変数と確率密度関数",
+    "href": "slides/03_multi.html#連続型確率変数と確率密度関数",
+    "title": "確率論",
+    "section": "連続型確率変数と確率密度関数",
+    "text": "連続型確率変数と確率密度関数\n確率空間 \\((\\Omega,\\,P)\\) 上の連続型確率変数 \\(X_1\\), \\(X_2\\) について、同時確率密度関数を \\[\\begin{align*}\n%\\Pr(\\begin{bmatrix}X_1,\\,X_2\\end{bmatrix}\\in A) &= \\int_A f_{X_1,\\,X_2}(x_1,x_2)\\mathrm{d}x_1\\mathrm{d}x_2\n\\Pr(X_1\\in A,\\,X_2\\in B) &= \\int_A\\left(\\int_B f_{X_1,\\,X_2}(x_1,x_2)\\mathrm{d}x_2\\right)\\mathrm{d}x_1\n\\end{align*}\\] を満たすものと定義する。 \\(X_1\\) と \\(X_2\\) が確率密度関数を持つ場合でも \\(X_1\\) と \\(X_2\\) の同時確率密度関数が存在するとは限らない。 例えば \\(X_1=X_2\\) の場合がその例である。 逆に \\(X_1\\) と \\(X_2\\) が同時確率密度関数を持つとき、それぞれの確率密度関数は \\[\\begin{align*}\nf_{X_1}(x_1) &= \\int_{-\\infty}^\\infty f_{X_1,\\,X_2}(x_1,x_2)\\mathrm{d}x_2\\\\\nf_{X_2}(x_2) &= \\int_{-\\infty}^\\infty f_{X_1,\\,X_2}(x_1,x_2)\\mathrm{d}x_1\n\\end{align*}\\] で得られる。この操作を確率密度関数の周辺化という。 同時確率密度関数を持つ確率変数 \\(X_1\\), \\(X_2\\) が独立であるとき、 \\[\\begin{align*}\nf_{X_1,\\,X_2}(x_1,x_2) &= f_{X_1}(x_1) f_{X_2}(x_2)\n\\end{align*}\\] が成り立つ。"
+  },
+  {
+    "objectID": "slides/03_multi.html#三つ以上の独立確率変数",
+    "href": "slides/03_multi.html#三つ以上の独立確率変数",
+    "title": "確率論",
+    "section": "三つ以上の独立確率変数",
+    "text": "三つ以上の独立確率変数\n三つ以上の確率変数についても同時確率質量関数、同時確率密度関数を同様に定義する。 独立性についても同様に定義する。\n\nDefinition 6 確率空間 \\((\\Omega,\\,P)\\) 上の確率変数 \\(X_1, X_2,\\dotsc, X_n\\) が独立 \\(\\defiff\\) \\[\\begin{align*}\n\\Pr(X_1\\in A_1,\\dotsc, X_n\\in A_n) &= \\prod_{k=1}^n \\Pr(X_k\\in A_k)\\qquad\\forall A_1,\\dotsc,A_n\\subseteq\\mathbb{R}.\n\\end{align*}\\]\n\n\nDefinition 7 確率空間 \\((\\Omega,\\,P)\\) 上の確率変数 \\(X_1, X_2,\\dotsc, X_n\\) が互いに独立 \\(\\defiff\\) 任意の \\(1\\le i&lt; j\\le n\\) について、\\(X_i\\) と \\(X_j\\) が独立。\n\n\n確率変数 \\(X_1,\\dotsc,X_n\\) が独立であるとき、それらは互いに独立であることは以下から分かる。 \\[\\begin{align*}\n\\Pr(X_1\\in A,\\, X_2\\in B) &= \\Pr(X_1\\in A,\\, X_2\\in B,\\, X_3\\in\\mathbb{R},\\dotsc, X_n\\in\\mathbb{R})\\\\\n&= \\Pr(X_1\\in A)\\Pr(X_2\\in B) \\prod_{k=3}^n \\Pr(X_k\\in\\mathbb{R})\\\\\n&= \\Pr(X_1\\in A)\\Pr(X_2\\in B).\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/03_multi.html#互いに独立であるが独立ではない例",
+    "href": "slides/03_multi.html#互いに独立であるが独立ではない例",
+    "title": "確率論",
+    "section": "互いに独立であるが独立ではない例",
+    "text": "互いに独立であるが独立ではない例\n一方で確率変数 \\(X_1,\\dotsc,X_n\\) が互いに独立であっても、それらが独立であるとは限らない。 例えば、離散型確率変数 \\(X_1,\\dotsc,X_n\\) を \\[\\begin{align*}\nf_{X_1,\\dotsc,X_n}(x_1,\\dotsc,x_n)&=\\begin{cases}\n\\frac1{2^{n-1}}&\\text{if } \\sum_{k=1}^n x_k \\text{ is even}\\\\\n0&\\text{otherwise}\n\\end{cases}&\n\\forall x_1,\\dotsc,x_n\\in\\{0,1\\}\n\\end{align*}\\] と定義する。 このとき、確率変数 \\(X_n\\) を周辺化すると \\[\\begin{align*}\nf_{X_1,\\dotsc,X_{n-1}}(x_1,\\dotsc,x_{n-1})&=\nf_{X_1,\\dotsc,X_n}(x_1,\\dotsc,x_{n-1},0)+ f_{X_1,\\dotsc,X_n}(x_1,\\dotsc,x_{n-1},1)\n=\\frac1{2^{n-1}}\n\\end{align*}\\] となる。つまり、\\(X_1,\\dotsc,X_{n-1}\\) は \\(\\{0,1\\}^{n-1}\\) 上の一様分布に従う。 この確率分布は \\(X_1,\\dotsc,X_n\\) について対称なので、どの確率変数を周辺化しても一様分布に従う。 一様分布は独立なので、\\(n\\ge 3\\) のとき、どの二つの確率変数も独立である。 よって \\(n\\ge 3\\) のとき、\\(X_1,\\dotsc,X_n\\) は互いに独立である。\n一方で、\\(n\\ge 2\\) のとき、これらの確率変数の周辺確率は一様である。つまり、 \\[\\begin{align*}\nf_{X_k}(0) &= f_{X_k}(1) = \\frac12\\qquad\\forall k=1,2,\\dotsc,n.\n\\end{align*}\\] しかし、 \\[\\begin{align*}\nf_{X_1,\\dotsc,X_n}(x_1,\\dotsc,x_n)&=\\prod_{k=1}^n f_{X_k}(x_k)\\qquad\\forall x_1,\\dotsc,x_n\\in\\{0,1\\}\n\\end{align*}\\] は成り立たないので独立ではない。"
+  },
+  {
+    "objectID": "slides/03_multi.html#独立な離散型確率変数の和",
+    "href": "slides/03_multi.html#独立な離散型確率変数の和",
+    "title": "確率論",
+    "section": "独立な離散型確率変数の和",
+    "text": "独立な離散型確率変数の和\n離散型確率変数 \\(X_1\\) と \\(X_2\\) が独立であるとする。 このとき、\\(X_1+X_2\\) の確率質量関数は \\[\\begin{align*}\nf_{X_1+X_2}(x) &= \\sum_z f_{X_1}(z)f_{X_2}(x-z)\n\\end{align*}\\] で与えられる。 これを確率質量関数の畳み込みという。\n\nExample 3 二項分布の \\(N=1\\) の場合をベルヌーイ分布 \\(\\mathrm{Ber}(p)\\) と呼ぶ。 つまり、\\(X\\sim\\mathrm{Ber}(p)\\defiff\\) \\[\\begin{align*}\n\\Pr(X=0) &= 1-p,& \\Pr(X=1) &= p\n\\end{align*}\\] である。 確率変数 \\(X_1,X_2\\) が独立で \\(\\mathrm{Ber}(p)\\) に従うとする。 このとき、\\(X_1+X_2\\) は \\(\\mathrm{Binom}(2, p)\\) に従う。 \\[\\begin{align*}\n\\Pr(X_1+X_2 = 0) &= \\Pr(X_1=0,\\,X_2=0)\n= \\Pr(X_1=0)\\Pr(X_2=0) = (1-p)^2\\\\\n\\Pr(X_1+X_2 = 1) &= \\Pr(X_1=0,\\,X_2=1) + \\Pr(X_1=1,\\,X_2=0)\\\\\n&=  \\Pr(X_1=0)\\Pr(X_2=1) + \\Pr(X_1=1)\\Pr(X_2=0)\\\\\n&= 2p(1-p)\\\\\n\\Pr(X_1+X_2 = 2) &= \\Pr(X_1=1,\\,X_2=1)\n= \\Pr(X_1=1)\\Pr(X_2=1) = p^2\n\\end{align*}\\] と計算できる。 よって \\[\\begin{align*}\n\\Pr(X_1+X_2 = k) &= \\binom{2}{k} p^k(1-p)^{2-k}\n\\end{align*}\\] が成り立ち \\(X_1+X_2\\sim\\mathrm{Binom}(2, p)\\) であることが分かる。"
+  },
+  {
+    "objectID": "slides/03_multi.html#二項分布の再生性",
+    "href": "slides/03_multi.html#二項分布の再生性",
+    "title": "確率論",
+    "section": "二項分布の再生性",
+    "text": "二項分布の再生性\n確率分布の族(集合)が畳み込みに閉じているとき、確率分布の族は再生性を持つという。 二項分布の場合はパラメータ \\(p\\) を固定したときに再生性を持つ。\n\nExample 4 一般に、独立確率変数 \\(X_1,\\,X_2\\) について \\(X_1\\sim\\mathrm{Binom}(n, p)\\), \\(X_2\\sim\\mathrm{Binom}(m, p)\\) のとき、\\(X_1+X_2\\sim\\mathrm{Binom}(n+m,p)\\) である。 \\[\\begin{align*}\n\\Pr(X_1+X_2 = k) &= \\sum_{\\ell\\ge 0} \\Pr(X_1 = \\ell) \\Pr(X_2 = k-\\ell)\\\\\n&= \\sum_{\\ell\\ge 0} \\binom{n}{\\ell} p^\\ell(1-p)^{n-\\ell} \\binom{m}{k-\\ell} p^{k-\\ell}(1-p)^{m-k+\\ell}\\\\\n&= \\left(\\sum_{\\ell= 0}^k \\binom{n}{\\ell} \\binom{m}{k-\\ell}\\right) p^k(1-p)^{n+m-k}\\\\\n&= \\binom{n+m}{k} p^k(1-p)^{n+m-k}.\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/03_multi.html#ポアソン分布の再生性",
+    "href": "slides/03_multi.html#ポアソン分布の再生性",
+    "title": "確率論",
+    "section": "ポアソン分布の再生性",
+    "text": "ポアソン分布の再生性\nポアソン分布も再生性を持つ。\n\nExample 5 確率変数 \\(X_1\\), \\(X_2\\) が独立で \\(X_1\\sim\\mathrm{Poisson}(\\lambda_1)\\), \\(X_2\\sim\\mathrm{Poisson}(\\lambda_2)\\) とする。 このとき、 \\[\\begin{align*}\nf_{X_1+X_2}(x) &= \\sum_{z= 0}^x f_{X_1}(z) f_{X_2}(x-z)\\\\\n&= \\sum_{z= 0}^x \\frac{\\lambda_1^z}{z!}\\mathrm{e}^{-\\lambda_1}\\frac{\\lambda_2^{x-z}}{(x-z)!}\\mathrm{e}^{-\\lambda_2}\\\\\n&= \\frac1{x!}\\mathrm{e}^{-(\\lambda_1+\\lambda_2)}\\sum_{z=0}^x\\binom{x}{z} \\lambda_1^z\\lambda_2^{x-z}\\\\\n&= \\frac1{x!}\\mathrm{e}^{-(\\lambda_1+\\lambda_2)}(\\lambda_1+\\lambda_2)^x\n\\end{align*}\\] が成り立つ。よって \\(X_1+X_2\\sim\\mathrm{Poisson}(\\lambda_1+\\lambda_2)\\) である。"
+  },
+  {
+    "objectID": "slides/03_multi.html#独立な連続型確率変数の和",
+    "href": "slides/03_multi.html#独立な連続型確率変数の和",
+    "title": "確率論",
+    "section": "独立な連続型確率変数の和",
+    "text": "独立な連続型確率変数の和\n連続確率変数 \\(X_1\\) と \\(X_2\\) が独立で密度関数を持つとき、 \\[\\begin{align*}\n\\Pr(X_1+X_2\\in A) &= \\int\\int_{y+z\\in A} f_{X_1}(y)f_{X_2}(z)\\mathrm{d}y\\mathrm{d}z\\\\\n&= \\int\\int_{x\\in A} f_{X_1}(y)f_{X_2}(x-y)\\mathrm{d}y\\mathrm{d}x \\qquad(x=y+z)\\\\\n&= \\int_{A} \\left(\\int_{-\\infty}^\\infty f_{X_1}(y)f_{X_2}(x-y)\\mathrm{d}y\\right)\\mathrm{d}x \\qquad(x=y+z)\\\\\n\\end{align*}\\] と表せるので、\\(X_1+X_2\\) は確率密度関数を持ち \\[\\begin{align*}\nf_{X_1+X_2}(x) &= \\int_{-\\infty}^\\infty f_{X_1}(z)f_{X_2}(x-z)\\mathrm{d} z\n\\end{align*}\\] とすることができる。 これを確率密度関数の畳み込みという。"
+  },
+  {
+    "objectID": "slides/03_multi.html#正規分布の再生性",
+    "href": "slides/03_multi.html#正規分布の再生性",
+    "title": "確率論",
+    "section": "正規分布の再生性",
+    "text": "正規分布の再生性\n確率変数 \\(X_1,\\,X_2\\) が独立で \\(X_1\\sim N(\\mu_1,\\,\\sigma_1^2)\\), \\(X_2\\sim N(\\mu_2,\\,\\sigma_2^2)\\) とする。 このとき、 \\[\\begin{align*}\nf_{X_1+X_2}(x) &= \\int_{-\\infty}^\\infty f_{X_1}(z)f_{X_2}(x-z)\\mathrm{d} z\\\\\n&= \\int_{-\\infty}^\\infty \\frac1{\\sqrt{2\\pi\\sigma_1^2}} \\mathrm{e}^{-\\frac{(z-\\mu_1)^2}{2\\sigma_1^2}}\\frac1{\\sqrt{2\\pi\\sigma_2^2}} \\mathrm{e}^{-\\frac{(x-z-\\mu_2)^2}{2\\sigma_2^2}}\\mathrm{d} z\\\\\n&= \\frac1{2\\pi\\sqrt{\\sigma_1^2\\sigma_2^2}}\\int_{-\\infty}^\\infty  \\mathrm{e}^{-\\frac{\\sigma_2^2(z-\\mu_1)^2+\\sigma_1^2(x-z-\\mu_2)^2}{2\\sigma_1^2\\sigma_2^2}}\\mathrm{d} z\\\\\n&= \\frac1{2\\pi\\sqrt{\\sigma_1^2\\sigma_2^2}}\\int_{-\\infty}^\\infty  \\mathrm{e}^{-\\frac{(\\sigma_1^2+\\sigma_2^2)\\left(z-\\frac{\\sigma_2^2\\mu_1+\\sigma_1^2(x-\\mu_2)}{\\sigma_1^2+\\sigma_2^2}\\right)^2 + \\sigma_2^2\\mu_1^2 + \\sigma_1^2(x-\\mu_2)^2 - \\frac{(\\sigma_2^2\\mu_1+\\sigma_1^2(x-\\mu_2))^2}{\\sigma_1^2+\\sigma_2^2}}{2\\sigma_1^2\\sigma_2^2}}\\mathrm{d} z\\\\\n&= \\frac1{\\sqrt{2\\pi(\\sigma_1^2+\\sigma_2^2)}}\\mathrm{e}^{-\\frac{\\sigma_2^2\\mu_1^2 + \\sigma_1^2(x-\\mu_2)^2 - \\frac{(\\sigma_2^2\\mu_1+\\sigma_1^2(x-\\mu_2))^2}{\\sigma_1^2+\\sigma_2^2}}{2\\sigma_1^2\\sigma_2^2}}\\\\\n&= \\frac1{\\sqrt{2\\pi(\\sigma_1^2+\\sigma_2^2)}}\\mathrm{e}^{-\\frac{(x-(\\mu_1+\\mu_2))^2}{2(\\sigma_1^2+\\sigma_2^2)}}\\\\\n\\end{align*}\\] が成り立つので \\(X_1+X_2\\sim N(\\mu_1+\\mu_2,\\,\\sigma_1^2+\\sigma_2^2)\\) であることが分かる。 よって正規分布は再生性を持つ。"
+  },
+  {
+    "objectID": "slides/03_multi.html#今週の課題",
+    "href": "slides/03_multi.html#今週の課題",
+    "title": "確率論",
+    "section": "今週の課題",
+    "text": "今週の課題\n以下の問に答えよ\n\n\n共通の確率空間上の離散型確率変数 \\(X\\) と \\(Y\\) が以下の同時確率質量関数を持つとする。 \\[\\begin{align*}\nf_{X,\\,Y}(0,\\,0) &= a,&\nf_{X,\\,Y}(0,\\,1) &= b,&\nf_{X,\\,Y}(0,\\,2) &= c,\\\\\nf_{X,\\,Y}(1,\\,0) &= d,&\nf_{X,\\,Y}(1,\\,1) &= e,&\nf_{X,\\,Y}(1,\\,2) &= f\n\\end{align*}\\] ここで、 \\(a,b,c,d,e,f\\in\\mathbb{R}_{\\ge 0}\\) は \\(a+b+c+d+e+f=1\\) を満たすものとする。 このとき、周辺確率質量関数 \\(f_X\\) と \\(f_Y\\) をもとめよ。\n確率変数 \\(X\\) と \\(Y\\) が独立で \\[\\begin{align*}\nX&\\sim\\mathrm{Ber}(p)& p\\in[0,1]\\\\\nY&\\sim\\mathrm{Poisson}(\\lambda)& \\lambda &gt; 0\n\\end{align*}\\] とする。 このとき、 \\(X+Y\\) の確率質量関数をもとめよ。結果の式は共通因子でくくらなくてよい(採点が楽なので)。"
   },
   {
     "objectID": "index.html",
