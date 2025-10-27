@@ -238,20 +238,6 @@
     "text": "今週の課題\n以下の問に答えよ\n\n\n共通の確率空間上の離散型確率変数 \\(X\\) と \\(Y\\) が以下の同時確率質量関数を持つとする。 \\[\\begin{align*}\nf_{X,\\,Y}(0,\\,0) &= a,&\nf_{X,\\,Y}(0,\\,1) &= b,&\nf_{X,\\,Y}(0,\\,2) &= c,\\\\\nf_{X,\\,Y}(1,\\,0) &= d,&\nf_{X,\\,Y}(1,\\,1) &= e,&\nf_{X,\\,Y}(1,\\,2) &= f\n\\end{align*}\\] ここで、 \\(a,b,c,d,e,f\\in\\mathbb{R}_{\\ge 0}\\) は \\(a+b+c+d+e+f=1\\) を満たすものとする。 このとき、周辺確率質量関数 \\(f_X\\) と \\(f_Y\\) をもとめよ。\n確率変数 \\(X\\) と \\(Y\\) が独立で \\[\\begin{align*}\nX&\\sim\\mathrm{Ber}(p)& p\\in[0,1]\\\\\nY&\\sim\\mathrm{Poisson}(\\lambda)& \\lambda &gt; 0\n\\end{align*}\\] とする。 このとき、 \\(X+Y\\) の確率質量関数をもとめよ。結果の式は共通因子でくくらなくてよい(採点が楽なので)。"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Home",
-    "section": "",
-    "text": "確率・統計基礎の授業ページです。"
-  },
-  {
-    "objectID": "slides.html",
-    "href": "slides.html",
-    "title": "Slides",
-    "section": "",
-    "text": "講義スライド\n\n集合論と確率空間\n確率変数\n複数の確率変数"
-  },
-  {
     "objectID": "slides/01_probability.html#確率論とは",
     "href": "slides/01_probability.html#確率論とは",
     "title": "確率論",
@@ -399,10 +385,129 @@
     "text": "今週の課題\n\\(\\Omega = \\{1,2,3,4,5,6\\}\\) とし、ある \\(P\\colon\\Omega\\to\\mathbb{R}_{\\ge 0}\\) について \\((\\Omega,\\,P)\\) を確率空間とする。 事象 \\(A,\\,B,\\,C\\) を\n\\[\\begin{align*}\nA&=\\left\\{1,2,3,4\\right\\},&\nB&=\\left\\{2,4,5\\right\\},&\nC&=\\left\\{1,3,5,6\\right\\}\n\\end{align*}\\] とするとき、以下の問に答えよ\n\n\n\\(A\\cup B\\),  \\(A\\cap B\\),  \\(A\\setminus B\\),  \\((A\\cup B)\\cap C\\) をもとめよ。\n\\(P(\\{1,3\\})\\),  \\(P(\\{2,4\\})\\),  \\(P(\\{5\\})\\),  \\(P(\\{6\\})\\) を \\(P(A),\\,P(B),\\,P(C)\\) を用いて表せ。"
   },
   {
+    "objectID": "slides.html",
+    "href": "slides.html",
+    "title": "Slides",
+    "section": "",
+    "text": "講義スライド\n\n集合論と確率空間\n確率変数\n複数の確率変数"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home",
+    "section": "",
+    "text": "確率・統計基礎の授業ページです。"
+  },
+  {
+    "objectID": "slides/04_moments.html#期待値",
+    "href": "slides/04_moments.html#期待値",
+    "title": "確率論",
+    "section": "期待値",
+    "text": "期待値\n\nDefinition 1 (期待値) 離散型確率変数 \\(X\\) の期待値は\n\\[\\begin{align*}\n\\expt{X}\n% &= \\sum_{\\omega \\in \\Omega} X(\\omega) P(\\{\\omega\\})\\\\\n%&= \\sum_{x\\in \\mathrm{Image}(X)} x P(\\{\\omega\\mid X(\\omega)=x\\})\\\\\n&\\coloneqq \\sum_{x\\in \\mathrm{Image}(X)} x \\Pr(X=x)\\\\\n&= \\sum_{x\\in \\mathrm{Image}(X)} x f_X(x)\n\\end{align*}\\]\nと定義される。ここで、右辺の和が絶対収束しない場合は(適当な順番で和を取って収束したとしても)期待値は定義されない。\n連続型確率変数 \\(X\\) が確率密度関数 \\(f_X\\) を持つとき、その期待値は\n\\[\n\\expt{X}\\coloneqq \\int_{-\\infty}^\\infty x f_X(x) \\mathrm{d}x\n\\]\nと定義される。 ただし、広義積分で上記の積分が存在する場合でも、 \\[\n\\int_{-\\infty}^\\infty |x| f_X(x) \\mathrm{d}x\n\\] が存在しない場合には期待値は定義されない。\n\n連続型確率変数の期待値に関する様々な証明はルベーグ積分の知識を必要とするのでこの授業では扱わない。 以下、証明はすべて離散確率変数の場合に限って与える。"
+  },
+  {
+    "objectID": "slides/04_moments.html#確率変数の和の期待値",
+    "href": "slides/04_moments.html#確率変数の和の期待値",
+    "title": "確率論",
+    "section": "確率変数の和の期待値",
+    "text": "確率変数の和の期待値\n\nLemma 1 確率変数 \\(X,\\,Y\\) について \\[\\begin{align*}\n\\expt{X+Y}&=\\expt{X}+\\expt{Y}.\n\\end{align*}\\]\n\n\nProof. \\[\\begin{align*}\n\\expt{X+Y} &= \\sum_{z} z f_{X+Y}(z)\\\\\n&= \\sum_{z} z \\sum_x f_{X,\\,Y}(x, z-x)\\\\\n&= \\sum_{x,\\,y} (x+y) f_{X,\\,Y}(x, y)\\qquad (y=z-x)\\\\\n&= \\sum_{x,\\,y} xf_{X,\\,Y}(x,y) + \\sum_{y,\\,y} yf_{X,\\,Y}(x,y)\\\\\n&= \\sum_{x} xf_{X}(x) + \\sum_{y} yf_{Y}(y)\\\\\n&= \\expt{X} + \\expt{Y}.\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/04_moments.html#確率変数の積の期待値",
+    "href": "slides/04_moments.html#確率変数の積の期待値",
+    "title": "確率論",
+    "section": "確率変数の積の期待値",
+    "text": "確率変数の積の期待値\n\nLemma 2 確率変数 \\(X\\) と \\(Y\\) が独立のとき、 \\[\\begin{align*}\n\\expt{XY}&=\\expt{X}\\,\\expt{Y}.\n\\end{align*}\\]\n\n\nProof. \\[\\begin{align*}\n\\expt{XY} &= \\sum_{z} z f_{XY}(z)\\\\\n&= \\sum_{z} z \\sum_{x\\ne 0}f_{X,\\,Y}(x,z/x)\\\\\n&= \\sum_{z} z \\sum_{x\\ne 0}f_{X}(x)f_Y(z/x)\\\\\n&= \\sum_{x\\ne 0,\\, y} xy f_{X}(x)f_Y(y)\\qquad(y=z/x)\\\\\n&= \\sum_{x,\\, y} xy f_{X}(x)f_Y(y)\\\\\n&= \\left(\\sum_{x} xf_{X}(x)\\right)\\left(\\sum_y yf_Y(y)\\right)\\\\\n&= \\expt{X}\\,\\expt{Y}\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/04_moments.html#law-of-the-unconscious-statistician-lotus",
+    "href": "slides/04_moments.html#law-of-the-unconscious-statistician-lotus",
+    "title": "確率論",
+    "section": "Law of the unconscious statistician (LOTUS)",
+    "text": "Law of the unconscious statistician (LOTUS)\n\nLemma 3 (Law of the unconscious statistician (LOTUS)) 任意の関数 \\(g\\colon\\mathbb{R}\\to\\mathbb{R}\\) について、\n\n\\(X\\) が離散型確率変数のとき、 \\[\\begin{align*}\n\\expt{g(X)} &= \\sum_{x} g(x) f_X(x).\n\\end{align*}\\]\n\\(X\\) が連続型確率変数で確率密度関数を持つとき、 \\[\\begin{align*}\n\\expt{g(X)} &= \\int_{-\\infty}^\\infty g(x) f_X(x) \\mathrm{d}x.\n\\end{align*}\\]\n\n\n\nProof. \\(X\\) を離散型確率変数とする。 \\[\\begin{align*}\n\\expt{g(X)}\n%&= \\sum_{x} x f_{g(X)}(x)\\\\\n&= \\sum_{x} x \\Pr(g(X) = x)\\\\\n&= \\sum_{x} x \\Pr(\\{\\omega\\in\\Omega\\mid g(X(\\omega)) = x\\})\\\\\n&= \\sum_{x} x \\Pr\\left(\\bigcup_{y\\in\\mathrm{Image}(X)\\colon\\, g(y) = x}\\{\\omega\\in\\Omega\\mid X(\\omega) = y\\}\\right)\\\\\n&= \\sum_{x}\\sum_{y\\in\\mathrm{Image}(X)\\colon\\, g(y) = x} x \\Pr\\left(\\{\\omega\\in\\Omega\\mid X(\\omega) = y\\}\\right)\\\\\n&= \\sum_{y\\in\\mathrm{Image}(X)} g(y) f_X(y).\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/04_moments.html#期待値の性質",
+    "href": "slides/04_moments.html#期待値の性質",
+    "title": "確率論",
+    "section": "期待値の性質",
+    "text": "期待値の性質\n\nProposition 1 (期待値の性質) 任意の確率変数 \\(X\\) と \\(a\\in\\mathbb{R}\\) について \\[\\begin{align*}\n\\expt{X+a} &= \\expt{X}+a\\\\\n\\expt{aX} &= a\\expt{X}.\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/04_moments.html#マルコフの不等式",
+    "href": "slides/04_moments.html#マルコフの不等式",
+    "title": "確率論",
+    "section": "マルコフの不等式",
+    "text": "マルコフの不等式\n\nTheorem 1 (マルコフの不等式) 非負確率変数 \\(X\\) と \\(a&gt;0\\) について \\[\n\\Pr(X\\ge a)\\le\\frac{\\expt{X}}{a}.\n\\]\n\n\nProof. \\[\\begin{align*}\n\\expt{X} &= \\sum_{x\\in \\mathrm{Image}(X)} f_X(x) x\\\\\n&= \\sum_{\\mathrm{Image}(X)\\colon\\, x\\ge a} f_X(x) x + \\sum_{\\mathrm{Image}(X)\\colon\\, x &lt; a} f_X(x) x\\\\\n&\\ge \\sum_{\\mathrm{Image}(X)\\colon\\, x\\ge a} f_X(x) x\\qquad\\qquad (\\Pr(X\\ge 0)=1)\\\\\n&\\ge \\sum_{\\mathrm{Image}(X)\\colon\\, x\\ge a} f_X(x) a\\\\\n&= \\Pr(X\\ge a) a.\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/04_moments.html#分散",
+    "href": "slides/04_moments.html#分散",
+    "title": "確率論",
+    "section": "分散",
+    "text": "分散\n\nDefinition 2 (分散) 確率変数 \\(X\\) が期待値を持つとき、その分散を\n\\[\n\\var{X}\\coloneqq  \\expt{(X-\\expt{X})^2}\n\\]\nと定義する。 また、分散の平方根を標準偏差という。\n\n確率変数 \\(X\\) が分散を持つとき、\n\\[\\begin{align*}\n\\var{X} &= \\expt{(X-\\expt{X})^2}\\\\\n&= \\expt{X^2-2X\\expt{X}+\\expt{X}^2}\\\\\n&= \\expt{X^2}-2\\expt{X}\\expt{X}+\\expt{X}^2\\\\\n&= \\expt{X^2}-\\expt{X}^2\n\\end{align*}\\]\nである。 分散は定義より非負の値を持つ。\n\nProposition 2 (分散の性質) 任意の確率変数 \\(X\\) と \\(a\\in\\mathbb{R}\\) について \\[\\begin{align*}\n\\var{X+a} &= \\var{X}\\\\\n\\var{aX} &= a^2\\var{X}.\n\\end{align*}\\]\n\n分散は直感的には期待値からのはずれ具合を表す値である。"
+  },
+  {
+    "objectID": "slides/04_moments.html#チェビシェフの不等式",
+    "href": "slides/04_moments.html#チェビシェフの不等式",
+    "title": "確率論",
+    "section": "チェビシェフの不等式",
+    "text": "チェビシェフの不等式\n\nTheorem 2 (チェビシェフの不等式) 非負確率変数 \\(X\\) と \\(a&gt;0\\) について \\[\n\\Pr(|X-\\expt{X}|\\ge a)\\le\\frac{\\var{X}}{a^2}.\n\\]\n\n\nProof. \\[\\begin{align*}\n\\Pr(|X-\\expt{X}|\\ge a)&= \\Pr((X-\\expt{X})^2\\ge a^2)\\\\\n&\\le\n\\frac{\\expt{(X-\\expt{X})^2}}{a^2} = \\frac{\\var{X}}{a^2}.\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/04_moments.html#互いに独立な確率変数の和",
+    "href": "slides/04_moments.html#互いに独立な確率変数の和",
+    "title": "確率論",
+    "section": "互いに独立な確率変数の和",
+    "text": "互いに独立な確率変数の和\n\nLemma 4 (互いに独立な確率変数の和) 確率変数 \\(X_1,\\,X_2,\\dotsc,X_n\\) が互いに独立のとき\n\\[\\begin{align*}\n\\var{X_1+\\dotsb+X_n} &= \\var{X_1} +\\dotsb + \\var{X_n}.\n\\end{align*}\\]\n\n\nProof. \\[\\begin{align*}\n\\var{X_1+\\dotsb+X_n} &= \\expt{\\left((X_1+\\dotsb+X_n) - \\expt{X_1+\\dotsb+X_n}\\right)^2}\\\\\n&= \\expt{\\left((X_1- \\expt{X_1}) + \\dotsb + (X_n-\\expt{X_n})\\right)^2}\\\\\n&= \\expt{\\sum_i (X_i- \\expt{X_i})^2  + 2\\sum_{i &lt; j}\\left(X_i-\\expt{X_i}\\right)\\left(X_j-\\expt{X_j}\\right)}\\\\\n&= \\sum_i \\expt{(X_i- \\expt{X_i})^2} +  2\\sum_{i &lt; j}\\expt{\\left(X_i-\\expt{X_i}\\right)\\left(X_j-\\expt{X_j}\\right)}\\\\\n&= \\sum_i \\expt{(X_i- \\expt{X_i})^2} +  2\\sum_{i &lt; j}\\expt{X_i-\\expt{X_i}}\\expt{X_j-\\expt{X_j}}\\\\\n&= \\sum_i \\expt{(X_i- \\expt{X_i})^2}\n=\\sum_i \\var{X_i}.\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/04_moments.html#確率変数の平均",
+    "href": "slides/04_moments.html#確率変数の平均",
+    "title": "確率論",
+    "section": "確率変数の平均",
+    "text": "確率変数の平均\n\nExample 1 互いに独立な確率変数 \\(X_1,\\dotsc,X_n\\) のそれぞれが確率変数 \\(X\\) と同分布であるとし、 \\[\\begin{align*}\nY&\\coloneqq \\frac1{n} (X_1+\\dotsb+X_n)\n\\end{align*}\\] と定義する。 このとき、 \\[\\begin{align*}\n\\expt{Y} &= \\expt{X}\\\\\n\\var{Y} &= \\frac1{n}\\var{X}\n\\end{align*}\\] である。互いに独立な確率変数の平均を取ると期待値は変わらず、分散は小さくなる。"
+  },
+  {
+    "objectID": "slides/04_moments.html#共分散",
+    "href": "slides/04_moments.html#共分散",
+    "title": "確率論",
+    "section": "共分散",
+    "text": "共分散\n\nDefinition 3 (共分散) 確率変数 \\(X,Y\\) が期待値を持つとき、その共分散を\n\\[\\begin{align*}\n\\cov{X}{Y} &\\coloneqq \\expt{(X-\\expt{X})(Y-\\expt{Y})}\\\\\n&= \\expt{XY}-\\expt{X}\\,\\expt{Y}\n\\end{align*}\\]\nと定義する。 共分散がゼロである確率変数のペアを無相関であるという。\n\n定義より、\\(\\cov{X}{X}=\\var{X}\\) であることが分かる。\n\nProposition 3 独立確率変数 \\(X,Y\\) は無相関である。"
+  },
+  {
+    "objectID": "slides/04_moments.html#無相関だけど独立ではない例",
+    "href": "slides/04_moments.html#無相関だけど独立ではない例",
+    "title": "確率論",
+    "section": "無相関だけど独立ではない例",
+    "text": "無相関だけど独立ではない例\n逆に無相関であっても独立とは限らない。\n\nExample 2 確率変数 \\(X\\) を \\[\\begin{align*}\nf_X(0)= f_X(+1)= f_X(-1)= \\frac13\n\\end{align*}\\] を満たすものとし、\\(Y=X^2\\) とする。 このとき、 \\[\\begin{align*}\n\\cov{X}{Y} &= \\expt{XY} - \\expt{X}\\expt{Y}\\\\\n&= \\expt{X^3} - \\expt{X}\\expt{X^2}\\\\\n&= \\expt{X} - \\expt{X}\\expt{X^2}\\\\\n&= \\expt{X}(1-\\expt{X^2})\\\\\n&= 0\n\\end{align*}\\] なので、\\(X\\) と \\(Y\\) は無相関である。 一方で \\[\\begin{align*}\nf_{Y}(0) &= \\frac13&\nf_{Y}(1) &= \\frac23\\\\\nf_{X,\\,Y}(0, 0) &= \\frac13&\nf_{X,\\,Y}(1, 1) &= \\frac13&\nf_{X,\\,Y}(-1, 1) &= \\frac13&\n\\end{align*}\\] なので \\(X\\) と \\(Y\\) は独立ではない。"
+  },
+  {
+    "objectID": "slides/04_moments.html#共分散と分散の関係",
+    "href": "slides/04_moments.html#共分散と分散の関係",
+    "title": "確率論",
+    "section": "共分散と分散の関係",
+    "text": "共分散と分散の関係\n共分散は正の値も負の値も取り得る。 大雑把に言うと、\n\n\\(X\\) と \\(Y\\) の共分散が正 \\(\\iff\\) \\(X\\) が大きいとき \\(Y\\) も大きい\n\\(X\\) と \\(Y\\) の共分散が負 \\(\\iff\\) \\(X\\) が大きいとき \\(Y\\) は小さい\n\nという意味になる。\n\nLemma 5 任意の確率変数 \\(X_1,\\dotsc,X_n\\) について \\[\\begin{align*}\n\\var{\\sum_i X_i} &= \\sum_i \\var{X_i} + 2\\sum_{i &lt; j} \\cov{X_i}{X_j}.\n\\end{align*}\\]\n\n\nProof. Lemma 4 の証明参照。"
+  },
+  {
+    "objectID": "slides/04_moments.html#モーメントとモーメント母関数",
+    "href": "slides/04_moments.html#モーメントとモーメント母関数",
+    "title": "確率論",
+    "section": "モーメントとモーメント母関数",
+    "text": "モーメントとモーメント母関数\n\nDefinition 4 (モーメント) 確率変数 \\(X\\) と正の整数 \\(n\\ge 1\\) について、\n\\[\n\\mu_n(X)\\coloneqq \\expt{X^n}\n\\]\nを \\(X\\) の \\(n\\) 次モーメントという。\n\n\nDefinition 5 (モーメント母関数(積率母関数)) 確率変数 \\(X\\) について、\n\\[\nM_X(t) \\coloneqq \\expt{\\mathrm{e}^{tX}}\\qquad t\\in\\mathbb{R}\n\\]\nを \\(X\\) のモーメント母関数という。 すべての \\(t\\in\\mathbb{R}\\) で \\(M_X(t)\\) が存在しない場合もある。 また、\n\\[\nK_X(t) \\coloneqq \\log M_X(t)\n\\] を \\(X\\) のキュムラント母関数という。"
+  },
+  {
+    "objectID": "slides/04_moments.html#今週の課題",
+    "href": "slides/04_moments.html#今週の課題",
+    "title": "確率論",
+    "section": "今週の課題",
+    "text": "今週の課題\n以下の問に答えよ\n\n\n共通の確率空間上の離散型確率変数 \\(X\\) と \\(Y\\) が以下の同時確率質量関数を持つとする。 \\[\\begin{align*}\nf_{X,\\,Y}(0,\\,0) &= a,&\nf_{X,\\,Y}(0,\\,1) &= b,&\nf_{X,\\,Y}(0,\\,2) &= c,\\\\\nf_{X,\\,Y}(1,\\,0) &= d,&\nf_{X,\\,Y}(1,\\,1) &= e,&\nf_{X,\\,Y}(1,\\,2) &= f\n\\end{align*}\\] ここで、 \\(a,b,c,d,e,f\\in\\mathbb{R}_{\\ge 0}\\) は \\(a+b+c+d+e+f=1\\) を満たすものとする。 このとき、周辺確率質量関数 \\(f_X\\) と \\(f_Y\\) をもとめよ。\n確率変数 \\(X\\) と \\(Y\\) が独立で \\[\\begin{align*}\nX&\\sim\\mathrm{Ber}(p)& p\\in[0,1]\\\\\nY&\\sim\\mathrm{Poisson}(\\lambda)& \\lambda &gt; 0\n\\end{align*}\\] とする。 このとき、 \\(X+Y\\) の確率質量関数をもとめよ。結果の式は共通因子でくくらなくてよい(採点が楽なので)。"
+  },
+  {
     "objectID": "slides/macros.html",
     "href": "slides/macros.html",
     "title": "確率・統計基礎",
     "section": "",
-    "text": "\\[\n\\newcommand{\\defiff}{\\overset{\\text{def}}{\\iff}}\n\\newcommand{\\expt}[1]{\\mathbb{E}\\left[#1\\right]}\n\\newcommand{\\var}[1]{\\mathbb{V}\\left[#1\\right]}\n\\]"
+    "text": "\\[\n\\newcommand{\\defiff}{\\overset{\\text{def}}{\\iff}}\n\\newcommand{\\expt}[1]{\\mathbb{E}\\left[#1\\right]}\n\\newcommand{\\var}[1]{\\mathrm{Var}\\left[#1\\right]}\n\\newcommand{\\cov}[2]{\\mathrm{Cov}\\left[#1,\\,#2\\right]}\n\\]"
   }
 ]
