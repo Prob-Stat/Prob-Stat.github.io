@@ -43,7 +43,7 @@ $$
 :::
 
 連続型確率変数の期待値に関する様々な証明は**ルベーグ積分の知識を必要とするのでこの授業では扱わない**。
-以下、証明はすべて離散確率変数の場合に限って与える。
+以下、証明はすべて**離散確率変数の場合に限って**与えて分かった気になることにする。
 
 ## 確率変数の和の期待値
 
@@ -84,7 +84,7 @@ $$
 \end{align*}
 :::
 
-## Law of the unconscious statistician (LOTUS)
+## 期待値の簡潔な表現
 ::: {#lem-lotus}
 ### Law of the unconscious statistician (LOTUS)
 任意の関数 $g\colon\mathbb{R}\to\mathbb{R}$ について、
@@ -103,10 +103,10 @@ $X$ を離散型確率変数とする。
 \begin{align*}
 \expt{g(X)}
 %&= \sum_{x} x f_{g(X)}(x)\\
-&= \sum_{x} x \Pr(g(X) = x)\\
-&= \sum_{x} x \Pr(\{\omega\in\Omega\mid g(X(\omega)) = x\})\\
-&= \sum_{x} x \Pr\left(\bigcup_{y\in\mathrm{Image}(X)\colon\, g(y) = x}\{\omega\in\Omega\mid X(\omega) = y\}\right)\\
-&= \sum_{x}\sum_{y\in\mathrm{Image}(X)\colon\, g(y) = x} x \Pr\left(\{\omega\in\Omega\mid X(\omega) = y\}\right)\\
+&= \sum_{x} x \Pr(g(X) = x)
+= \sum_{x} x P(\{\omega\in\Omega\mid g(X(\omega)) = x\})\\
+&= \sum_{x} x P\left(\bigcup_{y\in\mathrm{Image}(X)\colon\, g(y) = x}\{\omega\in\Omega\mid X(\omega) = y\}\right)\\
+&= \sum_{x}\sum_{y\in\mathrm{Image}(X)\colon\, g(y) = x} x P\left(\{\omega\in\Omega\mid X(\omega) = y\}\right)\\
 &= \sum_{y\in\mathrm{Image}(X)} g(y) f_X(y).
 \end{align*}
 :::
@@ -231,7 +231,11 @@ Y&\coloneqq \frac1{n} (X_1+\dotsb+X_n)
 \var{Y} &= \frac1{n}\var{X}
 \end{align*}
 である。互いに独立な確率変数の平均を取ると期待値は変わらず、分散は小さくなる。
+
+チェビシェフの不等式を適用すると、$Y$ は $n$ を大きくすると期待値周辺に集中していくことが分かる。
 :::
+
+
 
 ## 共分散
 ::: {#def-exp}
@@ -337,32 +341,161 @@ $$
 を $X$ の**キュムラント母関数**という。
 :::
 
+<br>
+
+定義より、$M_X(0) = 1$, $K_X(0)=0$ である。
+
+また、**独立**確率変数 $X,\,Y$ について
+\begin{align*}
+M_{X+Y}(t) &= \expt{\mathrm{e}^{t(X+Y)}} = \expt{\mathrm{e}^{tX}\cdot\mathrm{e}^{tY}}
+= \expt{\mathrm{e}^{tX}}\cdot\expt{\mathrm{e}^{tY}} = M_X(t)M_Y(t)
+\end{align*}
+である。同様に $K_{X+Y}(t) = K_X(t) + K_Y(t)$ である。
+
+## モーメントの母関数
+::: {#thm-moment}
+
+確率変数 $X$ について、ある $\epsilon >0$ が存在し、モーメント母関数 $M_X(t)$ が **$t\in(-\epsilon,\epsilon)$ で存在す
+るとき**、
+
+\begin{align*}
+M_X(t) &=\sum_{n\ge 0}\frac{\expt{X^n}}{n!}t^n\qquad\forall t\in(-\epsilon,\epsilon)\\
+\mu_n(X) &= \left.\frac{\mathrm{d}^n M_X(t)}{\mathrm{d} t^n}\right|_{t=0}.
+\end{align*}
+:::
+::: {.proof}
+前半の証明を与える。
+離散型確率変数 $X$ について、
+\begin{align*}
+M_X(t) &= \expt{\mathrm{e}^{tX}}
+ = \sum_x \mathrm{e}^{tx} f_X(x)
+ = \sum_x \left(\sum_{n\ge0}\frac{(tx)^n}{n!}\right) f_X(x)
+\end{align*}
+である。
+ここで、任意の $t\in(-\epsilon,\epsilon)$ について
+\begin{align*}
+ \sum_x \sum_{n\ge0}\left|\frac{(tx)^n}{n!} f_X(x)\right|
+ &= \sum_x \sum_{n\ge0}\frac{|tx|^n}{n!} f_X(x)
+ = \sum_x \mathrm{e}^{|tx|} f_X(x)
+ \le \sum_x (\mathrm{e}^{tx}+\mathrm{e}^{-tx}) f_X(x)\\
+ &= \expt{\mathrm{e}^{tX}} + \expt{\mathrm{e}^{-tX}}
+ = M_X(t) + M_X(-t) < \infty
+\end{align*}
+よって、この無限和は任意の $t\in(-\epsilon,\epsilon)$ について**絶対収束する**。
+そのため、和の順序を変えても収束値は変化しない。
+\begin{align*}
+M_X(t) &= 
+ \sum_x \left(\sum_{n\ge0}\frac{(tx)^n}{n!}\right) f_X(x)
+ = \sum_{n\ge 0} \sum_{x}\frac{(tx)^n}{n!}f_X(x)
+ = \sum_{n\ge 0} \frac{\sum_xx^n f_X(x)}{n!}t^n
+ = \sum_{n\ge 0} \frac{\expt{X^n}}{n!}t^n\qquad\forall t\in(-\epsilon,\epsilon).
+\end{align*}
+<!--
+(概要)
+\begin{align*}
+M_X(t) &= \expt{\mathrm{e}^{tX}}\\
+&=\expt{\sum_{n\ge 0}\frac{(tX)^n}{n!}}\\
+&=\sum_{n\ge 0}\expt{\frac{(tX)^n}{n!}}\qquad\text{\textsf{(この無限和と期待値の交換が定理の条件より正当化される)}}.
+\end{align*}
+-->
+:::
+
+## キュムラント母関数
+::: {#cor-cumulant}
+確率変数 $X$ について、ある $\epsilon >0$ が存在し、モーメント母関数 $M_X(t)$ が **$t\in(-\epsilon,\epsilon)$ で存在するとき**、
+
+\begin{align*}
+\left.\frac{\mathrm{d} K_X(t)}{\mathrm{d} t}\right|_{t=0} &= \expt{X},&
+\left.\frac{\mathrm{d}^2 K_X(t)}{\mathrm{d} t^2}\right|_{t=0} &=  \var{X}.
+\end{align*}
+:::
+::: {.proof}
+\begin{align*}
+\left.\frac{\mathrm{d} K_X(t)}{\mathrm{d} t}\right|_{t=0} &= \left.\frac{M'_X(t)}{M_X(t)}\right|_{t=0}=\expt{X}\\
+\left.\frac{\mathrm{d}^2 K_X(t)}{\mathrm{d} t^2}\right|_{t=0} &= \left.\frac{M''_X(t)M_X(t) - M'_X(t)^2}{M_X(t)^2}\right|_{t=0} = M''_X(0) - M'_X(0)^2 = \var{X}.
+\end{align*}
+:::
+
+また、重要度は低くなるが、
+
+\begin{align*}
+\left.\frac{\mathrm{d}^3 K_X(t)}{\mathrm{d} t^3}\right|_{t=0} &= \expt{(X - \expt{X})^3}\\
+\left.\frac{\mathrm{d}^4 K_X(t)}{\mathrm{d} t^4}\right|_{t=0} &= \expt{(X - \expt{X})^4} - 3\var{X}^2
+\end{align*}
+
+が成り立つ(覚えなくてよい)。
+一般に以下を $X$ の **$n$ 次キュムラント** と呼ぶ。
+\begin{align*}
+\kappa_n(X) &\coloneqq \left.\frac{\mathrm{d}^n K_X(t)}{\mathrm{d} t^n}\right|_{t=0}.
+\end{align*}
+
+## モーメント母関数の一致
+::: {#thm-moment}
+確率変数 $X$ と $Y$ のモーメント母関数が0を含む開区間 $(-\epsilon,\,\epsilon)$ で存在し、それらが等しいとき、$X$ の分布と $Y$ の分布は等しい。
+:::
+
+証明は確率変数の像が有限の場合に与える(ウェブ資料参照)。
+
+<!--
+::: {.proof}
+$\mathrm{Image}(X)$ と $\mathrm{Image}(Y)$ が有限の場合に限って証明を与える
+(この場合はモーメント母関数は $\mathbb{R}$ 全体で存在するのだが)。
+\begin{align*}
+\{x_0,\dotsc,x_{N-1}\} &\coloneqq \mathrm{Image}(X) \cup \mathrm{Image}(Y)
+\end{align*}
+とする。
+\begin{align*}
+M_X(t) &= \sum_{k=0}^{N-1} f_X(x_k) \mathrm{e}^{tx_k},&
+M_Y(t) &= \sum_{k=0}^{N-1} f_Y(x_k) \mathrm{e}^{tx_k}
+\end{align*}
+なので、
+\begin{align*}
+0 = M_X(t) - M_Y(t) &= \sum_{k=0}^{N-1} (f_X(x_k)-f_Y(x_k)) \mathrm{e}^{tx_k}\qquad\forall t\in(-\epsilon,\epsilon)
+\end{align*}
+各 $k\in\{0,1,\dotsc,N-1\}$ について、$t_k\coloneqq \epsilon\frac{k}{N}$ とおくと、
+\begin{align}
+\sum_{k=0}^{N-1} (f_X(x_k)-f_Y(x_k)) \mathrm{e}^{t_\ell x_k}&=0\qquad\forall \ell\in\{0,1,\dotsc,N-1\}
+\end{align}
+である。
+ここで、$N\times N$ 実行列 $V$ を
+\begin{align*}
+V_{\ell k} &= \mathrm{e}^{t_\ell x_k}
+= \mathrm{e}^{\frac{\epsilon x_k}{N} \ell}\qquad\forall k,\ell\in\{0,1,\dotsc,N-1\}
+\end{align*}
+とおく。
+この行列 $V$ は Vandermonde行列の転置であり正則なので、
+\begin{align*}
+&\sum_{k=0}^{N-1} V_{\ell k} g_k=0\qquad\forall \ell\in\{0,1,\dotsc,N-1\}\\
+\implies& g_k = 0 \qquad\forall k\in\{0,1,\dotsc,N-1\}
+\end{align*}
+よって、
+\begin{align*}
+f_X(x_k) &= f_Y(x_k) \qquad\forall k\in\{0,1,\dotsc,N-1\}
+\end{align*}
+である。
+:::
+-->
+@thm-moment より、モーメント母関数には確率変数の分布のすべての情報が含まれていると言える。
+ただし、モーメント母関数は原点まわりで存在しないこともあるので、分布の情報をすべて含む関数としては**特性関数**
+\begin{align*}
+\varphi_X(t) &\coloneqq \expt{\mathrm{e}^{itX}}\qquad\forall t\in\mathbb{R}
+\end{align*}
+の方が優秀である。
+特性関数は常に存在する。
+一方でモーメント母関数は確率の集中を示す文脈では中心的な役割を果たす。
+
+
+
 
 ## 今週の課題
 
 
+$\lambda>0$ について $X\sim\mathrm{Poisson}(\lambda)$ とする。
 以下の問に答えよ
 
 ::: {.wide-list}
 
-1.
-共通の確率空間上の離散型確率変数 $X$ と $Y$ が以下の同時確率質量関数を持つとする。
-\begin{align*}
-f_{X,\,Y}(0,\,0) &= a,&
-f_{X,\,Y}(0,\,1) &= b,&
-f_{X,\,Y}(0,\,2) &= c,\\
-f_{X,\,Y}(1,\,0) &= d,&
-f_{X,\,Y}(1,\,1) &= e,&
-f_{X,\,Y}(1,\,2) &= f
-\end{align*}
-ここで、 $a,b,c,d,e,f\in\mathbb{R}_{\ge 0}$ は $a+b+c+d+e+f=1$ を満たすものとする。
-このとき、周辺確率質量関数 $f_X$ と $f_Y$ をもとめよ。
-1. 確率変数 $X$ と $Y$ が独立で
-\begin{align*}
- X&\sim\mathrm{Ber}(p)& p\in[0,1]\\
- Y&\sim\mathrm{Poisson}(\lambda)& \lambda > 0
-\end{align*}
-  とする。
-このとき、 $X+Y$ の確率質量関数をもとめよ。結果の式は共通因子でくくらなくてよい(採点が楽なので)。
+1. $X$ のキュムラント母関数をもとめよ。
+1. $\expt{X}$ と $\var{X}$ をもとめよ。
 
 :::
