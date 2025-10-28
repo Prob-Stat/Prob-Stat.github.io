@@ -299,7 +299,7 @@
 <section id="互いに独立な確率変数の和" class="slide level2">
 <h2>互いに独立な確率変数の和</h2>
 <div id="lem-pairwise-var" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 4 (互いに独立な確率変数の和)</strong></span> 確率変数 <span class="math inline">\(X_1,\,X_2,\dotsc,X_n\)</span> が互いに独立のとき</p>
+<p><span class="theorem-title"><strong>Lemma 4 (互いに独立な確率変数の和)</strong></span> 確率変数 <span class="math inline">\(X_1,\,X_2,\dotsc,X_n\)</span> が<strong>互いに独立</strong>のとき</p>
 <p><span class="math display">\[\begin{align*}
 \var{X_1+\dotsb+X_n} &amp;= \var{X_1} +\dotsb + \var{X_n}.
 \end{align*}\]</span></p>
@@ -319,7 +319,7 @@
 <section id="確率変数の平均" class="slide level2">
 <h2>確率変数の平均</h2>
 <div id="exm-pairwise" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1</strong></span> 互いに独立な確率変数 <span class="math inline">\(X_1,\dotsc,X_n\)</span> のそれぞれが確率変数 <span class="math inline">\(X\)</span> と同分布であるとし、 <span class="math display">\[\begin{align*}
+<p><span class="theorem-title"><strong>Example 1</strong></span> <strong>互いに独立</strong>な確率変数 <span class="math inline">\(X_1,\dotsc,X_n\)</span> のそれぞれが確率変数 <span class="math inline">\(X\)</span> と同分布であるとし、 <span class="math display">\[\begin{align*}
 Y&amp;\coloneqq \frac1{n} (X_1+\dotsb+X_n)
 \end{align*}\]</span> と定義する。 このとき、 <span class="math display">\[\begin{align*}
 \expt{Y} &amp;= \expt{X}\\
@@ -410,7 +410,7 @@ M_{X+Y}(t) &amp;= \expt{\mathrm{e}^{t(X+Y)}} = \expt{\mathrm{e}^{tX}\cdot\mathrm
 <section id="モーメントの母関数" class="slide level2">
 <h2>モーメントの母関数</h2>
 <div id="thm-moment" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 3</strong></span> 確率変数 <span class="math inline">\(X\)</span> について、ある <span class="math inline">\(\epsilon &gt;0\)</span> が存在し、モーメント母関数 <span class="math inline">\(M_X(t)\)</span> が <strong><span class="math inline">\(t\in(-\epsilon,\epsilon)\)</span> で存在す るとき</strong>、</p>
+<p><span class="theorem-title"><strong>Theorem 3</strong></span> 確率変数 <span class="math inline">\(X\)</span> について、ある <span class="math inline">\(\epsilon &gt;0\)</span> が存在し、モーメント母関数 <span class="math inline">\(M_X(t)\)</span> が <strong><span class="math inline">\(t\in(-\epsilon,\epsilon)\)</span> で存在するとき</strong>、</p>
 <p><span class="math display">\[\begin{align*}
 M_X(t) &amp;=\sum_{n\ge 0}\frac{\expt{X^n}}{n!}t^n\qquad\forall t\in(-\epsilon,\epsilon)\\
 \mu_n(X) &amp;= \left.\frac{\mathrm{d}^n M_X(t)}{\mathrm{d} t^n}\right|_{t=0}.
