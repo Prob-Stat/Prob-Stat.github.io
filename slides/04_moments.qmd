@@ -200,7 +200,7 @@ $$
 ::: {#lem-pairwise-var}
 ## 互いに独立な確率変数の和
 
-確率変数 $X_1,\,X_2,\dotsc,X_n$ が互いに独立のとき
+確率変数 $X_1,\,X_2,\dotsc,X_n$ が**互いに独立**のとき
 
 \begin{align*}
 \var{X_1+\dotsb+X_n} &= \var{X_1} +\dotsb + \var{X_n}.
@@ -220,7 +220,7 @@ $$
 
 ## 確率変数の平均
 ::: {#exm-pairwise}
-互いに独立な確率変数 $X_1,\dotsc,X_n$ のそれぞれが確率変数 $X$ と同分布であるとし、
+**互いに独立**な確率変数 $X_1,\dotsc,X_n$ のそれぞれが確率変数 $X$ と同分布であるとし、
 \begin{align*}
 Y&\coloneqq \frac1{n} (X_1+\dotsb+X_n)
 \end{align*}
@@ -355,8 +355,7 @@ M_{X+Y}(t) &= \expt{\mathrm{e}^{t(X+Y)}} = \expt{\mathrm{e}^{tX}\cdot\mathrm{e}^
 ## モーメントの母関数
 ::: {#thm-moment}
 
-確率変数 $X$ について、ある $\epsilon >0$ が存在し、モーメント母関数 $M_X(t)$ が **$t\in(-\epsilon,\epsilon)$ で存在す
-るとき**、
+確率変数 $X$ について、ある $\epsilon >0$ が存在し、モーメント母関数 $M_X(t)$ が **$t\in(-\epsilon,\epsilon)$ で存在するとき**、
 
 \begin{align*}
 M_X(t) &=\sum_{n\ge 0}\frac{\expt{X^n}}{n!}t^n\qquad\forall t\in(-\epsilon,\epsilon)\\
