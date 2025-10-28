@@ -438,7 +438,7 @@
     "href": "slides/04_moments.html#マルコフの不等式",
     "title": "確率論",
     "section": "マルコフの不等式",
-    "text": "マルコフの不等式\n\nTheorem 1 (マルコフの不等式) 非負確率変数 \\(X\\) と \\(a&gt;0\\) について \\[\n\\Pr(X\\ge a)\\le\\frac{\\expt{X}}{a}.\n\\]\n\n\nProof. \\[\\begin{align*}\n\\expt{X} &= \\sum_{x\\in \\mathrm{Image}(X)} f_X(x) x\\\\\n&= \\sum_{\\mathrm{Image}(X)\\colon\\, x\\ge a} f_X(x) x + \\sum_{\\mathrm{Image}(X)\\colon\\, x &lt; a} f_X(x) x\\\\\n&\\ge \\sum_{\\mathrm{Image}(X)\\colon\\, x\\ge a} f_X(x) x\\qquad\\qquad (\\Pr(X\\ge 0)=1)\\\\\n&\\ge \\sum_{\\mathrm{Image}(X)\\colon\\, x\\ge a} f_X(x) a\\\\\n&= \\Pr(X\\ge a) a.\n\\end{align*}\\]"
+    "text": "マルコフの不等式\n\nTheorem 1 (マルコフの不等式) 任意の非負確率変数 \\(X\\) と \\(a&gt;0\\) について \\[\n\\Pr(X\\ge a)\\le\\frac{\\expt{X}}{a}.\n\\]\n\n\nProof. \\[\\begin{align*}\n\\expt{X} &= \\sum_{x\\in \\mathrm{Image}(X)} f_X(x) x\\\\\n&= \\sum_{\\mathrm{Image}(X)\\colon\\, x\\ge a} f_X(x) x + \\sum_{\\mathrm{Image}(X)\\colon\\, x &lt; a} f_X(x) x\\\\\n&\\ge \\sum_{\\mathrm{Image}(X)\\colon\\, x\\ge a} f_X(x) x\\qquad\\qquad (\\Pr(X\\ge 0)=1)\\\\\n&\\ge \\sum_{\\mathrm{Image}(X)\\colon\\, x\\ge a} f_X(x) a\\\\\n&= \\Pr(X\\ge a) a.\n\\end{align*}\\]"
   },
   {
     "objectID": "slides/04_moments.html#分散",
@@ -452,7 +452,7 @@
     "href": "slides/04_moments.html#チェビシェフの不等式",
     "title": "確率論",
     "section": "チェビシェフの不等式",
-    "text": "チェビシェフの不等式\n\nTheorem 2 (チェビシェフの不等式) 非負確率変数 \\(X\\) と \\(a&gt;0\\) について \\[\n\\Pr(|X-\\expt{X}|\\ge a)\\le\\frac{\\var{X}}{a^2}.\n\\]\n\n\nProof. \\[\\begin{align*}\n\\Pr(|X-\\expt{X}|\\ge a)&= \\Pr((X-\\expt{X})^2\\ge a^2)\\\\\n&\\le\n\\frac{\\expt{(X-\\expt{X})^2}}{a^2} = \\frac{\\var{X}}{a^2}.\n\\end{align*}\\]"
+    "text": "チェビシェフの不等式\n\nTheorem 2 (チェビシェフの不等式) 任意の確率変数 \\(X\\) と \\(a&gt;0\\) について \\[\n\\Pr(|X-\\expt{X}|\\ge a)\\le\\frac{\\var{X}}{a^2}.\n\\]\n\n\nProof. \\[\\begin{align*}\n\\Pr(|X-\\expt{X}|\\ge a)&= \\Pr((X-\\expt{X})^2\\ge a^2)\\\\\n&\\le\n\\frac{\\expt{(X-\\expt{X})^2}}{a^2} = \\frac{\\var{X}}{a^2}.\n\\end{align*}\\]"
   },
   {
     "objectID": "slides/04_moments.html#互いに独立な確率変数の和",
