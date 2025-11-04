@@ -396,7 +396,7 @@
     "href": "slides.html",
     "title": "Slides",
     "section": "",
-    "text": "講義スライド\n\n集合論と確率空間\n確率変数\n複数の確率変数\n期待値、分散、モーメント"
+    "text": "講義スライド\n\n集合論と確率空間\n確率変数\n複数の確率変数\n期待値、分散、モーメント\nベイズ推定"
   },
   {
     "objectID": "slides/05_bayes.html#統計的推論推定",
