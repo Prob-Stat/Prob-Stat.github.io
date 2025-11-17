@@ -135,7 +135,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">確率論</h1>
-  <p class="subtitle">ベイズ推定</p>
+  <p class="subtitle">仮説検定</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -146,225 +146,139 @@
 </div>
 
 </section>
-<section id="統計的推論推定" class="slide level2">
-<h2>統計的推論推定</h2>
-<p>統計的推論とは現実の推定問題を確率論に基づきモデル化し、誤り確率を最小化するように推論する方法論である。 統計的推論には大きく分けて二種類の流派がある。</p>
+<section id="事前分布を仮定しない推定問題" class="slide level2">
+<h2>事前分布を仮定しない推定問題</h2>
+<p>ベイズ推定では推定したいパラメータ <span class="math inline">\(\theta\in\Theta\)</span> の<strong>事前分布 <span class="math inline">\(\pi(\theta)\)</span> を既知</strong>として仮定した。</p>
+<p>しかし、現実の問題ではこの事前分布を適切に仮定する方法がない場合もある。</p>
 <ul>
-<li><strong>ベイズ主義</strong>: 推論する対象の分布(事前分布)を仮定する。</li>
-<li>頻度主義: 推論する対象の分布(事前分布)を仮定しない。</li>
+<li>開発中の薬に効果があるかないか</li>
+<li>ある患者が病気かどうか</li>
+<li>サイコロに偏りがあるかどうか</li>
 </ul>
-<p>例えば統計的推論は以下のような問題に適用されている。</p>
+<p>といった問題について事前分布をどのように仮定するのが適切か不明瞭である。</p>
+<p>尤度 <span class="math inline">\(p(x\mid\theta)\)</span> は既知とし、事前分布は既知でないときに データ <span class="math inline">\(x\in\mathcal{X}\)</span> から パラメータ <span class="math inline">\(\theta\in\Theta\)</span> を推定する問題を考える。</p>
+</section>
+<section id="伝統的な仮説検定" class="slide level2">
+<h2>伝統的な仮説検定</h2>
+<p>パラメータの集合を二つの部分集合 <span class="math inline">\(H_0\)</span> と <span class="math inline">\(H_1\)</span> に分割する。 つまり、<span class="math inline">\(H_0\cup H_1 = \Theta\)</span>, <span class="math inline">\(H_0\cap H_1=\varnothing\)</span> である。</p>
+<p>そしてパラメータが <span class="math inline">\(H_0\)</span> に属するか <span class="math inline">\(H_1\)</span> に属するかを知りたいとする。 この二つの集合 <span class="math inline">\(H_0\)</span> と <span class="math inline">\(H_1\)</span> を仮説という。</p>
+<p>その二つの仮説のうちの<strong>通常成り立っていると考える方</strong>を <span class="math inline">\(H_0\)</span> とし <strong>帰無仮説</strong>と呼ぶ。 また、そうでない方を <span class="math inline">\(H_1\)</span> とし <strong>対立仮説</strong>と呼ぶ。</p>
+<p>帰無仮説の例として</p>
 <ul>
-<li>新薬の有効性</li>
-<li>ウェブ広告のクリック率の推定</li>
-<li>工場で製造される製品の不良率の推定</li>
+<li>開発中の薬に効果はない</li>
+<li>ある患者が病気ではない</li>
+<li>サイコロに偏りはない</li>
 </ul>
-</section>
-<section id="ベイズ推定" class="slide level2">
-<h2>ベイズ推定</h2>
+<p>などがある。 それらに対応する対立仮説はそれぞれ</p>
 <ul>
-<li><span class="math inline">\(\mathcal{X}\colon\)</span> データが取り得る値の集合</li>
-<li><span class="math inline">\(\Theta\colon\)</span> 分布のパラメータが取り得る値の集合</li>
+<li>開発中の薬に効果がある</li>
+<li>ある患者が病気である</li>
+<li>サイコロに偏りがある</li>
 </ul>
-<p>簡単のため、<span class="math inline">\(\mathcal{X}\)</span> と <span class="math inline">\(\Theta\)</span> は高々可算集合とする。</p>
-<p>データ <span class="math inline">\(x\in\mathcal{X}\)</span> からパラメータ <span class="math inline">\(\theta\in\Theta\)</span> を推定する問題を考える。 このとき、<span class="math inline">\(x\)</span> と <span class="math inline">\(\theta\)</span> が<strong>何かしらの確率分布に従っている</strong>と仮定する。 パラメータ <span class="math inline">\(\theta\)</span> に対する <span class="math inline">\(x\)</span> の確率質量関数を <span class="math inline">\(p(x\mid \theta)\)</span> と表す。 また、パラメータ <span class="math inline">\(\theta\)</span> の確率質量関数を <span class="math inline">\(\pi(\theta)\)</span> と表す。 つまり、パラメータ <span class="math inline">\(\theta\in\Theta\)</span> とデータ <span class="math inline">\(x\in\mathcal{X}\)</span> が選ばれる確率は <span class="math display">\[\begin{align*}
-\pi(\theta) p(x\mid\theta)
-\end{align*}\]</span> である。 また、 <span class="math display">\[\begin{align*}
-p(x) &amp;= \sum_{\theta\in\Theta}\pi(\theta)p(x\mid\theta),&amp;
-p(\theta\mid x)&amp;\coloneqq \frac{\pi(\theta)p(x\mid\theta)}{p(x)}
-\end{align*}\]</span> と定義する。 ベイズ推定の文脈では</p>
-<ul>
-<li><span class="math inline">\(\pi(\theta)\colon\)</span> 事前確率</li>
-<li><span class="math inline">\(p(x\mid \theta)\colon\)</span> 尤度</li>
-<li><span class="math inline">\(p(\theta\mid x)\colon\)</span> 事後確率</li>
-</ul>
-<p>と呼ぶ。</p>
+<p>となる。 仮説検定の考え方では帰無仮説を棄却するかしないかを決める。 <strong>帰無仮説を棄却した場合、対立仮説を正しいと考え、帰無仮説を棄却しなかった場合は何も言えない</strong>と結論づける。</p>
 </section>
-<section id="最大事後確率推定" class="slide level2">
-<h2>最大事後確率推定</h2>
-<p>このとき、得られたデータ <span class="math inline">\(x\in\mathcal{X}\)</span> からパラメータ <span class="math inline">\(\theta\in\Theta\)</span> を推定する関数 <span class="math inline">\(\widehat{\theta}\colon \mathcal{X}\to\Theta\)</span> の誤り確率は <span class="math display">\[\begin{align*}
-P_{\mathrm{err}}(\widehat{\theta})
-&amp;\coloneqq \sum_{\theta\in\Theta} \pi(\theta) \sum_{x\in\mathcal{X}} p(x\mid\theta) \,\mathbb{I}\{\widehat{\theta}(x)\ne\theta\}\\
-&amp;= \sum_{\theta\in\Theta} \pi(\theta) \sum_{x\in\mathcal{X}} p(x\mid\theta) (1-\mathbb{I}\{\widehat{\theta}(x)=\theta\})\\
-%&amp;= 1- \sum_{\theta\in\Theta} \pi(\theta) \sum_{x\in\mathcal{X}} p(x\mid\theta)\, \mathbb{I}\{\widehat{\theta}(x)=\theta\}\\
-&amp;= 1- \sum_{x\in\mathcal{X}}\sum_{\theta\in\Theta} \pi(\theta)  p(x\mid\theta)\, \mathbb{I}\{\widehat{\theta}(x)=\theta\}\\
-&amp;= 1- \sum_{x\in\mathcal{X}}\pi\left(\widehat{\theta}(x)\right)  p\left(x\mid\widehat{\theta}(x)\right)\\
-&amp;\ge 1- \sum_{x\in\mathcal{X}} \max_{\theta\in\Theta} \pi\left(\theta\right)  p\left(x\mid\theta\right)
-\end{align*}\]</span> と下から抑えることができ、 <span class="math display">\[\begin{align*}
-\widehat{\theta}_{\mathrm{MAP}}(x) &amp;\coloneqq
-  \arg\max_{\theta\in\Theta}p\left(\theta\mid x\right)\\
-&amp;= \arg\max_{\theta\in\Theta}p\left(\theta\mid x\right)  p\left(x\right)\\
-&amp;= \arg\max_{\theta\in\Theta}\pi\left(\theta\right)  p\left(x\mid\theta\right)\\
-\end{align*}\]</span> という推定関数により等号が達成される。 この推定関数を<strong>最大事後確率(maximum a posteriori; MAP)推定</strong>関数と呼ぶ。 事後確率の最大化の代わりに同時確率の最大化と理解してもよい。</p>
+<section id="単純仮説" class="slide level2">
+<h2>単純仮説</h2>
+<p>仮説 <span class="math inline">\(H_0\)</span> と <span class="math inline">\(H_1\)</span> がそれぞれ一元集合であるとき、それらを<strong>単純仮説</strong>という。 <span class="math inline">\(H_0=\{\theta_0\}\)</span>, <span class="math inline">\(H_1=\{\theta_1\}\)</span> として、 <span class="math inline">\(p_0(x)\coloneqq p(x\mid \theta_0)\)</span> と <span class="math inline">\(p_1(x)\coloneqq p(x\mid \theta_1)\)</span> とする。 データから仮説を推定する関数 <span class="math inline">\(E\colon\mathcal{X}\to[0,1]\)</span> を<strong>推定関数</strong>という。 各 <span class="math inline">\(x\in\mathcal{X}\)</span> について、<span class="math inline">\(E(x)\)</span> は<strong>帰無仮説を棄却する確率</strong>とする。 この推定関数について二種類の誤り確率を <span class="math display">\[\begin{align*}
+\alpha_E &amp;\coloneqq \expt{E(X)\mid \theta_0}\\
+\beta_E &amp;\coloneqq 1-\expt{E(X)\mid \theta_1}\\
+\end{align*}\]</span> と定義する。 このとき、<span class="math inline">\(\alpha_E\)</span> は帰無仮説が正しいときに帰無仮説を棄却する確率であり、<strong>第一種誤り確率</strong>もしくは<strong>有意水準</strong>という。 また、<span class="math inline">\(\beta_E\)</span> は対立仮説が正しいときに帰無仮説を棄却しない確率であり、<strong>第二種誤り確率</strong>という。 第一種誤り確率だけを小さくしたければ <span class="math inline">\(E(x) = 0\)</span> とすればよいし、第二種誤り確率だけを小さくしたければ <span class="math inline">\(E(x)=1\)</span> とすればよい。</p>
 </section>
-<section id="最尤推定" class="slide level2">
-<h2>最尤推定</h2>
-<p>MAP推定は誤り確率を最小化する推定方法であるが、<strong>事前確率 <span class="math inline">\(\pi(\theta)\)</span> を仮定しないと用いることができない</strong>。 一方で尤度を最大化する推定関数 <span class="math display">\[\begin{align*}
-\widehat{\theta}_{\mathrm{ML}}(x) &amp;\coloneqq
-  \arg\max_{\theta\in\Theta}p\left(x\mid\theta\right)
-\end{align*}\]</span> を<strong>最尤(maximam likelihood; ML)推定</strong>関数という。 <span class="math inline">\(\Theta\)</span> が有限集合で、事前確率が一様分布 <span class="math inline">\(\pi(\theta)=\frac1{|\Theta|}\)</span> のとき、最尤推定は最大事後確率推定と一致する。</p>
-</section>
-<section id="二つの分布の識別" class="slide level2">
-<h2>二つの分布の識別</h2>
-<p>特にパラメータが<strong>二値</strong>である場合を考える。ここでは <span class="math inline">\(\Theta=\{0,1\}\)</span> とする。 また、 <span class="math display">\[\begin{align*}
-p^{(0)}(x) &amp;\coloneqq p(x\mid 0)&amp;
-p^{(1)}(x) &amp;\coloneqq p(x\mid 1)
-\end{align*}\]</span> とする。 このとき、 <span class="math display">\[\begin{align*}
-P_{\mathrm{err}}(\widehat{\theta}_\mathrm{MAP})
-&amp;= 1- \sum_{x\in\mathcal{X}} \max_{\theta\in\{0,1\}} \pi\left(\theta\right)  p\left(x\mid\theta\right)\\
-&amp;= 1- \sum_{x\in\mathcal{X}} \max \left\{\pi(0)  p^{(0)}\left(x\right),\,\pi(1)  p^{(1)}\left(x\right)\right\}\\
-\end{align*}\]</span> である。 ここで、 <span class="math display">\[\begin{align*}
-\begin{split}
-\max\{a,b\} - \min\{a,b\} &amp;= |\,a-b\,|\\
-\max\{a,b\} + \min\{a,b\} &amp;= a+b
-\end{split}
-\qquad\forall a,b\in\mathbb{R}
-\end{align*}\]</span> であるので、 <span class="math display">\[\begin{align*}
-\max\{a,b\} &amp;= \frac12(a+b+|\,a-b\,|)\qquad\forall a,b\in\mathbb{R}.
-\end{align*}\]</span> よって、 <span class="math display">\[\begin{align*}
-%\max_{\theta\in\{0,1\}} \{\pi\left(\theta\right)  p\left(x\mid\theta\right)\}
-\max \left\{\pi(0)  p^{(0)}\left(x\right),\,\pi(1)  p^{(1)}\left(x\right)\right\}
-&amp;= \frac12\left(p(x) +
-\left|\,\pi\left(0\right)  p^{(0)}\left(x\right) - \pi\left(1\right)  p^{(1)}\left(x\right) \,\right|\right).
-\end{align*}\]</span></p>
-</section>
-<section id="全変動距離" class="slide level2">
-<h2>全変動距離</h2>
-<p><span class="math display">\[\begin{align*}
-P_{\mathrm{err}}(\widehat{\theta}_\mathrm{MAP})
-&amp;= 1- \sum_{x\in\mathcal{X}} \max \left\{\pi(0)  p^{(0)}\left(x\right),\,\pi(1)  p^{(1)}\left(x\right)\right\}\\
-&amp;= 1- \sum_{x\in\mathcal{X}} \frac12\left(p(x) +
-\left|\,\pi\left(0\right)  p^{(0)}\left(x\right) - \pi\left(1\right)  p^{(1)}\left(x\right) \,\right|\right)\\
-&amp;= 1-  \frac12\left(1 +
-\sum_{x\in\mathcal{X}}\left|\,\pi\left(0\right)  p^{(0)}\left(x\right) - \pi\left(1\right)  p^{(1)}\left(x\right) \,\right|\right)\\
-&amp;= \frac12\left(1 -
-\sum_{x\in\mathcal{X}}\left|\,\pi\left(0\right)  p^{(0)}\left(x\right) - \pi\left(1\right)  p^{(1)}\left(x\right) \,\right|\right).
-\end{align*}\]</span></p>
-<div id="def-tv" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1 (全変動距離)</strong></span> 高々可算集合 <span class="math inline">\(\mathcal{X}\)</span> 上の関数 <span class="math inline">\(f\)</span> について、 <span class="math inline">\(\|f\|_1 \coloneqq \sum_{x\in\mathcal{X}} \left|\, f(x)\,\right|\)</span> と定義する。 また、<span class="math inline">\(\mathcal{X}\)</span> 上の確率質量関数 <span class="math inline">\(p^{(0)}\)</span>, <span class="math inline">\(p^{(1)}\)</span> について、<strong>全変動距離</strong>を以下で定義する。 <span class="math display">\[\begin{align*}
-d_{\mathrm{TV}}(p^{(0)},\, p^{(1)}) &amp;\coloneqq \frac12\left\|\, p^{(0)}-p^{(1)}\,\right\|_1
-\end{align*}\]</span></p>
+<section id="最強力検定" class="slide level2">
+<h2>最強力検定</h2>
+<div id="def-powerful" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (最強力検定)</strong></span> 検定関数 <span class="math inline">\(E\colon\mathcal{X}\to[0,1]\)</span> が有意水準 <span class="math inline">\(\alpha\in[0,1]\)</span> の最強力検定 <span class="math inline">\(\defiff\)</span> <span class="math inline">\(\alpha_E=\alpha\)</span> であり、任意の <span class="math inline">\(F\colon\mathcal{X}\to[0,1]\)</span> について、<span class="math inline">\(\alpha_F\le\alpha\)</span> ならば <span class="math inline">\(\beta_F\ge\beta\)</span> が成り立つ。</p>
 </div>
-<p>これらの記法を用いると、 <span class="math display">\[\begin{align*}
-P_{\mathrm{err}}(\widehat{\theta}_\mathrm{MAP})&amp;=\frac12\left(1-\left\|\pi(0)p^{(0)} - \pi(1)p^{(1)}\right\|_1\right)
-\end{align*}\]</span> と表せる。また、<span class="math inline">\(\pi(0)=\pi(1)=1/2\)</span> のとき、 <span class="math display">\[\begin{align*}
-P_{\mathrm{err}}(\widehat{\theta}_\mathrm{MAP})&amp;=\frac12\left(1-d_{\mathrm{TV}}(p^{(0)},\,p^{(1)})\right).
-\end{align*}\]</span></p>
-<!--
-## 独立なサンプルからの推定
-共通のパラメータを持つ分布からデータを独立に $n$ 回サンプルする場合を考える。
-このとき、尤度関数は
-\begin{align*}
-p_n(x_1,\dotsc,x_n\mid\theta)&\coloneqq\prod_{i=1}^n p(x_i\mid \theta)
-\end{align*}
-で与えられる。
-確率質量関数 $p^{(0)}$ と $p^{(1)}$ について、$d_{\mathrm{TV}}(p^{(0)}_n,\,p^{(1)}_n)$ の定義には $\mathcal{X}^n$ 上の和が表われ、それを計算することは難しい。
-そのため、数学的に扱い易い距離を導入する。
-
-:::{#def-Hellinger}
-## ヘリンガー距離とバタチャリヤ係数
-また、$\mathcal{X}$ 上の確率質量関数 $p^{(0)}$, $p^{(1)}$ について、
-\begin{align*}
-d_{\mathrm{H}}(p^{(0)},\, p^{(1)}) &\coloneqq \sqrt{\frac12\sum_{x\in\mathcal{X}}\left(\sqrt{p^{(0)}(x)} - \sqrt{p^{(1)}(x)}\right)^2}\\
-&=\sqrt{1 - \sum_{x\in\mathcal{X}}\sqrt{p^{(0)}(x)p^{(1)}(x)}}\\
-\end{align*}
-を**ヘリンガー距離**という。
-
-また、
-\begin{align*}
-\mathrm{BC}(p^{(0)},\,p^{(1)})&\coloneqq\sum_{x\in\mathcal{X}} \sqrt{p^{(0)}(x)p^{(1)}(x)}
-\end{align*}
-を**バタチャリヤ係数**という。
-:::
-
-定義より
-\begin{align*}
-d_{\mathrm{H}}(p^{(0)},\,p^{(1)}) &=\sqrt{1-\mathrm{BC}(p^{(0)},\,p^{(1)})}
-\end{align*}
-が成り立つ。
-
-バタチャリヤ係数は
-\begin{align*}
-\mathrm{BC}(p^{(0)}_n,\, p^{(1)}_n)&=\sum_{x_1,\dotsc,x_n\in\mathcal{X}} \sqrt{p^{(0)}_n(x_1,\dotsc,x_n)p^{(1)}_n(x_1,\dotsc,x_n)}\\
-&=\sum_{x_1,\dotsc,x_n\in\mathcal{X}} \sqrt{\prod_{k=1}^np^{(0)}(x_k) \prod_{k=1}^np^{(1)}(x_k)}\\
-&=\sum_{x_1,\dotsc,x_n\in\mathcal{X}} \prod_{k=1}^n\sqrt{p^{(0)}(x_k) p^{(1)}(x_k)}\\
-&=\left(\sum_{x\in\mathcal{X}} \sqrt{p^{(0)}(x) p^{(1)}(x)}\right)^n\\
-&=
-\mathrm{BC}(p^{(0)},\,p^{(1)})^n
-\end{align*}
-である。
-
-::: {#lem-tv-h}
-\begin{align*}
-d_{\mathrm{H}}(p^{(0)},\, p^{(1)})^2
-\le d_{\mathrm{TV}}(p^{(0)},\, p^{(1)})\le
-\sqrt{2} d_{\mathrm{H}}(p^{(0)},\, p^{(1)})
-\end{align*}
-:::
--->
+<p>実現可能な誤り確率 <span class="math inline">\((\alpha,\,\beta)\)</span> の集合 <span class="math display">\[\begin{align*}
+\left\{(\alpha_E,\,\beta_E)\mid E\colon\mathcal{X}\to[0,1]\right\}
+\end{align*}\]</span> について考える。 この集合は<strong>凸集合</strong>である。 <span class="math display">\[\begin{align*}
+\alpha_{pE + (1-p)F} &amp;= p\alpha_E + (1-p)\alpha_F,&amp;
+\beta_{pE + (1-p)F} &amp;= p\beta_E + (1-p)\beta_F
+\end{align*}\]</span> であることから、 <span class="math display">\[\begin{align*}
+\begin{bmatrix}
+\alpha_{pE + (1-p)F}&amp; \beta_{pE + (1-p)F}
+\end{bmatrix}
+&amp;= p \begin{bmatrix}\alpha_E&amp;\beta_E\end{bmatrix} + (1-p) \begin{bmatrix}\alpha_F&amp;\beta_F\end{bmatrix}
+\end{align*}\]</span> が確認できる。 また、推定結果を反転させた推定関数 <span class="math inline">\(1-E(x)\)</span> を考えると、 <span class="math display">\[\begin{align*}
+\begin{bmatrix}
+\alpha_{1-E}&amp; \beta_{1-E}
+\end{bmatrix}&amp;=
+\begin{bmatrix}
+1&amp;1
+\end{bmatrix} -
+\begin{bmatrix}
+\alpha_{E}&amp; \beta_{E}
+\end{bmatrix}
+\end{align*}\]</span> である。</p>
 </section>
-<section id="損失関数とベイズリスク" class="slide level2">
-<h2>損失関数とベイズリスク</h2>
-<p>パラメータが取り得る値の集合が実数の部分集合 <span class="math inline">\(\Theta\subseteq\mathbb{R}\)</span> であると仮定する。 真のパラメータとその推定値の間の「誤差」を表す関数 <span class="math inline">\(L\colon\Theta\times\mathbb{R}\to\mathbb{R}_{\ge 0}\)</span> を<strong>損失関数</strong>と呼ぶ。 また、<strong>期待損失</strong> <span class="math inline">\(R\colon\Theta\times(\mathcal{X}\to\mathbb{R})\to\mathbb{R}_{\ge 0}\)</span> を <span class="math display">\[\begin{align*}
-R(\theta,\,\widehat{\theta}) &amp;\coloneqq \expt{L(\theta,\,\widehat{\theta}(X))\mid\theta}\\
-&amp;=\sum_{x\in\mathcal{X}} L(\theta,\,\widehat{\theta}(x)) p(x\mid\theta)
-\end{align*}\]</span> と定義する。 また、<strong>ベイズリスク</strong> <span class="math inline">\(\rho\colon \mathcal{P}(\Theta)\times(\mathcal{X}\to\mathbb{R})\to\mathbb{R}_{\ge 0}\)</span> を <span class="math display">\[\begin{align*}
-\rho(\pi, \widehat{\theta})&amp;\coloneqq  \expt{L(\theta,\,\widehat{\theta}(X))}\\
-&amp;=\sum_{\theta\in\Theta}\sum_{x\in\mathcal{X}} L(\theta,\,\widehat{\theta}(x)) p(x\mid\theta)\pi(\theta)
-\end{align*}\]</span> と定義する。 <span class="math inline">\(\Theta\subseteq\mathbb{R}\)</span> が非可算無限集合の場合は <span class="math inline">\(\pi(\theta)\)</span> を確率密度関数とし、 <span class="math display">\[\begin{align*}
-\rho(\pi, \widehat{\theta})&amp;\coloneqq  \expt{L(\theta,\,\widehat{\theta}(X))}\\
-&amp;=\int\sum_{x\in\mathcal{X}} L(\theta,\,\widehat{\theta}(x)) p(x\mid\theta)\pi(\theta)\mathrm{d}\theta
-\end{align*}\]</span> と定義する。 このとき、 <span class="math inline">\(p(x\mid\theta)\)</span> は条件付き確率というより、<span class="math inline">\(\theta\in\Theta\)</span> というパラメータを持った確率質量関数(<span class="math inline">\(\theta\in\Theta\)</span> から定まる確率質量関数)と理解すれば十分である。</p>
+<section id="実現可能な-alphabeta-の集合と最強力検定" class="slide level2">
+<h2>実現可能な <span class="math inline">\((\alpha,\,\beta)\)</span> の集合と最強力検定</h2>
+<div id="cell-fig-between-curves" class="cell" data-fig-height="8" data-fig-width="8" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div id="fig-between-curves" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-between-curves-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="06_testings_files/figure-revealjs/fig-between-curves-output-1.png" width="486" height="470">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-between-curves-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: 実現可能な <span class="math inline">\((\alpha,\,\beta)\)</span> の集合の例
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>凸集合であり、<span class="math inline">\(\begin{bmatrix}\alpha_E&amp;\beta_E\end{bmatrix}\longmapsto\begin{bmatrix}1&amp;1\end{bmatrix} - \begin{bmatrix}\alpha_E&amp;\beta_E\end{bmatrix}\)</span> に閉じている。</p>
+<p><strong>下側の曲線</strong>が最強力検定に対応する。</p>
 </section>
-<section id="損失関数の例" class="slide level2">
-<h2>損失関数の例</h2>
-<p>例えば <span class="math inline">\(\Theta\)</span> が高々可算集合で、 <span class="math display">\[\begin{align*}
-L(\theta,\,\theta') &amp;= \mathbb{I}\{\theta\ne \theta'\}\qquad\forall\theta,\theta'\in\Theta
-\end{align*}\]</span> と定義すると、ベイズリスク <span class="math inline">\(\rho(\pi, \widehat{\theta})\)</span> は推定関数 <span class="math inline">\(\widehat{\theta}\)</span> の誤り確率 <span class="math inline">\(P_\mathrm{err}(\widehat{\theta})\)</span> である。</p>
-<p>その他の重要な損失関数の例として<strong>二乗誤差</strong>がある。 <span class="math display">\[\begin{align*}
-L(\theta,\,\theta') &amp;= (\theta-\theta')^2.
-\end{align*}\]</span></p>
+<section id="尤度比検定" class="slide level2">
+<h2>尤度比検定</h2>
+<p>ベイズ推定の枠組みではMAP推定関数が誤り確率を最小化する推定関数であった。 このMAP推定関数は <span class="math display">\[\begin{align*}
+E_\mathrm{MAP}(x) &amp;=\begin{cases}
+0&amp;\text{if } \frac{p(x\mid\theta_0)}{p(x\mid\theta_1)}\ge \frac{\pi(\theta_1)}{\pi(\theta_0)}\\
+1&amp;\text{otherwise}
+\end{cases}
+\end{align*}\]</span> と表すことができる。</p>
+<p>一般的に <span class="math inline">\(\eta &gt; 0,\,\kappa\in[0,1]\)</span> について <span class="math display">\[\begin{align*}
+E(x) &amp;=\begin{cases}
+0&amp;\text{if } \frac{p(x\mid\theta_0)}{p(x\mid\theta_1)}&gt; \eta\\
+1&amp;\text{if } \frac{p(x\mid\theta_0)}{p(x\mid\theta_1)}&lt; \eta\\
+\kappa&amp;\text{otherwise}
+\end{cases}
+\end{align*}\]</span> という形の推定関数を<strong>尤度比検定</strong>という。</p>
 </section>
-<section id="ベイズリスクの最小化" class="slide level2">
-<h2>ベイズリスクの最小化</h2>
-<p>損失関数 <span class="math inline">\(L\)</span> を定めたときに、ベイズリスクを最小化する推定関数 <span class="math display">\[\begin{align*}
-\widehat{\theta} &amp;= \arg\min_{\widehat{\theta}} \rho(\pi, \widehat{\theta})\\
-\iff \widehat{\theta}(x) &amp;= \arg\min_{\theta'\in\Theta} \sum_{\theta\in\Theta} L(\theta,\,\theta') p(x\mid\theta)\pi(\theta)\qquad\forall x\in\mathcal{X}\\
-\iff \widehat{\theta}(x) &amp;= \arg\min_{\theta'\in\Theta} \sum_{\theta\in\Theta} L(\theta,\,\theta') p(\theta\mid x)p(x)\qquad\forall x\in\mathcal{X}\\
-\iff \widehat{\theta}(x) &amp;= \arg\min_{\theta'\in\Theta} \sum_{\theta\in\Theta} L(\theta,\,\theta') p(\theta\mid x)\qquad\forall x\in\mathcal{X}\\
-\end{align*}\]</span> ここで、 <span class="math display">\[\begin{align*}
-\expt{L(\theta,\,\theta')\mid x}&amp;=  \sum_{\theta\in\Theta} L(\theta,\,\theta') p(\theta\mid x)\qquad\forall x\in\mathcal{X}
-\end{align*}\]</span> を<strong>損失関数の事後平均</strong>という。 各 <span class="math inline">\(x\in\mathcal{X}\)</span> について、<span class="math inline">\(\theta'=\widehat{\theta}(x)\)</span> が損失関数の事後平均を最小化するとき、ベイズリスクを最小化する。</p>
-</section>
-<section id="損失関数が凸で微分可能な場合" class="slide level2">
-<h2>損失関数が凸で微分可能な場合</h2>
-<p>損失関数が <span class="math inline">\(L(\theta,\,\theta')\)</span> が <span class="math inline">\(\theta\in\Theta\)</span> を固定したときに <span class="math inline">\(\theta'\)</span> について<strong>凸関数</strong>であるとき、事後平均 <span class="math inline">\(\expt{L(\theta,\,\theta')\mid x}\)</span> も <span class="math inline">\(\theta'\)</span> について凸関数となる(凸関数の非負倍は凸関数であり、凸関数の和は凸関数なので)。 さらに、<span class="math inline">\(L(\theta,\,\theta')\)</span> が <span class="math inline">\(\theta'\)</span> について微分可能なとき、 <span class="math display">\[\begin{align*}
-\frac{\partial \expt{L(\theta,\,\theta')\mid x}}{\partial\, \theta'}&amp;=  \sum_{\theta\in\Theta} \frac{\partial L(\theta,\,\theta')}{\partial\, \theta'} p(\theta\mid x)=0\qquad\forall x\in\mathcal{X}
-\end{align*}\]</span> を満たす <span class="math inline">\(\theta'\)</span> を <span class="math inline">\(\widehat{\theta}(x)\)</span> として選択するのが最適である。 二乗誤差 <span class="math inline">\(L(\theta,\,\theta')=(\theta-\theta')^2\)</span> のとき、この条件は <span class="math display">\[\begin{align*}
-0&amp;=\sum_{\theta} 2(\theta'-\theta) p(\theta\mid x)
-=2\left(\theta' - \sum_{\theta}\theta p(\theta\mid x)\right)
-\end{align*}\]</span> となり、 <span class="math display">\[\begin{align*}
-\widehat{\theta}(x) &amp;= \sum_\theta \theta p(\theta\mid x)\qquad \forall x\in\mathcal{X}
-\end{align*}\]</span> とするのが最適であることが分かる。この右辺の値を<strong>パラメータ <span class="math inline">\(\theta\)</span> の事後平均</strong>という。</p>
+<section id="ネイマンピアソンの補題" class="slide level2">
+<h2>ネイマン・ピアソンの補題</h2>
+<div id="lem-np" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1 (ネイマン・ピアソンの補題)</strong></span> 任意の尤度比検定は最強力検定である(逆も成り立つ)。</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>尤度比検定<span class="math inline">\(E\)</span>における尤度比の閾値を <span class="math inline">\(\eta&gt; 0\)</span> とする。 任意の <span class="math inline">\(F\colon \mathcal{X}\to[0,1]\)</span> について <span class="math display">\[\begin{align*}
+&amp;(F(x) - E(x)) (p_0(x) - \eta p_1(x))\ge 0\qquad\forall x\in\mathcal{X}\\
+\iff&amp;F(x)p_0(x) - E(x)p_0(x) - \eta F(x) p_1(x) + \eta E(x) p_1(x)\ge 0\qquad\forall x\in\mathcal{X}\\
+\implies&amp;\alpha_F - \alpha_E - \eta (1-\beta_F)  + \eta (1-\beta_E)\ge 0\\
+\iff&amp;(\alpha_F - \alpha_E) + \eta(\beta_F-\beta_E)\ge 0.
+\end{align*}\]</span> よって <span class="math inline">\(\alpha_F\le\alpha_E\)</span> ならば <span class="math inline">\(\beta_F\ge\beta_E\)</span> である。</p>
+</div>
+<p>データ <span class="math inline">\(\mathcal{X}\)</span> が連続な場合は確率質量関数の代わりに確率密度関数を考える。</p>
 </section>
 <section id="今週の課題" class="slide level2">
 <h2>今週の課題</h2>
-<p><span class="math inline">\(\Theta=\{0,1\}\)</span>, <span class="math inline">\(\mathcal{X}=\{0,1\}\)</span> とする。 事前確率と尤度を <span class="math display">\[\begin{align*}
-\pi(0) &amp;= 1/3&amp;\pi(1)=2/3\\
-p(x=0\mid \theta=0) &amp;= 1/3&amp;
-p(x=1\mid \theta=0) &amp;= 2/3\\
-p(x=0\mid \theta=1) &amp;= 1/4&amp;
-p(x=1\mid \theta=1) &amp;= 3/4
-\end{align*}\]</span> とする。</p>
-<p>このとき、以下の問に答えよ</p>
-<div class="wide-list">
+<p><span class="math inline">\(\mathcal{X}=\{0,\,1\},\, \Theta=\left\{\theta_0=\frac12,\,\theta_1=\frac13\right\}\)</span> とし、<span class="math inline">\(k\in\{0,\,1\}\)</span>について <span class="math display">\[\begin{align*}
+p_k(0)&amp;\coloneqq p(0\mid\theta_k) = 1-\theta_k&amp;
+p_k(1)&amp;\coloneqq p(1\mid\theta_k) = \theta_k
+\end{align*}\]</span> とする。 このとき、 <span class="math inline">\(\eta&gt; 0,\,\kappa\in[0,1]\)</span>について、以下の尤度比検定関数 <span class="math inline">\(E(x)\)</span> で仮説検定することを考える。 <span class="math display">\[\begin{align*}
+E(x)&amp;=
+\begin{cases}
+0&amp;\text{if } \frac{p_0(x)}{p_1(x)} &gt; \eta\\
+1&amp;\text{if } \frac{p_0(x)}{p_1(x)} &lt; \eta\\
+\kappa&amp;\text{otherwise.}
+\end{cases}
+\end{align*}\]</span> 以下の問に答えよ。</p>
 <ol type="1">
-<li>MAP推定関数 <span class="math inline">\(\widehat{\theta}_{\mathrm{MAP}}(x)\)</span> と最尤推定関数 <span class="math inline">\(\widehat{\theta}_{\mathrm{ML}}(x)\)</span> をもとめよ。</li>
-<li>損失関数を <span class="math display">\[\begin{align*}
-L(0,0) &amp;= L(1,1) = 0,&amp; L(0,1) &amp;= 1,&amp; L(1,0) &amp;= 3
-\end{align*}\]</span> としたときにベイズリスクを最小化する推定量 <span class="math inline">\(\widehat{\theta}(x)\)</span> をもとめよ。</li>
+<li><span class="math inline">\(\eta=1\)</span>のとき<span class="math inline">\((\alpha_E,\,\beta_E)\)</span>をもとめよ。</li>
+<li>一般の <span class="math inline">\(\eta&gt;0\)</span> と <span class="math inline">\(\kappa\in[0,1]\)</span> について、誤り確率 <span class="math inline">\((\alpha_E,\,\beta_E)\)</span> をもとめよ。<span class="math inline">\(\eta\)</span> の値で場合分けしてもとめること。</li>
+<li>任意の検定関数 <span class="math inline">\(E\colon \mathcal{X}\to[0,1]\)</span>で実現可能な<span class="math inline">\((\alpha_E,\, \beta_E)\)</span>の範囲を図示せよ。</li>
 </ol>
-</div>
 
 
 </section>
