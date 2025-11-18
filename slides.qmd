@@ -9,3 +9,4 @@ title: "Slides"
 1. [複数の確率変数](slides/03_multi.qmd){target="_blank"}
 1. [期待値、分散、モーメント](slides/04_moments.qmd){target="_blank"}
 1. [ベイズ推定](slides/05_bayes.qmd){target="_blank"}
+1. [仮説検定](slides/06_testings.qmd){target="_blank"}
