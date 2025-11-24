@@ -10,3 +10,4 @@ title: "Slides"
 1. [期待値、分散、モーメント](slides/04_moments.qmd){target="_blank"}
 1. [ベイズ推定](slides/05_bayes.qmd){target="_blank"}
 1. [仮説検定](slides/06_testings.qmd){target="_blank"}
+1. [大数の法則](slides/07_large_numbers.qmd){target="_blank"}
