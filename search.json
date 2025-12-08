@@ -280,167 +280,6 @@
     "text": "今週の課題\n\\(\\lambda&gt;0\\) について \\(X\\sim\\mathrm{Poisson}(\\lambda)\\) とする。 以下の問に答えよ\n\n\n\\(X\\) のキュムラント母関数をもとめよ。\n\\(\\expt{X}\\) と \\(\\var{X}\\) をもとめよ。"
   },
   {
-    "objectID": "slides/05_bayes.html#統計的推論推定",
-    "href": "slides/05_bayes.html#統計的推論推定",
-    "title": "確率論",
-    "section": "統計的推論推定",
-    "text": "統計的推論推定\n統計的推論とは現実の推定問題を確率論に基づきモデル化し、誤り確率を最小化するように推論する方法論である。 統計的推論には大きく分けて二種類の流派がある。\n\nベイズ主義: 推論する対象の分布(事前分布)を仮定する。\n頻度主義: 推論する対象の分布(事前分布)を仮定しない。\n\n例えば統計的推論は以下のような問題に適用されている。\n\n新薬の有効性\nウェブ広告のクリック率の推定\n工場で製造される製品の不良率の推定"
-  },
-  {
-    "objectID": "slides/05_bayes.html#ベイズ推定",
-    "href": "slides/05_bayes.html#ベイズ推定",
-    "title": "確率論",
-    "section": "ベイズ推定",
-    "text": "ベイズ推定\n\n\\(\\mathcal{X}\\colon\\) データが取り得る値の集合\n\\(\\Theta\\colon\\) 分布のパラメータが取り得る値の集合\n\n簡単のため、\\(\\mathcal{X}\\) と \\(\\Theta\\) は高々可算集合とする。\nデータ \\(x\\in\\mathcal{X}\\) からパラメータ \\(\\theta\\in\\Theta\\) を推定する問題を考える。 このとき、\\(x\\) と \\(\\theta\\) が何かしらの確率分布に従っていると仮定する。 パラメータ \\(\\theta\\) に対する \\(x\\) の確率質量関数を \\(p(x\\mid \\theta)\\) と表す。 また、パラメータ \\(\\theta\\) の確率質量関数を \\(\\pi(\\theta)\\) と表す。 つまり、パラメータ \\(\\theta\\in\\Theta\\) とデータ \\(x\\in\\mathcal{X}\\) が選ばれる確率は \\[\\begin{align*}\n\\pi(\\theta) p(x\\mid\\theta)\n\\end{align*}\\] である。 また、 \\[\\begin{align*}\np(x) &= \\sum_{\\theta\\in\\Theta}\\pi(\\theta)p(x\\mid\\theta),&\np(\\theta\\mid x)&\\coloneqq \\frac{\\pi(\\theta)p(x\\mid\\theta)}{p(x)}\n\\end{align*}\\] と定義する。 ベイズ推定の文脈では\n\n\\(\\pi(\\theta)\\colon\\) 事前確率\n\\(p(x\\mid \\theta)\\colon\\) 尤度\n\\(p(\\theta\\mid x)\\colon\\) 事後確率\n\nと呼ぶ。"
-  },
-  {
-    "objectID": "slides/05_bayes.html#最大事後確率推定",
-    "href": "slides/05_bayes.html#最大事後確率推定",
-    "title": "確率論",
-    "section": "最大事後確率推定",
-    "text": "最大事後確率推定\nこのとき、得られたデータ \\(x\\in\\mathcal{X}\\) からパラメータ \\(\\theta\\in\\Theta\\) を推定する関数 \\(\\widehat{\\theta}\\colon \\mathcal{X}\\to\\Theta\\) の誤り確率は \\[\\begin{align*}\nP_{\\mathrm{err}}(\\widehat{\\theta})\n&\\coloneqq \\sum_{\\theta\\in\\Theta} \\pi(\\theta) \\sum_{x\\in\\mathcal{X}} p(x\\mid\\theta) \\,\\mathbb{I}\\{\\widehat{\\theta}(x)\\ne\\theta\\}\\\\\n&= \\sum_{\\theta\\in\\Theta} \\pi(\\theta) \\sum_{x\\in\\mathcal{X}} p(x\\mid\\theta) (1-\\mathbb{I}\\{\\widehat{\\theta}(x)=\\theta\\})\\\\\n%&= 1- \\sum_{\\theta\\in\\Theta} \\pi(\\theta) \\sum_{x\\in\\mathcal{X}} p(x\\mid\\theta)\\, \\mathbb{I}\\{\\widehat{\\theta}(x)=\\theta\\}\\\\\n&= 1- \\sum_{x\\in\\mathcal{X}}\\sum_{\\theta\\in\\Theta} \\pi(\\theta)  p(x\\mid\\theta)\\, \\mathbb{I}\\{\\widehat{\\theta}(x)=\\theta\\}\\\\\n&= 1- \\sum_{x\\in\\mathcal{X}}\\pi\\left(\\widehat{\\theta}(x)\\right)  p\\left(x\\mid\\widehat{\\theta}(x)\\right)\\\\\n&\\ge 1- \\sum_{x\\in\\mathcal{X}} \\max_{\\theta\\in\\Theta} \\pi\\left(\\theta\\right)  p\\left(x\\mid\\theta\\right)\n\\end{align*}\\] と下から抑えることができ、 \\[\\begin{align*}\n\\widehat{\\theta}_{\\mathrm{MAP}}(x) &\\coloneqq\n  \\arg\\max_{\\theta\\in\\Theta}p\\left(\\theta\\mid x\\right)\\\\\n&= \\arg\\max_{\\theta\\in\\Theta}p\\left(\\theta\\mid x\\right)  p\\left(x\\right)\\\\\n&= \\arg\\max_{\\theta\\in\\Theta}\\pi\\left(\\theta\\right)  p\\left(x\\mid\\theta\\right)\\\\\n\\end{align*}\\] という推定関数により等号が達成される。 この推定関数を最大事後確率(maximum a posteriori; MAP)推定関数と呼ぶ。 事後確率の最大化の代わりに同時確率の最大化と理解してもよい。"
-  },
-  {
-    "objectID": "slides/05_bayes.html#最尤推定",
-    "href": "slides/05_bayes.html#最尤推定",
-    "title": "確率論",
-    "section": "最尤推定",
-    "text": "最尤推定\nMAP推定は誤り確率を最小化する推定方法であるが、事前確率 \\(\\pi(\\theta)\\) を仮定しないと用いることができない。 一方で尤度を最大化する推定関数 \\[\\begin{align*}\n\\widehat{\\theta}_{\\mathrm{ML}}(x) &\\coloneqq\n  \\arg\\max_{\\theta\\in\\Theta}p\\left(x\\mid\\theta\\right)\n\\end{align*}\\] を最尤(maximam likelihood; ML)推定関数という。 \\(\\Theta\\) が有限集合で、事前確率が一様分布 \\(\\pi(\\theta)=\\frac1{|\\Theta|}\\) のとき、最尤推定は最大事後確率推定と一致する。"
-  },
-  {
-    "objectID": "slides/05_bayes.html#二つの分布の識別",
-    "href": "slides/05_bayes.html#二つの分布の識別",
-    "title": "確率論",
-    "section": "二つの分布の識別",
-    "text": "二つの分布の識別\n特にパラメータが二値である場合を考える。ここでは \\(\\Theta=\\{0,1\\}\\) とする。 また、 \\[\\begin{align*}\np^{(0)}(x) &\\coloneqq p(x\\mid 0)&\np^{(1)}(x) &\\coloneqq p(x\\mid 1)\n\\end{align*}\\] とする。 このとき、 \\[\\begin{align*}\nP_{\\mathrm{err}}(\\widehat{\\theta}_\\mathrm{MAP})\n&= 1- \\sum_{x\\in\\mathcal{X}} \\max_{\\theta\\in\\{0,1\\}} \\pi\\left(\\theta\\right)  p\\left(x\\mid\\theta\\right)\\\\\n&= 1- \\sum_{x\\in\\mathcal{X}} \\max \\left\\{\\pi(0)  p^{(0)}\\left(x\\right),\\,\\pi(1)  p^{(1)}\\left(x\\right)\\right\\}\\\\\n\\end{align*}\\] である。 ここで、 \\[\\begin{align*}\n\\begin{split}\n\\max\\{a,b\\} - \\min\\{a,b\\} &= |\\,a-b\\,|\\\\\n\\max\\{a,b\\} + \\min\\{a,b\\} &= a+b\n\\end{split}\n\\qquad\\forall a,b\\in\\mathbb{R}\n\\end{align*}\\] であるので、 \\[\\begin{align*}\n\\max\\{a,b\\} &= \\frac12(a+b+|\\,a-b\\,|)\\qquad\\forall a,b\\in\\mathbb{R}.\n\\end{align*}\\] よって、 \\[\\begin{align*}\n%\\max_{\\theta\\in\\{0,1\\}} \\{\\pi\\left(\\theta\\right)  p\\left(x\\mid\\theta\\right)\\}\n\\max \\left\\{\\pi(0)  p^{(0)}\\left(x\\right),\\,\\pi(1)  p^{(1)}\\left(x\\right)\\right\\}\n&= \\frac12\\left(p(x) +\n\\left|\\,\\pi\\left(0\\right)  p^{(0)}\\left(x\\right) - \\pi\\left(1\\right)  p^{(1)}\\left(x\\right) \\,\\right|\\right).\n\\end{align*}\\]"
-  },
-  {
-    "objectID": "slides/05_bayes.html#全変動距離",
-    "href": "slides/05_bayes.html#全変動距離",
-    "title": "確率論",
-    "section": "全変動距離",
-    "text": "全変動距離\n\\[\\begin{align*}\nP_{\\mathrm{err}}(\\widehat{\\theta}_\\mathrm{MAP})\n&= 1- \\sum_{x\\in\\mathcal{X}} \\max \\left\\{\\pi(0)  p^{(0)}\\left(x\\right),\\,\\pi(1)  p^{(1)}\\left(x\\right)\\right\\}\\\\\n&= 1- \\sum_{x\\in\\mathcal{X}} \\frac12\\left(p(x) +\n\\left|\\,\\pi\\left(0\\right)  p^{(0)}\\left(x\\right) - \\pi\\left(1\\right)  p^{(1)}\\left(x\\right) \\,\\right|\\right)\\\\\n&= 1-  \\frac12\\left(1 +\n\\sum_{x\\in\\mathcal{X}}\\left|\\,\\pi\\left(0\\right)  p^{(0)}\\left(x\\right) - \\pi\\left(1\\right)  p^{(1)}\\left(x\\right) \\,\\right|\\right)\\\\\n&= \\frac12\\left(1 -\n\\sum_{x\\in\\mathcal{X}}\\left|\\,\\pi\\left(0\\right)  p^{(0)}\\left(x\\right) - \\pi\\left(1\\right)  p^{(1)}\\left(x\\right) \\,\\right|\\right).\n\\end{align*}\\]\n\nDefinition 1 (全変動距離) 高々可算集合 \\(\\mathcal{X}\\) 上の関数 \\(f\\) について、 \\(\\|f\\|_1 \\coloneqq \\sum_{x\\in\\mathcal{X}} \\left|\\, f(x)\\,\\right|\\) と定義する。 また、\\(\\mathcal{X}\\) 上の確率質量関数 \\(p^{(0)}\\), \\(p^{(1)}\\) について、全変動距離を以下で定義する。 \\[\\begin{align*}\nd_{\\mathrm{TV}}(p^{(0)},\\, p^{(1)}) &\\coloneqq \\frac12\\left\\|\\, p^{(0)}-p^{(1)}\\,\\right\\|_1\n\\end{align*}\\]\n\nこれらの記法を用いると、 \\[\\begin{align*}\nP_{\\mathrm{err}}(\\widehat{\\theta}_\\mathrm{MAP})&=\\frac12\\left(1-\\left\\|\\pi(0)p^{(0)} - \\pi(1)p^{(1)}\\right\\|_1\\right)\n\\end{align*}\\] と表せる。また、\\(\\pi(0)=\\pi(1)=1/2\\) のとき、 \\[\\begin{align*}\nP_{\\mathrm{err}}(\\widehat{\\theta}_\\mathrm{MAP})&=\\frac12\\left(1-d_{\\mathrm{TV}}(p^{(0)},\\,p^{(1)})\\right).\n\\end{align*}\\]"
-  },
-  {
-    "objectID": "slides/05_bayes.html#損失関数とベイズリスク",
-    "href": "slides/05_bayes.html#損失関数とベイズリスク",
-    "title": "確率論",
-    "section": "損失関数とベイズリスク",
-    "text": "損失関数とベイズリスク\nパラメータが取り得る値の集合が実数の部分集合 \\(\\Theta\\subseteq\\mathbb{R}\\) であると仮定する。 真のパラメータとその推定値の間の「誤差」を表す関数 \\(L\\colon\\Theta\\times\\mathbb{R}\\to\\mathbb{R}_{\\ge 0}\\) を損失関数と呼ぶ。 また、期待損失 \\(R\\colon\\Theta\\times(\\mathcal{X}\\to\\mathbb{R})\\to\\mathbb{R}_{\\ge 0}\\) を \\[\\begin{align*}\nR(\\theta,\\,\\widehat{\\theta}) &\\coloneqq \\expt{L(\\theta,\\,\\widehat{\\theta}(X))\\mid\\theta}\\\\\n&=\\sum_{x\\in\\mathcal{X}} L(\\theta,\\,\\widehat{\\theta}(x)) p(x\\mid\\theta)\n\\end{align*}\\] と定義する。 また、ベイズリスク \\(\\rho\\colon \\mathcal{P}(\\Theta)\\times(\\mathcal{X}\\to\\mathbb{R})\\to\\mathbb{R}_{\\ge 0}\\) を \\[\\begin{align*}\n\\rho(\\pi, \\widehat{\\theta})&\\coloneqq  \\expt{L(\\theta,\\,\\widehat{\\theta}(X))}\\\\\n&=\\sum_{\\theta\\in\\Theta}\\sum_{x\\in\\mathcal{X}} L(\\theta,\\,\\widehat{\\theta}(x)) p(x\\mid\\theta)\\pi(\\theta)\n\\end{align*}\\] と定義する。 \\(\\Theta\\subseteq\\mathbb{R}\\) が非可算無限集合の場合は \\(\\pi(\\theta)\\) を確率密度関数とし、 \\[\\begin{align*}\n\\rho(\\pi, \\widehat{\\theta})&\\coloneqq  \\expt{L(\\theta,\\,\\widehat{\\theta}(X))}\\\\\n&=\\int\\sum_{x\\in\\mathcal{X}} L(\\theta,\\,\\widehat{\\theta}(x)) p(x\\mid\\theta)\\pi(\\theta)\\mathrm{d}\\theta\n\\end{align*}\\] と定義する。 このとき、 \\(p(x\\mid\\theta)\\) は条件付き確率というより、\\(\\theta\\in\\Theta\\) というパラメータを持った確率質量関数(\\(\\theta\\in\\Theta\\) から定まる確率質量関数)と理解すれば十分である。"
-  },
-  {
-    "objectID": "slides/05_bayes.html#損失関数の例",
-    "href": "slides/05_bayes.html#損失関数の例",
-    "title": "確率論",
-    "section": "損失関数の例",
-    "text": "損失関数の例\n例えば \\(\\Theta\\) が高々可算集合で、 \\[\\begin{align*}\nL(\\theta,\\,\\theta') &= \\mathbb{I}\\{\\theta\\ne \\theta'\\}\\qquad\\forall\\theta,\\theta'\\in\\Theta\n\\end{align*}\\] と定義すると、ベイズリスク \\(\\rho(\\pi, \\widehat{\\theta})\\) は推定関数 \\(\\widehat{\\theta}\\) の誤り確率 \\(P_\\mathrm{err}(\\widehat{\\theta})\\) である。\nその他の重要な損失関数の例として二乗誤差がある。 \\[\\begin{align*}\nL(\\theta,\\,\\theta') &= (\\theta-\\theta')^2.\n\\end{align*}\\]"
-  },
-  {
-    "objectID": "slides/05_bayes.html#ベイズリスクの最小化",
-    "href": "slides/05_bayes.html#ベイズリスクの最小化",
-    "title": "確率論",
-    "section": "ベイズリスクの最小化",
-    "text": "ベイズリスクの最小化\n損失関数 \\(L\\) を定めたときに、ベイズリスクを最小化する推定関数 \\[\\begin{align*}\n\\widehat{\\theta} &= \\arg\\min_{\\widehat{\\theta}} \\rho(\\pi, \\widehat{\\theta})\\\\\n\\iff \\widehat{\\theta}(x) &= \\arg\\min_{\\theta'\\in\\Theta} \\sum_{\\theta\\in\\Theta} L(\\theta,\\,\\theta') p(x\\mid\\theta)\\pi(\\theta)\\qquad\\forall x\\in\\mathcal{X}\\\\\n\\iff \\widehat{\\theta}(x) &= \\arg\\min_{\\theta'\\in\\Theta} \\sum_{\\theta\\in\\Theta} L(\\theta,\\,\\theta') p(\\theta\\mid x)p(x)\\qquad\\forall x\\in\\mathcal{X}\\\\\n\\iff \\widehat{\\theta}(x) &= \\arg\\min_{\\theta'\\in\\Theta} \\sum_{\\theta\\in\\Theta} L(\\theta,\\,\\theta') p(\\theta\\mid x)\\qquad\\forall x\\in\\mathcal{X}\\\\\n\\end{align*}\\] ここで、 \\[\\begin{align*}\n\\expt{L(\\theta,\\,\\theta')\\mid x}&=  \\sum_{\\theta\\in\\Theta} L(\\theta,\\,\\theta') p(\\theta\\mid x)\\qquad\\forall x\\in\\mathcal{X}\n\\end{align*}\\] を損失関数の事後平均という。 各 \\(x\\in\\mathcal{X}\\) について、\\(\\theta'=\\widehat{\\theta}(x)\\) が損失関数の事後平均を最小化するとき、ベイズリスクを最小化する。"
-  },
-  {
-    "objectID": "slides/05_bayes.html#損失関数が凸で微分可能な場合",
-    "href": "slides/05_bayes.html#損失関数が凸で微分可能な場合",
-    "title": "確率論",
-    "section": "損失関数が凸で微分可能な場合",
-    "text": "損失関数が凸で微分可能な場合\n損失関数が \\(L(\\theta,\\,\\theta')\\) が \\(\\theta\\in\\Theta\\) を固定したときに \\(\\theta'\\) について凸関数であるとき、事後平均 \\(\\expt{L(\\theta,\\,\\theta')\\mid x}\\) も \\(\\theta'\\) について凸関数となる(凸関数の非負倍は凸関数であり、凸関数の和は凸関数なので)。 さらに、\\(L(\\theta,\\,\\theta')\\) が \\(\\theta'\\) について微分可能なとき、 \\[\\begin{align*}\n\\frac{\\partial \\expt{L(\\theta,\\,\\theta')\\mid x}}{\\partial\\, \\theta'}&=  \\sum_{\\theta\\in\\Theta} \\frac{\\partial L(\\theta,\\,\\theta')}{\\partial\\, \\theta'} p(\\theta\\mid x)=0\\qquad\\forall x\\in\\mathcal{X}\n\\end{align*}\\] を満たす \\(\\theta'\\) を \\(\\widehat{\\theta}(x)\\) として選択するのが最適である。 二乗誤差 \\(L(\\theta,\\,\\theta')=(\\theta-\\theta')^2\\) のとき、この条件は \\[\\begin{align*}\n0&=\\sum_{\\theta} 2(\\theta'-\\theta) p(\\theta\\mid x)\n=2\\left(\\theta' - \\sum_{\\theta}\\theta p(\\theta\\mid x)\\right)\n\\end{align*}\\] となり、 \\[\\begin{align*}\n\\widehat{\\theta}(x) &= \\sum_\\theta \\theta p(\\theta\\mid x)\\qquad \\forall x\\in\\mathcal{X}\n\\end{align*}\\] とするのが最適であることが分かる。この右辺の値をパラメータ \\(\\theta\\) の事後平均という。"
-  },
-  {
-    "objectID": "slides/05_bayes.html#今週の課題",
-    "href": "slides/05_bayes.html#今週の課題",
-    "title": "確率論",
-    "section": "今週の課題",
-    "text": "今週の課題\n\\(\\Theta=\\{0,1\\}\\), \\(\\mathcal{X}=\\{0,1\\}\\) とする。 事前確率と尤度を \\[\\begin{align*}\n\\pi(0) &= 1/3&\\pi(1)=2/3\\\\\np(x=0\\mid \\theta=0) &= 1/3&\np(x=1\\mid \\theta=0) &= 2/3\\\\\np(x=0\\mid \\theta=1) &= 1/4&\np(x=1\\mid \\theta=1) &= 3/4\n\\end{align*}\\] とする。\nこのとき、以下の問に答えよ\n\n\nMAP推定関数 \\(\\widehat{\\theta}_{\\mathrm{MAP}}(x)\\) と最尤推定関数 \\(\\widehat{\\theta}_{\\mathrm{ML}}(x)\\) をもとめよ。\n損失関数を \\[\\begin{align*}\nL(0,0) &= L(1,1) = 0,& L(0,1) &= 1,& L(1,0) &= 3\n\\end{align*}\\] としたときにベイズリスクを最小化する推定量 \\(\\widehat{\\theta}(x)\\) をもとめよ。"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Home",
-    "section": "",
-    "text": "確率・統計基礎の授業ページです。"
-  },
-  {
-    "objectID": "slides.html",
-    "href": "slides.html",
-    "title": "Slides",
-    "section": "",
-    "text": "講義スライド\n\n集合論と確率空間\n確率変数\n複数の確率変数\n期待値、分散、モーメント\nベイズ推定\n仮説検定\n大数の法則"
-  },
-  {
-    "objectID": "slides/07_large_numbers.html#大数の弱法則",
-    "href": "slides/07_large_numbers.html#大数の弱法則",
-    "title": "確率論",
-    "section": "大数の弱法則",
-    "text": "大数の弱法則\n表が出る確率が \\(1/2\\) のコインを100回独立に投げたときに表が出る回数は大体50回くらいになるだろう。 それを一般的な形で述べたものが大数の法則である。\n\nTheorem 1 (大数の弱法則(分散有限を仮定)) 確率変数 \\(X\\) が分散を持つとする。 確率変数 \\(X_1,\\dotsc,X_N\\) が独立同分布で \\(X\\) と同じ分布に従うとする。 このとき、任意の \\(\\epsilon&gt;0\\) について \\[\\begin{align*}\n\\lim_{N\\to\\infty}\\Pr\\left(\\left|\\frac1N\\sum_{i=1}^N X_i-\\expt{X}\\right|\\ge\\epsilon\\right) &= 0\n\\end{align*}\\] が成り立つ。\n\n\nProof. \\[\\begin{align*}\n\\Pr\\left(\\left|\\frac1n\\sum_{i=1}^N X_i-\\expt{X}\\right|\\ge\\epsilon\\right)\n&=  \\Pr\\left(\\left(\\frac1N\\sum_{i=1}^N X_i-\\expt{X}\\right)^2\\ge\\epsilon^2\\right) \\\\\n&=  \\Pr\\left(\\left(\\sum_{i=1}^N X_i-N\\expt{X}\\right)^2\\ge\\epsilon^2N^2\\right) \\\\\n&\\le \\frac{N\\var{X}}{\\epsilon^2N^2}\n= \\frac{\\var{X}}{\\epsilon^2N}\\longrightarrow 0.\n\\end{align*}\\]"
-  },
-  {
-    "objectID": "slides/07_large_numbers.html#チェルノフ上界",
-    "href": "slides/07_large_numbers.html#チェルノフ上界",
-    "title": "確率論",
-    "section": "チェルノフ上界",
-    "text": "チェルノフ上界\n上記の大数の弱法則の証明では確率が0に収束するスピートは \\(O(1/N)\\) であった。 より詳しく確率が0にいくスピードを解析しよう。\n\nLemma 1 (チェルノフ上界) 任意の確率変数 \\(X\\) と \\(a\\in\\mathbb{R}\\) について、 \\[\\begin{align*}\n\\Pr\\left(X\\ge a\\right) &\\le \\frac{M_X(t)}{\\mathrm{e}^{at}}=\\mathrm{e}^{K_X(t)-at}\\qquad\\forall t\\ge 0\\\\\n\\Pr\\left(X\\le a\\right) &\\le \\frac{M_X(t)}{\\mathrm{e}^{at}}=\\mathrm{e}^{K_X(t)-at}\\qquad\\forall t\\le 0.\n\\end{align*}\\]\n\n\nProof. \\(t=0\\) のときは不等式の右辺は1となるので、不等式は自明に成り立つ。 任意の \\(t&gt;0\\) について、 \\[\\begin{align*}\n\\Pr\\left(X\\ge a\\right) &= \\Pr\\left(\\mathrm{e}^{tX}\\ge \\mathrm{e}^{ta}\\right)\\\\\n&\\le \\frac{M_X(t)}{\\mathrm{e}^{at}}\\qquad(\\text{マルコフの不等式}).\n\\end{align*}\\] が成り立つ。 もう一つの不等式も同様に示すことができる。\n\nマルコフの不等式は非負の確率変数にしか適用できないが、チェルノフ上界は任意の確率変数に適用できる。"
-  },
-  {
-    "objectID": "slides/07_large_numbers.html#確率変数の和に対するチェルノフ上界",
-    "href": "slides/07_large_numbers.html#確率変数の和に対するチェルノフ上界",
-    "title": "確率論",
-    "section": "確率変数の和に対するチェルノフ上界",
-    "text": "確率変数の和に対するチェルノフ上界\n\nLemma 2 (確率変数の和に対するチェルノフ上界) 任意の確率変数 \\(X\\) と \\(a\\in\\mathbb{R}\\) について、 \\[\\begin{align*}\n\\Pr\\left(\\frac1N\\sum_{i=1}^N X_i\\ge a\\right) &\\le \\mathrm{e}^{-(at-K_X(t))N}\\qquad\\forall t\\ge 0\\\\\n\\Pr\\left(\\frac1N\\sum_{i=1}^N X_i\\le a\\right) &\\le \\mathrm{e}^{-(at-K_X(t))N}\\qquad\\forall t\\le 0.\n\\end{align*}\\]\n\n\nProof. \\[\\begin{align*}\n\\Pr\\left(\\frac1N\\sum_{i=1}^N X_i\\ge a\\right) &= \\Pr\\left(\\sum_{i=1}^N X_i\\ge aN\\right)\\\\\n&\\le \\mathrm{e}^{K_{\\sum_i X_i}(t) - atN}\\\\\n&= \\mathrm{e}^{(K_X(t) - at)N}\\\\\n\\end{align*}\\]\n\nこのようにチェルノフ上界を使うと \\(N\\) について指数関数の上界が得られる。 係数 \\(at-K_X(t)\\) が正であれば、確率は指数関数的に小さいことになる。 ここで、最適な \\(t\\) を選ぶことで、この係数 \\(at-K_X(t)\\) を最大化することを考える。"
-  },
-  {
-    "objectID": "slides/07_large_numbers.html#キュムラント母関数の定義域",
-    "href": "slides/07_large_numbers.html#キュムラント母関数の定義域",
-    "title": "確率論",
-    "section": "キュムラント母関数の定義域",
-    "text": "キュムラント母関数の定義域\nキュムラント母関数 \\[\\begin{align*}\nK_X(t) &= \\log\\expt{\\mathrm{e}^{tX}}\n\\end{align*}\\] の性質を改めて考えよう。\nまず、\\(K_X(0)=0\\) である。\nある \\(t&gt;0\\) について、 \\(M_X(t)\\) が存在すると仮定すると、任意の \\(s\\in(0,t)\\) について \\[\\begin{align*}\nM_X(s) &= \\expt{\\mathrm{e}^{sX}}\\\\\n&= \\expt{\\mathrm{e}^{sX} \\mathbb{1}_{\\{X\\ge 0\\}}}\n+ \\expt{\\mathrm{e}^{sX} \\mathbb{1}_{\\{X&lt; 0\\}}}\\\\\n&\\le \\expt{\\mathrm{e}^{tX} \\mathbb{1}_{\\{X\\ge 0\\}}} + 1\\\\\n&\\le M_X(t) + 1 &lt; \\infty\n\\end{align*}\\] なので、\\(M_X(s)\\) も存在する。 同様に、ある \\(t&lt;0\\) について、 \\(M_X(t)\\) が存在すると仮定すると、任意の \\(s\\in(t,0)\\) について \\(M_X(s)\\) も存在する。 よって、\\(M_X(t)\\) や \\(K_X(t)\\) が存在する範囲は0を含む区間となる。 ここでいう区間とは一般的に空集合、もしくは \\(a&lt; b\\) について、 \\[\\begin{align*}\n[a,\\,a]\\quad\n(a,\\,b)\\quad\n[a,\\,b)\\quad\n(a,\\,b]\\quad\n[a,\\,b]\\quad\n(a,\\,\\infty)\\quad\n[a,\\,\\infty)\\quad\n(-\\infty,\\, b)\\quad\n(-\\infty,\\, b]\\quad\n(-\\infty,\\,\\infty)\n\\end{align*}\\] のいずれかの形の集合を指す。 この区間を \\(\\mathrm{dom}(K_X)\\) と表す。"
-  },
-  {
-    "objectID": "slides/07_large_numbers.html#キュムラント母関数の微分",
-    "href": "slides/07_large_numbers.html#キュムラント母関数の微分",
-    "title": "確率論",
-    "section": "キュムラント母関数の微分",
-    "text": "キュムラント母関数の微分\n証明はしないが、キュムラント母関数 \\(K_X(t)\\) は \\(\\mathrm{dom}(K_X)\\) の内点で何回でも微分可能であり、無限和や積分を取る前に微分しても構わない。\n\\[\\begin{align*}\n\\frac{\\mathrm{d} K_X(t)}{\\mathrm{d}t} &= \\frac{\\expt{X\\mathrm{e}^{tX}}}{\\expt{\\mathrm{e}^{tX}}}\\\\\n\\frac{\\mathrm{d}^2 K_X(t)}{\\mathrm{d}t^2} &= \\frac{\\expt{X^2\\mathrm{e}^{tX}}\\expt{\\mathrm{e}^{tX}}-\\expt{X\\mathrm{e}^{tX}}^2}{\\expt{\\mathrm{e}^{tX}}^2}\\\\\n&= \\frac{\\expt{X^2\\mathrm{e}^{tX}}}{\\expt{\\mathrm{e}^{tX}}}-\\left(\\frac{\\expt{X\\mathrm{e}^{tX}}}{\\expt{\\mathrm{e}^{tX}}}\\right)^2\\\\\n&= \\frac{\\expt{\\left(X-\\frac{\\expt{X\\mathrm{e}^{tX}}}{\\expt{\\mathrm{e}^{tX}}}\\right)^2\\mathrm{e}^{tX}}}{\\expt{\\mathrm{e}^{tX}}}\\ge 0\n\\end{align*}\\]  また、\\(X\\)が決定的(\\(\\Pr(X=\\expt{X})=1\\))でない限り、\\(K_X\\) は \\(\\mathrm{dom}(K_X)\\) で狭義凸である。"
-  },
-  {
-    "objectID": "slides/07_large_numbers.html#キュムラント母関数の性質",
-    "href": "slides/07_large_numbers.html#キュムラント母関数の性質",
-    "title": "確率論",
-    "section": "キュムラント母関数の性質",
-    "text": "キュムラント母関数の性質\nよって \\(X\\) のキュムラント母関数 \\(K_X(t)\\) が原点付近で存在すると仮定すると、\\(K_X(t)\\) は\n\n0を含む区間で定義され、\n原点を通り、\n凸関数で、\n原点の傾きは \\(\\expt{X}\\)\n\nであることが分かる。\nまた、キュムラント母関数の簡単な性質として以下が成り立つ。 任意の独立確率変数 \\(X\\) と \\(Y\\) と \\(a\\in\\mathbb{R}\\) について \\[\\begin{align*}\nK_{X+a}(t) &= \\log\\expt{\\mathrm{e}^{t(X+a)}} = \\log\\left(\\expt{\\mathrm{e}^{tX}}\\cdot \\mathrm{e}^{ta}\\right) = K_X(t) + at\\\\%\\quad\\text{for } t\\in\\mathrm{dom}(K_X)\\\\\nK_{aX}(t) &= \\log\\expt{\\mathrm{e}^{t(aX)}} = K_X(at)\\\\%\\qquad\\text{if } at\\in\\mathrm{dom}(K_X)\\\\\nK_{X+Y}(t) &= \\log\\expt{\\mathrm{e}^{t(X+Y)}} =\\log\\left(\\expt{\\mathrm{e}^{tX}}\\expt{\\mathrm{e}^{tY}}\\right) = K_X(t) + K_Y(t).\n%&\\hspace{17em}\\text{for } t\\in\\mathrm{dom}(K_X)\\cap\\mathrm{dom}(K_Y)\n\\end{align*}\\]"
-  },
-  {
-    "objectID": "slides/07_large_numbers.html#ルジャンドル変換",
-    "href": "slides/07_large_numbers.html#ルジャンドル変換",
-    "title": "確率論",
-    "section": "ルジャンドル変換",
-    "text": "ルジャンドル変換\nチェルノフ上界に現れる係数 \\(at-K_X(t)\\) の最大化はルジャンドル変換を用いて \\(K_X^*(a)\\) と表せる。 ルジャンドル変換を定義する際は \\(+\\infty\\) という値を許して \\((-\\infty,\\,+\\infty]\\) を値域として考えると都合がよい。 このように \\(+\\infty\\) を値として許した場合にも凸性を通常の関数と同じように定義する。 一般に区間上で定義された凸関数を実数全体に拡張し、元の定義域の外で \\(+\\infty\\) を取ることにするとやはり凸関数になる。 また、\\(f\\colon\\mathbb{R}\\to(-\\infty,\\,+\\infty]\\) の有効領域を \\[\\begin{align*}\n\\mathrm{dom}(f) &\\coloneqq\\left\\{x\\in\\mathbb{R}\\mid f(x)&lt;+\\infty\\right\\}\n\\end{align*}\\] と定義する。 凸関数の有効領域は区間になる。\n\nDefinition 1 (ルジャンドル変換)  \n\n凸関数 \\(f\\colon \\mathbb{R}\\to (-\\infty,\\,+\\infty]\\) のルジャンドル変換 \\(f^*\\colon \\mathbb{R}\\to (-\\infty,\\,+\\infty]\\) を以下で定義する。 \\[\\begin{align*}\nf^*(a) &\\coloneqq \\sup_{t\\in \\mathbb{R}}\\left\\{at-f(t)\\right\\}.\n\\end{align*}\\]"
-  },
-  {
-    "objectID": "slides/07_large_numbers.html#ルジャンドル変換の理解",
-    "href": "slides/07_large_numbers.html#ルジャンドル変換の理解",
-    "title": "確率論",
-    "section": "ルジャンドル変換の理解",
-    "text": "ルジャンドル変換の理解\nルジャンドル変換において \\(f\\) は凸関数なので、\\(at-f(t)\\) は凹関数(上に凸の関数)になる。 簡単のため \\(f\\) が \\(\\mathrm{dom}(f)\\) の内点で微分可能であると仮定しよう。 このとき、\n\n\\(at-f(t)\\) の微分が 0 になる点、つまり \\(f'(t_a) = a\\) を満たす \\(t_a\\in \\mathrm{dom}(f)^\\circ\\) が存在するとき、\\(t_a\\) で \\(at-f(t)\\) は最大化される。\nそのような \\(t_a\\in \\mathrm{dom}(f)^\\circ\\) が存在しないときは、\\(\\mathrm{dom}(f)\\) の端への極限で \\(\\sup\\) が達成される。\n\n凸関数は \\(\\mathrm{dom}(f)\\) の上では接線の集合で表すことができる。 接線 \\(ax+b\\) は傾き \\(a\\) と切片 \\(b\\) のペアで表すことができる。 傾き \\(a\\) を持つ \\(f\\) の接線は \\[\\begin{align*}\na(x-t_a) + f(t_a) &= ax - (at_a - f(t_a)) = ax - f^*(a)\n\\end{align*}\\] この傾き \\(a\\) から接線の切片の \\(-1\\)倍である \\(-b\\) への関数が \\(f^*\\) である。\n例えば \\(f\\) が0で微分可能であるとき \\[\\begin{align*}\nf^*(f'(0)) &= 0\n\\end{align*}\\] である。"
-  },
-  {
-    "objectID": "slides/07_large_numbers.html#ルジャンドル変換の理解-1",
-    "href": "slides/07_large_numbers.html#ルジャンドル変換の理解-1",
-    "title": "確率論",
-    "section": "ルジャンドル変換の理解",
-    "text": "ルジャンドル変換の理解\nまた、ルジャンドル変換 \\(f^*\\) は凸関数である。\n\nLemma 3 凸関数 \\(f\\colon \\mathbb{R}\\to (-\\infty,\\,+\\infty]\\) のルジャンドル変換 \\(f^*\\colon \\mathbb{R}\\to (-\\infty,\\,+\\infty]\\) は凸関数である。\n\n\nProof. 任意の \\(a_1,a_2\\in \\mathbb{R}\\) と \\(\\lambda\\in[0,1]\\) について \\[\\begin{align*}\nf^*(\\lambda a_1+ (1-\\lambda)a_2) &= \\sup_{t\\in \\mathbb{R}}\\left\\{(\\lambda a_1+(1-\\lambda)a_2)t - f(t)\\right\\}\\\\\n&= \\sup_{t\\in \\mathbb{R}}\\left\\{\\lambda (a_1t - f(t))+(1-\\lambda)(a_2t - f(t))\\right\\}\\\\\n&\\le \\sup_{t\\in \\mathbb{R}}\\left\\{\\lambda (a_1t - f(t))\\right\\}+\\sup_{t\\in \\mathbb{R}}\\left\\{(1-\\lambda)(a_2t - f(t))\\right\\}\\\\\n&\\le \\lambda f^*(a_1) + (1-\\lambda) f^*(a_2).\n\\end{align*}\\]\n\nルジャンドル変換を凸でない関数 \\(f\\) についても同様に定義した場合でも、ルジャンドル変換 \\(f^*\\) は同様に凸関数となる。"
-  },
-  {
-    "objectID": "slides/07_large_numbers.html#今週の課題",
-    "href": "slides/07_large_numbers.html#今週の課題",
-    "title": "確率論",
-    "section": "今週の課題",
-    "text": "今週の課題\n以下の凸関数をルジャンドル変換せよ\n\n\\(f(t) = t^2 + bt + c\\).\n\\(f(t) = \\mathrm{e}^t\\)."
-  },
-  {
     "objectID": "slides/01_probability.html#確率論とは",
     "href": "slides/01_probability.html#確率論とは",
     "title": "確率論",
@@ -586,6 +425,237 @@
     "title": "確率論",
     "section": "今週の課題",
     "text": "今週の課題\n\\(\\Omega = \\{1,2,3,4,5,6\\}\\) とし、ある \\(P\\colon\\Omega\\to\\mathbb{R}_{\\ge 0}\\) について \\((\\Omega,\\,P)\\) を確率空間とする。 事象 \\(A,\\,B,\\,C\\) を\n\\[\\begin{align*}\nA&=\\left\\{1,2,3,4\\right\\},&\nB&=\\left\\{2,4,5\\right\\},&\nC&=\\left\\{1,3,5,6\\right\\}\n\\end{align*}\\] とするとき、以下の問に答えよ\n\n\n\\(A\\cup B\\),  \\(A\\cap B\\),  \\(A\\setminus B\\),  \\((A\\cup B)\\cap C\\) をもとめよ。\n\\(P(\\{1,3\\})\\),  \\(P(\\{2,4\\})\\),  \\(P(\\{5\\})\\),  \\(P(\\{6\\})\\) を \\(P(A),\\,P(B),\\,P(C)\\) を用いて表せ。"
+  },
+  {
+    "objectID": "slides/07_large_numbers.html#大数の弱法則",
+    "href": "slides/07_large_numbers.html#大数の弱法則",
+    "title": "確率論",
+    "section": "大数の弱法則",
+    "text": "大数の弱法則\n表が出る確率が \\(1/2\\) のコインを100回独立に投げたときに表が出る回数は大体50回くらいになるだろう。 それを一般的な形で述べたものが大数の法則である。\n\nTheorem 1 (大数の弱法則(分散有限を仮定)) 確率変数 \\(X\\) が分散を持つとする。 確率変数 \\(X_1,\\dotsc,X_N\\) が独立同分布で \\(X\\) と同じ分布に従うとする。 このとき、任意の \\(\\epsilon&gt;0\\) について \\[\\begin{align*}\n\\lim_{N\\to\\infty}\\Pr\\left(\\left|\\frac1N\\sum_{i=1}^N X_i-\\expt{X}\\right|\\ge\\epsilon\\right) &= 0\n\\end{align*}\\] が成り立つ。\n\n\nProof. \\[\\begin{align*}\n\\Pr\\left(\\left|\\frac1n\\sum_{i=1}^N X_i-\\expt{X}\\right|\\ge\\epsilon\\right)\n&=  \\Pr\\left(\\left(\\frac1N\\sum_{i=1}^N X_i-\\expt{X}\\right)^2\\ge\\epsilon^2\\right) \\\\\n&=  \\Pr\\left(\\left(\\sum_{i=1}^N X_i-N\\expt{X}\\right)^2\\ge\\epsilon^2N^2\\right) \\\\\n&\\le \\frac{N\\var{X}}{\\epsilon^2N^2}\n= \\frac{\\var{X}}{\\epsilon^2N}\\longrightarrow 0.\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/07_large_numbers.html#チェルノフ上界",
+    "href": "slides/07_large_numbers.html#チェルノフ上界",
+    "title": "確率論",
+    "section": "チェルノフ上界",
+    "text": "チェルノフ上界\n上記の大数の弱法則の証明では確率が0に収束するスピートは \\(O(1/N)\\) であった。 より詳しく確率が0にいくスピードを解析しよう。\n\nLemma 1 (チェルノフ上界) 任意の確率変数 \\(X\\) と \\(a\\in\\mathbb{R}\\) について、 \\[\\begin{align*}\n\\Pr\\left(X\\ge a\\right) &\\le \\frac{M_X(t)}{\\mathrm{e}^{at}}=\\mathrm{e}^{K_X(t)-at}\\qquad\\forall t\\ge 0\\\\\n\\Pr\\left(X\\le a\\right) &\\le \\frac{M_X(t)}{\\mathrm{e}^{at}}=\\mathrm{e}^{K_X(t)-at}\\qquad\\forall t\\le 0.\n\\end{align*}\\]\n\n\nProof. \\(t=0\\) のときは不等式の右辺は1となるので、不等式は自明に成り立つ。 任意の \\(t&gt;0\\) について、 \\[\\begin{align*}\n\\Pr\\left(X\\ge a\\right) &= \\Pr\\left(\\mathrm{e}^{tX}\\ge \\mathrm{e}^{ta}\\right)\\\\\n&\\le \\frac{M_X(t)}{\\mathrm{e}^{at}}\\qquad(\\text{マルコフの不等式}).\n\\end{align*}\\] が成り立つ。 もう一つの不等式も同様に示すことができる。\n\nマルコフの不等式は非負の確率変数にしか適用できないが、チェルノフ上界は任意の確率変数に適用できる。"
+  },
+  {
+    "objectID": "slides/07_large_numbers.html#確率変数の和に対するチェルノフ上界",
+    "href": "slides/07_large_numbers.html#確率変数の和に対するチェルノフ上界",
+    "title": "確率論",
+    "section": "確率変数の和に対するチェルノフ上界",
+    "text": "確率変数の和に対するチェルノフ上界\n\nLemma 2 (確率変数の和に対するチェルノフ上界) 任意の確率変数 \\(X\\) と \\(a\\in\\mathbb{R}\\) について、 \\[\\begin{align*}\n\\Pr\\left(\\frac1N\\sum_{i=1}^N X_i\\ge a\\right) &\\le \\mathrm{e}^{-(at-K_X(t))N}\\qquad\\forall t\\ge 0\\\\\n\\Pr\\left(\\frac1N\\sum_{i=1}^N X_i\\le a\\right) &\\le \\mathrm{e}^{-(at-K_X(t))N}\\qquad\\forall t\\le 0.\n\\end{align*}\\]\n\n\nProof. \\[\\begin{align*}\n\\Pr\\left(\\frac1N\\sum_{i=1}^N X_i\\ge a\\right) &= \\Pr\\left(\\sum_{i=1}^N X_i\\ge aN\\right)\\\\\n&\\le \\mathrm{e}^{K_{\\sum_i X_i}(t) - atN}\\\\\n&= \\mathrm{e}^{(K_X(t) - at)N}\\\\\n\\end{align*}\\]\n\nこのようにチェルノフ上界を使うと \\(N\\) について指数関数の上界が得られる。 係数 \\(at-K_X(t)\\) が正であれば、確率は指数関数的に小さいことになる。 ここで、最適な \\(t\\) を選ぶことで、この係数 \\(at-K_X(t)\\) を最大化することを考える。"
+  },
+  {
+    "objectID": "slides/07_large_numbers.html#キュムラント母関数の定義域",
+    "href": "slides/07_large_numbers.html#キュムラント母関数の定義域",
+    "title": "確率論",
+    "section": "キュムラント母関数の定義域",
+    "text": "キュムラント母関数の定義域\nキュムラント母関数 \\[\\begin{align*}\nK_X(t) &= \\log\\expt{\\mathrm{e}^{tX}}\n\\end{align*}\\] の性質を改めて考えよう。\nまず、\\(K_X(0)=0\\) である。\nある \\(t&gt;0\\) について、 \\(M_X(t)\\) が存在すると仮定すると、任意の \\(s\\in(0,t)\\) について \\[\\begin{align*}\nM_X(s) &= \\expt{\\mathrm{e}^{sX}}\\\\\n&= \\expt{\\mathrm{e}^{sX} \\mathbb{1}_{\\{X\\ge 0\\}}}\n+ \\expt{\\mathrm{e}^{sX} \\mathbb{1}_{\\{X&lt; 0\\}}}\\\\\n&\\le \\expt{\\mathrm{e}^{tX} \\mathbb{1}_{\\{X\\ge 0\\}}} + 1\\\\\n&\\le M_X(t) + 1 &lt; \\infty\n\\end{align*}\\] なので、\\(M_X(s)\\) も存在する。 同様に、ある \\(t&lt;0\\) について、 \\(M_X(t)\\) が存在すると仮定すると、任意の \\(s\\in(t,0)\\) について \\(M_X(s)\\) も存在する。 よって、\\(M_X(t)\\) や \\(K_X(t)\\) が存在する範囲は0を含む区間となる。 ここでいう区間とは一般的に空集合、もしくは \\(a&lt; b\\) について、 \\[\\begin{align*}\n[a,\\,a]\\quad\n(a,\\,b)\\quad\n[a,\\,b)\\quad\n(a,\\,b]\\quad\n[a,\\,b]\\quad\n(a,\\,\\infty)\\quad\n[a,\\,\\infty)\\quad\n(-\\infty,\\, b)\\quad\n(-\\infty,\\, b]\\quad\n(-\\infty,\\,\\infty)\n\\end{align*}\\] のいずれかの形の集合を指す。 この区間を \\(\\mathrm{dom}(K_X)\\) と表す。"
+  },
+  {
+    "objectID": "slides/07_large_numbers.html#キュムラント母関数の微分",
+    "href": "slides/07_large_numbers.html#キュムラント母関数の微分",
+    "title": "確率論",
+    "section": "キュムラント母関数の微分",
+    "text": "キュムラント母関数の微分\n証明はしないが、キュムラント母関数 \\(K_X(t)\\) は \\(\\mathrm{dom}(K_X)\\) の内点で何回でも微分可能であり、無限和や積分を取る前に微分しても構わない。\n\\[\\begin{align*}\n\\frac{\\mathrm{d} K_X(t)}{\\mathrm{d}t} &= \\frac{\\expt{X\\mathrm{e}^{tX}}}{\\expt{\\mathrm{e}^{tX}}}\\\\\n\\frac{\\mathrm{d}^2 K_X(t)}{\\mathrm{d}t^2} &= \\frac{\\expt{X^2\\mathrm{e}^{tX}}\\expt{\\mathrm{e}^{tX}}-\\expt{X\\mathrm{e}^{tX}}^2}{\\expt{\\mathrm{e}^{tX}}^2}\\\\\n&= \\frac{\\expt{X^2\\mathrm{e}^{tX}}}{\\expt{\\mathrm{e}^{tX}}}-\\left(\\frac{\\expt{X\\mathrm{e}^{tX}}}{\\expt{\\mathrm{e}^{tX}}}\\right)^2\\\\\n&= \\frac{\\expt{\\left(X-\\frac{\\expt{X\\mathrm{e}^{tX}}}{\\expt{\\mathrm{e}^{tX}}}\\right)^2\\mathrm{e}^{tX}}}{\\expt{\\mathrm{e}^{tX}}}\\ge 0\n\\end{align*}\\]  また、\\(X\\)が決定的(\\(\\Pr(X=\\expt{X})=1\\))でない限り、\\(K_X\\) は \\(\\mathrm{dom}(K_X)\\) で狭義凸である。"
+  },
+  {
+    "objectID": "slides/07_large_numbers.html#キュムラント母関数の性質",
+    "href": "slides/07_large_numbers.html#キュムラント母関数の性質",
+    "title": "確率論",
+    "section": "キュムラント母関数の性質",
+    "text": "キュムラント母関数の性質\nよって \\(X\\) のキュムラント母関数 \\(K_X(t)\\) が原点付近で存在すると仮定すると、\\(K_X(t)\\) は\n\n0を含む区間で定義され、\n原点を通り、\n凸関数で、\n原点の傾きは \\(\\expt{X}\\)\n\nであることが分かる。\nまた、キュムラント母関数の簡単な性質として以下が成り立つ。 任意の独立確率変数 \\(X\\) と \\(Y\\) と \\(a\\in\\mathbb{R}\\) について \\[\\begin{align*}\nK_{X+a}(t) &= \\log\\expt{\\mathrm{e}^{t(X+a)}} = \\log\\left(\\expt{\\mathrm{e}^{tX}}\\cdot \\mathrm{e}^{ta}\\right) = K_X(t) + at\\\\%\\quad\\text{for } t\\in\\mathrm{dom}(K_X)\\\\\nK_{aX}(t) &= \\log\\expt{\\mathrm{e}^{t(aX)}} = K_X(at)\\\\%\\qquad\\text{if } at\\in\\mathrm{dom}(K_X)\\\\\nK_{X+Y}(t) &= \\log\\expt{\\mathrm{e}^{t(X+Y)}} =\\log\\left(\\expt{\\mathrm{e}^{tX}}\\expt{\\mathrm{e}^{tY}}\\right) = K_X(t) + K_Y(t).\n%&\\hspace{17em}\\text{for } t\\in\\mathrm{dom}(K_X)\\cap\\mathrm{dom}(K_Y)\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/07_large_numbers.html#ルジャンドル変換",
+    "href": "slides/07_large_numbers.html#ルジャンドル変換",
+    "title": "確率論",
+    "section": "ルジャンドル変換",
+    "text": "ルジャンドル変換\nチェルノフ上界に現れる係数 \\(at-K_X(t)\\) の最大化はルジャンドル変換を用いて \\(K_X^*(a)\\) と表せる。 ルジャンドル変換を定義する際は \\(+\\infty\\) という値を許して \\((-\\infty,\\,+\\infty]\\) を値域として考えると都合がよい。 このように \\(+\\infty\\) を値として許した場合にも凸性を通常の関数と同じように定義する。 一般に区間上で定義された凸関数を実数全体に拡張し、元の定義域の外で \\(+\\infty\\) を取ることにするとやはり凸関数になる。 また、\\(f\\colon\\mathbb{R}\\to(-\\infty,\\,+\\infty]\\) の有効領域を \\[\\begin{align*}\n\\mathrm{dom}(f) &\\coloneqq\\left\\{x\\in\\mathbb{R}\\mid f(x)&lt;+\\infty\\right\\}\n\\end{align*}\\] と定義する。 凸関数の有効領域は区間になる。\n\nDefinition 1 (ルジャンドル変換)  \n\n凸関数 \\(f\\colon \\mathbb{R}\\to (-\\infty,\\,+\\infty]\\) のルジャンドル変換 \\(f^*\\colon \\mathbb{R}\\to (-\\infty,\\,+\\infty]\\) を以下で定義する。 \\[\\begin{align*}\nf^*(a) &\\coloneqq \\sup_{t\\in \\mathbb{R}}\\left\\{at-f(t)\\right\\}.\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/07_large_numbers.html#ルジャンドル変換の理解",
+    "href": "slides/07_large_numbers.html#ルジャンドル変換の理解",
+    "title": "確率論",
+    "section": "ルジャンドル変換の理解",
+    "text": "ルジャンドル変換の理解\nルジャンドル変換において \\(f\\) は凸関数なので、\\(at-f(t)\\) は凹関数(上に凸の関数)になる。 簡単のため \\(f\\) が \\(\\mathrm{dom}(f)\\) の内点で微分可能であると仮定しよう。 このとき、\n\n\\(at-f(t)\\) の微分が 0 になる点、つまり \\(f'(t_a) = a\\) を満たす \\(t_a\\in \\mathrm{dom}(f)^\\circ\\) が存在するとき、\\(t_a\\) で \\(at-f(t)\\) は最大化される。\nそのような \\(t_a\\in \\mathrm{dom}(f)^\\circ\\) が存在しないときは、\\(\\mathrm{dom}(f)\\) の端への極限で \\(\\sup\\) が達成される。\n\n凸関数は \\(\\mathrm{dom}(f)\\) の上では接線の集合で表すことができる。 接線 \\(ax+b\\) は傾き \\(a\\) と切片 \\(b\\) のペアで表すことができる。 傾き \\(a\\) を持つ \\(f\\) の接線は \\[\\begin{align*}\na(x-t_a) + f(t_a) &= ax - (at_a - f(t_a)) = ax - f^*(a)\n\\end{align*}\\] この傾き \\(a\\) から接線の切片の \\(-1\\)倍である \\(-b\\) への関数が \\(f^*\\) である。\n例えば \\(f\\) が0で微分可能であるとき \\[\\begin{align*}\nf^*(f'(0)) &= 0\n\\end{align*}\\] である。"
+  },
+  {
+    "objectID": "slides/07_large_numbers.html#ルジャンドル変換の理解-1",
+    "href": "slides/07_large_numbers.html#ルジャンドル変換の理解-1",
+    "title": "確率論",
+    "section": "ルジャンドル変換の理解",
+    "text": "ルジャンドル変換の理解\nまた、ルジャンドル変換 \\(f^*\\) は凸関数である。\n\nLemma 3 凸関数 \\(f\\colon \\mathbb{R}\\to (-\\infty,\\,+\\infty]\\) のルジャンドル変換 \\(f^*\\colon \\mathbb{R}\\to (-\\infty,\\,+\\infty]\\) は凸関数である。\n\n\nProof. 任意の \\(a_1,a_2\\in \\mathbb{R}\\) と \\(\\lambda\\in[0,1]\\) について \\[\\begin{align*}\nf^*(\\lambda a_1+ (1-\\lambda)a_2) &= \\sup_{t\\in \\mathbb{R}}\\left\\{(\\lambda a_1+(1-\\lambda)a_2)t - f(t)\\right\\}\\\\\n&= \\sup_{t\\in \\mathbb{R}}\\left\\{\\lambda (a_1t - f(t))+(1-\\lambda)(a_2t - f(t))\\right\\}\\\\\n&\\le \\sup_{t\\in \\mathbb{R}}\\left\\{\\lambda (a_1t - f(t))\\right\\}+\\sup_{t\\in \\mathbb{R}}\\left\\{(1-\\lambda)(a_2t - f(t))\\right\\}\\\\\n&\\le \\lambda f^*(a_1) + (1-\\lambda) f^*(a_2).\n\\end{align*}\\]\n\nルジャンドル変換を凸でない関数 \\(f\\) についても同様に定義した場合でも、ルジャンドル変換 \\(f^*\\) は同様に凸関数となる。"
+  },
+  {
+    "objectID": "slides/07_large_numbers.html#今週の課題",
+    "href": "slides/07_large_numbers.html#今週の課題",
+    "title": "確率論",
+    "section": "今週の課題",
+    "text": "今週の課題\n以下の凸関数をルジャンドル変換せよ\n\n\\(f(t) = t^2 + bt + c\\).\n\\(f(t) = \\mathrm{e}^t\\)."
+  },
+  {
+    "objectID": "slides.html",
+    "href": "slides.html",
+    "title": "Slides",
+    "section": "",
+    "text": "講義スライド\n\n集合論と確率空間\n確率変数\n複数の確率変数\n期待値、分散、モーメント\nベイズ推定\n仮説検定\n大数の法則"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home",
+    "section": "",
+    "text": "確率・統計基礎の授業ページです。"
+  },
+  {
+    "objectID": "slides/05_bayes.html#統計的推論推定",
+    "href": "slides/05_bayes.html#統計的推論推定",
+    "title": "確率論",
+    "section": "統計的推論推定",
+    "text": "統計的推論推定\n統計的推論とは現実の推定問題を確率論に基づきモデル化し、誤り確率を最小化するように推論する方法論である。 統計的推論には大きく分けて二種類の流派がある。\n\nベイズ主義: 推論する対象の分布(事前分布)を仮定する。\n頻度主義: 推論する対象の分布(事前分布)を仮定しない。\n\n例えば統計的推論は以下のような問題に適用されている。\n\n新薬の有効性\nウェブ広告のクリック率の推定\n工場で製造される製品の不良率の推定"
+  },
+  {
+    "objectID": "slides/05_bayes.html#ベイズ推定",
+    "href": "slides/05_bayes.html#ベイズ推定",
+    "title": "確率論",
+    "section": "ベイズ推定",
+    "text": "ベイズ推定\n\n\\(\\mathcal{X}\\colon\\) データが取り得る値の集合\n\\(\\Theta\\colon\\) 分布のパラメータが取り得る値の集合\n\n簡単のため、\\(\\mathcal{X}\\) と \\(\\Theta\\) は高々可算集合とする。\nデータ \\(x\\in\\mathcal{X}\\) からパラメータ \\(\\theta\\in\\Theta\\) を推定する問題を考える。 このとき、\\(x\\) と \\(\\theta\\) が何かしらの確率分布に従っていると仮定する。 パラメータ \\(\\theta\\) に対する \\(x\\) の確率質量関数を \\(p(x\\mid \\theta)\\) と表す。 また、パラメータ \\(\\theta\\) の確率質量関数を \\(\\pi(\\theta)\\) と表す。 つまり、パラメータ \\(\\theta\\in\\Theta\\) とデータ \\(x\\in\\mathcal{X}\\) が選ばれる確率は \\[\\begin{align*}\n\\pi(\\theta) p(x\\mid\\theta)\n\\end{align*}\\] である。 また、 \\[\\begin{align*}\np(x) &= \\sum_{\\theta\\in\\Theta}\\pi(\\theta)p(x\\mid\\theta),&\np(\\theta\\mid x)&\\coloneqq \\frac{\\pi(\\theta)p(x\\mid\\theta)}{p(x)}\n\\end{align*}\\] と定義する。 ベイズ推定の文脈では\n\n\\(\\pi(\\theta)\\colon\\) 事前確率\n\\(p(x\\mid \\theta)\\colon\\) 尤度\n\\(p(\\theta\\mid x)\\colon\\) 事後確率\n\nと呼ぶ。"
+  },
+  {
+    "objectID": "slides/05_bayes.html#最大事後確率推定",
+    "href": "slides/05_bayes.html#最大事後確率推定",
+    "title": "確率論",
+    "section": "最大事後確率推定",
+    "text": "最大事後確率推定\nこのとき、得られたデータ \\(x\\in\\mathcal{X}\\) からパラメータ \\(\\theta\\in\\Theta\\) を推定する関数 \\(\\widehat{\\theta}\\colon \\mathcal{X}\\to\\Theta\\) の誤り確率は \\[\\begin{align*}\nP_{\\mathrm{err}}(\\widehat{\\theta})\n&\\coloneqq \\sum_{\\theta\\in\\Theta} \\pi(\\theta) \\sum_{x\\in\\mathcal{X}} p(x\\mid\\theta) \\,\\mathbb{I}\\{\\widehat{\\theta}(x)\\ne\\theta\\}\\\\\n&= \\sum_{\\theta\\in\\Theta} \\pi(\\theta) \\sum_{x\\in\\mathcal{X}} p(x\\mid\\theta) (1-\\mathbb{I}\\{\\widehat{\\theta}(x)=\\theta\\})\\\\\n%&= 1- \\sum_{\\theta\\in\\Theta} \\pi(\\theta) \\sum_{x\\in\\mathcal{X}} p(x\\mid\\theta)\\, \\mathbb{I}\\{\\widehat{\\theta}(x)=\\theta\\}\\\\\n&= 1- \\sum_{x\\in\\mathcal{X}}\\sum_{\\theta\\in\\Theta} \\pi(\\theta)  p(x\\mid\\theta)\\, \\mathbb{I}\\{\\widehat{\\theta}(x)=\\theta\\}\\\\\n&= 1- \\sum_{x\\in\\mathcal{X}}\\pi\\left(\\widehat{\\theta}(x)\\right)  p\\left(x\\mid\\widehat{\\theta}(x)\\right)\\\\\n&\\ge 1- \\sum_{x\\in\\mathcal{X}} \\max_{\\theta\\in\\Theta} \\pi\\left(\\theta\\right)  p\\left(x\\mid\\theta\\right)\n\\end{align*}\\] と下から抑えることができ、 \\[\\begin{align*}\n\\widehat{\\theta}_{\\mathrm{MAP}}(x) &\\coloneqq\n  \\arg\\max_{\\theta\\in\\Theta}p\\left(\\theta\\mid x\\right)\\\\\n&= \\arg\\max_{\\theta\\in\\Theta}p\\left(\\theta\\mid x\\right)  p\\left(x\\right)\\\\\n&= \\arg\\max_{\\theta\\in\\Theta}\\pi\\left(\\theta\\right)  p\\left(x\\mid\\theta\\right)\\\\\n\\end{align*}\\] という推定関数により等号が達成される。 この推定関数を最大事後確率(maximum a posteriori; MAP)推定関数と呼ぶ。 事後確率の最大化の代わりに同時確率の最大化と理解してもよい。"
+  },
+  {
+    "objectID": "slides/05_bayes.html#最尤推定",
+    "href": "slides/05_bayes.html#最尤推定",
+    "title": "確率論",
+    "section": "最尤推定",
+    "text": "最尤推定\nMAP推定は誤り確率を最小化する推定方法であるが、事前確率 \\(\\pi(\\theta)\\) を仮定しないと用いることができない。 一方で尤度を最大化する推定関数 \\[\\begin{align*}\n\\widehat{\\theta}_{\\mathrm{ML}}(x) &\\coloneqq\n  \\arg\\max_{\\theta\\in\\Theta}p\\left(x\\mid\\theta\\right)\n\\end{align*}\\] を最尤(maximam likelihood; ML)推定関数という。 \\(\\Theta\\) が有限集合で、事前確率が一様分布 \\(\\pi(\\theta)=\\frac1{|\\Theta|}\\) のとき、最尤推定は最大事後確率推定と一致する。"
+  },
+  {
+    "objectID": "slides/05_bayes.html#二つの分布の識別",
+    "href": "slides/05_bayes.html#二つの分布の識別",
+    "title": "確率論",
+    "section": "二つの分布の識別",
+    "text": "二つの分布の識別\n特にパラメータが二値である場合を考える。ここでは \\(\\Theta=\\{0,1\\}\\) とする。 また、 \\[\\begin{align*}\np^{(0)}(x) &\\coloneqq p(x\\mid 0)&\np^{(1)}(x) &\\coloneqq p(x\\mid 1)\n\\end{align*}\\] とする。 このとき、 \\[\\begin{align*}\nP_{\\mathrm{err}}(\\widehat{\\theta}_\\mathrm{MAP})\n&= 1- \\sum_{x\\in\\mathcal{X}} \\max_{\\theta\\in\\{0,1\\}} \\pi\\left(\\theta\\right)  p\\left(x\\mid\\theta\\right)\\\\\n&= 1- \\sum_{x\\in\\mathcal{X}} \\max \\left\\{\\pi(0)  p^{(0)}\\left(x\\right),\\,\\pi(1)  p^{(1)}\\left(x\\right)\\right\\}\\\\\n\\end{align*}\\] である。 ここで、 \\[\\begin{align*}\n\\begin{split}\n\\max\\{a,b\\} - \\min\\{a,b\\} &= |\\,a-b\\,|\\\\\n\\max\\{a,b\\} + \\min\\{a,b\\} &= a+b\n\\end{split}\n\\qquad\\forall a,b\\in\\mathbb{R}\n\\end{align*}\\] であるので、 \\[\\begin{align*}\n\\max\\{a,b\\} &= \\frac12(a+b+|\\,a-b\\,|)\\qquad\\forall a,b\\in\\mathbb{R}.\n\\end{align*}\\] よって、 \\[\\begin{align*}\n%\\max_{\\theta\\in\\{0,1\\}} \\{\\pi\\left(\\theta\\right)  p\\left(x\\mid\\theta\\right)\\}\n\\max \\left\\{\\pi(0)  p^{(0)}\\left(x\\right),\\,\\pi(1)  p^{(1)}\\left(x\\right)\\right\\}\n&= \\frac12\\left(p(x) +\n\\left|\\,\\pi\\left(0\\right)  p^{(0)}\\left(x\\right) - \\pi\\left(1\\right)  p^{(1)}\\left(x\\right) \\,\\right|\\right).\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/05_bayes.html#全変動距離",
+    "href": "slides/05_bayes.html#全変動距離",
+    "title": "確率論",
+    "section": "全変動距離",
+    "text": "全変動距離\n\\[\\begin{align*}\nP_{\\mathrm{err}}(\\widehat{\\theta}_\\mathrm{MAP})\n&= 1- \\sum_{x\\in\\mathcal{X}} \\max \\left\\{\\pi(0)  p^{(0)}\\left(x\\right),\\,\\pi(1)  p^{(1)}\\left(x\\right)\\right\\}\\\\\n&= 1- \\sum_{x\\in\\mathcal{X}} \\frac12\\left(p(x) +\n\\left|\\,\\pi\\left(0\\right)  p^{(0)}\\left(x\\right) - \\pi\\left(1\\right)  p^{(1)}\\left(x\\right) \\,\\right|\\right)\\\\\n&= 1-  \\frac12\\left(1 +\n\\sum_{x\\in\\mathcal{X}}\\left|\\,\\pi\\left(0\\right)  p^{(0)}\\left(x\\right) - \\pi\\left(1\\right)  p^{(1)}\\left(x\\right) \\,\\right|\\right)\\\\\n&= \\frac12\\left(1 -\n\\sum_{x\\in\\mathcal{X}}\\left|\\,\\pi\\left(0\\right)  p^{(0)}\\left(x\\right) - \\pi\\left(1\\right)  p^{(1)}\\left(x\\right) \\,\\right|\\right).\n\\end{align*}\\]\n\nDefinition 1 (全変動距離) 高々可算集合 \\(\\mathcal{X}\\) 上の関数 \\(f\\) について、 \\(\\|f\\|_1 \\coloneqq \\sum_{x\\in\\mathcal{X}} \\left|\\, f(x)\\,\\right|\\) と定義する。 また、\\(\\mathcal{X}\\) 上の確率質量関数 \\(p^{(0)}\\), \\(p^{(1)}\\) について、全変動距離を以下で定義する。 \\[\\begin{align*}\nd_{\\mathrm{TV}}(p^{(0)},\\, p^{(1)}) &\\coloneqq \\frac12\\left\\|\\, p^{(0)}-p^{(1)}\\,\\right\\|_1\n\\end{align*}\\]\n\nこれらの記法を用いると、 \\[\\begin{align*}\nP_{\\mathrm{err}}(\\widehat{\\theta}_\\mathrm{MAP})&=\\frac12\\left(1-\\left\\|\\pi(0)p^{(0)} - \\pi(1)p^{(1)}\\right\\|_1\\right)\n\\end{align*}\\] と表せる。また、\\(\\pi(0)=\\pi(1)=1/2\\) のとき、 \\[\\begin{align*}\nP_{\\mathrm{err}}(\\widehat{\\theta}_\\mathrm{MAP})&=\\frac12\\left(1-d_{\\mathrm{TV}}(p^{(0)},\\,p^{(1)})\\right).\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/05_bayes.html#損失関数とベイズリスク",
+    "href": "slides/05_bayes.html#損失関数とベイズリスク",
+    "title": "確率論",
+    "section": "損失関数とベイズリスク",
+    "text": "損失関数とベイズリスク\nパラメータが取り得る値の集合が実数の部分集合 \\(\\Theta\\subseteq\\mathbb{R}\\) であると仮定する。 真のパラメータとその推定値の間の「誤差」を表す関数 \\(L\\colon\\Theta\\times\\mathbb{R}\\to\\mathbb{R}_{\\ge 0}\\) を損失関数と呼ぶ。 また、期待損失 \\(R\\colon\\Theta\\times(\\mathcal{X}\\to\\mathbb{R})\\to\\mathbb{R}_{\\ge 0}\\) を \\[\\begin{align*}\nR(\\theta,\\,\\widehat{\\theta}) &\\coloneqq \\expt{L(\\theta,\\,\\widehat{\\theta}(X))\\mid\\theta}\\\\\n&=\\sum_{x\\in\\mathcal{X}} L(\\theta,\\,\\widehat{\\theta}(x)) p(x\\mid\\theta)\n\\end{align*}\\] と定義する。 また、ベイズリスク \\(\\rho\\colon \\mathcal{P}(\\Theta)\\times(\\mathcal{X}\\to\\mathbb{R})\\to\\mathbb{R}_{\\ge 0}\\) を \\[\\begin{align*}\n\\rho(\\pi, \\widehat{\\theta})&\\coloneqq  \\expt{L(\\theta,\\,\\widehat{\\theta}(X))}\\\\\n&=\\sum_{\\theta\\in\\Theta}\\sum_{x\\in\\mathcal{X}} L(\\theta,\\,\\widehat{\\theta}(x)) p(x\\mid\\theta)\\pi(\\theta)\n\\end{align*}\\] と定義する。 \\(\\Theta\\subseteq\\mathbb{R}\\) が非可算無限集合の場合は \\(\\pi(\\theta)\\) を確率密度関数とし、 \\[\\begin{align*}\n\\rho(\\pi, \\widehat{\\theta})&\\coloneqq  \\expt{L(\\theta,\\,\\widehat{\\theta}(X))}\\\\\n&=\\int\\sum_{x\\in\\mathcal{X}} L(\\theta,\\,\\widehat{\\theta}(x)) p(x\\mid\\theta)\\pi(\\theta)\\mathrm{d}\\theta\n\\end{align*}\\] と定義する。 このとき、 \\(p(x\\mid\\theta)\\) は条件付き確率というより、\\(\\theta\\in\\Theta\\) というパラメータを持った確率質量関数(\\(\\theta\\in\\Theta\\) から定まる確率質量関数)と理解すれば十分である。"
+  },
+  {
+    "objectID": "slides/05_bayes.html#損失関数の例",
+    "href": "slides/05_bayes.html#損失関数の例",
+    "title": "確率論",
+    "section": "損失関数の例",
+    "text": "損失関数の例\n例えば \\(\\Theta\\) が高々可算集合で、 \\[\\begin{align*}\nL(\\theta,\\,\\theta') &= \\mathbb{I}\\{\\theta\\ne \\theta'\\}\\qquad\\forall\\theta,\\theta'\\in\\Theta\n\\end{align*}\\] と定義すると、ベイズリスク \\(\\rho(\\pi, \\widehat{\\theta})\\) は推定関数 \\(\\widehat{\\theta}\\) の誤り確率 \\(P_\\mathrm{err}(\\widehat{\\theta})\\) である。\nその他の重要な損失関数の例として二乗誤差がある。 \\[\\begin{align*}\nL(\\theta,\\,\\theta') &= (\\theta-\\theta')^2.\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/05_bayes.html#ベイズリスクの最小化",
+    "href": "slides/05_bayes.html#ベイズリスクの最小化",
+    "title": "確率論",
+    "section": "ベイズリスクの最小化",
+    "text": "ベイズリスクの最小化\n損失関数 \\(L\\) を定めたときに、ベイズリスクを最小化する推定関数 \\[\\begin{align*}\n\\widehat{\\theta} &= \\arg\\min_{\\widehat{\\theta}} \\rho(\\pi, \\widehat{\\theta})\\\\\n\\iff \\widehat{\\theta}(x) &= \\arg\\min_{\\theta'\\in\\Theta} \\sum_{\\theta\\in\\Theta} L(\\theta,\\,\\theta') p(x\\mid\\theta)\\pi(\\theta)\\qquad\\forall x\\in\\mathcal{X}\\\\\n\\iff \\widehat{\\theta}(x) &= \\arg\\min_{\\theta'\\in\\Theta} \\sum_{\\theta\\in\\Theta} L(\\theta,\\,\\theta') p(\\theta\\mid x)p(x)\\qquad\\forall x\\in\\mathcal{X}\\\\\n\\iff \\widehat{\\theta}(x) &= \\arg\\min_{\\theta'\\in\\Theta} \\sum_{\\theta\\in\\Theta} L(\\theta,\\,\\theta') p(\\theta\\mid x)\\qquad\\forall x\\in\\mathcal{X}\\\\\n\\end{align*}\\] ここで、 \\[\\begin{align*}\n\\expt{L(\\theta,\\,\\theta')\\mid x}&=  \\sum_{\\theta\\in\\Theta} L(\\theta,\\,\\theta') p(\\theta\\mid x)\\qquad\\forall x\\in\\mathcal{X}\n\\end{align*}\\] を損失関数の事後平均という。 各 \\(x\\in\\mathcal{X}\\) について、\\(\\theta'=\\widehat{\\theta}(x)\\) が損失関数の事後平均を最小化するとき、ベイズリスクを最小化する。"
+  },
+  {
+    "objectID": "slides/05_bayes.html#損失関数が凸で微分可能な場合",
+    "href": "slides/05_bayes.html#損失関数が凸で微分可能な場合",
+    "title": "確率論",
+    "section": "損失関数が凸で微分可能な場合",
+    "text": "損失関数が凸で微分可能な場合\n損失関数が \\(L(\\theta,\\,\\theta')\\) が \\(\\theta\\in\\Theta\\) を固定したときに \\(\\theta'\\) について凸関数であるとき、事後平均 \\(\\expt{L(\\theta,\\,\\theta')\\mid x}\\) も \\(\\theta'\\) について凸関数となる(凸関数の非負倍は凸関数であり、凸関数の和は凸関数なので)。 さらに、\\(L(\\theta,\\,\\theta')\\) が \\(\\theta'\\) について微分可能なとき、 \\[\\begin{align*}\n\\frac{\\partial \\expt{L(\\theta,\\,\\theta')\\mid x}}{\\partial\\, \\theta'}&=  \\sum_{\\theta\\in\\Theta} \\frac{\\partial L(\\theta,\\,\\theta')}{\\partial\\, \\theta'} p(\\theta\\mid x)=0\\qquad\\forall x\\in\\mathcal{X}\n\\end{align*}\\] を満たす \\(\\theta'\\) を \\(\\widehat{\\theta}(x)\\) として選択するのが最適である。 二乗誤差 \\(L(\\theta,\\,\\theta')=(\\theta-\\theta')^2\\) のとき、この条件は \\[\\begin{align*}\n0&=\\sum_{\\theta} 2(\\theta'-\\theta) p(\\theta\\mid x)\n=2\\left(\\theta' - \\sum_{\\theta}\\theta p(\\theta\\mid x)\\right)\n\\end{align*}\\] となり、 \\[\\begin{align*}\n\\widehat{\\theta}(x) &= \\sum_\\theta \\theta p(\\theta\\mid x)\\qquad \\forall x\\in\\mathcal{X}\n\\end{align*}\\] とするのが最適であることが分かる。この右辺の値をパラメータ \\(\\theta\\) の事後平均という。"
+  },
+  {
+    "objectID": "slides/05_bayes.html#今週の課題",
+    "href": "slides/05_bayes.html#今週の課題",
+    "title": "確率論",
+    "section": "今週の課題",
+    "text": "今週の課題\n\\(\\Theta=\\{0,1\\}\\), \\(\\mathcal{X}=\\{0,1\\}\\) とする。 事前確率と尤度を \\[\\begin{align*}\n\\pi(0) &= 1/3&\\pi(1)=2/3\\\\\np(x=0\\mid \\theta=0) &= 1/3&\np(x=1\\mid \\theta=0) &= 2/3\\\\\np(x=0\\mid \\theta=1) &= 1/4&\np(x=1\\mid \\theta=1) &= 3/4\n\\end{align*}\\] とする。\nこのとき、以下の問に答えよ\n\n\nMAP推定関数 \\(\\widehat{\\theta}_{\\mathrm{MAP}}(x)\\) と最尤推定関数 \\(\\widehat{\\theta}_{\\mathrm{ML}}(x)\\) をもとめよ。\n損失関数を \\[\\begin{align*}\nL(0,0) &= L(1,1) = 0,& L(0,1) &= 1,& L(1,0) &= 3\n\\end{align*}\\] としたときにベイズリスクを最小化する推定量 \\(\\widehat{\\theta}(x)\\) をもとめよ。"
+  },
+  {
+    "objectID": "slides/08_cramer.html#キュムラント母関数の存在する範囲",
+    "href": "slides/08_cramer.html#キュムラント母関数の存在する範囲",
+    "title": "確率論",
+    "section": "キュムラント母関数の存在する範囲",
+    "text": "キュムラント母関数の存在する範囲\nキュムラント母関数 \\[\\begin{align*}\nK_X(t) &= \\log M_X(t) = \\log\\expt{\\mathrm{e}^{tX}}\n\\end{align*}\\] の性質を改めて考えよう。 期待値が発散する場合は \\(+\\infty\\) に値を取るとみなして \\(K_X\\colon \\mathbb{R}\\to(-\\infty,\\,+\\infty]\\) と考えることにする。\nまず、\\(K_X(0)=0\\) である。 ある \\(t&gt;0\\) について、 \\(M_X(t)&lt;+\\infty\\) と仮定すると、任意の \\(s\\in(0,t)\\) について \\[\\begin{align*}\nM_X(s) &= \\expt{\\mathrm{e}^{sX}}\\\\\n&= \\expt{\\mathrm{e}^{sX} \\mathbb{1}_{\\{X\\ge 0\\}}}\n+ \\expt{\\mathrm{e}^{sX} \\mathbb{1}_{\\{X&lt; 0\\}}}\\\\\n&\\le \\expt{\\mathrm{e}^{tX} \\mathbb{1}_{\\{X\\ge 0\\}}} + 1\\\\\n&\\le M_X(t) + 1 &lt; +\\infty\n\\end{align*}\\] である。 同様に、ある \\(t&lt;0\\) について、 \\(M_X(t)&lt;+\\infty\\) と仮定すると、任意の \\(s\\in(t,0)\\) について \\(M_X(s)&lt;+\\infty\\) である。 よって、\\(M_X(t)\\) や \\(K_X(t)\\) が有限となる範囲は0を含む区間となる。 ここでいう区間とは一般的に空集合、もしくは \\(a&lt; b\\) について、 \\[\\begin{align*}\n[a,\\,a]\\quad\n(a,\\,b)\\quad\n[a,\\,b)\\quad\n(a,\\,b]\\quad\n[a,\\,b]\\quad\n(a,\\,+\\infty)\\quad\n[a,\\,+\\infty)\\quad\n(-\\infty,\\, b)\\quad\n(-\\infty,\\, b]\\quad\n(-\\infty,\\,+\\infty)\n\\end{align*}\\] のいずれかの形の集合を指す。 この区間を \\[\\begin{align*}\n\\mathrm{dom}(K_X) &\\coloneqq\\left\\{t\\in\\mathbb{R}\\mid K_X(t)&lt;+\\infty\\right\\}\n\\end{align*}\\] と表す。 区間は1次元の凸集合と一言で理解できる。"
+  },
+  {
+    "objectID": "slides/08_cramer.html#キュムラント母関数の凸性",
+    "href": "slides/08_cramer.html#キュムラント母関数の凸性",
+    "title": "確率論",
+    "section": "キュムラント母関数の凸性",
+    "text": "キュムラント母関数の凸性\n証明はしないが、キュムラント母関数 \\(K_X(t)\\) は \\(\\mathrm{dom}(K_X)\\) の内点で何回でも微分可能であり、無限和や積分を取る前に微分しても構わない。\n\\[\\begin{align*}\n\\frac{\\mathrm{d} K_X(t)}{\\mathrm{d}t} &= \\frac{\\expt{X\\mathrm{e}^{tX}}}{\\expt{\\mathrm{e}^{tX}}}\\\\\n\\frac{\\mathrm{d}^2 K_X(t)}{\\mathrm{d}t^2} &= \\frac{\\expt{X^2\\mathrm{e}^{tX}}\\expt{\\mathrm{e}^{tX}}-\\expt{X\\mathrm{e}^{tX}}^2}{\\expt{\\mathrm{e}^{tX}}^2}\\\\\n&= \\frac{\\expt{X^2\\mathrm{e}^{tX}}}{\\expt{\\mathrm{e}^{tX}}}-\\left(\\frac{\\expt{X\\mathrm{e}^{tX}}}{\\expt{\\mathrm{e}^{tX}}}\\right)^2\\\\\n&= \\frac{\\expt{\\left(X-\\frac{\\expt{X\\mathrm{e}^{tX}}}{\\expt{\\mathrm{e}^{tX}}}\\right)^2\\mathrm{e}^{tX}}}{\\expt{\\mathrm{e}^{tX}}}\\ge 0\n\\end{align*}\\]\n\nまた、\\(X\\)が決定的(\\(\\Pr(X=\\expt{X})=1\\))でない限り、\\(K_X\\) は \\(\\mathrm{dom}(K_X)\\) で狭義凸である。"
+  },
+  {
+    "objectID": "slides/08_cramer.html#キュムラント母関数の性質まとめ",
+    "href": "slides/08_cramer.html#キュムラント母関数の性質まとめ",
+    "title": "確率論",
+    "section": "キュムラント母関数の性質まとめ",
+    "text": "キュムラント母関数の性質まとめ\nよって \\(X\\) のキュムラント母関数 \\(K_X(t)\\) が原点付近で存在すると仮定すると、\\(K_X(t)\\) は\n\n0を含む区間で定義され、\n原点を通り、\n凸関数で、\n原点の傾きは \\(\\expt{X}\\)\n\nであることが分かる。\n\n\n\n\n\n\nNote\n\n\n関数 \\(f\\colon\\mathbb{R}\\to(-\\infty,\\,+\\infty]\\) が下半連続であるとは、 任意の \\(\\alpha\\in\\mathbb{R}\\) について \\(\\{t\\in\\mathbb{R}\\mid f(t)\\le\\alpha\\}\\) が閉集合であることをいう。 キュムラント母関数は下半連続の凸関数である。\n\n\n\nまた、キュムラント母関数の簡単な性質として以下が成り立つ。 任意の独立確率変数 \\(X\\) と \\(Y\\) と \\(a\\in\\mathbb{R}\\) について \\[\\begin{align*}\nK_{X+a}(t) &= \\log\\expt{\\mathrm{e}^{t(X+a)}} = \\log\\left(\\expt{\\mathrm{e}^{tX}}\\cdot \\mathrm{e}^{ta}\\right) = K_X(t) + at\\\\%\\quad\\text{for } t\\in\\mathrm{dom}(K_X)\\\\\nK_{aX}(t) &= \\log\\expt{\\mathrm{e}^{t(aX)}} = K_X(at)\\\\%\\qquad\\text{if } at\\in\\mathrm{dom}(K_X)\\\\\nK_{X+Y}(t) &= \\log\\expt{\\mathrm{e}^{t(X+Y)}} =\\log\\left(\\expt{\\mathrm{e}^{tX}}\\expt{\\mathrm{e}^{tY}}\\right) = K_X(t) + K_Y(t).\n%&\\hspace{17em}\\text{for } t\\in\\mathrm{dom}(K_X)\\cap\\mathrm{dom}(K_Y)\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/08_cramer.html#確率変数の和に対するチェルノフ上界",
+    "href": "slides/08_cramer.html#確率変数の和に対するチェルノフ上界",
+    "title": "確率論",
+    "section": "確率変数の和に対するチェルノフ上界",
+    "text": "確率変数の和に対するチェルノフ上界\n\nLemma 1 (確率変数の和に対するチェルノフ上界) 任意の確率変数 \\(X\\) と \\(a\\in\\mathbb{R}\\) について、 \\[\\begin{align*}\n\\Pr\\left(\\frac1N\\sum_{i=1}^N X_i\\ge a\\right) &\\le \\mathrm{e}^{-(at-K_X(t))N}\\qquad\\forall t\\ge 0\\\\\n\\Pr\\left(\\frac1N\\sum_{i=1}^N X_i\\le a\\right) &\\le \\mathrm{e}^{-(at-K_X(t))N}\\qquad\\forall t\\le 0.\n\\end{align*}\\]\n\nこの上界を最小化すると、 \\[\\begin{align*}\n\\Pr\\left(\\frac1N\\sum_{i=1}^N X_i\\ge a\\right) &\\le \\mathrm{e}^{-\\sup_{t\\ge 0}\\{at-K_X(t)\\}N}\\\\\n\\Pr\\left(\\frac1N\\sum_{i=1}^N X_i\\le a\\right) &\\le \\mathrm{e}^{-\\sup_{t\\le 0}\\{at-K_X(t)\\}N}\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/08_cramer.html#ルジャンドル変換",
+    "href": "slides/08_cramer.html#ルジャンドル変換",
+    "title": "確率論",
+    "section": "ルジャンドル変換",
+    "text": "ルジャンドル変換\n\n\nDefinition 1 (ルジャンドル変換)  \n\n恒等的に \\(+\\infty\\) ではない凸関数 \\(f\\colon \\mathbb{R}\\to (-\\infty,\\,+\\infty]\\) のルジャンドル変換 \\(f^*\\colon \\mathbb{R}\\to (-\\infty,\\,+\\infty]\\) を以下で定義する。 \\[\\begin{align*}\nf^*(a) &\\coloneqq \\sup_{t\\in \\mathbb{R}}\\left\\{at-f(t)\\right\\}.\n\\end{align*}\\]\n\nルジャンドル変換において \\(f\\) は凸関数なので、\\(at-f(t)\\) は凹関数(上に凸の関数)になる。 簡単のため \\(f\\) が \\(\\mathrm{dom}(f)\\) の内点で微分可能であると仮定しよう(キュムラント母関数はこの仮定は満たす)。 このとき、\n\n\\(at-f(t)\\) の微分が 0 になる点、つまり \\(f'(t_a) = a\\) を満たす \\(t_a\\in \\mathrm{dom}(f)^\\circ\\) が存在するとき、\\(t_a\\) で \\(at-f(t)\\) は最大化される。\nそのような \\(t_a\\in \\mathrm{dom}(f)^\\circ\\) が存在しないときは、\\(\\mathrm{dom}(f)\\) の端への極限で \\(\\sup\\) が達成される。\n\n\n\n\n\n\n\n\nNote\n\n\nまたルジャンドル変換 \\(f^*\\) は下半連続である。 ルジャンドル変換は凸で下半連続な関数を凸で下半連続な関数に写す。 また、凸で下半連続な関数 \\(f\\) について \\(f=f^{**}\\) である。"
+  },
+  {
+    "objectID": "slides/08_cramer.html#イェンセンの不等式",
+    "href": "slides/08_cramer.html#イェンセンの不等式",
+    "title": "確率論",
+    "section": "イェンセンの不等式",
+    "text": "イェンセンの不等式\n\nLemma 2 (イェンセンの不等式) 任意の凸関数 \\(f\\colon\\mathbb{R}\\to\\mathbb{R}\\) と確率変数 \\(X\\) について\n\\[\\begin{align*}\n\\expt{f(X)} &\\ge f(\\expt{X}).\n\\end{align*}\\]\n\n\nProof (\\(X\\) の像が有限のときの証明). 確率変数 \\(X\\) は \\(k=1,2,\\dotsc,m\\) について確率 \\(p_k\\) で値 \\(a_k\\) をとると仮定する。 \\(m\\) についての帰納法で示す。\\(m=1\\) のときは明らかに成り立つ。 \\(X\\) の像のサイズが \\(m\\) 未満のときにイェンセンの不等式が成り立つと仮定すると、 \\[\\begin{align*}\n\\expt{f(X)} &= \\sum_{k=1}^m p_k f(a_k)\n= \\left(\\sum_{k=1}^{m-1}p_k\\right)\\sum_{k=1}^{m-1} \\frac{p_k}{\\sum_{\\ell=1}^{m-1}p_\\ell} f(a_k) + p_m f(a_m)\\\\\n&\\ge \\left(\\sum_{k=1}^{m-1}p_k\\right) f\\left(\\sum_{k=1}^{m-1} \\frac{p_k}{\\sum_{\\ell=1}^{m-1}p_\\ell}a_k\\right) + p_m f(a_m)\\quad\\text{(帰納法の仮定)}\\\\\n&\\ge  f\\left(\\left(\\sum_{k=1}^{m-1}p_k\\right)\\sum_{k=1}^{m-1} \\frac{p_k}{\\sum_{\\ell=1}^{m-1}p_\\ell}a_k + p_ma_m\\right)\\quad\\text{($f$の凸性)}\\\\\n&= f\\left(\\sum_{k=1}^m p_ka_k\\right) = f(\\expt{X}).\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/08_cramer.html#レート関数",
+    "href": "slides/08_cramer.html#レート関数",
+    "title": "確率論",
+    "section": "レート関数",
+    "text": "レート関数\n\nLemma 3 レート関数 \\(I_X\\colon \\mathbb{R} \\to[0,\\,+\\infty]\\)を \\[\\begin{align*}\nI_X(a) &:= K_X^*(a) = \\sup_{t \\in\\mathbb{R}}\\left\\{at - K_X(t)\\right\\}\n\\end{align*}\\] と定義する。 このとき、\n\n\\(\\mathrm{dom}(K_X)=\\{0\\}\\) のとき、\\(I_X(a) = 0\\).\nある \\(\\epsilon&gt;0\\) が存在して \\(K_X(\\epsilon)&lt;+\\infty\\) のとき、\\(\\mathbb{E}[X]&lt;+\\infty\\) であり、 \\[\\begin{align*}\n\\sup_{t\\ge0}\\left\\{at-K_X(t)\\right\\}&=\\begin{cases}\nI_X(a)&\\text{if } a &gt; \\expt{X}\\\\\n0&\\text{otherwise.}\n\\end{cases}\n\\end{align*}\\]\nある \\(\\epsilon&gt;0\\) が存在して \\(K_X(-\\epsilon)&lt;+\\infty\\) のとき、\\(\\mathbb{E}[X]&gt;-\\infty\\) であり、 \\[\\begin{align*}\n\\sup_{t\\le0}\\left\\{at-K_X(t)\\right\\}&=\\begin{cases}\nI_X(a)&\\text{if } a &lt; \\expt{X}\\\\\n0&\\text{otherwise.}\n\\end{cases}\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/08_cramer.html#補題の証明",
+    "href": "slides/08_cramer.html#補題の証明",
+    "title": "確率論",
+    "section": "補題の証明",
+    "text": "補題の証明\n\nProof. 1 は自明。 2 を示す。 ある \\(\\epsilon&gt;0\\) について、\\(K_X(\\epsilon)&lt;+\\infty\\) と仮定する。 一般に、 \\[\\begin{align*}\n\\mathrm{e}^{tx} &\\ge tx + 1\\qquad\\forall t,x\\in\\mathbb{R}\n\\end{align*}\\] より、\\(M_X(t)\\ge t\\expt{X}+1\\) である。 よって、 \\[\\begin{align*}\n\\expt{X}&\\le \\frac{M_X(\\epsilon)-1}{\\epsilon}&lt;+\\infty\n\\end{align*}\\] である。 また、イェンセンの不等式より、 \\[\\begin{align*}\nK_X(t) &= \\log \\expt{\\mathrm{e}^{tX}} \\ge \\expt{\\log\\mathrm{e}^{tX}} = t\\expt{X}\\qquad\\forall t\\in\\mathbb{R}\n\\end{align*}\\] である。 よって、 \\[\\begin{align*}\nI_X(\\expt{X}) &= \\sup_{t\\in\\mathbb{R}} \\left\\{t\\expt{X} - K_X(t)\\right\\} = 0\n\\end{align*}\\] である。 任意の \\(a &gt; \\expt{X}\\) と \\(t&lt;0\\) について、 \\[\\begin{align*}\nta - K_X(t) &\\le t\\expt{X} - K_X(t) \\le 0\n\\end{align*}\\] であるので、任意の \\(a &gt; \\expt{X}\\) について \\[\\begin{align*}\nI_X(a) &:= \\sup_{t \\in\\mathbb{R}}\\left\\{at - K_X(t)\\right\\}\n= \\sup_{t\\ge 0}\\left\\{at - K_X(t)\\right\\}\n\\end{align*}\\] また、\\(\\sup_{t\\ge 0}\\left\\{at - K_X(t)\\right\\}\\) は \\(a\\) について単調なので、 任意の \\(a &lt; \\expt{X}\\) について \\(\\sup_{t\\ge 0}\\left\\{at - K_X(t)\\right\\} = 0\\)."
+  },
+  {
+    "objectID": "slides/08_cramer.html#クラメールの定理",
+    "href": "slides/08_cramer.html#クラメールの定理",
+    "title": "確率論",
+    "section": "クラメールの定理",
+    "text": "クラメールの定理\nよってチェルノフ上界を最適化することで確率の指数的な上界を得る。\n\nTheorem 1 (最適化されたチェルノフ上界) \\[\\begin{align*}\n\\Pr\\left(\\frac1N\\sum_{i=1}^N X\\ge a\\right) &\\le \\mathrm{e}^{-I_X(a)N}\\qquad\\forall a&gt;\\expt{X}\\\\\n\\Pr\\left(\\frac1N\\sum_{i=1}^N X\\le a\\right) &\\le \\mathrm{e}^{-I_X(a)N}\\qquad\\forall a&lt;\\expt{X}.\n\\end{align*}\\]\n\nこの指数は漸近的に最適である。証明は少し難しいので紹介しない。\n\nTheorem 2 (クラメールの定理) \\[\\begin{align*}\n\\lim_{N\\to\\infty}\\frac1N\\log \\Pr\\left(\\frac1N\\sum_{i=1}^N X\\ge a\\right) &= -I_X(a)\\qquad\\forall a&gt;\\expt{X}\\\\\n\\lim_{N\\to\\infty}\\frac1N\\log \\Pr\\left(\\frac1N\\sum_{i=1}^N X\\le a\\right) &= -I_X(a)\\qquad\\forall a&lt;\\expt{X}.\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "slides/08_cramer.html#今週の課題",
+    "href": "slides/08_cramer.html#今週の課題",
+    "title": "確率論",
+    "section": "今週の課題",
+    "text": "今週の課題\n表が出る確率が \\(1/2\\) のコインを \\(N\\) 回投げて \\(0.6N\\) 回以上表が出る確率を \\(\\mathrm{e}^{-cN}\\) という形で上から抑えるときの最大の定数 \\(c&gt;0\\) をクラメールの定理を用いてもとめよ。"
   },
   {
     "objectID": "slides/03_multi.html#条件付き確率",
