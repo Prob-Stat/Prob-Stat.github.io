@@ -1,0 +1,345 @@
+---
+title: "確率論"
+subtitle: "クラメールの定理"
+author: "森 立平"
+format:
+  revealjs:
+    slide-number: true
+    smaller: true
+    html-math-method: mathjax
+    include-in-header: macros.qmd
+css: slides.css
+---
+
+
+
+## キュムラント母関数の存在する範囲
+キュムラント母関数
+\begin{align*}
+K_X(t) &= \log M_X(t) = \log\expt{\mathrm{e}^{tX}}
+\end{align*}
+の性質を改めて考えよう。
+期待値が発散する場合は $+\infty$ に値を取るとみなして $K_X\colon \mathbb{R}\to(-\infty,\,+\infty]$ と考えることにする。
+
+まず、$K_X(0)=0$ である。
+ある $t>0$ について、 $M_X(t)<+\infty$ と仮定すると、任意の $s\in(0,t)$ について
+\begin{align*}
+M_X(s) &= \expt{\mathrm{e}^{sX}}\\
+ &= \expt{\mathrm{e}^{sX} \mathbb{1}_{\{X\ge 0\}}}
+ + \expt{\mathrm{e}^{sX} \mathbb{1}_{\{X< 0\}}}\\
+ &\le \expt{\mathrm{e}^{tX} \mathbb{1}_{\{X\ge 0\}}} + 1\\
+ &\le M_X(t) + 1 < +\infty
+\end{align*}
+である。
+同様に、ある $t<0$ について、 $M_X(t)<+\infty$ と仮定すると、任意の $s\in(t,0)$ について $M_X(s)<+\infty$ である。
+よって、**$M_X(t)$ や $K_X(t)$ が有限となる範囲は0を含む区間**となる。
+ここでいう区間とは一般的に空集合、もしくは $a< b$ について、
+\begin{align*}
+[a,\,a]\quad
+(a,\,b)\quad
+[a,\,b)\quad
+(a,\,b]\quad
+[a,\,b]\quad
+(a,\,+\infty)\quad
+[a,\,+\infty)\quad
+(-\infty,\, b)\quad
+(-\infty,\, b]\quad
+(-\infty,\,+\infty)
+\end{align*}
+のいずれかの形の集合を指す。
+この区間を
+\begin{align*}
+\mathrm{dom}(K_X) &\coloneqq\left\{t\in\mathbb{R}\mid K_X(t)<+\infty\right\}
+\end{align*}
+と表す。
+区間は1次元の凸集合と一言で理解できる。
+
+
+## キュムラント母関数の凸性
+
+証明はしないが、キュムラント母関数 $K_X(t)$ は $\mathrm{dom}(K_X)$ の**内点で何回でも微分可能であり、無限和や積分を取る前に微分しても構わない**。
+
+\begin{align*}
+\frac{\mathrm{d} K_X(t)}{\mathrm{d}t} &= \frac{\expt{X\mathrm{e}^{tX}}}{\expt{\mathrm{e}^{tX}}}\\
+\frac{\mathrm{d}^2 K_X(t)}{\mathrm{d}t^2} &= \frac{\expt{X^2\mathrm{e}^{tX}}\expt{\mathrm{e}^{tX}}-\expt{X\mathrm{e}^{tX}}^2}{\expt{\mathrm{e}^{tX}}^2}\\
+&= \frac{\expt{X^2\mathrm{e}^{tX}}}{\expt{\mathrm{e}^{tX}}}-\left(\frac{\expt{X\mathrm{e}^{tX}}}{\expt{\mathrm{e}^{tX}}}\right)^2\\
+&= \frac{\expt{\left(X-\frac{\expt{X\mathrm{e}^{tX}}}{\expt{\mathrm{e}^{tX}}}\right)^2\mathrm{e}^{tX}}}{\expt{\mathrm{e}^{tX}}}\ge 0
+\end{align*}
+
+<!--
+ここで確率変数 $Z_t$ を導入し、確率質量関数
+\begin{align*}
+f_{Z_t}(x) &= \frac{f_X(x)\mathrm{e}^{tx}}{\sum_x f_X(x)\mathrm{e}^{tx}}
+\end{align*}
+を持つものとすると、
+\begin{align*}
+\frac{\mathrm{d} K_X(t)}{\mathrm{d}t} &= \expt{Z_t}\\
+\frac{\mathrm{d}^2 K_X(t)}{\mathrm{d}t^2} &= \var{Z_t}
+\end{align*}
+であることが分かる。
+-->
+また、$X$が決定的($\Pr(X=\expt{X})=1$)でない限り、$K_X$ は $\mathrm{dom}(K_X)$ で狭義凸である。
+
+## キュムラント母関数の性質まとめ
+
+よって $X$ のキュムラント母関数 $K_X(t)$ が原点付近で存在すると仮定すると、$K_X(t)$ は
+
+* 0を含む区間で定義され、
+* 原点を通り、
+* 凸関数で、
+* 原点の傾きは $\expt{X}$ 
+
+であることが分かる。
+
+::: {.callout-note}
+関数 $f\colon\mathbb{R}\to(-\infty,\,+\infty]$ が下半連続であるとは、 任意の $\alpha\in\mathbb{R}$ について $\{t\in\mathbb{R}\mid f(t)\le\alpha\}$ が閉集合であることをいう。
+キュムラント母関数は下半連続の凸関数である。
+:::
+
+また、キュムラント母関数の簡単な性質として以下が成り立つ。
+任意の独立確率変数 $X$ と $Y$ と $a\in\mathbb{R}$ について
+\begin{align*}
+K_{X+a}(t) &= \log\expt{\mathrm{e}^{t(X+a)}} = \log\left(\expt{\mathrm{e}^{tX}}\cdot \mathrm{e}^{ta}\right) = K_X(t) + at\\%\quad\text{for } t\in\mathrm{dom}(K_X)\\
+K_{aX}(t) &= \log\expt{\mathrm{e}^{t(aX)}} = K_X(at)\\%\qquad\text{if } at\in\mathrm{dom}(K_X)\\
+K_{X+Y}(t) &= \log\expt{\mathrm{e}^{t(X+Y)}} =\log\left(\expt{\mathrm{e}^{tX}}\expt{\mathrm{e}^{tY}}\right) = K_X(t) + K_Y(t).
+%&\hspace{17em}\text{for } t\in\mathrm{dom}(K_X)\cap\mathrm{dom}(K_Y)
+\end{align*}
+
+## 確率変数の和に対するチェルノフ上界
+
+::: {#lem-chrnofsum}
+### 確率変数の和に対するチェルノフ上界
+任意の確率変数 $X$ と $a\in\mathbb{R}$ について、
+\begin{align*}
+\Pr\left(\frac1N\sum_{i=1}^N X_i\ge a\right) &\le \mathrm{e}^{-(at-K_X(t))N}\qquad\forall t\ge 0\\
+\Pr\left(\frac1N\sum_{i=1}^N X_i\le a\right) &\le \mathrm{e}^{-(at-K_X(t))N}\qquad\forall t\le 0.
+\end{align*}
+:::
+この上界を最小化すると、
+\begin{align*}
+\Pr\left(\frac1N\sum_{i=1}^N X_i\ge a\right) &\le \mathrm{e}^{-\sup_{t\ge 0}\{at-K_X(t)\}N}\\
+\Pr\left(\frac1N\sum_{i=1}^N X_i\le a\right) &\le \mathrm{e}^{-\sup_{t\le 0}\{at-K_X(t)\}N}
+\end{align*}
+
+
+## ルジャンドル変換
+
+<!--
+チェルノフ上界に現れる係数 $at-K_X(t)$ の最大化はルジャンドル変換を用いて $K_X^*(a)$ と表せる。
+ルジャンドル変換を定義する際は $+\infty$ という値を許して $(-\infty,\,+\infty]$ を値域として考えると都合がよい。
+このように $+\infty$ を値として許した場合にも凸性を通常の関数と同じように定義する。
+一般に区間上で定義された凸関数を実数全体に拡張し、元の定義域の外で $+\infty$ を取ることにするとやはり凸関数になる。
+また、$f\colon\mathbb{R}\to(-\infty,\,+\infty]$ の**有効領域**を
+\begin{align*}
+\mathrm{dom}(f) &\coloneqq\left\{x\in\mathbb{R}\mid f(x)<+\infty\right\}
+\end{align*}
+と定義する。
+凸関数の有効領域は区間になる。
+-->
+
+::: {#def-legendre}
+### ルジャンドル変換
+<!--
+区間 $J\subseteq\mathbb{R}$ 上の**凸関数** $f\colon J\to\mathbb{R}$ のルジャンドル変換 $f^*\colon J^*\to\mathbb{R}$ を以下で定義する。
+\begin{align*}
+f^*(a) &\coloneqq \sup_{t\in J}\left\{at-f(t)\right\}\\
+J^* &\coloneqq\{a\in\mathbb{R}\mid f^*(a)<\infty\}.
+\end{align*}
+-->
+恒等的に $+\infty$ ではない**凸関数** $f\colon \mathbb{R}\to (-\infty,\,+\infty]$ のルジャンドル変換 $f^*\colon \mathbb{R}\to (-\infty,\,+\infty]$ を以下で定義する。
+\begin{align*}
+f^*(a) &\coloneqq \sup_{t\in \mathbb{R}}\left\{at-f(t)\right\}.
+\end{align*}
+:::
+
+ルジャンドル変換において $f$ は凸関数なので、$at-f(t)$ は凹関数(上に凸の関数)になる。
+簡単のため $f$ が $\mathrm{dom}(f)$ の内点で微分可能であると仮定しよう(キュムラント母関数はこの仮定は満たす)。
+このとき、
+
+* $at-f(t)$ の微分が 0 になる点、つまり $f'(t_a) = a$ を満たす $t_a\in \mathrm{dom}(f)^\circ$ が存在するとき、$t_a$ で $at-f(t)$ は最大化される。
+* そのような $t_a\in \mathrm{dom}(f)^\circ$ が存在しないときは、$\mathrm{dom}(f)$ の端への極限で $\sup$ が達成される。
+
+<!--
+凸関数は $\mathrm{dom}(f)$ の上では接線の集合で表すことができる。
+接線 $ax+b$ は傾き $a$ と切片 $b$ のペアで表すことができる。
+傾き $a$ を持つ $f$ の接線は
+\begin{align*}
+a(x-t_a) + f(t_a) &= ax - (at_a - f(t_a)) = ax - f^*(a)
+\end{align*}
+この傾き $a$ から接線 $ax+b$ の切片の $-1$倍である $-b$ への関数が $f^*$ である。
+
+例えば $f$ が0で微分可能であるとき
+\begin{align*}
+f^*(f'(0)) &= 0
+\end{align*}
+である。
+
+また、ルジャンドル変換 $f^*$ は凸関数である。
+
+::: {#lem-legendre-conv}
+凸関数 $f\colon \mathbb{R}\to (-\infty,\,+\infty]$ のルジャンドル変換 $f^*\colon \mathbb{R}\to (-\infty,\,+\infty]$   は凸関数である。
+:::
+::: {.proof}
+任意の $a_1,a_2\in \mathbb{R}$ と $\lambda\in[0,1]$ について
+\begin{align*}
+f^*(\lambda a_1+ (1-\lambda)a_2) &= \sup_{t\in \mathbb{R}}\left\{(\lambda a_1+(1-\lambda)a_2)t - f(t)\right\}\\
+&= \sup_{t\in \mathbb{R}}\left\{\lambda (a_1t - f(t))+(1-\lambda)(a_2t - f(t))\right\}\\
+&\le \sup_{t\in \mathbb{R}}\left\{\lambda (a_1t - f(t))\right\}+\sup_{t\in \mathbb{R}}\left\{(1-\lambda)(a_2t - f(t))\right\}\\
+ &\le \lambda f^*(a_1) + (1-\lambda) f^*(a_2).
+\end{align*}
+:::
+
+ルジャンドル変換を凸でない関数 $f$ についても同様に定義した場合でも、ルジャンドル変換 $f^*$ は同様に凸関数となる。
+-->
+
+::: {.callout-note}
+またルジャンドル変換 $f^*$ は下半連続である。
+ルジャンドル変換は凸で下半連続な関数を凸で下半連続な関数に写す。
+また、凸で下半連続な関数 $f$ について $f=f^{**}$ である。
+:::
+
+<!--
+::: {#lem-legendre-dual}
+$J\subseteq\mathbb{R}$ を区間とし、$f\colon J\to\mathbb{R}$ を凸関数とする。
+このとき、$f^{**}=f$ である。
+:::
+::: {.proof}
+:::
+-->
+
+## イェンセンの不等式
+
+::: {#lem-jensen}
+### イェンセンの不等式
+
+任意の凸関数 $f\colon\mathbb{R}\to\mathbb{R}$ と確率変数 $X$ について
+
+\begin{align*}
+\expt{f(X)} &\ge f(\expt{X}).
+\end{align*}
+:::
+::: {.proof}
+### $X$ の像が有限のときの証明
+確率変数 $X$ は $k=1,2,\dotsc,m$ について確率 $p_k$ で値 $a_k$ をとると仮定する。
+$m$ についての帰納法で示す。$m=1$ のときは明らかに成り立つ。
+$X$ の像のサイズが $m$ 未満のときにイェンセンの不等式が成り立つと仮定すると、
+\begin{align*}
+\expt{f(X)} &= \sum_{k=1}^m p_k f(a_k)
+= \left(\sum_{k=1}^{m-1}p_k\right)\sum_{k=1}^{m-1} \frac{p_k}{\sum_{\ell=1}^{m-1}p_\ell} f(a_k) + p_m f(a_m)\\
+&\ge \left(\sum_{k=1}^{m-1}p_k\right) f\left(\sum_{k=1}^{m-1} \frac{p_k}{\sum_{\ell=1}^{m-1}p_\ell}a_k\right) + p_m f(a_m)\quad\text{(帰納法の仮定)}\\
+&\ge  f\left(\left(\sum_{k=1}^{m-1}p_k\right)\sum_{k=1}^{m-1} \frac{p_k}{\sum_{\ell=1}^{m-1}p_\ell}a_k + p_ma_m\right)\quad\text{($f$の凸性)}\\
+&= f\left(\sum_{k=1}^m p_ka_k\right) = f(\expt{X}).
+\end{align*}
+:::
+
+## レート関数
+
+::: {#lem-cramer}
+**レート関数** $I_X\colon \mathbb{R} \to[0,\,+\infty]$を
+\begin{align*}
+I_X(a) &:= K_X^*(a) = \sup_{t \in\mathbb{R}}\left\{at - K_X(t)\right\}
+\end{align*}
+と定義する。
+このとき、
+
+1. $\mathrm{dom}(K_X)=\{0\}$ のとき、$I_X(a) = 0$.
+1. ある $\epsilon>0$ が存在して $K_X(\epsilon)<+\infty$ のとき、$\mathbb{E}[X]<+\infty$ であり、
+\begin{align*}
+\sup_{t\ge0}\left\{at-K_X(t)\right\}&=\begin{cases}
+I_X(a)&\text{if } a > \expt{X}\\
+0&\text{otherwise.}
+\end{cases}
+\end{align*}
+1. ある $\epsilon>0$ が存在して $K_X(-\epsilon)<+\infty$ のとき、$\mathbb{E}[X]>-\infty$ であり、
+\begin{align*}
+\sup_{t\le0}\left\{at-K_X(t)\right\}&=\begin{cases}
+I_X(a)&\text{if } a < \expt{X}\\
+0&\text{otherwise.}
+\end{cases}
+\end{align*}
+:::
+
+## 補題の証明
+::: {.proof}
+1 は自明。
+2 を示す。
+ある $\epsilon>0$ について、$K_X(\epsilon)<+\infty$ と仮定する。
+一般に、
+\begin{align*}
+\mathrm{e}^{tx} &\ge tx + 1\qquad\forall t,x\in\mathbb{R}
+\end{align*}
+より、$M_X(t)\ge t\expt{X}+1$ である。
+よって、
+\begin{align*}
+\expt{X}&\le \frac{M_X(\epsilon)-1}{\epsilon}<+\infty
+\end{align*}
+である。
+また、イェンセンの不等式より、
+\begin{align*}
+K_X(t) &= \log \expt{\mathrm{e}^{tX}} \ge \expt{\log\mathrm{e}^{tX}} = t\expt{X}\qquad\forall t\in\mathbb{R}
+\end{align*}
+である。
+よって、
+\begin{align*}
+I_X(\expt{X}) &= \sup_{t\in\mathbb{R}} \left\{t\expt{X} - K_X(t)\right\} = 0
+\end{align*}
+である。
+任意の $a > \expt{X}$ と $t<0$ について、
+\begin{align*}
+ta - K_X(t) &\le t\expt{X} - K_X(t) \le 0
+\end{align*}
+であるので、任意の $a > \expt{X}$ について
+\begin{align*}
+I_X(a) &:= \sup_{t \in\mathbb{R}}\left\{at - K_X(t)\right\}
+= \sup_{t\ge 0}\left\{at - K_X(t)\right\}
+\end{align*}
+また、$\sup_{t\ge 0}\left\{at - K_X(t)\right\}$ は $a$ について単調なので、
+任意の $a < \expt{X}$ について
+$\sup_{t\ge 0}\left\{at - K_X(t)\right\} = 0$.
+
+<!--
+$K_X'(0)=\expt{X}$ である。
+よって、
+
+* $a=\expt{X}$のとき、$t_a=0$
+* $a>\expt{X}$ のとき、$t_a>0$
+* $a<\expt{X}$ のとき、$t_a<0$
+
+である。
+このことから、
+\begin{align*}
+\sup_{t \in\mathbb{R}}\left\{at - K_X(t)\right\}
+&=
+\sup_{t >0}\left\{at - K_X(t)\right\}\qquad\text{for } a>\expt{X}\\
+\sup_{t \in\mathbb{R}}\left\{at - K_X(t)\right\}
+&=
+\sup_{t <0}\left\{at - K_X(t)\right\}\qquad\text{for } a<\expt{X}\\
+\end{align*}
+である。
+-->
+:::
+
+## クラメールの定理
+よってチェルノフ上界を最適化することで確率の指数的な上界を得る。
+
+::: {#thm-chernof}
+### 最適化されたチェルノフ上界
+\begin{align*}
+\Pr\left(\frac1N\sum_{i=1}^N X\ge a\right) &\le \mathrm{e}^{-I_X(a)N}\qquad\forall a>\expt{X}\\
+\Pr\left(\frac1N\sum_{i=1}^N X\le a\right) &\le \mathrm{e}^{-I_X(a)N}\qquad\forall a<\expt{X}.
+\end{align*}
+:::
+
+この指数は漸近的に最適である。証明は少し難しいので紹介しない。
+
+::: {#thm-cramer}
+### クラメールの定理
+\begin{align*}
+\lim_{N\to\infty}\frac1N\log \Pr\left(\frac1N\sum_{i=1}^N X\ge a\right) &= -I_X(a)\qquad\forall a>\expt{X}\\
+\lim_{N\to\infty}\frac1N\log \Pr\left(\frac1N\sum_{i=1}^N X\le a\right) &= -I_X(a)\qquad\forall a<\expt{X}.
+\end{align*}
+:::
+
+## 今週の課題
+
+表が出る確率が $1/2$ のコインを $N$ 回投げて $0.6N$ 回以上表が出る確率を $\mathrm{e}^{-cN}$ という形で上から抑えるときの最大の定数 $c>0$ をクラメールの定理を用いてもとめよ。
