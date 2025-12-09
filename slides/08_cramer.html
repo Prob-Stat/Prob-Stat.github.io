@@ -146,6 +146,95 @@
 </div>
 
 </section>
+<section id="二項分布の確率質量関数" class="slide level2">
+<h2>二項分布の確率質量関数</h2>
+<div id="cell-fig-binom-10" class="cell quarto-layout-panel" data-layout-ncol="1" data-execution_count="1">
+<div class="quarto-layout-row">
+<div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-binom-10" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-binom-10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="08_cramer_files/figure-revealjs/fig-binom-10-output-1.png" width="673" height="376">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-binom-10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: 二項分布の確率質量関数
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="二項分布の確率質量関数-1" class="slide level2">
+<h2>二項分布の確率質量関数</h2>
+<div id="cell-fig-binom-100" class="cell quarto-layout-panel" data-layout-ncol="1" data-execution_count="2">
+<div class="quarto-layout-row">
+<div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-binom-100" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-binom-100-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="08_cramer_files/figure-revealjs/fig-binom-100-output-1.png" width="673" height="376">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-binom-100-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: 二項分布の確率質量関数
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="二項分布の確率質量関数-2" class="slide level2">
+<h2>二項分布の確率質量関数</h2>
+<div id="cell-fig-binom-1000" class="cell quarto-layout-panel" data-layout-ncol="1" data-execution_count="3">
+<div class="quarto-layout-row">
+<div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-binom-1000" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-binom-1000-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="08_cramer_files/figure-revealjs/fig-binom-1000-output-1.png" width="681" height="376">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-binom-1000-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: 二項分布の確率質量関数
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="二項分布の確率質量関数-3" class="slide level2">
+<h2>二項分布の確率質量関数</h2>
+<div id="cell-fig-binom-10000" class="cell quarto-layout-panel" data-layout-ncol="1" data-execution_count="4">
+<div class="quarto-layout-row">
+<div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-binom-10000" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-binom-10000-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="08_cramer_files/figure-revealjs/fig-binom-10000-output-1.png" width="681" height="376">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-binom-10000-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: 二項分布の確率質量関数
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="確率変数の和に対するチェルノフ上界" class="slide level2">
+<h2>確率変数の和に対するチェルノフ上界</h2>
+<div id="lem-chrnofsum" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1 (確率変数の和に対するチェルノフ上界)</strong></span> 任意の確率変数 <span class="math inline">\(X\)</span> と <span class="math inline">\(a\in\mathbb{R}\)</span> について、 <span class="math display">\[\begin{align*}
+\Pr\left(\frac1N\sum_{i=1}^N X_i\ge a\right) &amp;\le \mathrm{e}^{-(at-K_X(t))N}\qquad\forall t\ge 0\\
+\Pr\left(\frac1N\sum_{i=1}^N X_i\le a\right) &amp;\le \mathrm{e}^{-(at-K_X(t))N}\qquad\forall t\le 0.
+\end{align*}\]</span></p>
+</div>
+<p>この上界を最小化すると、 <span class="math display">\[\begin{align*}
+\Pr\left(\frac1N\sum_{i=1}^N X_i\ge a\right) &amp;\le \mathrm{e}^{-\sup_{t\ge 0}\{at-K_X(t)\}N}\\
+\Pr\left(\frac1N\sum_{i=1}^N X_i\le a\right) &amp;\le \mathrm{e}^{-\sup_{t\le 0}\{at-K_X(t)\}N}
+\end{align*}\]</span></p>
+</section>
 <section id="キュムラント母関数の存在する範囲" class="slide level2">
 <h2>キュムラント母関数の存在する範囲</h2>
 <p>キュムラント母関数 <span class="math display">\[\begin{align*}
@@ -174,7 +263,9 @@ M_X(s) &amp;= \expt{\mathrm{e}^{sX}}\\
 </section>
 <section id="キュムラント母関数の凸性" class="slide level2">
 <h2>キュムラント母関数の凸性</h2>
-<p>証明はしないが、キュムラント母関数 <span class="math inline">\(K_X(t)\)</span> は <span class="math inline">\(\mathrm{dom}(K_X)\)</span> の<strong>内点で何回でも微分可能であり、無限和や積分を取る前に微分しても構わない</strong>。</p>
+<p><span class="math display">\[\begin{align*}
+K_X(t) &amp;= \log M_X(t) = \log\expt{\mathrm{e}^{tX}}
+\end{align*}\]</span> 証明はしないが、キュムラント母関数 <span class="math inline">\(K_X(t)\)</span> は <span class="math inline">\(\mathrm{dom}(K_X)\)</span> の<strong>内点で何回でも微分可能であり、無限和や積分を取る前に微分しても構わない</strong>。</p>
 <p><span class="math display">\[\begin{align*}
 \frac{\mathrm{d} K_X(t)}{\mathrm{d}t} &amp;= \frac{\expt{X\mathrm{e}^{tX}}}{\expt{\mathrm{e}^{tX}}}\\
 \frac{\mathrm{d}^2 K_X(t)}{\mathrm{d}t^2} &amp;= \frac{\expt{X^2\mathrm{e}^{tX}}\expt{\mathrm{e}^{tX}}-\expt{X\mathrm{e}^{tX}}^2}{\expt{\mathrm{e}^{tX}}^2}\\
@@ -197,12 +288,12 @@ f_{Z_t}(x) &= \frac{f_X(x)\mathrm{e}^{tx}}{\sum_x f_X(x)\mathrm{e}^{tx}}
 </section>
 <section id="キュムラント母関数の性質まとめ" class="slide level2">
 <h2>キュムラント母関数の性質まとめ</h2>
-<p>よって <span class="math inline">\(X\)</span> のキュムラント母関数 <span class="math inline">\(K_X(t)\)</span> が原点付近で存在すると仮定すると、<span class="math inline">\(K_X(t)\)</span> は</p>
+<p>よって <span class="math inline">\(X\)</span> のキュムラント母関数 <span class="math inline">\(K_X(t)\)</span> は</p>
 <ul>
 <li>0を含む区間で定義され、</li>
 <li>原点を通り、</li>
 <li>凸関数で、</li>
-<li>原点の傾きは <span class="math inline">\(\expt{X}\)</span></li>
+<li><span class="math inline">\(K_X(t)\)</span> が原点付近で存在すると仮定すると、原点の傾きは <span class="math inline">\(\expt{X}\)</span></li>
 </ul>
 <p>であることが分かる。</p>
 <div class="callout callout-note callout-titled callout-style-default">
@@ -218,24 +309,11 @@ f_{Z_t}(x) &= \frac{f_X(x)\mathrm{e}^{tx}}{\sum_x f_X(x)\mathrm{e}^{tx}}
 </div>
 </div>
 </div>
-<p>また、キュムラント母関数の簡単な性質として以下が成り立つ。 任意の独立確率変数 <span class="math inline">\(X\)</span> と <span class="math inline">\(Y\)</span> と <span class="math inline">\(a\in\mathbb{R}\)</span> について <span class="math display">\[\begin{align*}
+<p>また、キュムラント母関数の簡単な性質として以下が成り立つ(今回は使わない)。 任意の独立確率変数 <span class="math inline">\(X\)</span> と <span class="math inline">\(Y\)</span> と <span class="math inline">\(a\in\mathbb{R}\)</span> について <span class="math display">\[\begin{align*}
 K_{X+a}(t) &amp;= \log\expt{\mathrm{e}^{t(X+a)}} = \log\left(\expt{\mathrm{e}^{tX}}\cdot \mathrm{e}^{ta}\right) = K_X(t) + at\\%\quad\text{for } t\in\mathrm{dom}(K_X)\\
 K_{aX}(t) &amp;= \log\expt{\mathrm{e}^{t(aX)}} = K_X(at)\\%\qquad\text{if } at\in\mathrm{dom}(K_X)\\
 K_{X+Y}(t) &amp;= \log\expt{\mathrm{e}^{t(X+Y)}} =\log\left(\expt{\mathrm{e}^{tX}}\expt{\mathrm{e}^{tY}}\right) = K_X(t) + K_Y(t).
 %&amp;\hspace{17em}\text{for } t\in\mathrm{dom}(K_X)\cap\mathrm{dom}(K_Y)
-\end{align*}\]</span></p>
-</section>
-<section id="確率変数の和に対するチェルノフ上界" class="slide level2">
-<h2>確率変数の和に対するチェルノフ上界</h2>
-<div id="lem-chrnofsum" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 1 (確率変数の和に対するチェルノフ上界)</strong></span> 任意の確率変数 <span class="math inline">\(X\)</span> と <span class="math inline">\(a\in\mathbb{R}\)</span> について、 <span class="math display">\[\begin{align*}
-\Pr\left(\frac1N\sum_{i=1}^N X_i\ge a\right) &amp;\le \mathrm{e}^{-(at-K_X(t))N}\qquad\forall t\ge 0\\
-\Pr\left(\frac1N\sum_{i=1}^N X_i\le a\right) &amp;\le \mathrm{e}^{-(at-K_X(t))N}\qquad\forall t\le 0.
-\end{align*}\]</span></p>
-</div>
-<p>この上界を最小化すると、 <span class="math display">\[\begin{align*}
-\Pr\left(\frac1N\sum_{i=1}^N X_i\ge a\right) &amp;\le \mathrm{e}^{-\sup_{t\ge 0}\{at-K_X(t)\}N}\\
-\Pr\left(\frac1N\sum_{i=1}^N X_i\le a\right) &amp;\le \mathrm{e}^{-\sup_{t\le 0}\{at-K_X(t)\}N}
 \end{align*}\]</span></p>
 </section>
 <section id="ルジャンドル変換" class="slide level2">
@@ -419,6 +497,39 @@ $K_X'(0)=\expt{X}$ である。
 \lim_{N\to\infty}\frac1N\log \Pr\left(\frac1N\sum_{i=1}^N X\ge a\right) &amp;= -I_X(a)\qquad\forall a&gt;\expt{X}\\
 \lim_{N\to\infty}\frac1N\log \Pr\left(\frac1N\sum_{i=1}^N X\le a\right) &amp;= -I_X(a)\qquad\forall a&lt;\expt{X}.
 \end{align*}\]</span></p>
+</div>
+</section>
+<section id="ベルヌーイ分布" class="slide level2">
+<h2>ベルヌーイ分布</h2>
+<p><span class="math display">\[\begin{align*}
+\Pr(X=0) &amp;= 1-p,&amp;\Pr(X=1)=p
+\end{align*}\]</span> <span class="math display">\[\begin{align*}
+K_X(t) &amp;= \log(p\mathrm{e}^t + (1-p))
+\end{align*}\]</span> <span class="math display">\[\begin{align*}
+I_X(a) &amp;= \sup_{t\in\mathbb{R}} \left\{ at - \log(p\mathrm{e}^t+(1-p))\right\}
+\end{align*}\]</span> <span class="math display">\[\begin{align*}
+a - \frac{p\mathrm{e}^{t_a}}{p\mathrm{e}^{t_a}+1-p} = 0
+\iff \mathrm{e}^{t_a} = \frac{a(1-p)}{p(1-a)}
+\end{align*}\]</span> <span class="math display">\[\begin{align*}
+I_X(a) &amp;= a\log\frac{a(1-p)}{p(1-a)} - \log\left(\frac{a(1-p)}{1-a} + (1-p)\right)\\
+%&amp;= (a-1)\log\frac{1-p}{1-a} + a\log\frac{a}{p}
+&amp;= a\log\frac{a}{p} + (1-a)\log\frac{1-a}{1-p} \qquad\text{for } a\in(0,1)
+\end{align*}\]</span> <span class="math display">\[\begin{align*}
+I_X(0) &amp;= -\log(1-p)\\
+I_X(1) &amp;= -\log p\\
+I_X(a) &amp;= +\infty\qquad\text{for } a \notin[0,1]
+\end{align*}\]</span></p>
+</section>
+<section id="ベルヌーイ分布-1" class="slide level2">
+<h2>ベルヌーイ分布</h2>
+<div id="22bc2f97" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="08_cramer_files/figure-revealjs/cell-6-output-1.png" width="950" height="374"></p>
+</figure>
+</div>
+</div>
 </div>
 </section>
 <section id="今週の課題" class="slide level2">
