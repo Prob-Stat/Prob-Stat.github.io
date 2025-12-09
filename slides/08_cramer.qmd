@@ -12,6 +12,153 @@ css: slides.css
 ---
 
 
+## 二項分布の確率質量関数
+```{python}
+#| layout-ncol: 1
+#| label: fig-binom-10
+#| fig-cap:
+#|  - "二項分布の確率質量関数"
+
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.stats import binom
+
+# パラメータの設定
+n = 10       # 試行回数
+p = 0.3      # 成功確率
+
+# 取りうる値の範囲
+x = np.arange(0, n+1)
+
+# 二項分布のPMFの計算
+pmf = binom.pmf(x, n, p)
+cdf = binom.cdf(x, n, p)
+
+# プロット
+plt.figure(figsize=(8, 4))
+plt.bar(x, pmf, width=0.9, tick_label=x)
+plt.title(f'PMF of binomial distribution with n={n}, p={p}')
+plt.xticks(np.arange(0, n+1, n//10))
+plt.xlabel('$k$')
+plt.ylabel('$\\Pr(X=k)$')
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.show()
+```
+
+## 二項分布の確率質量関数
+```{python}
+#| layout-ncol: 1
+#| label: fig-binom-100
+#| fig-cap:
+#|  - "二項分布の確率質量関数"
+
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.stats import binom
+
+# パラメータの設定
+n = 100       # 試行回数
+p = 0.3      # 成功確率
+
+# 取りうる値の範囲
+x = np.arange(0, n+1)
+
+# 二項分布のPMFの計算
+pmf = binom.pmf(x, n, p)
+cdf = binom.cdf(x, n, p)
+
+# プロット
+plt.figure(figsize=(8, 4))
+plt.bar(x, pmf, width=0.9, tick_label=x)
+plt.title(f'PMF of binomial distribution with n={n}, p={p}')
+plt.xticks(np.arange(0, n+1, n//10))
+plt.xlabel('$k$')
+plt.ylabel('$\\Pr(X=k)$')
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.show()
+```
+
+## 二項分布の確率質量関数
+```{python}
+#| layout-ncol: 1
+#| label: fig-binom-1000
+#| fig-cap:
+#|  - "二項分布の確率質量関数"
+
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.stats import binom
+
+# パラメータの設定
+n = 1000       # 試行回数
+p = 0.3      # 成功確率
+
+# 取りうる値の範囲
+x = np.arange(0, n+1)
+
+# 二項分布のPMFの計算
+pmf = binom.pmf(x, n, p)
+cdf = binom.cdf(x, n, p)
+
+# プロット
+plt.figure(figsize=(8, 4))
+plt.bar(x, pmf, width=1.0, tick_label=x)
+plt.title(f'PMF of binomial distribution with n={n}, p={p}')
+plt.xticks(np.arange(0, n+1, n//10))
+plt.xlabel('$k$')
+plt.ylabel('$\\Pr(X=k)$')
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.show()
+```
+
+## 二項分布の確率質量関数
+```{python}
+#| layout-ncol: 1
+#| label: fig-binom-10000
+#| fig-cap:
+#|  - "二項分布の確率質量関数"
+
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.stats import binom
+
+# パラメータの設定
+n = 10000       # 試行回数
+p = 0.3      # 成功確率
+
+# 取りうる値の範囲
+x = np.arange(0, n+1)
+
+# 二項分布のPMFの計算
+pmf = binom.pmf(x, n, p)
+cdf = binom.cdf(x, n, p)
+
+# プロット
+plt.figure(figsize=(8, 4))
+plt.bar(x, pmf, width=1.0, tick_label=x)
+plt.title(f'PMF of binomial distribution with n={n}, p={p}')
+plt.xticks(np.arange(0, n+1, n//10))
+plt.xlabel('$k$')
+plt.ylabel('$\\Pr(X=k)$')
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.show()
+```
+
+## 確率変数の和に対するチェルノフ上界
+
+::: {#lem-chrnofsum}
+### 確率変数の和に対するチェルノフ上界
+任意の確率変数 $X$ と $a\in\mathbb{R}$ について、
+\begin{align*}
+\Pr\left(\frac1N\sum_{i=1}^N X_i\ge a\right) &\le \mathrm{e}^{-(at-K_X(t))N}\qquad\forall t\ge 0\\
+\Pr\left(\frac1N\sum_{i=1}^N X_i\le a\right) &\le \mathrm{e}^{-(at-K_X(t))N}\qquad\forall t\le 0.
+\end{align*}
+:::
+この上界を最小化すると、
+\begin{align*}
+\Pr\left(\frac1N\sum_{i=1}^N X_i\ge a\right) &\le \mathrm{e}^{-\sup_{t\ge 0}\{at-K_X(t)\}N}\\
+\Pr\left(\frac1N\sum_{i=1}^N X_i\le a\right) &\le \mathrm{e}^{-\sup_{t\le 0}\{at-K_X(t)\}N}
+\end{align*}
 
 ## キュムラント母関数の存在する範囲
 キュムラント母関数
@@ -57,6 +204,9 @@ M_X(s) &= \expt{\mathrm{e}^{sX}}\\
 
 ## キュムラント母関数の凸性
 
+\begin{align*}
+K_X(t) &= \log M_X(t) = \log\expt{\mathrm{e}^{tX}}
+\end{align*}
 証明はしないが、キュムラント母関数 $K_X(t)$ は $\mathrm{dom}(K_X)$ の**内点で何回でも微分可能であり、無限和や積分を取る前に微分しても構わない**。
 
 \begin{align*}
@@ -82,12 +232,12 @@ f_{Z_t}(x) &= \frac{f_X(x)\mathrm{e}^{tx}}{\sum_x f_X(x)\mathrm{e}^{tx}}
 
 ## キュムラント母関数の性質まとめ
 
-よって $X$ のキュムラント母関数 $K_X(t)$ が原点付近で存在すると仮定すると、$K_X(t)$ は
+よって $X$ のキュムラント母関数 $K_X(t)$ は
 
 * 0を含む区間で定義され、
 * 原点を通り、
 * 凸関数で、
-* 原点の傾きは $\expt{X}$ 
+* $K_X(t)$ が原点付近で存在すると仮定すると、原点の傾きは $\expt{X}$ 
 
 であることが分かる。
 
@@ -96,7 +246,7 @@ f_{Z_t}(x) &= \frac{f_X(x)\mathrm{e}^{tx}}{\sum_x f_X(x)\mathrm{e}^{tx}}
 キュムラント母関数は下半連続の凸関数である。
 :::
 
-また、キュムラント母関数の簡単な性質として以下が成り立つ。
+また、キュムラント母関数の簡単な性質として以下が成り立つ(今回は使わない)。
 任意の独立確率変数 $X$ と $Y$ と $a\in\mathbb{R}$ について
 \begin{align*}
 K_{X+a}(t) &= \log\expt{\mathrm{e}^{t(X+a)}} = \log\left(\expt{\mathrm{e}^{tX}}\cdot \mathrm{e}^{ta}\right) = K_X(t) + at\\%\quad\text{for } t\in\mathrm{dom}(K_X)\\
@@ -105,21 +255,6 @@ K_{X+Y}(t) &= \log\expt{\mathrm{e}^{t(X+Y)}} =\log\left(\expt{\mathrm{e}^{tX}}\e
 %&\hspace{17em}\text{for } t\in\mathrm{dom}(K_X)\cap\mathrm{dom}(K_Y)
 \end{align*}
 
-## 確率変数の和に対するチェルノフ上界
-
-::: {#lem-chrnofsum}
-### 確率変数の和に対するチェルノフ上界
-任意の確率変数 $X$ と $a\in\mathbb{R}$ について、
-\begin{align*}
-\Pr\left(\frac1N\sum_{i=1}^N X_i\ge a\right) &\le \mathrm{e}^{-(at-K_X(t))N}\qquad\forall t\ge 0\\
-\Pr\left(\frac1N\sum_{i=1}^N X_i\le a\right) &\le \mathrm{e}^{-(at-K_X(t))N}\qquad\forall t\le 0.
-\end{align*}
-:::
-この上界を最小化すると、
-\begin{align*}
-\Pr\left(\frac1N\sum_{i=1}^N X_i\ge a\right) &\le \mathrm{e}^{-\sup_{t\ge 0}\{at-K_X(t)\}N}\\
-\Pr\left(\frac1N\sum_{i=1}^N X_i\le a\right) &\le \mathrm{e}^{-\sup_{t\le 0}\{at-K_X(t)\}N}
-\end{align*}
 
 
 ## ルジャンドル変換
@@ -339,6 +474,75 @@ $K_X'(0)=\expt{X}$ である。
 \lim_{N\to\infty}\frac1N\log \Pr\left(\frac1N\sum_{i=1}^N X\le a\right) &= -I_X(a)\qquad\forall a<\expt{X}.
 \end{align*}
 :::
+
+## ベルヌーイ分布
+\begin{align*}
+\Pr(X=0) &= 1-p,&\Pr(X=1)=p
+\end{align*}
+\begin{align*}
+K_X(t) &= \log(p\mathrm{e}^t + (1-p))
+\end{align*}
+\begin{align*}
+I_X(a) &= \sup_{t\in\mathbb{R}} \left\{ at - \log(p\mathrm{e}^t+(1-p))\right\}
+\end{align*}
+\begin{align*}
+a - \frac{p\mathrm{e}^{t_a}}{p\mathrm{e}^{t_a}+1-p} = 0
+\iff \mathrm{e}^{t_a} = \frac{a(1-p)}{p(1-a)}
+\end{align*}
+\begin{align*}
+I_X(a) &= a\log\frac{a(1-p)}{p(1-a)} - \log\left(\frac{a(1-p)}{1-a} + (1-p)\right)\\
+ %&= (a-1)\log\frac{1-p}{1-a} + a\log\frac{a}{p}
+ &= a\log\frac{a}{p} + (1-a)\log\frac{1-a}{1-p} \qquad\text{for } a\in(0,1)
+\end{align*}
+\begin{align*}
+I_X(0) &= -\log(1-p)\\
+I_X(1) &= -\log p\\
+I_X(a) &= +\infty\qquad\text{for } a \notin[0,1]
+\end{align*}
+
+## ベルヌーイ分布
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# パラメータ（必要に応じて変えてください）
+p = 0.3
+
+# キュムラント母関数 K(t) = log(1 - p + p e^t)
+def K(t):
+    return np.log(1 - p + p * np.exp(t))
+
+# ルジャンドル変換 K*(x)
+# K*(x) = x log(x/p) + (1-x) log((1-x)/(1-p))   (0 < x < 1)
+def K_star(x):
+    return x * np.log(x / p) + (1 - x) * np.log((1 - x) / (1 - p))
+
+# t, x の範囲を取る
+t = np.linspace(-4, 4, 400)
+# 端点 0,1 は log が発散するので少しだけ内側を取る
+x = np.linspace(1e-4, 1 - 1e-4, 400)
+
+fig, axes = plt.subplots(1, 2, figsize=(10, 4))
+
+# ---- 左：キュムラント母関数 K(t) ----
+axes[0].plot(t, K(t))
+axes[0].set_xlabel("t")
+axes[0].set_ylabel("K(t)")
+axes[0].set_title(f"K(t) = log(1 - p + p e^t),  p={p}")
+axes[0].grid(True)
+
+# ---- 右：ルジャンドル変換 K*(x) ----
+axes[1].plot(x, K_star(x))
+axes[1].set_xlabel("x")
+axes[1].set_ylabel("K*(x)")
+axes[1].set_title("Legendre transform K*(x)")
+axes[1].set_xlim(0, 1)
+axes[1].grid(True)
+
+plt.tight_layout()
+plt.show()
+```
 
 ## 今週の課題
 
