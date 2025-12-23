@@ -35,6 +35,9 @@ jobs:
         run: echo "$(pwd)/.venv/bin" >> $GITHUB_PATH
         shell: bash
 
+      - name: Install Chromium for diagram rendering (pdf/docx)
+        run: quarto install chromium
+
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
