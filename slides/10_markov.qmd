@@ -341,7 +341,7 @@ Tv &=  v
 グラフの連結成分 $C\subseteq V$ を固定する。
 そして、
 \begin{align*}
-i &= \arg\max_{j\in C} v_j
+i &\in \arg\max_{j\in C} v_j
 \end{align*}
 とおく。
 このとき、
