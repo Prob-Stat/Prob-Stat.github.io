@@ -921,14 +921,14 @@
     "href": "slides/10_markov.html#時刻-t-の確率分布",
     "title": "確率論",
     "section": "時刻 \\(t\\) の確率分布",
-    "text": "時刻 \\(t\\) の確率分布\n初期状態ベクトル \\(\\pi\\) と遷移行列 \\(T\\) が与えられているとき、\\(X_1\\) の確率は \\[\\begin{align*}\n\\Pr(X_1=j) &= \\sum_{i\\in S} \\Pr(X_0=i) \\Pr(X_1=j\\mid X_0=i)\\\\\n&=\\sum_{i\\in S} \\pi_i\\, p_{i, j}\\\\\n&=(\\pi T)_j\n\\end{align*}\\] と表せる。よって、 \\[\\begin{align*}\n\\Pr(X_t=j) &= (\\pi T^t)_j\n\\end{align*}\\] である。\n任意の遷移行列 \\(T\\) とすべて1の列ベクトル \\(\\mathrm{1}\\in\\mathbb{R}^{|S|}\\) について、 \\[\\begin{align*}\nT \\mathrm{1} = \\mathrm{1}\n\\end{align*}\\] である。  よって \\(I-T\\) は正則ではないので固有値1を持ち、対応する左固有ベクトル \\(\\mu\\) を持つ。 つまり、 \\[\\begin{align*}\n\\mu T = \\mu\n\\end{align*}\\] を満たす非零行ベクトル \\(\\mu\\) が存在する。 非負で和が1の行ベクトル \\(\\mu\\) で \\(\\mu T = \\mu\\) を満たすものを定常確率ベクトルもしくは定常分布という。 現時点では定常確率ベクトルの存在は明らかではないが、任意の遷移行列 \\(T\\) について定常確率ベクトルが存在する。"
+    "text": "時刻 \\(t\\) の確率分布\n初期状態ベクトル \\(\\pi\\) と遷移行列 \\(T\\) が与えられているとき、\\(X_1\\) の確率は \\[\\begin{align*}\n\\Pr(X_1=j) &= \\sum_{i\\in S} \\Pr(X_0=i) \\Pr(X_1=j\\mid X_0=i)\\\\\n&=\\sum_{i\\in S} \\pi_i\\, p_{i, j}\\\\\n&=(\\pi T)_j\n\\end{align*}\\] と表せる。よって、 \\[\\begin{align*}\n\\Pr(X_t=j) &= (\\pi T^t)_j\n\\end{align*}\\] である。\n任意の遷移行列 \\(T\\) とすべて1の列ベクトル \\(\\mathrm{1}\\in\\mathbb{R}^{|S|}\\) について、 \\[\\begin{align*}\nT \\mathrm{1} = \\mathrm{1}\n\\end{align*}\\] である。  よって \\(I-T\\) は正則ではないので固有値1を持ち、対応する左固有ベクトル \\(\\mu\\) を持つ。 つまり、 \\[\\begin{align*}\n\\mu T = \\mu\n\\end{align*}\\] を満たす非零行ベクトル \\(\\mu\\) が存在する。 非負で成分の和が1の行ベクトル \\(\\mu\\) で \\(\\mu T = \\mu\\) を満たすものを定常確率ベクトルもしくは定常分布という。 現時点では定常確率ベクトルの存在は明らかではないが、任意の遷移行列 \\(T\\) について定常確率ベクトルが存在する。"
   },
   {
     "objectID": "slides/10_markov.html#天気のマルコフ連鎖の定常確率ベクトル",
     "href": "slides/10_markov.html#天気のマルコフ連鎖の定常確率ベクトル",
     "title": "確率論",
     "section": "天気のマルコフ連鎖の定常確率ベクトル",
-    "text": "天気のマルコフ連鎖の定常確率ベクトル\n\\[\\begin{align*}\nT&=\n\\begin{bmatrix}\n1/2&1/3&1/6\\\\\n1/4&1/2&1/4\\\\\n1/3&1/3&1/3\n\\end{bmatrix}\n\\end{align*}\\] のとき、 \\[\\begin{align*}\nI-T&=\n\\begin{bmatrix}\n1/2&-1/3&-1/6\\\\\n-1/4&1/2&-1/4\\\\\n-1/3&-1/3&2/3\n\\end{bmatrix}\n\\end{align*}\\] の左カーネルとして \\[\\begin{align*}\n\\mu&=\n\\frac1{25}\\begin{bmatrix}\n9&10&6\n\\end{bmatrix}\n\\end{align*}\\] が取れる。これは非負で和が1なので、定常確率ベクトルである。 \\(I-T\\) のランクは2であり、これが唯一の定常確率ベクトルである。\n一方でこの例の \\(T\\) は対角化不可能である。"
+    "text": "天気のマルコフ連鎖の定常確率ベクトル\n\\[\\begin{align*}\nT&=\n\\begin{bmatrix}\n1/2&1/3&1/6\\\\\n1/4&1/2&1/4\\\\\n1/3&1/3&1/3\n\\end{bmatrix}\n\\end{align*}\\] のとき、 \\[\\begin{align*}\nI-T&=\n\\begin{bmatrix}\n1/2&-1/3&-1/6\\\\\n-1/4&1/2&-1/4\\\\\n-1/3&-1/3&2/3\n\\end{bmatrix}\n\\end{align*}\\] の左カーネルとして \\[\\begin{align*}\n\\mu&=\n\\frac1{25}\\begin{bmatrix}\n9&10&6\n\\end{bmatrix}\n\\end{align*}\\] が取れる。これは非負で成分の和が1なので、定常確率ベクトルである。 \\(I-T\\) のランクは2であり、これが唯一の定常確率ベクトルである。\n一方でこの例の \\(T\\) は対角化不可能である。"
   },
   {
     "objectID": "slides/10_markov.html#確率行列の固有値",
