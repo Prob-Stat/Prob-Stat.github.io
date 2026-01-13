@@ -160,13 +160,14 @@ $V$ の元を**頂点**、$E$ の元を**辺(有向辺)**と呼ぶ。
 ```{dot}
 //| fig-width: 7
 //| fig-height: 3
-//| fig-cap: 有向グラフ $G=(V=\{1,2,3,4,5\},\, E=\{(1,2),\,(2,3),\,(2,5),\,(3,1),\,(3,4),\,(4,2),\,(5,1)\})$
+//| fig-cap: 有向グラフ $G=(V=\{1,2,3,4,5\},\, E=\{(1,2),\,(2,3),(2,4),\,(2,5),\,(3,1),\,(3,4),\,(4,2),\,(4,4),\,(5,1)\})$
 digraph irreduc_graph {
   graph [rankdir=LR];
   node [shape=circle, width=0.1, fontsize=20];
 
   1 -> 2;
   2 -> 3;
+  2 -> 4;
   3 -> 1;
 
   3 -> 4;
@@ -258,6 +259,7 @@ digraph irreduc_graph {
 
   1 -> 2;
   2 -> 3;
+  2 -> 4;
   3 -> 1;
 
   3 -> 4;
@@ -270,7 +272,8 @@ digraph irreduc_graph {
 
 ## 既約なマルコフ連鎖
 ::: {#lem-irred}
-既約なマルコフ連鎖について $\mathrm{Ker}(I-T)=\mathrm{span}(1)$ である。
+既約なマルコフ連鎖について $\mathrm{Ker}(I-T)=\mathrm{span}(\mathbf{1})$ である。
+ここで$\mathbf{1}$はすべての成分が1の列ベクトルとする。
 :::
 ::: {.proof}
 列ベクトル $v\in\mathbb{R}^n$ を
@@ -292,11 +295,11 @@ v_j &= v_i\qquad\text{if } (i, j)\in E
 \end{align*}
 である。
 この議論を繰り返すと $i\le_T j$ である $j$ について $v_j=v_i$ である。
-マルコフ連鎖が既約であることから、任意の $j\in S$ について $i\le j$ であり、$v = v_i 1$ である。
-したがって、$\mathrm{Ker}(I-T)=\mathrm{span}(1)$ である。
+マルコフ連鎖が既約であることから、任意の $j\in S$ について $i\le_T j$ であり、$v = v_i \mathbf{1}$ である。
+したがって、$\mathrm{Ker}(I-T)=\mathrm{span}(\mathbf{1})$ である。
 :::
 
-よって既約なマルコフ連鎖に対して定常分布は高々一つである。
+よって**既約なマルコフ連鎖に対して定常分布は高々一つ**である。
 実際には既約なマルコフ連鎖は一つの定常分布を持つ。
 
 ## 既約なマルコフ連鎖の定常分布
@@ -316,7 +319,7 @@ v_j &= v_i\qquad\text{if } (i, j)\in E
 \mathrm{adj}(\Lambda)\Lambda &= \Lambda\,\mathrm{adj}(\Lambda) = O
 \end{align*}
 である。
-まず、$\Lambda\,\mathrm{adj}(\Lambda)=O$ と @lem-irred より $\mathrm{adj}(\Lambda)$ の各列は $1$ のスカラー倍である。よって、$\mathrm{adj}(\Lambda)$ の行はすべて等しい。
+まず、$\Lambda\,\mathrm{adj}(\Lambda)=O$ と @lem-irred より $\mathrm{adj}(\Lambda)$ の各列は $\mathbf{1}$ のスカラー倍である。よって、$\mathrm{adj}(\Lambda)$ の行はすべて等しい。
 次に、$\mathrm{adj}(\Lambda)\Lambda=O$ より、$\mathrm{adj}(\Lambda)$ の行 $\mu\in\mathbb{R}^n$ は $\mu\Lambda=0$ を満たす。
 ここで、$\mathrm{adj}(\Lambda)$ の行がすべて等しいことから
 \begin{align*}
@@ -381,7 +384,7 @@ T^{(i)}v &= \lambda v
 \end{align*}
 が成り立つ。
 $v$ の絶対値最大の成分のインデックスを $j\in S\setminus\{i\}$ とおく。
-マルコフ連鎖が既約であることから、その遷移グラフ上で $j$ から $i$ へのウォークが存在する。
+マルコフ連鎖が**既約**であることから、その遷移グラフ上で $j$ から $i$ へのウォークが存在する。
 そのウォークの長さを $\ell\in\mathbb{Z}_{\ge 1}$ とおく。
 このとき、$S\coloneqq T^{(i)\ell}$ とおくと、
 \begin{align*}
@@ -402,6 +405,107 @@ S v &= \lambda^\ell v
 \end{align*}
 である。$|v_j|>0$ より、$|\lambda|<1$ である。
 したがって、$\rho(T^{(i)}) < 1$ であることが示された。
+
+## 一般のマルコフ連鎖の定常分布
+
+次に既約とは限らない一般のマルコフ連鎖について考える。
+マルコフ連鎖の状態集合 $S$ を同値関係 $\sim_T$ で割った同値類 $S/\sim_T$ を考える。
+そして、その同値類の遷移グラフを考える。
+
+:::{#def-digraph-equiv}
+### 同値類の遷移グラフ
+有向グラフ $G=(V,\,E)$ が状態集合 $S$ 上のマルコフ連鎖の遷移行列 $T$ の**遷移グラフ** $\defiff$
+\begin{align*}
+V&= S/\sim_T\\
+E&=\left\{(A,B)\in V\times V\mid \exists a\in A, b\in B\quad T_{a,b}>0,\,A\ne B\right\}.
+\end{align*}
+:::
+
+マルコフ連鎖の遷移グラフから同値類の遷移グラフは定まる。
+
+:::{#def-digraph-scc}
+### 強連結成分と縮約グラフ
+
+有向グラフ $G=(V,E)$ について、$V$ 上の同値関係を $u\sim v\defiff \text{$u$ と $v$ の間に両方向のパスがある}$と定義す
+る。
+この同値関係の同値類を $G$ の**強連結成分**と呼ぶ。
+
+$G$ の強連結成分を頂点に持つ**縮約グラフ** $G'=(V',E')$ を
+\begin{align*}
+V'&=V/\sim\\
+E'&=\left\{(A,B)\in V'\times V'\mid \exists a\in A, \exists b\in B, (a,b)\in E, A\ne B\right\}
+\end{align*}
+と定義する。
+:::
+
+## 縮約グラフの例
+
+```{dot}
+//| fig-width: 7
+//| fig-height: 3
+//| fig-cap: 有向グラフの例。強連結ではない。
+digraph tgraph {
+  graph [rankdir=LR];
+  node [shape=circle, width=0.1, fontsize=20];
+
+  1 -> 2;
+  2 -> 3;
+  3 -> 1;
+
+  2 -> 4;
+  2 -> 5;
+  5 -> 6;
+  6 -> 5;
+  4 -> 7;
+  6 -> 7;
+  1 -> 7;
+  7 -> 7;
+}
+```
+```{dot}
+//| fig-width: 7
+//| fig-height: 3
+//| fig-cap: 上の図の有向グラフの縮約グラフ。
+digraph tgraph_equiv {
+  rankdir=LR;
+  node [shape=circle, width=0.6, margin="0.01", fixedsize=true, fontsize=10];
+
+  a [label="{1, 2, 3}"]
+  b [label="{4}"]
+  c [label="{5, 6}"]
+  d [label="{7}"]
+
+  a -> b;
+  a -> d;
+  a -> c;
+  b -> d;
+  c -> d;
+}
+```
+
+## 再帰的な状態と一般のマルコフ連鎖の定常分布
+
+DAG(サイクルを持たない有向グラフ)の頂点で出次数(外に出ていく有向辺の個数)が0のものをシンクという。
+(有限サイズの)DAGは必ずシンクを一つ以上持つ。
+一般のマルコフ連鎖の定常分布について、その同値類の遷移グラフを用いて考察する。
+マルコフ連鎖の同値類の遷移グラフにおいてシンクに対応する同値類やそれに含まれる状態を**再帰的**であるという。
+
+:::{#lem-stat-trans}
+マルコフ連鎖の定常分布を $\mu\in\mathbb{R}^n$ とすると、再帰的でない状態 $s\in S$ について $\mu(s)=0$ である。
+:::
+:::{.proof}
+(証明の概要)
+再帰的でない状態 $s$ が正の確率 $\mu(s)>0$ を持つ定常分布が存在すると仮定する。
+状態 $s$ から何らかの再帰的な状態 $t$ へ正の確率で遷移する。よってマルコフ連鎖を進めることで、 $t$ が属する同値類の確率の総和が増加する。
+定常分布はマルコフ連鎖の遷移で変化しない分布であるので、これは矛盾である。
+:::
+
+よって、一般的なマルコフ連鎖の定常分布を考える上では再帰的でない状態は存在しないものとして考えることができる。
+再帰的な同値類は互いに遷移できない。また、再帰的な同値類それぞれに唯一の定常分布が存在する。
+そして、それらの凸結合(確率混合)もまた定常分布である。
+これらですべての定常状態を表すことができる。
+これがマルコフ連鎖の定常分布の一般論である。
+
 
 ## 今週の課題
 
