@@ -14,3 +14,4 @@ title: "Slides"
 1. [クラメールの定理](slides/08_cramer.qmd){target="_blank"}
 1. [中心極限定理](slides/09_clt.qmd){target="_blank"}
 1. [マルコフ連鎖](slides/10_markov.qmd){target="_blank"}
+1. [定常分布](slides/11_stationary.qmd){target="_blank"}
