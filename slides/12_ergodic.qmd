@@ -1,0 +1,330 @@
+---
+title: "確率論"
+subtitle: "エルゴード性"
+author: "森 立平"
+format:
+  revealjs:
+    slide-number: true
+    smaller: true
+    html-math-method: mathjax
+    include-in-header: macros.qmd
+css: slides.css
+---
+
+## 定常分布への収束
+
+マルコフ連鎖が推移行列 $T$ を持つとする。
+ある確率ベクトル $\mu\in\mathbb{R}_{\ge 0}^S$ が存在して、任意の確率ベクトル $\pi\in\mathbb{R}_{\ge0}^S$ について、
+\begin{align*}
+\lim_{t\to\infty} \pi T^t &= \mu
+\end{align*}
+が成り立つ条件について考えよう。
+このとき、
+\begin{align*}
+\mu &= \lim_{t\to\infty} \pi T^{t}\\
+&= \lim_{t\to\infty} \pi T^{t-1}T\\
+&= \mu T
+\end{align*}
+より、収束先である $\mu$ は定常分布である。
+初期分布が定常分布のとき、収束先は初期状態そのものである。
+そのため、「初期分布によらない極限分布に収束 $\implies$ 定常分布は唯一」が成り立つ。
+しかし、その逆は成り立たない。
+
+```{dot}
+//| fig-width: 7
+//| fig-height: 2
+//| fig-cap: 既約なので定常分布が唯一(一様分布)だが、周期的で定常分布に収束しない
+digraph irreduc_graph {
+  graph [rankdir=LR];
+  node [shape=circle, width=0.1, fontsize=20];
+
+  1 -> 2;
+  2 -> 3;
+  3 -> 4;
+  4 -> 1;
+}
+```
+
+
+
+## $L_1$ ノルム
+
+行ベクトル $v\in\mathbb{R}^S$ について
+
+\begin{align*}
+\|v\|_1 &\coloneqq \sum_{i\in S} |v_i|
+\end{align*}
+と定義する。
+確率ベクトル $\pi,\mu\in\mathbb{R}^S$ について
+\begin{align*}
+\frac12\|\pi-\mu\|_1
+\end{align*}
+は確率分布 $\pi$ と $\mu$ の全変動距離となる。
+
+一般に確率ベクトルとは限らないベクトル $\rho\in\mathbb{R}^S$ と確率行列 $T$ について
+\begin{align*}
+\|\rho T\|_1 &= \sum_{i\in S} \left|(\rho T)_i\right|\\
+&= \sum_{i\in S} \left|\sum_{j\in S}\rho_j T_{j,i}\right|\\
+&\le \sum_{i\in S} \sum_{j\in S}\left|\rho_j\right| T_{j,i}\\
+&= \sum_{j\in S}\left|\rho_j\right| \sum_{i\in S} T_{j,i}\\
+&= \sum_{j\in S}\left|\rho_j\right| = \|\rho\|_1.
+\end{align*}
+
+## 指数関数的な収束 1/3
+
+:::{#thm-doeblin}
+### Doeblin の定理
+推移行列 $T$ を持つマルコフ連鎖について、ある $i_0\in S$ と $\epsilon>0$ が存在して、 任意の $j\in S$ について $T_{j, i_0} \ge \epsilon$ と仮定する。
+このとき、唯一の定常分布 $\mu\in\mathbb{R}^S$ が存在し、任意の確率ベクトル $\pi\in\mathbb{R}^S$ について
+\begin{align*}
+\|\pi T^n-\mu\|_1\le (1-\epsilon)^n\|\pi-\mu\|_1\le 2(1-\epsilon)^n\qquad \forall n\ge 0.
+\end{align*}
+:::
+::: {.proof}
+<!--
+定理の条件を満たす状態 $i_0$ を含む同値類を $A\subseteq S$ とおく。
+同値類 $A$ は再帰的である(他の同値類の遷移しない)ので、$A$ に限定したマルコフ連鎖を考えることができる。
+このマルコフ連鎖は既約であるので、唯一の定常分布を持つ。
+この $A$ 上の定常分布は元の $S$ 上のマルコフ連鎖の定常分布にもなる。
+よって、このマルコフ連鎖は定常分布を持つ。
+-->
+
+任意の(有限状態)マルコフ連鎖は定常分布を持つので、このマルコフ連鎖は定常分布 $\mu\in\mathbb{R}^S$ を持つ。
+
+推移行列 $T$ が定理の条件を満たすとする。
+まず最初にベクトル $\rho\in\mathbb{R}^S$ について、
+\begin{align*}
+\sum_{i\in S} \rho_i = 0 &\implies \|\rho T\|_1 \le (1-\epsilon)\|\rho\|_1
+\end{align*}
+を示す。
+任意の $\sum_{i\in S}\rho_i = 0$ を満たす $\rho\in\mathbb{R}^S$ と任意の $j\in S$ について
+\begin{align*}
+|(\rho T)_j| &= \left|\sum_{k\in S} \rho_k T_{k,j}\right|\\
+&= \left|\sum_{k\in S} \rho_{k} (T_{k,j}-\epsilon\delta_{j,i_0})\right|\\
+&\le \sum_{k\in S} \left|\rho_k\right| (T_{k,j}-\epsilon\delta_{j,i_0})\\
+\end{align*}
+が成り立つ。
+:::
+
+## 指数関数的な収束 2/3
+よって
+\begin{align*}
+\|\rho T\|_1 &= \sum_{j\in S} |(\rho T)_j|\\
+&\le \sum_{j\in S}\sum_{k\in S} \left|\rho_k\right| (T_{k,j}-\epsilon\delta_{j,i_0})\\
+&= \sum_{k\in S} \left|\rho_k\right|\sum_{j\in S} (T_{k,j}-\epsilon\delta_{j,i_0})\\
+&= \sum_{k\in S} \left|\rho_k\right|(1 - \epsilon)\\
+&= (1-\epsilon)\|\rho\|_1.
+\end{align*}
+よって
+\begin{align*}
+\|\pi T^n-\mu\|_1 &= \|(\pi-\mu)T^n\|_1\\
+&\le (1-\epsilon)\|(\pi-\mu)T^{n-1}\|_1\\
+&\le (1-\epsilon)^n\|\pi-\mu\|_1\le 2(1-\epsilon)^n\qquad \forall n\ge 0.
+\end{align*}
+
+## 指数関数的な収束 3/3
+@thm-doeblin の条件は厳しいので、直接は使いづらい。
+しかし、簡単な考察によりこの条件を弱めることができる。
+
+:::{#lem-limit}
+推移行列 $T$ を持つマルコフ連鎖について、ある $M\ge 1$ と $\epsilon>0$ が存在して、
+\begin{align*}
+\max_{j\in S}\min_{i\in S} (T^M)_{i,j}\ge \epsilon
+\end{align*}
+を満たすと仮定する。
+このとき、唯一の定常分布 $\mu\in\mathbb{R}^S$ が存在し、任意の確率ベクトル $\pi\in\mathbb{R}^S$ について
+\begin{align*}
+\|\pi T^n-\mu\|_1\le (1-\epsilon)^{\lfloor n/M\rfloor}\|\pi-\mu\|_1\le 2(1-\epsilon)^{\lfloor n/M\rfloor}\qquad \forall n\ge 0.
+\end{align*}
+:::
+:::{.proof}
+推移行列 $T$ が補題の条件を満たすとする。
+任意の $n\ge 0$ について、$M$ で割った商と余りを $q\in\mathbb{Z}_{\ge 0}$ と $r\in\{0,1,\dotsc,M-1\}$ とし、  $n = qM + r$ を満たすものとする。
+このとき、
+\begin{align*}
+\|\pi T^n-\mu\|_1 &= \|\pi T^{qM+r}-\mu\|_1\\
+&= \left\|\left(\pi T^{qM}-\mu\right)T^r\right\|_1\\
+&\le \left\|\pi T^{qM}-\mu\right\|_1\\
+&= \|\pi (T^{M})^q-\mu\|_1\\
+&\le (1-\epsilon)^{q}\|\pi -\mu\|_1\le 2(1-\epsilon)^{\lfloor n/M\rfloor}\qquad \forall n\ge 0.
+\end{align*}
+:::
+
+## 最大公約数の単位元
+$a,b,c\in\mathbb{Z}_{\ge 1}$ について
+\begin{align*}
+\mathrm{gcd}(\mathrm{gcd}(a,b), c) =
+\mathrm{gcd}(a,\mathrm{gcd}(b,c))
+\end{align*}
+より、$\mathrm{gcd}$ は二項演算として結合法則を満たす。
+そのため、$(\mathbb{Z}_{\ge 1},\,\mathrm{gcd})$ は可換な半群となるが、単位元があると便利である。
+任意の $n\in\mathbb{Z}_{\ge 0}$ について
+\begin{align*}
+\mathrm{gcd}(0,n)&=n
+\end{align*}
+と定義することにする。任意の $n\in\mathbb{Z}_{\ge 1}$ は 0 を割り切るので自然な定義である。
+唯一 $\mathrm{gcd}(0, 0) = 0$ だけ少し違和感を感じるかもしれないが、こうすると色々な観点からとても綺麗な定義になる。
+「最大」公約数の「最大」というのを半順序 $a\preceq b \defiff a \mid b$ の意味で「最大」だと思うと 0 は「最大」の数なので自然である。
+また、任意の $a,b,d\in\mathbb{Z}_{\ge 0}$ について
+\begin{align*}
+\mathrm{gcd}(a,\,b) = d&\iff
+\left\{sa + tb \mid s, t\in\mathbb{Z}\right\}\cap\mathbb{Z}_{\ge 0} = d\cdot \mathbb{Z}_{\ge 0}
+\end{align*}
+という特徴付けも $a$ や $b$ が 0 の場合も含めて成り立つ。
+また、ユークリッドの互除法のアルゴリズムも
+
+```{python}
+#| echo: true
+#| code-fold: false
+def gcd(a, b):
+  if a == 0:
+    return b
+  else:
+    return gcd(b % a, a)
+```
+
+と端的に書くことができる(ここで `b % a` は `b` を `a` で割った余りという意味)。
+このように様々な意味で $\mathrm{gcd}(0,\,0)=0$ は自然な定義である。
+この定義から $(\mathbb{Z}_{\ge 0},\, \mathrm{gcd})$ は 0 を単位元とする可換なモノイドになる。
+
+空集合の和は和の単位元である 0だと定義するし
+空集合の積は積の単位元である 1と定義する。
+それと同様に
+空集合の $\mathrm{gcd}$ は $\mathrm{gcd}$ の単位元である 0 と自然に定義することができる。
+
+<!-- 環や体の標数において $+\infty$ でなく 0 を採用するのもおそらく同じ理由であろう。-->
+
+
+## 周期 1/3
+:::{#def-period}
+## 状態の周期
+マルコフ連鎖の状態 $i\in S$ について
+\begin{align*}
+S(i) &\coloneqq\left\{n\ge 0\mid (T^n)_{i,i}>0\right\}\\
+d(i) &\coloneqq\mathrm{gcd}\left(S(i)\right)
+\end{align*}
+と定義する($0$ と $n\ge0$ の最大公約数は $n$ とする)。
+
+戻ってこれない状態 $i\in S$ について、$S(i)=\{0\}$ となるため $d(i)=0$ である。
+これを $d(i)=+\infty$ としている文献もある。
+しかし、このような状態の周期を考えることがそもそもあまりないので、この違いは気にしないことにする。
+
+状態 $i\in S$ について $d(i)$ を $i$ の**周期**という。
+周期が1である状態を**非周期的**であるという。
+非周期的でない状態を**周期的**であるという。
+:::
+
+## 周期 2/3
+
+:::{#lem-period}
+## 周期は不変量
+マルコフ連鎖の状態 $i, j\in S$ について
+\begin{align*}
+i\sim_T j&\implies d(i) = d(j).
+\end{align*}
+:::
+::: {.proof}
+状態 $i,j\in S$ が $i\sim_T j$ を満たすと仮定する。
+このとき、ある $a,b\in\mathbb{Z}_{\ge 0}$ が存在して、
+\begin{align*}
+(T^{a})_{i,j} &> 0,&
+(T^{b})_{j,i} &> 0
+\end{align*}
+が成り立つ。
+このとき、$a+b\in S(i)$ である。
+よって、任意の $c\in S(j)$ について
+\begin{align*}
+(T^{a+c+b})_{i,i} &\ge (T^a)_{i, j} (T^c)_{j, j} (T^b)_{j, i} > 0
+\end{align*}
+である。よって、$a+b+c\in S(i)$ である。
+これらのことから、$d(i)$ は $a+b$ と $a+b+c$ の両方を割り切るため、$d(i)$ は $c$ を割り切る。
+よって、$d(i)$ は $S(j)$ のすべての要素を割り切るため、$S(j)$ の公約数であり$d(j)$ を割り切る。
+同様に $d(j)$ は $d(i)$ を割り切るため、$d(i)=d(j)$ である。
+:::
+
+## 周期 3/3
+
+:::{#lem-aperiod}
+マルコフ連鎖の任意の状態 $i\in S$ について、ある $r_0\in\mathbb{Z}_{\ge 0}$ が存在して任意の $r\ge r_0$ について
+\begin{align*}
+(T^{d(i)r})_{i,i}&>0.
+\end{align*}
+:::
+:::{.proof}
+非負整数の集合 $S\subseteq\mathbb{Z}_{\ge 0}$ が
+\begin{align*}
+a+b\in S\qquad \forall a,b\in S
+\end{align*}
+を満たすとき、集合 $S$ は**和について閉じている**という。
+集合 $S(i)$ は和について閉じている。
+よって、任意の和について閉じている集合 $S\subseteq\mathbb{Z}_{\ge 0}$ について、
+ある $r_0\in\mathbb{Z}_{\ge 0}$ が存在して、
+\begin{align*}
+\mathrm{gcd}(S)\cdot r\in S\qquad\forall r\ge r_0
+\end{align*}
+を証明すれば十分である。
+
+この証明は...
+:::
+
+
+## 極限への収束 1/2
+
+:::{#thm-limit}
+推移行列 $T$ を持つマルコフ連鎖について、ある非周期的な状態 $i_0\in S$ が存在して、任意の $j\in S$ について $j\le_T i_0$ と仮定する。
+このとき、唯一の定常分布 $\mu\in\mathbb{R}^S$ とある $C\in\mathbb{R}_{>0}$ と $\delta\in(0,1)$ が存在して、
+任意の確率ベクトル $\pi\in\mathbb{R}^S$ について
+\begin{align*}
+\|\pi T^n-\mu\|_1&\le C\delta^n
+\end{align*}
+:::
+:::{.proof}
+任意の $j\in S$ について $j\le_T i_0$ より、ある $m(j)\in\mathbb{Z}_{\ge 0}$ が存在して、
+\begin{align*}
+(T^{m(j)})_{j,i_0}&> 0
+\end{align*}
+である。
+また、@lem-aperiod より、ある $r_0\in\mathbb{Z}_{\ge 0}$ が存在して、任意の $r\ge r_0$ について
+\begin{align*}
+(T^{r})_{i_0,i_0}>0
+\end{align*}
+である。
+よって、任意の $j\in S$ と $r\ge r_0+m(j)$ について、
+\begin{align*}
+(T^{r})_{j,i_0}>0
+\end{align*}
+よって、$M=r_0+\max_{j\in S} m(j)$ について、
+\begin{align*}
+(T^{M})_{j,i_0}>0\qquad\forall j\in S
+\end{align*}
+である。
+:::
+
+## 極限への収束 2/2
+\begin{align*}
+\epsilon &= \min_{j\in S} (T^{M})_{j,i_0}
+\end{align*}
+とおくと、@lem-limit より、
+\begin{align*}
+\|\pi T^n - \mu\|_1 &\le 2(1-\epsilon)^{\lfloor n/M\rfloor}
+\le\frac{2}{1-\epsilon}\left((1-\epsilon)^{1/M}\right)^n
+\end{align*}
+が成り立つ。よって
+\begin{align*}
+C &= \frac{2}{1-\epsilon}&
+\delta &= (1-\epsilon)^{1/M}
+\end{align*}
+とおくと定理が成り立つ。
+
+:::{#cor-limit}
+既約で非周期的なマルコフ連鎖について、
+このとき、唯一の定常分布 $\mu\in\mathbb{R}^S$ とある $C\in\mathbb{R}_{>0}$ と $\delta\in(0,1)$ が存在して、
+任意の確率ベクトル $\pi\in\mathbb{R}^S$ について
+\begin{align*}
+\|\pi T^n-\mu\|_1&\le C\delta^n.
+\end{align*}
+:::
+
+既約で非周期的なマルコフ連鎖を**エルゴード的**であるという。
+
+## 今週の課題
