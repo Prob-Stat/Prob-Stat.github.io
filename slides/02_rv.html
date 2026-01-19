@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.26">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="森 立平">
   <title>確率・統計基礎 – 確率論</title>
@@ -243,7 +243,7 @@ F_X(x) &amp;\coloneqq \Pr(X\le x)\qquad\forall x\in\mathbb{R}
 \Pr(X=k) &amp;= \binom{n}{k} p^k(1-p)^{n-k}\qquad\forall k\in\{0,1,\dotsc,n\}\\
 F_X(k) &amp;= \sum_{i=0}^k \binom{n}{i} p^i(1-p)^{n-i}.
 \end{align*}\]</span></p>
-<div id="cell-fig-binom-cdf" class="cell quarto-layout-panel" data-layout-ncol="1" data-execution_count="1">
+<div id="cell-fig-binom-cdf" class="cell quarto-layout-panel" data-execution_count="1" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div id="fig-binom-cdf" class="quarto-float quarto-figure quarto-figure-center">
@@ -282,7 +282,7 @@ f_X(x)&amp;\coloneqq \Pr(X=x)\qquad\forall x\in\mathbb{R}.
 <p><span class="math display">\[\begin{align*}
 f_X(k) &amp;= \binom{n}{k} p^k(1-p)^{n-k}.
 \end{align*}\]</span></p>
-<div id="cell-fig-binom" class="cell quarto-layout-panel" data-layout-ncol="1" data-execution_count="2">
+<div id="cell-fig-binom" class="cell quarto-layout-panel" data-execution_count="2" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div id="fig-binom" class="quarto-float quarto-figure quarto-figure-center">
@@ -323,7 +323,7 @@ f_X(x) &amp;= \frac1{\sqrt{2\pi\sigma^2}}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2
 F_X(x) &amp;= \int_{-\infty}^x \frac1{\sqrt{2\pi\sigma^2}}\mathrm{e}^{-\frac{(z-\mu)^2}{2\sigma^2}}\mathrm{d}z
 \end{align*}\]</span></p>
 <p>特に <span class="math inline">\(\mu=0\)</span>, <span class="math inline">\(\sigma=1\)</span> のとき<strong>標準正規分布</strong>という。</p>
-<div id="cell-fig-normal-0" class="cell quarto-layout-panel" data-layout-ncol="2" data-execution_count="3">
+<div id="cell-fig-normal-0" class="cell quarto-layout-panel" data-execution_count="3" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div id="fig-normal-0" class="quarto-float quarto-figure quarto-figure-center">
@@ -369,7 +369,7 @@ Figure&nbsp;4: 標準正規分布の累積分布関数
 <p><span class="math display">\[
 f_X(k) = (1-p)^{k-1}p,\qquad\forall k\ge 1
 \]</span></p>
-<div id="cell-fig-geom" class="cell quarto-layout-panel" data-layout-ncol="2" data-execution_count="4">
+<div id="cell-fig-geom" class="cell quarto-layout-panel" data-execution_count="4" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div id="fig-geom" class="quarto-float quarto-figure quarto-figure-center">
@@ -404,7 +404,7 @@ Figure&nbsp;6: 幾何分布の累積分布関数
 <p><span class="math display">\[
 f_X(k) = \frac{\binom{K}{k}\binom{N-K}{n-k}}{\binom{N}{n}},\qquad\forall k\in \{0,\dotsc,\min\{K, n\}\}
 \]</span></p>
-<div id="cell-fig-hypergeom" class="cell quarto-layout-panel" data-layout-ncol="2" data-execution_count="5">
+<div id="cell-fig-hypergeom" class="cell quarto-layout-panel" data-execution_count="5" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div id="fig-hypergeom" class="quarto-float quarto-figure quarto-figure-center">
@@ -439,7 +439,7 @@ Figure&nbsp;8: 超幾何分布の累積分布関数
 <p><span class="math display">\[
 f_X(k) = \frac{\lambda^k}{k!}\mathrm{e}^{-\lambda},\qquad \forall k\ge 0.
 \]</span></p>
-<div id="cell-fig-poisson" class="cell quarto-layout-panel" data-layout-ncol="2" data-execution_count="6">
+<div id="cell-fig-poisson" class="cell quarto-layout-panel" data-execution_count="6" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div id="fig-poisson" class="quarto-float quarto-figure quarto-figure-center">
@@ -482,7 +482,7 @@ F_X(x) &amp;= \begin{cases}
 1&amp;\text{otherwise.}
 \end{cases}
 \end{align*}\]</span></p>
-<div id="cell-fig-uniform" class="cell quarto-layout-panel" data-layout-ncol="2" data-execution_count="7">
+<div id="cell-fig-uniform" class="cell quarto-layout-panel" data-execution_count="7" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div id="fig-uniform" class="quarto-float quarto-figure quarto-figure-center">
@@ -518,7 +518,7 @@ f_X(x) &amp;= \frac1{\sqrt{2\pi\sigma^2}}\mathrm{e}^{-\frac{(x-\mu)^2}{2\sigma^2
 F_X(x) &amp;= \int_{-\infty}^x \frac1{\sqrt{2\pi\sigma^2}}\mathrm{e}^{-\frac{(z-\mu)^2}{2\sigma^2}}\mathrm{d}z.
 \end{align*}\]</span></p>
 <p>特に <span class="math inline">\(\mu=0\)</span>, <span class="math inline">\(\sigma=1\)</span> のとき<strong>標準正規分布</strong>という。</p>
-<div id="cell-fig-normal" class="cell quarto-layout-panel" data-layout-ncol="2" data-execution_count="8">
+<div id="cell-fig-normal" class="cell quarto-layout-panel" data-execution_count="8" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div id="fig-normal" class="quarto-float quarto-figure quarto-figure-center">
@@ -560,7 +560,7 @@ F_X(x) &amp;= \begin{cases}
 1-\mathrm{e}^{-\lambda x}&amp;\text{otherwise}
 \end{cases}
 \end{align*}\]</span></p>
-<div id="cell-fig-exp" class="cell quarto-layout-panel" data-layout-ncol="2" data-execution_count="9">
+<div id="cell-fig-exp" class="cell quarto-layout-panel" data-execution_count="9" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div id="fig-exp" class="quarto-float quarto-figure quarto-figure-center">
