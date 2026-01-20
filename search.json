@@ -340,7 +340,7 @@
     "href": "slides/12_ergodic.html#最大公約数の単位元",
     "title": "確率論",
     "section": "最大公約数の単位元",
-    "text": "最大公約数の単位元\n\\(a,b,c\\in\\mathbb{Z}_{\\ge 1}\\) について \\[\\begin{align*}\n\\mathrm{gcd}(\\mathrm{gcd}(a,b), c) =\n\\mathrm{gcd}(a,\\mathrm{gcd}(b,c))\n\\end{align*}\\] より、\\(\\mathrm{gcd}\\) は二項演算として結合法則を満たす。 そのため、\\((\\mathbb{Z}_{\\ge 1},\\,\\mathrm{gcd})\\) は可換な半群となるが、単位元があると便利である。 任意の \\(n\\in\\mathbb{Z}_{\\ge 0}\\) について \\[\\begin{align*}\n\\mathrm{gcd}(0,n)&=n\n\\end{align*}\\] と定義することにする。任意の \\(n\\in\\mathbb{Z}_{\\ge 1}\\) は 0 を割り切るので自然な定義である。 唯一 \\(\\mathrm{gcd}(0, 0) = 0\\) だけ少し違和感を感じるかもしれないが、こうすると色々な観点からとても綺麗な定義になる。 「最大」公約数の「最大」というのを半順序 \\(a\\preceq b \\defiff a \\mid b\\) の意味で「最大」だと思うと 0 は「最大」の数なので自然である。 また、任意の \\(a,b,d\\in\\mathbb{Z}_{\\ge 0}\\) について \\[\\begin{align*}\n\\mathrm{gcd}(a,\\,b) = d&\\iff\n\\left\\{sa + tb \\mid s, t\\in\\mathbb{Z}\\right\\}\\cap\\mathbb{Z}_{\\ge 0} = d\\cdot \\mathbb{Z}_{\\ge 0}\n\\end{align*}\\] という特徴付けも \\(a\\) や \\(b\\) が 0 の場合も含めて成り立つ。 また、ユークリッドの互除法のアルゴリズムも\n\ndef gcd(a, b):\n  if a == 0:\n    return b\n  else:\n    return gcd(b % a, a)\n\nと端的に書くことができる(ここで b % a は b を a で割った余りという意味)。 このように様々な意味で \\(\\mathrm{gcd}(0,\\,0)=0\\) は自然な定義である。 この定義から \\((\\mathbb{Z}_{\\ge 0},\\, \\mathrm{gcd})\\) は 0 を単位元とする可換なモノイドになる。\n空集合の和は和の単位元である 0だと定義するし 空集合の積は積の単位元である 1と定義する。 それと同様に 空集合の \\(\\mathrm{gcd}\\) は \\(\\mathrm{gcd}\\) の単位元である 0 と自然に定義することができる。"
+    "text": "最大公約数の単位元\n\\(a,b,c\\in\\mathbb{Z}_{\\ge 1}\\) について \\[\\begin{align*}\n\\mathrm{gcd}(\\mathrm{gcd}(a,b), c) =\n\\mathrm{gcd}(a,\\mathrm{gcd}(b,c))\n\\end{align*}\\] より、\\(\\mathrm{gcd}\\) は二項演算として結合法則を満たす。 そのため、\\((\\mathbb{Z}_{\\ge 1},\\,\\mathrm{gcd})\\) は可換な半群となるが、単位元があると便利である。 任意の \\(n\\in\\mathbb{Z}_{\\ge 0}\\) について \\[\\begin{align*}\n\\mathrm{gcd}(0,n)&=n\n\\end{align*}\\] と定義することにする。任意の \\(n\\in\\mathbb{Z}_{\\ge 1}\\) は 0 を割り切るので自然な定義である。 唯一 \\(\\mathrm{gcd}(0, 0) = 0\\) だけ少し違和感を感じるかもしれないが、こうすると色々な観点からとても綺麗な定義になる。 「最大」公約数の「最大」というのを半順序 \\(a\\preceq b \\defiff a \\mid b\\) の意味で「最大」だと思うと 0 は「最大」の数なので自然である。 また、任意の \\(a,b,d\\in\\mathbb{Z}_{\\ge 0}\\) について \\[\\begin{align*}\n\\mathrm{gcd}(a,\\,b) = d&\\iff\n\\left\\{sa + tb \\mid s, t\\in\\mathbb{Z}\\right\\} = d\\cdot \\mathbb{Z}\n\\end{align*}\\] という特徴付けも \\(a\\) や \\(b\\) が 0 の場合も含めて成り立つ。 また、ユークリッドの互除法のアルゴリズムも\n\ndef gcd(a, b):\n  if a == 0:\n    return b\n  else:\n    return gcd(b % a, a)\n\nと端的に書くことができる(ここで b % a は b を a で割った余りという意味)。 このように様々な意味で \\(\\mathrm{gcd}(0,\\,0)=0\\) は自然な定義である。 この定義から \\((\\mathbb{Z}_{\\ge 0},\\, \\mathrm{gcd})\\) は 0 を単位元とする可換なモノイドになる。\n空集合の和は和の単位元である 0だと定義するし 空集合の積は積の単位元である 1と定義する。 それと同様に 空集合の \\(\\mathrm{gcd}\\) は \\(\\mathrm{gcd}\\) の単位元である 0 と自然に定義することができる。"
   },
   {
     "objectID": "slides/12_ergodic.html#周期-13",
@@ -361,7 +361,7 @@
     "href": "slides/12_ergodic.html#周期-33",
     "title": "確率論",
     "section": "周期 3/3",
-    "text": "周期 3/3\n\nLemma 3 マルコフ連鎖の任意の状態 \\(i\\in S\\) について、ある \\(r_0\\in\\mathbb{Z}_{\\ge 0}\\) が存在して任意の \\(r\\ge r_0\\) について \\[\\begin{align*}\n(T^{d(i)r})_{i,i}&&gt;0.\n\\end{align*}\\]\n\n\nProof. 非負整数の集合 \\(S\\subseteq\\mathbb{Z}_{\\ge 0}\\) が \\[\\begin{align*}\na+b\\in S\\qquad \\forall a,b\\in S\n\\end{align*}\\] を満たすとき、集合 \\(S\\) は和について閉じているという。 集合 \\(S(i)\\) は和について閉じている。 よって、任意の和について閉じている集合 \\(S\\subseteq\\mathbb{Z}_{\\ge 0}\\) について、 ある \\(r_0\\in\\mathbb{Z}_{\\ge 0}\\) が存在して、 \\[\\begin{align*}\n\\mathrm{gcd}(S)\\cdot r\\in S\\qquad\\forall r\\ge r_0\n\\end{align*}\\] を証明すれば十分である。\nこの証明は…"
+    "text": "周期 3/3\n\nLemma 3 マルコフ連鎖の任意の状態 \\(i\\in S\\) について、ある \\(r_0\\in\\mathbb{Z}_{\\ge 0}\\) が存在して任意の \\(r\\ge r_0\\) について \\[\\begin{align*}\n(T^{d(i)r})_{i,i}&&gt;0.\n\\end{align*}\\]\n\n\nProof. \\(d(i)=0\\) の場合は自明。\\(d(i)&gt;0\\) を仮定する。 非負整数の集合 \\(S\\subseteq\\mathbb{Z}_{\\ge 0}\\) が \\[\\begin{align*}\na+b\\in S\\qquad \\forall a,b\\in S\n\\end{align*}\\] を満たすとき、集合 \\(S\\) は和について閉じているという。 集合 \\(S(i)\\) は和について閉じている。 よって、任意の和について閉じている集合 \\(S\\subseteq\\mathbb{Z}_{\\ge 0}\\) について、 ある \\(r_0\\in\\mathbb{Z}_{\\ge 0}\\) が存在して、 \\[\\begin{align*}\n\\mathrm{gcd}(S)\\cdot r\\in S\\qquad\\forall r\\ge r_0\n\\end{align*}\\] を証明すれば十分である。 \n任意の \\(S\\subseteq\\mathbb{Z}_{\\ge 0}\\) と \\(d\\in\\mathbb{Z}_{\\ge 0}\\) について \\[\\begin{align*}\n\\mathrm{gcd}(S) = d&\\iff\n\\left\\{\\sum_{i=1}^k c_i s_i \\mid k\\in\\mathbb{Z}_{\\ge 0},  c_i\\in\\mathbb{Z}, s_i\\in S\\quad\\forall i\\in\\{1,\\dotsc,k\\}\\right\\} = d\\cdot \\mathbb{Z}\n\\end{align*}\\] が成り立つ。よって、ある \\(c_i\\in\\mathbb{Z}\\), \\(s_i\\in S\\) が存在して、 \\(\\sum_{i=1}^k c_i s_i = 1\\) である。 \\(s_1 = \\min_i s_i\\) と仮定すると \\[\\begin{align*}\n\\sum_{i=2}^k c_i s_i = 1 \\bmod s_1\n\\end{align*}\\] なので、\\(a_i = c_i \\bmod s_i\\) を満たす \\(a_i\\in\\{0,1,\\dotsc,s_1-1\\}\\) を用いて \\(\\sum_{i=2}^k a_i s_i = 1 \\bmod s_1\\) とできる。"
   },
   {
     "objectID": "slides/12_ergodic.html#極限への収束-12",
@@ -382,7 +382,7 @@
     "href": "slides/12_ergodic.html#今週の課題",
     "title": "確率論",
     "section": "今週の課題",
-    "text": "今週の課題"
+    "text": "今週の課題\n以下の推移行列を持つ既約なマルコフ連鎖の周期をもとめよ。\n\n\n\\[\\begin{align*}\n\\begin{bmatrix}\n0&1/2&0&1/2\\\\\n1/2&0&1/2&0\\\\\n0&1/2&0&1/2\\\\\n1/2&0&1/2&0\\\\\n\\end{bmatrix}.\n\\end{align*}\\]\n\\[\\begin{align*}\n\\begin{bmatrix}\n0&1&0\\\\\n0&0&1\\\\\n1&0&0\n\\end{bmatrix}.\n\\end{align*}\\]\n\\[\\begin{align*}\n\\begin{bmatrix}\n0&1/2&1/2&0&0\\\\\n0&0&1/2&1/2&0\\\\\n0&0&0&1/2&1/2\\\\\n1/2&0&0&0&1/2\\\\\n1/2&1/2&0&0&0\\\\\n\\end{bmatrix}.\n\\end{align*}\\]"
   },
   {
     "objectID": "slides/08_cramer.html#二項分布の確率質量関数",
@@ -718,7 +718,7 @@
     "href": "slides.html",
     "title": "Slides",
     "section": "",
-    "text": "講義スライド\n\n集合論と確率空間\n確率変数\n複数の確率変数\n期待値、分散、モーメント\nベイズ推定\n仮説検定\n大数の法則\nクラメールの定理\n中心極限定理\nマルコフ連鎖\n定常分布"
+    "text": "講義スライド\n\n集合論と確率空間\n確率変数\n複数の確率変数\n期待値、分散、モーメント\nベイズ推定\n仮説検定\n大数の法則\nクラメールの定理\n中心極限定理\nマルコフ連鎖\n定常分布\nエルゴード性"
   },
   {
     "objectID": "index.html",

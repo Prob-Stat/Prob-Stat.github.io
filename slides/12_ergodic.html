@@ -371,9 +371,9 @@
 \mathrm{gcd}(0,n)&amp;=n
 \end{align*}\]</span> と定義することにする。任意の <span class="math inline">\(n\in\mathbb{Z}_{\ge 1}\)</span> は 0 を割り切るので自然な定義である。 唯一 <span class="math inline">\(\mathrm{gcd}(0, 0) = 0\)</span> だけ少し違和感を感じるかもしれないが、こうすると色々な観点からとても綺麗な定義になる。 「最大」公約数の「最大」というのを半順序 <span class="math inline">\(a\preceq b \defiff a \mid b\)</span> の意味で「最大」だと思うと 0 は「最大」の数なので自然である。 また、任意の <span class="math inline">\(a,b,d\in\mathbb{Z}_{\ge 0}\)</span> について <span class="math display">\[\begin{align*}
 \mathrm{gcd}(a,\,b) = d&amp;\iff
-\left\{sa + tb \mid s, t\in\mathbb{Z}\right\}\cap\mathbb{Z}_{\ge 0} = d\cdot \mathbb{Z}_{\ge 0}
+\left\{sa + tb \mid s, t\in\mathbb{Z}\right\} = d\cdot \mathbb{Z}
 \end{align*}\]</span> という特徴付けも <span class="math inline">\(a\)</span> や <span class="math inline">\(b\)</span> が 0 の場合も含めて成り立つ。 また、ユークリッドの互除法のアルゴリズムも</p>
-<div id="d8e986f3" class="cell" data-execution_count="1">
+<div id="cef875f5" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="kw">def</span> gcd(a, b):</span>
 <span id="cb1-2"><a></a>  <span class="cf">if</span> a <span class="op">==</span> <span class="dv">0</span>:</span>
 <span id="cb1-3"><a></a>    <span class="cf">return</span> b</span>
@@ -419,12 +419,17 @@ i\sim_T j&amp;\implies d(i) = d(j).
 \end{align*}\]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>非負整数の集合 <span class="math inline">\(S\subseteq\mathbb{Z}_{\ge 0}\)</span> が <span class="math display">\[\begin{align*}
+<p><span class="proof-title"><em>Proof</em>. </span><span class="math inline">\(d(i)=0\)</span> の場合は自明。<span class="math inline">\(d(i)&gt;0\)</span> を仮定する。 非負整数の集合 <span class="math inline">\(S\subseteq\mathbb{Z}_{\ge 0}\)</span> が <span class="math display">\[\begin{align*}
 a+b\in S\qquad \forall a,b\in S
 \end{align*}\]</span> を満たすとき、集合 <span class="math inline">\(S\)</span> は<strong>和について閉じている</strong>という。 集合 <span class="math inline">\(S(i)\)</span> は和について閉じている。 よって、任意の和について閉じている集合 <span class="math inline">\(S\subseteq\mathbb{Z}_{\ge 0}\)</span> について、 ある <span class="math inline">\(r_0\in\mathbb{Z}_{\ge 0}\)</span> が存在して、 <span class="math display">\[\begin{align*}
 \mathrm{gcd}(S)\cdot r\in S\qquad\forall r\ge r_0
-\end{align*}\]</span> を証明すれば十分である。</p>
-<p>この証明は…</p>
+\end{align*}\]</span> を証明すれば十分である。 <!-- あらかじめ $S$ の元を $\mathrm{gcd}(S)$ で割っておくことで、$\mathrm{gcd}(S)=1$ と仮定してよい。--></p>
+<p>任意の <span class="math inline">\(S\subseteq\mathbb{Z}_{\ge 0}\)</span> と <span class="math inline">\(d\in\mathbb{Z}_{\ge 0}\)</span> について <span class="math display">\[\begin{align*}
+\mathrm{gcd}(S) = d&amp;\iff
+\left\{\sum_{i=1}^k c_i s_i \mid k\in\mathbb{Z}_{\ge 0},  c_i\in\mathbb{Z}, s_i\in S\quad\forall i\in\{1,\dotsc,k\}\right\} = d\cdot \mathbb{Z}
+\end{align*}\]</span> が成り立つ。よって、ある <span class="math inline">\(c_i\in\mathbb{Z}\)</span>, <span class="math inline">\(s_i\in S\)</span> が存在して、 <span class="math inline">\(\sum_{i=1}^k c_i s_i = 1\)</span> である。 <span class="math inline">\(s_1 = \min_i s_i\)</span> と仮定すると <span class="math display">\[\begin{align*}
+\sum_{i=2}^k c_i s_i = 1 \bmod s_1
+\end{align*}\]</span> なので、<span class="math inline">\(a_i = c_i \bmod s_i\)</span> を満たす <span class="math inline">\(a_i\in\{0,1,\dotsc,s_1-1\}\)</span> を用いて <span class="math inline">\(\sum_{i=2}^k a_i s_i = 1 \bmod s_1\)</span> とできる。</p>
 </div>
 </section>
 <section id="極限への収束-12" class="slide level2">
@@ -466,6 +471,35 @@ C &amp;= \frac{2}{1-\epsilon}&amp;
 </section>
 <section id="今週の課題" class="slide level2">
 <h2>今週の課題</h2>
+<p>以下の推移行列を持つ既約なマルコフ連鎖の周期をもとめよ。</p>
+<div style="font-size:0.8em">
+<ol type="1">
+<li><span class="math display">\[\begin{align*}
+\begin{bmatrix}
+0&amp;1/2&amp;0&amp;1/2\\
+1/2&amp;0&amp;1/2&amp;0\\
+0&amp;1/2&amp;0&amp;1/2\\
+1/2&amp;0&amp;1/2&amp;0\\
+\end{bmatrix}.
+\end{align*}\]</span></li>
+<li><span class="math display">\[\begin{align*}
+\begin{bmatrix}
+0&amp;1&amp;0\\
+0&amp;0&amp;1\\
+1&amp;0&amp;0
+\end{bmatrix}.
+\end{align*}\]</span></li>
+<li><span class="math display">\[\begin{align*}
+\begin{bmatrix}
+0&amp;1/2&amp;1/2&amp;0&amp;0\\
+0&amp;0&amp;1/2&amp;1/2&amp;0\\
+0&amp;0&amp;0&amp;1/2&amp;1/2\\
+1/2&amp;0&amp;0&amp;0&amp;1/2\\
+1/2&amp;1/2&amp;0&amp;0&amp;0\\
+\end{bmatrix}.
+\end{align*}\]</span></li>
+</ol>
+</div>
 
 
 </section>
